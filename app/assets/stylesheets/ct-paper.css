@@ -2177,7 +2177,8 @@ textarea.form-control {
 }
 
 .navbar-ct-primary {
-  background-color: #8ECFD5;
+  /*background-color: #8ECFD5;*/
+    background-color: darkgreen;
 }
 
 .navbar-ct-info {
