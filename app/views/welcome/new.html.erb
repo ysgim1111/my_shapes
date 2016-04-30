@@ -1,0 +1,56 @@
+
+<div class="wrapper">
+  <div class="main">
+    <div class="section">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 text-center">
+            <h2 class="title">새 술집 추가</h2>
+            <!--<p>3000원? 3500원? 4000원? <br> 참살이? 정후? 법후? 정문? 제기동??<br>술먹고 싶은데 술값 걱정일 때 찾는 이슬맵</p>-->
+          </div>
+          <!--<div class="row">-->
+            <!--<div class="col-md-6 col-md-offset-3 col-xs-4 col-xs-offset-4">-->
+              <!--<button type="button" class="navbar-toggle btn btn-primary btn-fill btn-block" data-toggle="collapse" data-target="#navigation-example-2">-->
+                <!--<span class="sr-only">Toggle navigation</span>보러가기-->
+              <!--</button>-->
+            <!--</div>-->
+          <!--</div>-->
+        </div>
+        <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center">
+        <form class="contact" action="/welcome/create_new" method="POST">
+          <div class="row">
+            <p>1: 참살이, 2:정대후문, 3:정문, 4:법대후문, 5:제기동</p>
+            <div class="col-md-6">
+              <input type="integer" name="category" class="form-control" placeholder="카테고리">
+            </div>
+            <div class="col-md-6">
+             <input type="string" name="name" class="form-control" placeholder="술집이름">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+            <input type="integer" name="price" class="form-control" placeholder="소주가격(3000원이면 3000)">
+            </div>
+          <!--<div class="col-md-6">-->
+          <!--<input type="text" class="form-control" placeholder="Subject">-->
+
+          <!--</div>-->
+          </div>
+
+          <textarea class="form-control" name="desc" placeholder="설명" rows="7" ></textarea>
+          <button type="submit" class="btn btn-default">Submit</button>
+
+
+
+
+        </form>
+        <h3 class="visit"><small>Or come and visit</small></h3>
+        </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
