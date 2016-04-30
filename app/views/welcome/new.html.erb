@@ -23,7 +23,7 @@
           <div class="row">
             <p>1: 참살이, 2:정대후문, 3:정문, 4:법대후문, 5:제기동</p>
             <div class="col-md-6">
-              <input type="integer" name="category" class="form-control" placeholder="카테고리">
+              <input maxlength="1" type="integer" name="category" class="form-control number_only" placeholder="카테고리">
             </div>
             <div class="col-md-6">
              <input type="string" name="name" class="form-control" placeholder="술집이름">
@@ -31,7 +31,7 @@
           </div>
           <div class="row">
             <div class="col-md-6">
-            <input type="integer" name="price" class="form-control" placeholder="소주가격(3000원이면 3000)">
+            <input maxlength="4" type="integer" name="price" class="form-control number_only" placeholder="소주가격(3000원이면 3000)">
             </div>
           <!--<div class="col-md-6">-->
           <!--<input type="text" class="form-control" placeholder="Subject">-->
@@ -54,3 +54,22 @@
     </div>
   </div>
 </div>
+
+<script>
+function autoHypenPhone(str){
+            str = str.replace(/[^0-9]/g, '');
+
+            return str;
+        }
+
+var cellPhone = document.getElementsByClassName('number_only');
+for (var i = 0; i<2; i++ ) {
+  cellPhone[i].onkeyup = function(event){
+          event = event || window.event;
+          var _val = this.value.trim();
+          this.value = autoHypenPhone(_val) ;
+  }
+}
+
+
+</script>

@@ -19,6 +19,7 @@ class WelcomeController < ApplicationController
     place.price = params[:price]
     place.desc = params[:desc]
     place.save
+    flash[:notice] = "등록이 완료되었습니다"
     redirect_to '/'
   end
 end
