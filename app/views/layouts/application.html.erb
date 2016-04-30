@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id="html">
 <head>
 <title>Iseul</title>
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -48,9 +48,63 @@
 
 
 </head>
-<body>
+<body class="contact-us">
 
+<nav class="navbar navbar-ct-primary" role="navigation-demo">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">이슬MAP</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navigation-example-2">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/welcome/chamsari"  class="btn btn-simple btn-primary"><i class="fa fa-map-marker"></i>참살이</a></li>
+        <li><a href="/welcome/junghu" class="btn btn-simple btn-primary"><i class="fa fa-map-marker"></i>정대후문</a></li>
+        <li><a href="/welcome/jungmun" class="btn btn-simple btn-primary"><i class="fa fa-map-marker"></i>정문</a></li>
+        <li><a href="/welcome/bupphu" class="btn btn-simple btn-primary"><i class="fa fa-map-marker"></i>법대후문</a></li>
+        <li><a href="/welcome/jaegidong" class="btn btn-simple btn-primary"><i class="fa fa-map-marker"></i>제기동</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-->
+</nav>
 <%= yield %>
 
+<footer class="footer-demo">
+  <div class="container">
+    <nav class="pull-left">
+      <!--<ul>-->
+
+        <!--<li>-->
+          <!--<a href="http://www.creative-tim.com">-->
+            <!--멋쟁이사자처럼 2016 X 고려대학교-->
+          <!--</a>-->
+        <!--</li>-->
+        <!--&lt;!&ndash;<li>&ndash;&gt;-->
+          <!--&lt;!&ndash;<a href="http://blog.creative-tim.com">&ndash;&gt;-->
+            <!--&lt;!&ndash;Blog&ndash;&gt;-->
+          <!--&lt;!&ndash;</a>&ndash;&gt;-->
+        <!--&lt;!&ndash;</li>&ndash;&gt;-->
+        <!--&lt;!&ndash;<li>&ndash;&gt;-->
+          <!--&lt;!&ndash;<a href="http://www.creative-tim.com/product/rubik">&ndash;&gt;-->
+            <!--&lt;!&ndash;Licenses&ndash;&gt;-->
+          <!--&lt;!&ndash;</a>&ndash;&gt;-->
+        <!--&lt;!&ndash;</li>&ndash;&gt;-->
+      <!--</ul>-->
+    </nav>
+    <div class="copyright pull-right">
+      <!--template &copy; 2016, made with <i class="fa fa-heart heart"></i> by Creative Tim-->
+      필요한건 만든다. &copy;멋쟁이사자처럼 고려대학교 <i class="fa fa-heart heart"></i>
+
+    </div>
+  </div>
+</footer>
 </body>
 </html>

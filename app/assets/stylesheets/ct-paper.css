@@ -2177,7 +2177,8 @@ textarea.form-control {
 }
 
 .navbar-ct-primary {
-  background-color: #8ECFD5;
+  /*background-color: #8ECFD5;*/
+    background-color: darkgreen;
 }
 
 .navbar-ct-info {
@@ -3663,7 +3664,16 @@ body > .navbar-collapse .nav > li > a {
   padding: 15px;
 }
 body > .navbar-collapse .nav > li > a:hover, body > .navbar-collapse .nav > li > a.active {
-  color: #403D39;
+  color: #ffffff;
+  background-color: darkgreen;
+}
+.navbar .navbar-nav > li > a.btn i {
+  display: none;
+}
+@media (max-width: 770px) {
+  .navbar .navbar-nav > li > a.btn i {
+    display:block;
+  }
 }
 body > .navbar-collapse .nav > li > a span {
   display: inline-block !important;
@@ -6519,7 +6529,7 @@ body > .navbar-collapse.collapse {
 
 */
 /*
-	
+
 	1. Buttons
 
  */
@@ -6794,7 +6804,7 @@ a.pswp__share--download:hover {
 }
 
 /*
-	
+
 	4. Caption
 
  */
@@ -6884,8 +6894,8 @@ a.pswp__share--download:hover {
   margin: 0;
 }
 .pswp--css_animation .pswp__preloader__cut {
-  /* 
-  	The idea of animating inner circle is based on Polymer ("material") loading indicator 
+  /*
+  	The idea of animating inner circle is based on Polymer ("material") loading indicator
   	 by Keanu Lee https://blog.keanulee.com/2014/10/20/the-tale-of-three-spinners.html
   */
   position: relative;
@@ -6937,7 +6947,7 @@ a.pswp__share--download:hover {
   }
 }
 /*
-	
+
 	6. Additional styles
 
  */
@@ -7062,7 +7072,7 @@ $ct-series-colors: (
   rgba($orange-navbar,.6),
   rgba($red-navbar,.6),
   rgba($blue-navbar,.6)
-  
+
 ) !default;
 */
 .ct-label {
