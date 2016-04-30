@@ -2,19 +2,19 @@ class WelcomeController < ApplicationController
   def index
   end
   def chamsari
-    @place = Place.where(:category => 1)
+    @place = Place.where(:category => 1).sort_by { |v|  v.price }
   end
   def junghu
-    @place = Place.where(:category => 2)
+    @place = Place.where(:category => 2).sort_by { |v|  v.price }
   end
   def bupphu
-    @place = Place.where(:category => 3)
+    @place = Place.where(:category => 3).sort_by { |v|  v.price }
   end
   def jungmun
-    @place = Place.where(:category => 4)
+    @place = Place.where(:category => 4).sort_by { |v|  v.price }
   end
   def jaegidong
-    @place = Place.where(:category => 5)
+    @place = Place.where(:category => 5).sort_by { |v|  v.price }
 
   end
   def new
