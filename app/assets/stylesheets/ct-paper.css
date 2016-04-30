@@ -3666,6 +3666,14 @@ body > .navbar-collapse .nav > li > a:hover, body > .navbar-collapse .nav > li >
   color: #ffffff;
   background-color: darkgreen;
 }
+.navbar .navbar-nav > li > a.btn i {
+  display: none;
+}
+@media (max-width: 770px) {
+  .navbar .navbar-nav > li > a.btn i {
+    display:block;
+  }
+}
 body > .navbar-collapse .nav > li > a span {
   display: inline-block !important;
   margin-left: 5px;
