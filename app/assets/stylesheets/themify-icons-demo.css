@@ -1,7 +1,8 @@
 body {
 	font: normal 1em/1.5em Arial, Helvetica, sans-serif;
-	max-width: 90%;
-	margin: 30px auto 0;
+	/*max-width: 90%;*/
+	/*margin: 30px auto 0;*/
+    margin:0;
 }
 h1, h3 {
 	font-weight: normal;
