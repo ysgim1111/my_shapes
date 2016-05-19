@@ -1,109 +1,40 @@
 <!DOCTYPE html>
-<html id="html">
+<html>
 <head>
-<title>Iseul</title>
-<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-<%= csrf_meta_tags %>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-  <title>Paper Kit by Creative Tim</title>
-
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-  <meta name="viewport" content="width=device-width" />
-
-
-
-
-  <!--<link href="../bootstrap3/css/bootstrap.css" rel="stylesheet" />-->
-  <!--<link href="../assets/css/ct-paper.css" rel="stylesheet"/>-->
-  <!--<link href="../assets/css/demo.css" rel="stylesheet" />-->
-  <!--<link href="../assets/css/examples.css" rel="stylesheet" />-->
-
-  <!--     Fonts and icons     -->
-  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-  <!--map style-->
-
-  <style>
-    .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
-    .wrap * {padding: 0;margin: 0;}
-    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
-    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
-    .info .title2 {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
-    .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
-    .info .close:hover {cursor: pointer;}
-    .info .body {position: relative;overflow: hidden;}
-    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
-    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
-    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
-    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
-    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
-    .info .link {color: #5085BB;}
-</style>
-<!--map style finish-->
-
-
-
+<title>방송 평점 서비스</title>
+  <link rel="stylesheet" href="https://bootswatch.com/slate/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 </head>
-<body class="contact-us">
-  <%=render "layouts/message" %>
-<nav class="navbar navbar-ct-primary" role="navigation-demo">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">YS_Deploy</a>
-    </div>
+<body>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="navigation-example-2">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/welcome/chamsari"  class="btn btn-simple btn-primary"><i class="fa fa-map-marker"></i>참살이</a></li>
-        <li><a href="/welcome/junghu" class="btn btn-simple btn-primary"><i class="fa fa-map-marker"></i>정대후문</a></li>
-        <li><a href="/welcome/jungmun" class="btn btn-simple btn-primary"><i class="fa fa-map-marker"></i>정문</a></li>
-        <li><a href="/welcome/bupphu" class="btn btn-simple btn-primary"><i class="fa fa-map-marker"></i>법대후문</a></li>
-        <li><a href="/welcome/jaegidong" class="btn btn-simple btn-primary"><i class="fa fa-map-marker"></i>제기동</a></li>
+<div class="container">
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills pull-right">
+        <li role="presentation"><a href="/">전체 방송 리스트</a></li>
+        <li role="presentation"><a href="/home/upload">방송등록하기</a></li>
+        
+        <% if user_signed_in? %>
+        <li role="presentation"><a href="/users/sign_out" data-method="delete">로그아웃</a></li>
+        <% else %>
+        <li role="presentation"><a href="/users/sign_in">로그인</a></li>
+        <li role="presentation"><a href="/users/sign_up">회원가입</a></li>
+        <% end %>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-->
-</nav>
-<%= yield %>
-
-<footer class="footer-demo">
-  <div class="container">
-    <nav class="pull-left">
-      <!--<ul>-->
-
-        <!--<li>-->
-          <!--<a href="http://www.creative-tim.com">-->
-            <!--멋쟁이사자처럼 2016 X 고려대학교-->
-          <!--</a>-->
-        <!--</li>-->
-        <!--&lt;!&ndash;<li>&ndash;&gt;-->
-          <!--&lt;!&ndash;<a href="http://blog.creative-tim.com">&ndash;&gt;-->
-            <!--&lt;!&ndash;Blog&ndash;&gt;-->
-          <!--&lt;!&ndash;</a>&ndash;&gt;-->
-        <!--&lt;!&ndash;</li>&ndash;&gt;-->
-        <!--&lt;!&ndash;<li>&ndash;&gt;-->
-          <!--&lt;!&ndash;<a href="http://www.creative-tim.com/product/rubik">&ndash;&gt;-->
-            <!--&lt;!&ndash;Licenses&ndash;&gt;-->
-          <!--&lt;!&ndash;</a>&ndash;&gt;-->
-        <!--&lt;!&ndash;</li>&ndash;&gt;-->
-      <!--</ul>-->
     </nav>
-    <div class="copyright pull-right">
-      <!--template &copy; 2016, made with <i class="fa fa-heart heart"></i> by Creative Tim-->
-      필요한건 만든다. &copy;멋쟁이사자처럼 고려대학교 <i class="fa fa-heart heart"></i>
-
-    </div>
+    <h3 class="text-muted">방송 평점 서비스</h3>
   </div>
-</footer>
+
+  <%= yield %>
+
+  <footer class="footer">
+    <p>&copy; 멋쟁이사자처럼</p>
+  </footer>
+
+</div> <!-- /container -->
+
 </body>
 </html>
