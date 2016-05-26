@@ -2,11 +2,11 @@
 <html>
 <head>
 <title>방송 평점 서비스</title>
-  <link rel="stylesheet" href="https://bootswatch.com/slate/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://bootswatch.com/slate/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -16,7 +16,7 @@
       <ul class="nav nav-pills pull-right">
         <li role="presentation"><a href="/">전체 방송 리스트</a></li>
         <li role="presentation"><a href="/home/upload">방송등록하기</a></li>
-        
+
         <% if user_signed_in? %>
         <li role="presentation"><a href="/users/sign_out" data-method="delete">로그아웃</a></li>
         <% else %>
