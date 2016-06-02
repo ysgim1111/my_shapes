@@ -34,6 +34,15 @@
         <% end %>
       </span>
       <p><%=c.user_id%> : <%=c.comment%> <%=c.created_at.in_time_zone("Seoul")%></p>
+
+      <% c.replies.each do |r| %>
+            <%= r.content %><br>
+      <% end %>
+        <form action="/home/reply" type="POST">
+            <input type="hidden" name="my_post_id" value="<%=c.id%>">
+            <input type="text" name="myreply">
+            <input type="submit" value="달기"><br>
+        </form>
     </div>
     <% end %>
     <!-- 각 코멘트 끝 -->

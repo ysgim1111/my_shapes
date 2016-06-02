@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20160531101523) do
   end
 
   create_table "replies", force: :cascade do |t|
-    t.integer  "post_id"
+    t.integer  "comment_id"
     t.string   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
