@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-  <div class="header clearfix no_gap">
+  <div class="header clearfix">
 
     <h3 class="text-muted col-md-5 no_gap"><a href="/">어제 뭐 봤어? - 티비노리</a></h3>
     <nav class="col-md-7 no_gap">
@@ -32,6 +32,16 @@
   </footer>
 
 </div> <!-- /container -->
+<script type="text/javascript">
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    $('.container').removeClass('container').addClass('mb_container');
+    $('.header').css('padding-bottom','50px');
+    $('.text-muted').css('text-align','center');
+    var nav_width = $('ul').width();
+    var width_half = nav_width/2;
+    $('ul').css({'position':'absolute', 'width': nav_width, 'left': '50%','margin-left': -width_half });
 
+  }
+</script>
 </body>
 </html>

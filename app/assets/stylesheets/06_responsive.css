@@ -9,4 +9,11 @@
   .text-muted {
     text-align: center;
   }
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .mb_line_break {
+    display: block;
+  }
 }

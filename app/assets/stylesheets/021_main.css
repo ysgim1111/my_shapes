@@ -47,7 +47,12 @@ body {
   color: #777;
   border-top: 1px solid #e5e5e5;
 }
-
+.mb_container {
+  padding: 0px 25px;
+}
+.mb_line_break {
+  display: none;
+}
 /* Customize container */
 @media (min-width: 768px) {
   .container {
