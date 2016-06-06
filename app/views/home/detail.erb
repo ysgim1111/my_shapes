@@ -33,10 +33,10 @@
             <%end%>
         <% end %>
       </span>
-      <p><%=c.user_id%> : <%=c.comment%> <%=c.created_at.in_time_zone("Seoul")%></p>
+      <p><%=c.user_email%> : <%=c.comment%> <%=c.created_at.in_time_zone("Seoul")%></p>
 
       <% c.replies.each do |r| %>
-            <%= r.content %><br>
+            익명 : <%= r.content %><br>
       <% end %>
         <form action="/home/reply" type="POST">
             <input type="hidden" name="my_post_id" value="<%=c.id%>">

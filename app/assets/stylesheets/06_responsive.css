@@ -1,0 +1,12 @@
+@media (max-width: 600px) {
+  .row {
+    text-align:center;
+  }
+  .nav > li > a {
+    padding: 10px 8px !important;
+    font-size:13px;
+  }
+  .text-muted {
+    text-align: center;
+  }
+}

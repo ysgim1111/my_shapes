@@ -5,14 +5,14 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="https://bootswatch.com/slate/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container">
-  <div class="header clearfix">
-    <nav>
-      <ul class="nav nav-pills pull-right">
+  <div class="header clearfix no_gap">
+
+    <h3 class="text-muted col-md-5 no_gap"><a href="/">어제 뭐 봤어? - 티비노리</a></h3>
+    <nav class="col-md-7 no_gap">
+      <ul class="nav nav-pills pull-left">
         <li role="presentation"><a href="/">전체 방송 리스트</a></li>
         <li role="presentation"><a href="/home/upload">방송등록하기</a></li>
 
@@ -24,7 +24,6 @@
         <% end %>
       </ul>
     </nav>
-    <h3 class="text-muted">어제 뭐 봤어? - 티비노리</h3>
   </div>
 
   <%= yield %>

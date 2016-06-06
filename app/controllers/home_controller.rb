@@ -25,6 +25,7 @@ class HomeController < ApplicationController
 
   def ev
     Comment.create(user_id: current_user.id,
+                   user_email: current_user.email,
                    tv_id: params[:tv_id].to_i,
                    comment: params[:msg],
                    score: params[:rating].to_i)
