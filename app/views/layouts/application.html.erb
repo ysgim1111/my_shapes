@@ -5,25 +5,47 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <div class="container">
   <div class="header clearfix no_gap">
 
-    <h3 class="text-muted col-md-5 no_gap"><a href="/">어제 뭐 봤어? - 티비노리</a></h3>
-    <nav class="col-md-7 no_gap">
-      <ul class="nav nav-pills pull-left">
-        <li role="presentation"><a href="/">전체 방송 리스트</a></li>
-        <li role="presentation"><a href="/home/upload">방송등록하기</a></li>
 
-        <% if user_signed_in? %>
-        <li role="presentation"><a href="/users/sign_out" data-method="delete">로그아웃</a></li>
-        <% else %>
-        <li role="presentation"><a href="/users/sign_in">로그인</a></li>
-        <li role="presentation"><a href="/users/sign_up">회원가입</a></li>
-        <% end %>
+  
+
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Page 1-1</a></li>
+            <li><a href="#">Page 1-2</a></li>
+            <li><a href="#">Page 1-3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
       </ul>
-    </nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
   </div>
 
   <%= yield %>
