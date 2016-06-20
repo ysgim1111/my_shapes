@@ -13,7 +13,7 @@
       <input type="radio" name="rating" value="5"><i></i>
     </span>
     <br>
-    <input type="text" class="form-control" name="msg" placeholder="별점 체크 후 평가를 남겨주세요">
+    <input type="text" class="form-control" name="msg" placeholder="별점 체크 후 평가를 남겨주세요!">
     <br>
     <button class="btn btn-success" href="#" role="button">평가하기</button>
   <%end%>
@@ -21,6 +21,9 @@
 
 <div class="row">
   <div class="col-lg-12">
+<div class="strike" style="margin-bottom:30px;font-size:16px;">
+<span><a id="condition3" target="_blank" style="text-align:center;font-weight:300;"><i class="fa fa-smile-o fa-lg"></i> 당신은 어떻게 보셨나요? </a></span>
+</div>
     <!-- 각 코멘트들 -->
     <% @pro.comments.each do |c| %>
     <div class="well">
@@ -33,15 +36,24 @@
             <%end%>
         <% end %>
       </span>
-      <p><%=c.user_email%> : <%=c.comment%> <%=c.created_at.in_time_zone("Seoul")%></p>
+      <p> <i class="fa fa-user"></i> <%=c.user_email%></p>
+      <p> <i class="fa fa-comment"></i> <%=c.comment%> </p>
 
-      <% c.replies.each do |r| %>
-            익명 : <%= r.content %><br>
-      <% end %>
-        <form action="/home/reply" type="POST">
+      <p class="user_comment" > <i class="fa fa-clock-o"></i> <%= time_ago_in_words(c.created_at) %> ago</p>
+      <div class="user_reply">
+        <% c.replies.each do |r| %>
+        <i class="fa fa-arrow-circle-right"></i>
+        <p>
+                익명<%=r.id%> : <%= r.content %> <span class="text-right"><%=time_ago_in_words(r.created_at)%> ago</span><br>
+
+        </p><br>
+        <% end %>
+      </div>
+
+        <form action="/home/reply" type="POST" class="text-center">
             <input type="hidden" name="my_post_id" value="<%=c.id%>">
-            <input type="text" name="myreply">
-            <input type="submit" value="달기"><br>
+            <input type="text" class="form-control" name="myreply" placeholder="댓글을 달아주세요"><br>
+            <button class="btn btn-primary" style="padding:14px 24px;" href="#" role="button">댓글달기</button>
         </form>
     </div>
     <% end %>

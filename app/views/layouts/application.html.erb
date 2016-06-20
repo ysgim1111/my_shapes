@@ -5,11 +5,13 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script src="://use.fontawesome.com/b1f73bd743.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <div class="container">
-  <div class="header clearfix">
-
+  <div class="header clearfix no_gap">
+<!--
     <h3 class="text-muted col-md-5 no_gap"><a href="/">어제 뭐 봤어? - 티비노리</a></h3>
     <nav class="col-md-7 no_gap">
       <ul class="nav nav-pills pull-left">
@@ -24,6 +26,39 @@
         <% end %>
       </ul>
     </nav>
+-->
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">어제 뭐 봤어? - TV노리</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar" style="padding-right:0px">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/"><span class="fa fa-bars"></span> 전체 방송 리스트</a></li>
+            <li><a href="/home/upload"><span class="fa fa-plus"></span> 방송 등록하기</a></li>
+            <% if user_signed_in? %>
+            <li><a href="/users/sign_out"><span class="fa fa-sign-out"></span> 로그아웃</a></li>
+            <% else %>
+            <li><a href="/users/sign_in"><span class="fa fa-sign-in"></span> 로그인</a></li>
+            <li><a href="/users/sign_up"><span class="fa fa-user"></span> 회원가입</a></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <% if user_signed_in? %>
+    <div class="text-center">
+      <p>
+        환영합니다, <%=current_user.email %>님
+      </p>
+    </div>
+    <% end %>
   </div>
 
   <%= yield %>
