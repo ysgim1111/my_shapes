@@ -43,7 +43,7 @@
             <li><a href="/"><span class="fa fa-bars"></span> 전체 방송 리스트</a></li>
             <li><a href="/home/upload"><span class="fa fa-plus"></span> 방송 등록하기</a></li>
             <% if user_signed_in? %>
-            <li><a href="/users/sign_out"><span class="fa fa-sign-out"></span> 로그아웃</a></li>
+            <li><a href="/users/sign_out" data-method="delete"><span class="fa fa-sign-out"></span> 로그아웃</a></li>
             <% else %>
             <li><a href="/users/sign_in"><span class="fa fa-sign-in"></span> 로그인</a></li>
             <li><a href="/users/sign_up"><span class="fa fa-user"></span> 회원가입</a></li>
