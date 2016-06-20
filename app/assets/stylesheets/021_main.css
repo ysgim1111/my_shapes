@@ -1,11 +1,3 @@
-/*/ Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-// 가져온 주소 :
-// http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css */
-/* Space out content a bit */
-
 body {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -20,7 +12,65 @@ body {
 .text-muted a {
   text-decoration: none;
 }
+.sign_form {
+  text-align: left;
+  font-size:14px !important;
+  margin-bottom: 0px !important;
+}
+.user_comment {
+  color:#777;
+}
+.user_reply i, .user_reply p {
+  display:inline-block;
+}
+.user_reply i {
+  padding-left:20px;
+}
+/* detail 부분 */
+.styled-select {
+border: 2px solid rgb(136, 130, 125) !important;
+background-color:white !important;
+}
+.styled-select select {
+border: none !important;
+}
 
+
+input.form-control, textarea.form-control {
+border: 2px solid rgb(136, 130, 125);
+background-color: white !important;
+}
+      .strike {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.strike > span {
+  position: relative;
+  display: inline-block;
+}
+
+.strike > span:before,
+.strike > span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 9999px;
+  height: 1px;
+  background: #777;
+}
+
+.strike > span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+
+.strike > span:after {
+  left: 100%;
+  margin-left: 15px;
+}
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
