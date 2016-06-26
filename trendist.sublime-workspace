@@ -1,0 +1,427 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ca",
+				"canvas"
+			],
+			[
+				"add",
+				"addTransform"
+			],
+			[
+				"tar",
+				"target_member"
+			],
+			[
+				"target",
+				"target_member"
+			],
+			[
+				"build",
+				"buildDiv"
+			],
+			[
+				"whi",
+				"which_team_exist"
+			],
+			[
+				"data",
+				"dataSet"
+			],
+			[
+				"che",
+				"cheifs"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 58.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Snippet: re",
+				"Snippet: reactClass"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 181.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"import urllib.request,os,hashlib; h = '2deb499853c4371624f5a07e27c334aa' + 'bf8c4e67d14fb0525ba4f89698a6d7e1'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Sites/trendist"
+	],
+	"file_history":
+	[
+		"/C/Users/jamie/Downloads/set_icon/manifest.json",
+		"/C/Users/jamie/Downloads/set_icon/background.html",
+		"/C/Users/jamie/Downloads/set_icon/background.js",
+		"/C/Users/jamie/Downloads/basic/basic/manifest.json",
+		"/C/Users/jamie/Downloads/pageaction_by_url/background.js",
+		"/C/Users/jamie/Downloads/basic/basic/content.js",
+		"/C/Users/jamie/Downloads/basic/basic/background.js",
+		"/C/Users/jamie/Downloads/basic/background.js",
+		"/C/Users/jamie/Downloads/basic/popup.js",
+		"/C/Users/jamie/Downloads/print/print/background.js",
+		"/C/Users/jamie/Desktop/jobplanet_crawl.html",
+		"/C/Sites/job/config/routes.rb",
+		"/C/Sites/job/app/controllers/application_controller.rb",
+		"/C/Users/jamie/Desktop/jobplanet_crawling.html",
+		"/C/Users/jamie/Desktop/request.js",
+		"/C/Sites/job/config/environments/production.rb",
+		"/C/Sites/job/Gemfile",
+		"/C/Sites/job/public/favicon.ico",
+		"/C/Sites/job/log/development.log",
+		"/C/Sites/job/db/development.sqlite3",
+		"/C/Sites/job/.gitignore",
+		"/C/Sites/job/config/environment.rb",
+		"/C/Sites/job/config/database.yml",
+		"/C/Sites/job/config/boot.rb",
+		"/C/Sites/job/config/application.rb",
+		"/C/Sites/job/config/environments/development.rb",
+		"/C/Sites/job/app/helpers/application_helper.rb",
+		"/C/Sites/jobquestion/Gemfile",
+		"/C/Sites/jobquestion/config/environment.rb",
+		"/C/Sites/jobquestion/config/database.yml",
+		"/C/Sites/jobquestion/config/boot.rb",
+		"/C/Sites/jobquestion/config/application.rb",
+		"/C/Sites/jobquestion/config/environments/development.rb",
+		"/C/Users/jamie/.ssh/id_rsa",
+		"/C/Users/jamie/.ssh/id_rsa.pub",
+		"/C/Sites/aws-rsa.pub",
+		"/C/Users/jamie/.gitconfig",
+		"/C/RailsInstaller/Git/etc/gitconfig",
+		"/C/RailsInstaller/Git/share/vim/vim74/syntax/gitconfig.vim",
+		"/C/Sites/jobquestion/db/development.sqlite3",
+		"/C/Sites/aws-rsa",
+		"/C/Sites/aws_rsa",
+		"/C/Sites/aws_rsa.pub",
+		"/E/Dev source/chromeextention/download_links/popup.js",
+		"/E/Dev source/javascript/canvas/index.html",
+		"/E/Dev source/javascript/html5 tutorial/index.html",
+		"/E/games/Stardew Valley/Mods/NPCMapLocations/manifest.json",
+		"/E/games/Stardew Valley/Mods/NPCMapLocations/MapMod.pdb",
+		"/E/games/Stardew Valley/Mods/manifest.json",
+		"/C/Users/jamie/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/jamie/AppData/Local/Temp/BNZ.56e3779143e762/V3.ASM",
+		"/E/Dev source/javascript/pm2/intro.js",
+		"/E/Dev source/javascript/html5 tutorial/index.hhtml",
+		"/E/Dev source/react/react-tutorial-master/server.py",
+		"/E/Dev source/react/react-tutorial-master/server.go",
+		"/E/Dev source/react/react-tutorial-master/server.js",
+		"/E/Dev source/react/react-tutorial-master/server.pl",
+		"/E/Dev source/react/tutorial.html",
+		"/E/Dev source/react/react-tutorial-master/server.rb",
+		"/E/Dev source/react/react-tutorial-master/server.php",
+		"/E/Dev source/react/react-tutorial-master/comments.json",
+		"/E/Dev source/react/react-tutorial-master/public/index.html",
+		"/E/Dev source/react/react-0.14.7/examples/basic-jsx/index.html",
+		"/E/Dev source/react/react-0.14.7/examples/basic-commonjs/index.html",
+		"/E/Dev source/react/react-0.14.7/examples/basic-click-counter/index.html",
+		"/E/Dev source/react/react-0.14.7/examples/basic/index.html",
+		"/C/Users/jamie/Desktop/css/main.css",
+		"/C/Users/jamie/AppData/Local/Temp/BNZ.56bf427a243a030/server.rb",
+		"/E/Dev source/react/react-tutorial-master/public/scripts/example.js",
+		"/E/Dev source/chromeextention/download_links/send_links.js",
+		"/C/Users/jamie/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/jamie/Desktop/palinemail.html",
+		"/C/Users/jamie/Desktop/css/animate.css",
+		"/C/Users/jamie/Desktop/main.css",
+		"/C/Users/jamie/Desktop/plain.css",
+		"/C/Users/jamie/Desktop/book.css",
+		"/C/Users/jamie/Desktop/Music - Apple_files/main.built.js",
+		"/C/Users/jamie/Documents/My Games/Bombshell/ShellGame/Config/ShellUI.ini",
+		"/C/Users/jamie/Documents/My Games/Bombshell/ShellGame/Config/ShellGame.ini",
+		"/C/Users/jamie/Documents/My Games/Bombshell/ShellGame/Config/ShellEditorUserSettings.ini",
+		"/C/Users/jamie/Documents/My Games/Bombshell/ShellGame/Config/ShellInput.ini",
+		"/C/Users/jamie/Documents/My Games/Bombshell/ShellGame/Config/ShellSystemSettings.ini",
+		"/C/Users/jamie/Desktop/Music - Apple_files/ac-globalfooter.built.js",
+		"/C/Users/jamie/Desktop/Music - Apple_files/ac-analytics.js",
+		"/C/Users/jamie/Desktop/Music - Apple_files/three.js",
+		"/C/Users/jamie/Desktop/Music - Apple_files/shaders.built.js",
+		"/C/Users/jamie/Desktop/Music - Apple_files/head.built.js",
+		"/C/Users/jamie/Desktop/Music - Apple_files/externals.built.js",
+		"/C/Users/jamie/Desktop/Music - Apple_files/ac-localnav.built.js",
+		"/C/Users/jamie/Desktop/Music - Apple_files/ac-globalnav.built.js",
+		"/C/Users/jamie/Desktop/test.html",
+		"/C/Users/jamie/Desktop/Music - Apple.html",
+		"/F/O&O Defrag Professional 19.0 Build 99 RePack by D!akov/Тихая установка ENG.cmd",
+		"/C/Program Files (x86)/Bombshell/Binaries/Win64/steam_api.ini",
+		"/C/Program Files (x86)/Bombshell/Binaries/Win64/steam_appid.txt",
+		"/C/Program Files (x86)/Bombshell/Binaries/Win64/Bombshell.exe.config",
+		"/C/Users/jamie/Desktop/giftcards.built.css",
+		"/C/Users/jamie/Desktop/overview.built.css",
+		"/C/Users/jamie/Desktop/music.built.css",
+		"/C/Users/jamie/Desktop/ac-localnav.built.css",
+		"/C/Users/jamie/Desktop/ac-globalfooter.built.css",
+		"/C/Users/jamie/Desktop/font.css",
+		"/C/Users/jamie/Desktop/ac-globalnav.built.css",
+		"/C/Sites/gplus-quickstart-ruby/client_secrets.json",
+		"/C/Sites/gplus-quickstart-ruby/Gemfile",
+		"/C/Sites/gplus-quickstart-ruby/index.html",
+		"/C/Sites/gplus-quickstart-ruby/signin.rb",
+		"/C/Users/jamie/Downloads/client_secret_650471267572-hlc4b4qi118okl4j07jo6s7b1phn8jq3.apps.googleusercontent.com.json",
+		"/C/Sites/bob/app/views/groups/new.html.erb",
+		"/C/Sites/bob/app/controllers/groups_controller.rb",
+		"/C/Sites/bob/config/routes.rb",
+		"/C/Sites/bob/app/views/groups/index.html.erb",
+		"/C/Sites/bob/app/views/layouts/application.html.erb",
+		"/C/Sites/gplus-quickstart-ruby/README.md",
+		"/C/Sites/bob/app/controllers/build_controller.rb",
+		"/C/Sites/bob/app/controllers/hof_controller.rb",
+		"/C/Sites/bob/app/controllers/logs_controller.rb",
+		"/C/Sites/bob/app/controllers/member_controller.rb",
+		"/C/Sites/bob/app/helpers/application_helper.rb",
+		"/C/Sites/bob/app/helpers/build_helper.rb",
+		"/C/Sites/bob/app/helpers/groups_helper.rb",
+		"/C/Sites/bob/app/helpers/hof_helper.rb",
+		"/C/Sites/bob/app/helpers/logs_helper.rb",
+		"/C/Sites/bob/app/helpers/member_helper.rb",
+		"/C/Sites/bob/app/models/group.rb",
+		"/C/Sites/bob/app/models/log.rb",
+		"/C/Sites/bob/app/models/member.rb",
+		"/C/Sites/bob/app/views/hof/index.html.erb"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 245.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"indent",
+			"\";\n",
+			"wow",
+			"fadeInDown",
+			"wow",
+			"subti",
+			"Engli",
+			"Eng",
+			"Lang",
+			"lang",
+			"Eng",
+			"En",
+			";",
+			"script",
+			"/wss/fonts/Myriad-Set-Pro/v1/",
+			"icon-playalt",
+			"/ac/globalnav/2.0/en_US/styles/",
+			"\n",
+			"점\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+			"점",
+			"expose",
+			"#joyRideTipContent",
+			"hidden",
+			"joyRideTipContent",
+			"custom",
+			"joyrideTipContent",
+			"ol",
+			"id=",
+			"id",
+			"set_li",
+			"joyRideTipContent",
+			"set_li",
+			"joyRideTipContent",
+			"buildDiv",
+			"label label-info",
+			"buildDiv",
+			" \"&&&&&&&&&&&&&&&&&&&&&&\"",
+			"\"&&&&&&&&&&&&&&&&&&&&&&\"",
+			"wrap",
+			"word_wrap",
+			"wrap",
+			"is_same_team",
+			"to_team",
+			"alertMessage",
+			"code",
+			"h4",
+			"log.",
+			"space",
+			"tap",
+			"indent",
+			"KID\\",
+			"KID",
+			"UnBulkData",
+			"Development",
+			"vip",
+			"G:\\",
+			"F:\\",
+			"D:\\",
+			"E:",
+			"E:\\",
+			"vip"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			";\n",
+			"",
+			"', '",
+			"",
+			"@to_team",
+			"self."
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 148.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "trendist.sublime-project",
+	"replace":
+	{
+		"height": 74.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 262.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
