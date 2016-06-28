@@ -28,6 +28,13 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'better_errors'
+  gem 'awesome_print'
+  gem 'quiet_assets'
+  # Rails application preloader
+  gem "spring"
+  # Preview mail in the browser instead of sending
+  gem "letter_opener"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -38,3 +45,20 @@ gem 'devise'
 
 # it super easy to use Foundation
 gem 'foundation-rails'
+
+# ActiveModel::Serializer implementation and Rails hooks
+gem 'active_model_serializers', '~> 0.10.0'
+
+# Rack::Timeout
+gem 'slowpoke'
+# Rack middleware for blocking & throttling
+gem 'rack-attack'
+
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator
+gem 'kaminari'
+
+# Simple, efficient background processing
+gem 'sidekiq'
+
+# Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
+gem 'carrierwave'
