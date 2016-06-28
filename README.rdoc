@@ -1,28 +1,49 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  2.2
+* Rails version
+  4.2.5.1
+* RailsInstaller(for Windows)
+  browse http://railsinstaller.org/en
+  download railsinstaller-3.2.0.exe
+* brew install(for Mac)
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Repository clone (recommanded)
+  git clone git@github.com:greativejoo/CDF-bros.git
+* Existed Repository git set
+  git init
+  git remote add origin git@github.com:greativejoo/CDF-bros.git
+* branches
+  master(only for deploy)
+  develop(main for develop)
+  feature/[features](temporary for develop)
+  hotfix/[hotfixes](temporary for hotfix)
+* release
+  develop > release-[version] > master
+* develop
+  develop > feature > develop
+* hotfix
+  master > hotfix > master, develop
+* gitflow
+  *master) git checkout develop
+  *develop) git pull
+  *develop) git checkout -b feature/feature-some
+  ..deveclop something
+  *feature/feature-some) git add .
+  *feature/feature-some) git commit -m 'commit message'
+  or *feature/feature-some) git commit -am 'commit message'
+  *feature/feature-some) git checkout develop
+  *develop) git merge --no-ff feature/feature-some
+  *develop) git push
+  for release
+  *develop) git checkout -b release/release-some
+  ..bugfix something and commit
+  *release/release-some) git checkout master
+  *master) git merge --no-ff release/release-some
+  *master) git checkout develop
+  *develop) git merge --no-ff release/release-some
+  *develop) git branch -d release/release-some
+  *develop) git checkout master
+  *master) git push
