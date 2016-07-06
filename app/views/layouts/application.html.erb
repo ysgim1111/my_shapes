@@ -8,13 +8,14 @@
   <meta name="author" content="jamie.yun">
   <title>Trendist</title>
 
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
-  <%= stylesheet_link_tag    "application" %>
   <%= csrf_meta_tags %>
 </head>
 
@@ -30,19 +31,16 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <%= link_to "Trendist", root_path, class: "navbar-brand" %>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li>
-            <a href="#">About</a>
+            <%= link_to "Influence", influences_path %>
           </li>
           <li>
-            <a href="#">Services</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
+            <a href="#">#</a>
           </li>
         </ul>
       </div>
