@@ -1,14 +1,12 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.5.1'
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
@@ -33,7 +31,13 @@ group :development do
   gem "spring"
   # Preview mail in the browser instead of sending
   gem "letter_opener"
+  gem 'sqlite3'
 end
+
+group :production do
+  gem 'mysql2'
+end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -42,20 +46,25 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 # ActiveModel::Serializer implementation and Rails hooks
-gem 'active_model_serializers', '~> 0.10.0'
+# gem 'active_model_serializers', '~> 0.10.0'
 
 # Rack::Timeout
-gem 'slowpoke'
+# gem 'slowpoke'
 # Rack middleware for blocking & throttling
-gem 'rack-attack'
+# gem 'rack-attack'
 
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator
-gem 'kaminari'
+# gem 'kaminari'
 
 # Simple, efficient background processing
-gem 'sidekiq'
+# gem 'sidekiq'
 
 # Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
-gem 'carrierwave'
+# gem 'carrierwave'
 
 gem 'twitter-bootstrap-rails'
+
+# web server
+gem 'puma'
+
+gem 'aws-sdk', '~> 1.5.7'
