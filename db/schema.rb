@@ -11,11 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706161947) do
+ActiveRecord::Schema.define(version: 20160710114626) do
+
+  create_table "influence_products", force: :cascade do |t|
+    t.integer  "influence_id"
+    t.integer  "product_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "influence_products", ["influence_id"], name: "index_influence_products_on_influence_id"
+  add_index "influence_products", ["product_id"], name: "index_influence_products_on_product_id"
 
   create_table "influences", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",          default: "unknown", null: false
+    t.integer  "selling_point", default: 0
+    t.integer  "user_point",    default: 0
+    t.string   "desc"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   create_table "products", force: :cascade do |t|

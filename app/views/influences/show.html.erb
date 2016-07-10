@@ -1,0 +1,67 @@
+<style type="text/css">
+  .m-b-sm {
+    margin-bottom: 10px;
+  }
+  .ibox-content {
+    background-color: #ffffff;
+    color: inherit;
+    padding: 15px 20px 20px 20px;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 0;
+  }
+  .ibox-content {
+    clear: both;
+  }
+</style>
+<div class="container">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="ibox-content text-center">
+          <div class="m-b-sm">
+            <img alt="image" class="img-circle data-href" src="http://placehold.it/96x96"  data-href="<%= influence_path(@influence) %>">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <h3><%= @influence.name %></h3>
+        <p><%= @influence.desc %></p>
+        <p>url</p>
+      </div>
+      <div class="col-md-3">
+        <p>rank</p>
+        <p>판매 지수 <%= @influence.selling_point %> / 유입 지수 <%= @influence.user_point %></p>
+        <p>판매중인 딜 수 16개</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-2">
+        feeds
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-12">
+    <div class="col-md-9">
+      <%= image_tag "http://placehold.it/800x160" %>
+    </div>
+    <div class="col-md-3">
+      <%= image_tag "http://placehold.it/160x160" %>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="col-md-9">
+      <%= image_tag "http://placehold.it/800x160" %>
+    </div>
+    <div class="col-md-3">
+      <%= image_tag "http://placehold.it/160x160" %>
+    </div>
+  </div>
+</div>
