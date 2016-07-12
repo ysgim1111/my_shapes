@@ -3,6 +3,5 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
-  resources :influences
-  resources :products
+  resources :influences, :orders, :products, :shopping_items, :wishlist_items
 end

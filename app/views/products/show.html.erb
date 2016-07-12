@@ -15,7 +15,8 @@
             <option>2</option>
             <option>3</option>
           </select>
-          <button>장바구니</button>
+          <button id="addBasketBtn" data-url="<%= shopping_items_path %>" data-product-id="<%= @product.id %>">장바구니</button>
+          <button id="addWishlistBtn" data-url="<%= wishlist_items_path %>" data-product-id="<%= @product.id %>">위시리스트</button>
           <button id="buyBtn">구매</button>
         </div>
         <div class="content thumbnail">
