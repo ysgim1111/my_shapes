@@ -1,0 +1,112 @@
+<div class="container main_nav" style="position:relative">
+  <nav>
+    <ul class="nav nav-pills pull-left">
+      <li><a href="/"><img style="width:50px;" src="<%= image_url('logo_desktop.png') %>" alt="" /></a></li>
+    </ul>
+
+    <ul class="nav nav-pills pull-right">
+      <li><a href="/"><img src="<%= image_url('icon_gnb_search.png') %>" alt="" /></a></li>
+      <li><a href="/home/upload"><img src="<%= image_url('icon_gnb_wish_list.png') %>" alt="" /></a></li>
+      <li><a href="/users/sign_out"><img src="<%= image_url('icon_gnb_cart.png') %>" alt="" /></a></li>
+      <li><a id="main_profile" href="/users/sign_up"><img src="<%= image_url('influencer_sample.jpg') %>" alt="" /></a></li>
+      <li><a href="/"><img src="<%= image_url('utility_triangle.png') %>" alt="" /></a></li>
+    </ul>
+  </nav>
+</div>
+<div class="inf_nav_back">
+</div>
+
+<div class="col-md-12 main_center_image inf_center_image no-gap">
+  <div class="main_service">
+    <a href="/home/deals" class="menu_second">DEALS</a>
+    <a href="/home/influencer" class="menu_first">INFLUENCERS</a>
+    <a href="/home/about" class="menu_third">ABOUT</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9" style="margin-top:30px;">
+      <div class="col-md-2">
+        <img src="<%= image_url('influencer_sample.jpg') %>" style="border-radius:100%;width:100px;margin-top:15px;" alt="" />
+      </div>
+      <div class="col-md-10 no-gap">
+        <h3 class="product">이성경</h3>
+        <p class="detail">
+          이성경의의 트랜디스트 라이프스타일 스토어입니다.
+        </p>
+        <p class="detail">
+        http://trd.st/heybiblee <a href="#" class="inf_link">주소 복사</a>
+        </p>
+      </div>
+
+    </div>
+    <div class="col-md-3" style="margin-top:60px;">
+      <p class="detail">
+        주간 인플루언서 랭킹 4위 2 <span class="fa fa-caret-up" style="color:red"></span>
+      </p>
+      <p class="detail">
+        판매지수 8,829 / 유입지수 42,991
+      </p>
+      <p class="detail">
+        판매 중인 딜 수 16개
+      </p>
+    </div>
+    <div class="col-md-12 no-gap main_slide">
+      <%= render 'image_slide' %>
+    </div>
+    <h3>인스타그램 api</h3>
+    <div class="col-md-12 main_sub_image_first">
+    </div>
+    <h3>판매중인 딜</h3>
+    <div class="col-md-8 main_sub_image">
+        <img style="width:100%;height:300px;" src="http://gi.esmplus.com/vinchick/auctiongmarket/iframe/4_02_1.jpg" alt="" />
+    </div>
+
+    <div class="col-md-4 main_sub_image">
+      <div class="col-md-12 no-gap">
+        <img style="width:100%;height:300px;" src="http://gdimg1.gmarket.co.kr/goods_image2/shop_img/542/220/542220320.jpg" alt="" />
+      </div>
+      <div class="">
+        <p class="product text-right">
+          베이직 로고 크롭 티셔츠/블루-화이트
+        </p>
+        <p class="price text-right">
+          36,000 won
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-8 main_sub_image">
+        <img style="width:100%;height:300px;" src="http://gi.esmplus.com/vinchick/auctiongmarket/iframe/4_02_1.jpg" alt="" />
+    </div>
+
+    <div class="col-md-4 main_sub_image">
+      <div class="col-md-12 no-gap">
+        <img style="width:100%;height:300px;" src="http://gdimg1.gmarket.co.kr/goods_image2/shop_img/542/220/542220320.jpg" alt="" />
+      </div>
+      <div class="">
+        <p class="product text-right">
+          베이직 로고 크롭 티셔츠/블루-화이트
+        </p>
+        <p class="price text-right">
+          36,000 won
+        </p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<script type="text/javascript">
+$(window).load(function(){
+  ServiceSize(); // 3메뉴 조정
+});
+
+function ServiceSize() {
+  var standard_width = parseInt($('.main_center_image').width())/2;
+  standard_width = standard_width - parseInt($('.main_service').width())/2 - 20;
+  $('.main_service').css('left',standard_width);
+}
+</script>
