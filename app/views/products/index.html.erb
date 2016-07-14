@@ -69,21 +69,19 @@
         </a>
       </div>
     </div>
-    <div class="col-md-12 main_sub_image_first">
-      <%= image_tag("http://placehold.it/1140x300", alt: "") %>
-    </div>
-
-    <div class="col-md-6 main_sub_image">
-      <div class="col-md-12">
-        <%= image_tag("http://placehold.it/545x300", alt: "") %>
+    <% @products.each_with_index do |p, i| %>
+      <% if i == 0 %>
+      <div class="col-md-12 main_sub_image_first">
+        <%= image_tag("http://placehold.it/1140x300", alt: "", class: "link-thumb", data: {href: product_path(p)}) %>
       </div>
-    </div>
-
-    <div class="col-md-6 main_sub_image">
-      <div class="col-md-12">
-        <%= image_tag("http://placehold.it/545x300", alt: "") %>
+      <% else %>
+      <div class="col-md-6 main_sub_image">
+        <div class="col-md-12">
+          <%= image_tag("http://placehold.it/545x300", alt: "", class: "link-thumb", data: {href: product_path(p)}) %>
+        </div>
       </div>
-    </div>
+      <% end %>
+    <% end %>
 
     <div class="col-md-6 card_guide">
       <div class="col-md-5">

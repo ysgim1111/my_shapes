@@ -1,4 +1,4 @@
-$(document).on('click', 'div.thumbnail > img', function() {
+$(document).on('click', 'img.link-thumb', function() {
   if ($(this).data('href')) window.location.href = $(this).data('href');
 });
 
