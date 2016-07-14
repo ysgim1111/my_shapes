@@ -20,33 +20,39 @@
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar">
-  <!-- Navigation -->
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="main_nav">
     <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <%= link_to "Trendist", root_path, class: "navbar-brand" %>
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li> <%= link_to "Deals", products_path %> </li>
-          <li> <%= link_to "Influencers", influences_path %> </li>
-          <li> <a href="#">About</a> </li>
-          <li> <%= link_to "장바구니", shopping_items_path %> </li>
-          <li> <%= link_to "위시리스트", wishlist_items_path %> </li>
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li>
+            <%= link_to "#" do %>
+              <%= image_tag "icon_gnb_search.png", alt: "" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to wishlist_items_path do %>
+              <%= image_tag "icon_gnb_wish_list.png", alt: "" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to wishlist_items_path do %>
+              <%= image_tag "icon_gnb_cart.png", alt: "" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "/users/sign_up", id: "main_profile" do %>
+              <%= image_tag "influencer_sample.jpg", alt: "" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "/" do %>
+              <%= image_tag "utility_triangle.png", alt: "" %>
+            <% end %>
+          </li>
         </ul>
-      </div>
-      <!-- /.navbar-collapse -->
+      </nav>
     </div>
-    <!-- /.container -->
-  </nav>
+  </div>
 
   <%= yield %>
 

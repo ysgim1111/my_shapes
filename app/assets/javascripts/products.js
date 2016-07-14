@@ -13,3 +13,8 @@ $(document).on('click', '#addBasketBtn, #addWishlistBtn', function() {
     console.log(response);
   });
 });
+
+$(document).ready(function(){
+  var standard_width = parseInt($('.main_center_image').width())/2 - parseInt($('.main_service').width())/2 - 20;
+  $('.main_service').css('left',standard_width);
+});

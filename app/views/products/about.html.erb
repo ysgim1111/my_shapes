@@ -1,0 +1,212 @@
+<style media="screen">
+.navbar-trans .navbar-logo {
+  content: url(<%= image_url('logo_default.png') %>);
+}
+.row {
+  margin-right:0px !important;
+  margin-left:0px !important;
+}
+.container {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+</style>
+
+<nav class="navbar navbar-default navbar-fixed-top mega navbar-trans navbar-fw neon" style="z-index:10">
+  <ul class="nav nav-pills nav-justified" style="font-size: 14px;
+      width: 300px;
+      margin: auto;
+      left: 0;
+      right: 40px;
+      position: fixed;
+      z-index: 11;
+      top: 15px;
+      line-height: 16px;
+      ">
+    <li><%= link_to "DEALS", products_path, class: "" %></li>
+    <li><%= link_to "INFLUENCERS", influences_path, class: "" %></li>
+    <li><%= link_to "ABOUT", about_products_path, class: "active" %></li>
+  </ul>
+  <div class="navbar-header page-scroll">
+    <button id="nav_toggle_visibility" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <!-- Logo -->
+    <a class="navbar-brand" id="nav_main" style="cursor:pointer">
+      <%= image_tag "logo_desktop.png", class: "navbar-logo", style: "width:40px;" %>
+    </a>
+
+
+
+  </div>
+
+  <!-- Navbar Links -->
+  <div id="nav_close" class="navbar-collapse collapse page-scroll navbar-right" style="margin-right:0px;">
+    <ul class="nav navbar-nav">
+      <li><a href="/"><img src="<%= image_url('icon_gnb_search.png') %>" alt="" /></a></li>
+      <li><a href="/home/upload"><img src="<%= image_url('icon_gnb_wish_list.png') %>" alt="" /></a></li>
+      <li><a href="/users/sign_out"><img src="<%= image_url('icon_gnb_cart.png') %>" alt="" /></a></li>
+      <li><a id="main_profile" href="/users/sign_up"><img src="<%= image_url('influencer_sample.jpg') %>" alt="" /></a></li>
+      <li><a href="/"><img src="<%= image_url('utility_triangle.png') %>" alt="" /></a></li>
+    </ul><!-- / .nav .navbar-nav -->
+  </div><!--/.navbar-collapse -->
+</nav><!-- / .navbar -->
+
+<div class="col-md-12 main_center_image about_center_image no-gap">
+  <div class="main_logo_div">
+    <img class="about_logo" src="<%= image_url('logo_desktop.png')%> " alt="" />
+
+  </div>
+  <div class="about_text text-center">
+    <h3> Be Wanna Be</h3>
+    <img src="<%= image_url('about_sublogo.png') %>" alt="" />
+    <h1><span class="fa fa-arrow-down"></span></h1>
+  </div>
+</div>
+
+<div class="container about_container">
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-md-4">
+          <img src="<%= image_url('about_no_1.png') %>">
+          <h2>나와 워너비가 <br class="mb_line_break">하나되는 순간</h2>
+          <p>워너비가 되는 쇼핑몰 트렌디스트에서<br>워너비와 소통하며 함께<br>새로운 트렌드를 만들어 나가세요.</p>
+        </div><!-- /.col-md-4 -->
+        <div class="col-md-4">
+          <img src="<%= image_url('about_no_2.png') %>">
+          <h2>최고의 영화 <br class="mb_line_break">취향 추천 경험</h2>
+          <p>트렌디한 워너비가 직접 선택한 아이템과<br>트렌디스트에서만 제공하는<br>가장 특별한 혜택을 경험하세요</p>
+        </div><!-- /.col-md-4 -->
+        <div class="col-md-4 ">
+          <img src="<%= image_url('about_no_3.png') %>">
+          <h2>감동을 나누는<br class="mb_line_break"> 리뷰와 컬렉션</h2>
+          <p>트렌디스트에서는 단순한 아이템을 넘어,<br>다양한 브랜드의 가치와<br>그들이 담고 있는 이야기를 만날 수 있습니다.</p>
+        </div><!-- /.col-md-4 -->
+      </div><!-- /.row -->
+      <input type="hidden" name="name" value="23361000" id="hi">
+
+</div>
+<div class="count-wrapper count-item">
+
+<div class="row about_detail">
+    <div class="col-md-12 about">
+      <div class="container">
+        <div class="about_content">
+          <div class="count-wrapper count-item">
+            <img src="<%=image_path('about_big_no_1.png') %>" alt="" />
+            <h2>나와 워너비가<br class="mb_line_break"> 하나되는 순간</h2>
+            <p>
+              트렌디스트는 워너비와 소통하는 쇼핑몰입니다.<br> 그동안 그들의 독특한 개성을 사진으로만 감탄해왔다면<br> 이젠 워너비들과 소통하며 새로운 트렌드를 만들어 나가세요.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</div>
+
+<div class="row about_detail">
+    <div class="col-md-12 about">
+      <div class="container">
+        <div class="about_content about_content_2">
+          <div class="count-wrapper count-item">
+            <img src="<%=image_path('about_big_no_2.png') %>" alt="" />
+            <h2>새로운 발견,<br class="mb_line_break">새로운 시도</h2>
+            <p>
+              트렌디스트에는 새로운 발견이 있습니다.<br> 트렌디한 워너비들이 직접 선택한 새로운 아이템들을 만나보고<br> 트렌디스트에서만 받을 수 있는 특별한 혜택도 누려보세요.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</div>
+
+<div class="row about_detail">
+    <div class="col-md-12 about">
+      <div class="container container_3">
+        <div class="about_content about_content_3">
+          <div class="count-wrapper count-item">
+            <img src="<%=image_path('about_big_no_3.png') %>" alt="" />
+            <h2>브랜드,<br class="mb_line_break">그 이상의 이야기</h2>
+            <p>
+              트렌디스트에서는 다양한 브랜드가 전하는 진심이 담긴<br> 이야기를 만날 수 있습니다.<br> 단순한 아이템, 그 이상의 이야기를 내 일상에 불어넣어 보세요.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+</div>
+<div class="col-md-12 main_center_image about_center_image no-gap" style="background-color:#ffffff">
+  <div class="text-center" style="color:#212121;margin-top:150px;margin-bottom:70px;">
+    <h1> 8월, Coming Soon</h1>
+  </div>
+  <div class="col-md-12 text-center" style="margin-bottom:90px;">
+    <img class="" src="<%= image_url('logo_desktop.png')%> " alt="" />
+  </div>
+  <div class="text-center" style="margin-top:90px;width:360px;margin:auto;">
+    <hr style="border:1px solid #b2b2b2">
+  </div>
+  <div class="col-md-12 text-center">
+    <h3>트렌디스트 1기 모집중</h3>
+    <p>
+      contact@trd.st
+    </p>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(window).load(function(){
+    ServiceSize(); // 3메뉴 세로 조정
+
+    if ($(window).width() > 660){
+      FeatureSize(); // 3특징 세로 조정
+    } else {
+      FeatureSize_mb();
+    }
+    initNav();
+  });
+
+  function ServiceSize() {
+    var standard_width = parseInt($('.main_center_image').width())/2;
+    standard_width = standard_width - parseInt($('.about_text').width())/2 - 20;
+    $('.about_text').css('left',standard_width);
+  }
+
+  function FeatureSize() {
+    var standard_height = parseInt($('.about').height())/2;
+    var standard_width = parseInt($('.about').width())/2;
+
+    standard_height = standard_height - parseInt($('.about').find('.about_content').height())/2;
+    $('.about').find('.about_content').css('top',standard_height);
+    //첫 소개 왼쪽 정렬
+
+    standard_width = standard_width - parseInt($('.about').find('.about_content_2').width())/2;
+    $('.about').find('.about_content_2').css('left',standard_width);
+    // 2소개 가로 정렬
+
+    standard_width = parseInt($('.container_3').css('margin-right'));
+    $('.about').find('.about_content_3').css('right',standard_width);
+  }
+
+  function FeatureSize_mb() {
+    var standard_height = parseInt($('.about').height());
+    standard_height = standard_height - parseInt($('.about').find('.container').height())-10;
+    $('.about').find('.container').css('padding-top',standard_height);
+  }
+
+  function initNav() {
+    $('#nav_toggle_visibility').on('click',function(){
+      if ($('#nav_close').hasClass('show')) {
+        $('#nav_close').removeClass('show').addClass('hide');
+      } else {
+        $('#nav_close').removeClass('hide').addClass('show');
+      }
+    });
+  }
+</script>
