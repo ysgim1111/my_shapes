@@ -6,8 +6,8 @@ body {
 .mb_line_break {
   display: none;
 }
-.mb_line_break_reverse {
-  display: block;
+.second_section_mb_line_break_reverse {
+  display: inline-block;
 }
 .nav>li {
   margin-top: 10px;
@@ -22,40 +22,67 @@ body {
   color: #212121;
 }
 .mobile-nav #nav_close .nav_off_scroll_1 {
-  content: url('icn_search_1.png');
+  background: url('icn_search_1.png');
+  width: 24px;
+  height: 24px;
 }
 .mobile-nav #nav_close .nav_off_scroll_2 {
-  content: url('icn_wish_1.png');
+  background: url('icn_wish_1.png');
+  width: 24px;
+  height: 24px;
 }
 .mobile-nav #nav_close .nav_off_scroll_3 {
-  content: url('icn_cart_1.png');
+  background: url('icn_cart_1.png');
+  width: 24px;
+  height: 24px;
 }
 .mobile-nav #nav_close .nav_off_scroll_4 {
-  content: url('util_btn_1.png');
+  background: url('util_btn_1.png');
+  width: 9px;
+  height: 7px;
+  margin-top: 5px;
 }
 .navbar-small .nav_off_scroll_1 {
-  content: url('icn_search_1.png');
+  background: url('icn_search_1.png');
+  width: 24px;
+  height: 24px;
 }
 .navbar-small .nav_off_scroll_2 {
-  content: url('icn_wish_1.png');
+  background: url('icn_wish_1.png');
+  width: 24px;
+  height: 24px;
 }
 .navbar-small .nav_off_scroll_3{
-  content: url('icn_cart_1.png');
+  background: url('icn_cart_1.png');
+  width: 24px;
+  height: 24px;
 }
 .navbar-small .nav_off_scroll_4{
-  content: url('util_btn_1.png');
+  background: url('util_btn_1.png');
+  width: 9px;
+  height: 7px;
+  margin-top: 5px;
 }
 .navbar-trans .nav_off_scroll_1 {
-  content: url('icn_search_2.png');
+  background: url('icn_search_2.png');
+  width: 24px;
+  height: 24px;
 }
 .navbar-trans .nav_off_scroll_2 {
-  content: url('icn_wish_2.png');
+  background: url('icn_wish_2.png');
+  width: 24px;
+  height: 24px;
 }
 .navbar-trans .nav_off_scroll_3{
-  content: url('icn_cart_2.png');
+  background: url('icn_cart_2.png');
+  width: 24px;
+  height: 24px;
 }
 .navbar-trans .nav_off_scroll_4{
-  content: url('util_btn_2.png');
+  background: url('util_btn_2.png');
+  width: 9px;
+  height: 7px;
+  margin-top: 5px;
 }
 .navbar-trans > .nav-justified > li > a.active {
   padding-right: 0px;
@@ -101,7 +128,37 @@ body {
   background: #f3f3f3;
 }
 .navbar-trans .navbar-logo {
-  content: url(<%= image_url('logo_w1_1.png.png') %>);
+  background: url('logo_w1_1.png');
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.navbar-small  .navbar-logo {
+  background: url('logo_desktop.png');
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.mobile-nav  .navbar-logo {
+  background: url('logo_desktop.png');
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .main_service > a {
   color: #ffffff;
