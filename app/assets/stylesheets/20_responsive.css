@@ -1,4 +1,5 @@
-@media (max-width: 660px) {
+@media (max-width: 767px) {
+  /*about starts*/
   .mb_line_break {
     display: block;
   }
@@ -18,6 +19,15 @@
     padding-top: 5px;
     padding-bottom: 5px;
   }
+  #navbar-brand_mb {
+    display: block;
+  }
+  #nav_mb_menu {
+    display: block ;
+  }
+  #nav_main {
+    display: none;
+  }
   .container.about_container {
     text-align:center;
   }
@@ -26,9 +36,35 @@
   }
   .about .about_content {
     position: relative;
-    left: 0px;
+    left: 0px !important;
   }
   .about_content {
     text-align: right;
   }
+  .main_logo_div {
+    text-align: center;
+    position: relative;
+    padding:0px;
+    right: 0;
+  }
+  .about_logo {
+    position: relative;
+    top: 25vh;
+  }
+  .about_text {
+    position: relative;
+    left: 0 !important;
+    top: 30vh;
+  }
+  .about_last_underline {
+  }
+
+  /* recruit starts */
+  .recruit_form .form-group .col-md-6:nth-child(2n-1) {
+    padding: 0px;
+  }
+  .recruit_form .form-group .col-md-6:nth-child(2n) {
+    padding: 0px;
+  }
+  /* recruit ends */
 }

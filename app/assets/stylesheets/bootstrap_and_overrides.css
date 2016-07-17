@@ -3,3 +3,14 @@
   =require twitter-bootstrap-static/fontawesome
   =require twitter-bootstrap-static/sprites
   */
+  .navbar-default {
+    border-color: transparent;
+  }
+  @media (min-width: 768px) {
+    #nav_mb_menu {
+     display: none !important;
+     height: auto !important;
+     padding-bottom: 0;
+     overflow: visible !important;
+   }
+  }

@@ -12,4 +12,13 @@ class ProductsController < ApplicationController
 
   def about
   end
+
+  def email_send
+        title = params[:title]
+        contents = params[:contents]
+        giver = params[:giver]
+        file = params[:attachment]
+        Contact.recruit(title, contents, giver, file).deliver_now
+        redirect_to '/products/about'
+  end
 end

@@ -16,6 +16,42 @@ body {
 .nav > li > a:hover {
   color: #212121;
 }
+.mobile-nav #nav_close .nav_off_scroll_1 {
+  content: url('icn_search_1.png');
+}
+.mobile-nav #nav_close .nav_off_scroll_2 {
+  content: url('icn_wish_1.png');
+}
+.mobile-nav #nav_close .nav_off_scroll_3 {
+  content: url('icn_cart_1.png');
+}
+.mobile-nav #nav_close .nav_off_scroll_4 {
+  content: url('util_btn_1.png');
+}
+.navbar-small .nav_off_scroll_1 {
+  content: url('icn_search_1.png');
+}
+.navbar-small .nav_off_scroll_2 {
+  content: url('icn_wish_1.png');
+}
+.navbar-small .nav_off_scroll_3{
+  content: url('icn_cart_1.png');
+}
+.navbar-small .nav_off_scroll_4{
+  content: url('util_btn_1.png');
+}
+.navbar-trans .nav_off_scroll_1 {
+  content: url('icn_search_2.png');
+}
+.navbar-trans .nav_off_scroll_2 {
+  content: url('icn_wish_2.png');
+}
+.navbar-trans .nav_off_scroll_3{
+  content: url('icn_cart_2.png');
+}
+.navbar-trans .nav_off_scroll_4{
+  content: url('util_btn_2.png');
+}
 .navbar-trans > .nav-justified > li > a.active {
   padding-right: 0px;
   border-radius: 0px;
@@ -75,6 +111,9 @@ body {
   position:absolute;
   right: 50%;
   padding-right: 65px;
+}
+.main_logo_div_second {
+  padding-right: 120px;
 }
 .main_logo {
   position: absolute;
@@ -263,6 +302,33 @@ body {
   background: transparent !important;
   border:none;
 }
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #212121;
+}
+.navbar-brand .navbar-brand_mb {
+  color: #212121;
+}
+.navbar-brand_mb {
+  font-size: 14px;
+  color: #212121 !important;
+}
+.navbar-brand_mb hr{
+  border: 2px solid #212121;
+  margin-top:0px;
+  margin-bottom:0px;
+}
+.navbar-brand_mb > div {
+  display: inline-block;
+}
+#navbar-brand_mb {
+  display: none;
+}
+#nav_mb_menu {
+  display: none ;
+}
+.navbar-collapse_mb_left li {
+  margin-top: 0px !important;
+}
 .about_detail {
   border-top: 2px solid #777;
   border-bottom: 2px solid #777;
@@ -279,6 +345,9 @@ body {
 }
 .about_service a{
   color: #ffffff;
+}
+.about_last_underline {
+  margin-top:45px;
 }
 /* about page ends*/
 
@@ -302,3 +371,22 @@ body {
   margin-left:5px;
 }
 /* inf page ends */
+
+
+/* recruit page starts */
+.recruit_form {
+  margin-bottom:150px;
+}
+.recruit_form .form-group .col-md-6:nth-child(2n-1) {
+  padding-left:0px;
+}
+.recruit_form .form-group .col-md-6:nth-child(2n) {
+  padding-right:0px;
+}
+.recruit_form .btn.btn-default {
+  width:100%;
+}
+.recruit_require {
+  color: red;
+}
+/* recruit page ends */

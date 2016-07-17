@@ -11,62 +11,7 @@
   padding-right: 0px !important;
 }
 </style>
-
-<nav class="navbar navbar-default navbar-fixed-top mega navbar-trans navbar-fw neon" style="z-index:10">
-  <ul class="nav nav-pills nav-justified" style="font-size: 14px;
-      width: 300px;
-      margin: auto;
-      left: 0;
-      right: 40px;
-      position: fixed;
-      z-index: 11;
-      top: 15px;
-      line-height: 16px;
-      ">
-    <li><%= link_to "DEALS", products_path, class: "" %></li>
-    <li><%= link_to "INFLUENCERS", influences_path, class: "" %></li>
-    <li><%= link_to "ABOUT", about_products_path, class: "active" %></li>
-  </ul>
-  <div class="navbar-header page-scroll">
-    <button id="nav_toggle_visibility" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <!-- Logo -->
-    <a class="navbar-brand" id="nav_main" style="cursor:pointer">
-      <%= image_tag "logo_desktop.png", class: "navbar-logo", style: "width:40px;" %>
-    </a>
-
-
-
-  </div>
-
-  <!-- Navbar Links -->
-  <div id="nav_close" class="navbar-collapse collapse page-scroll navbar-right" style="margin-right:0px;">
-    <ul class="nav navbar-nav">
-      <li><a href="/"><img src="<%= image_url('icon_gnb_search.png') %>" alt="" /></a></li>
-      <li><a href="/home/upload"><img src="<%= image_url('icon_gnb_wish_list.png') %>" alt="" /></a></li>
-      <li><a href="/users/sign_out"><img src="<%= image_url('icon_gnb_cart.png') %>" alt="" /></a></li>
-      <li><a id="main_profile" href="/users/sign_up"><img src="<%= image_url('influencer_sample.jpg') %>" alt="" /></a></li>
-      <li><a href="/"><img src="<%= image_url('utility_triangle.png') %>" alt="" /></a></li>
-    </ul><!-- / .nav .navbar-nav -->
-  </div><!--/.navbar-collapse -->
-</nav><!-- / .navbar -->
-
-<div class="col-md-12 main_center_image about_center_image no-gap">
-  <div class="main_logo_div">
-    <img class="about_logo" src="<%= image_url('logo_desktop.png')%> " alt="" />
-
-  </div>
-  <div class="about_text text-center">
-    <h3> Be Wanna Be</h3>
-    <img src="<%= image_url('about_sublogo.png') %>" alt="" />
-    <h1><span class="fa fa-arrow-down"></span></h1>
-  </div>
-</div>
-
+<%= render 'header' %>
 <div class="container about_container">
       <!-- Three columns of text below the carousel -->
       <div class="row">
@@ -125,6 +70,7 @@
     </div>
 </div>
 
+
 <div class="row about_detail">
     <div class="col-md-12 about">
       <div class="container container_3">
@@ -138,6 +84,7 @@
           </div>
         </div>
       </div>
+
     </div>
 </div>
 
@@ -146,67 +93,18 @@
   <div class="text-center" style="color:#212121;margin-top:150px;margin-bottom:70px;">
     <h1> 8월, Coming Soon</h1>
   </div>
-  <div class="col-md-12 text-center" style="margin-bottom:90px;">
+  <div class="col-md-12 text-center" style="margin-bottom:45px;">
     <img class="" src="<%= image_url('logo_desktop.png')%> " alt="" />
   </div>
-  <div class="text-center" style="margin-top:90px;width:360px;margin:auto;">
+  <div class="col-md-6 col-md-offset-3 text-center about_last_underline">
     <hr style="border:1px solid #b2b2b2">
   </div>
   <div class="col-md-12 text-center">
-    <h3>트렌디스트 1기 모집중</h3>
-    <p>
+    <h3 style="margin-top:45px;">트렌디스트 1기 모집중</h3>
+    <a href="/products/recruit" class="btn btn-default">지원하기</a>
+    <p style="margin-top:15px;">
       contact@trd.st
     </p>
   </div>
 </div>
-
-<script type="text/javascript">
-  $(window).load(function(){
-    ServiceSize(); // 3메뉴 세로 조정
-
-    if ($(window).width() > 660){
-      FeatureSize(); // 3특징 세로 조정
-    } else {
-      FeatureSize_mb();
-    }
-    initNav();
-  });
-
-  function ServiceSize() {
-    var standard_width = parseInt($('.main_center_image').width())/2;
-    standard_width = standard_width - parseInt($('.about_text').width())/2 - 20;
-    $('.about_text').css('left',standard_width);
-  }
-
-  function FeatureSize() {
-    var standard_height = parseInt($('.about').height())/2;
-    var standard_width = parseInt($('.about').width())/2;
-
-    standard_height = standard_height - parseInt($('.about').find('.about_content').height())/2;
-    $('.about').find('.about_content').css('top',standard_height);
-    //첫 소개 왼쪽 정렬
-
-    standard_width = standard_width - parseInt($('.about').find('.about_content_2').width())/2;
-    $('.about').find('.about_content_2').css('left',standard_width);
-    // 2소개 가로 정렬
-
-    standard_width = parseInt($('.container_3').css('margin-right'));
-    $('.about').find('.about_content_3').css('right',standard_width);
-  }
-
-  function FeatureSize_mb() {
-    var standard_height = parseInt($('.about').height());
-    standard_height = standard_height - parseInt($('.about').find('.container').height())-10;
-    $('.about').find('.container').css('padding-top',standard_height);
-  }
-
-  function initNav() {
-    $('#nav_toggle_visibility').on('click',function(){
-      if ($('#nav_close').hasClass('show')) {
-        $('#nav_close').removeClass('show').addClass('hide');
-      } else {
-        $('#nav_close').removeClass('hide').addClass('show');
-      }
-    });
-  }
-</script>
+<%= render "image_setting" %>
