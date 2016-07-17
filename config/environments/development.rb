@@ -1,9 +1,4 @@
 Rails.application.configure do
-  config.action_mailer.delivery_method = :mailgun
-            config.action_mailer.mailgun_settings = {
-         api_key: 'key-0ff3314990fe930634141b11af0835b8',
-         domain: 'sandbox5d17226037754d60b141ae617eef45d6.mailgun.org'
-  }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

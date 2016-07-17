@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'carrierwave'
-gem 'mailgun_rails'
 gem 'rails', '4.2.5.1'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -36,9 +34,9 @@ group :development do
   gem 'sqlite3'
 end
 
-#group :production do
-#  gem 'mysql2'
-#end
+group :production do
+ gem 'mysql2'
+end
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -62,7 +60,7 @@ gem 'devise'
 # gem 'sidekiq'
 
 # Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
-# gem 'carrierwave'
+gem 'carrierwave'
 
 gem 'twitter-bootstrap-rails'
 
@@ -70,3 +68,5 @@ gem 'twitter-bootstrap-rails'
 gem 'puma'
 
 gem 'aws-sdk', '~> 1.5.7'
+
+gem 'mailgun_rails'
