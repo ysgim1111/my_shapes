@@ -68,5 +68,4 @@ gem 'twitter-bootstrap-rails'
 gem 'puma'
 
 gem 'aws-sdk', '~> 1.5.7'
-
 gem 'mailgun_rails'
