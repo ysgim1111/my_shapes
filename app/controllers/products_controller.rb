@@ -15,6 +15,6 @@ class ProductsController < ApplicationController
 
   def email_send
     Contact.recruit(params[:title], params[:contents], params[:giver], params[:attachment]).deliver_now
-    redirect_to '/products/about'
+    redirect_to '/products/complete'
   end
 end
