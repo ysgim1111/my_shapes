@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :products do
     get :about, on: :collection
     get :recruit, on: :collection
+    get :complete, on: :collection
     post :email_send, on: :collection
   end
 

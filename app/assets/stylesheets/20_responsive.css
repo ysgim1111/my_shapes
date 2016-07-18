@@ -79,6 +79,12 @@
     padding: 0px;
   }
   /* recruit ends */
+
+  /*complete starts */
+  .complete_head {
+    line-height: 1.5 !important;
+  }
+  /*complete_ends */
 }
 
 @media (max-width: 990px) {
