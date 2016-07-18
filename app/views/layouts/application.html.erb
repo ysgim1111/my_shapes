@@ -55,13 +55,16 @@
         <li><a href="#"><div class="nav_off_scroll_1" alt=""></div></a></li>
         <li><a href="<%= shopping_items_path %>"><div class="nav_off_scroll_2" alt=""></div></a></li>
         <li><a href="<%= wishlist_items_path %>"><div class="nav_off_scroll_3" alt=""></div></a></li>
+        <li><%= link_to "signup", new_user_registration_path %></li>
+        <li><%= link_to "signin", new_user_session_path %></li>
+        <li><%= link_to "signout", destroy_user_session_path, method: :delete %></li>
         <li>
-          <%= link_to destroy_user_session_path, method: :delete, id: "main_profile" do %>
+          <%= link_to "#", id: "main_profile" do %>
             <%= image_tag "influencer_sample.jpg", alt: "" %>
           <% end %>
         </li>
         <li>
-          <%= link_to new_user_session_path do %>
+          <%= link_to "#" do %>
             <div class="nav_off_scroll_4" alt=""></div>
           <% end %>
         </li>
