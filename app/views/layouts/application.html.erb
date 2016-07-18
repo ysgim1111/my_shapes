@@ -55,17 +55,21 @@
         <li><a href="#"><div class="nav_off_scroll_1" alt=""></div></a></li>
         <li><a href="<%= shopping_items_path %>"><div class="nav_off_scroll_2" alt=""></div></a></li>
         <li><a href="<%= wishlist_items_path %>"><div class="nav_off_scroll_3" alt=""></div></a></li>
-        <li><%= link_to "signup", new_user_registration_path %></li>
-        <li><%= link_to "signin", new_user_session_path %></li>
-        <li><%= link_to "signout", destroy_user_session_path, method: :delete %></li>
+        <% if user_signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "My Profile", edit_user_registration_path %></li>
+              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <% end %>
         <li>
           <%= link_to "#", id: "main_profile" do %>
             <%= image_tag "influencer_sample.jpg", alt: "" %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to "#" do %>
-            <div class="nav_off_scroll_4" alt=""></div>
           <% end %>
         </li>
       </ul><!-- / .nav .navbar-nav -->
@@ -81,19 +85,20 @@
 
   </nav><!-- / .navbar -->
 
-  <%= yield %>
-
   <div class="container">
-    <hr>
+    <%= render partial: "shared/flash_messages", flash: flash %>
 
-    <!-- Footer -->
-    <footer>
-      <div class="row">
-        <div class="col-lg-12">
-          <p>Copyright &copy; CDF Bros 2016</p>
-        </div>
-      </div>
-    </footer>
+    <%= yield %>
   </div>
+
+  <hr>
+  <!-- Footer -->
+  <footer>
+    <div class="row">
+      <div class="col-lg-12">
+        <p>Copyright &copy; CDF Bros 2016</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
