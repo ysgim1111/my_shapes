@@ -21,19 +21,10 @@
 
 <body id="page-top" data-spy="scroll" data-target=".navbar">
   <nav class="navbar navbar-default navbar-fixed-top mega navbar-trans navbar-fw neon" style="z-index:10;">
-    <ul class="nav nav-pills nav-justified" style="font-size: 14px;
-        width: 300px;
-        margin: auto;
-        left: 0;
-        right: 40px;
-        position: fixed;
-        z-index: 11;
-        top: 15px;
-        line-height: 16px;
-        ">
-      <!-- <li> <%= link_to "DEALS", products_path, class: "" %></li>
-      <li> <%= link_to "INFLUENCERS", influences_path, class: "" %></li>
-       --><li> <%= link_to "ABOUT", about_products_path, class: "active" %></li>
+    <ul class="nav nav-pills nav-justified" style="font-size: 14px; width: 300px; margin: auto; left: 0; right: 40px; position: fixed; z-index: 11; top: 15px; line-height: 16px; ">
+      <li> <%= link_to "DEALS", products_path %></li>
+      <li> <%= link_to "INFLUENCERS", influences_path %></li>
+      <li> <%= link_to "ABOUT", about_products_path %></li>
     </ul>
     <div class="navbar-header page-scroll">
       <button id="nav_toggle_visibility" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" style="border:#f8f8f8;background:#f8f8f8">
@@ -61,59 +52,32 @@
     <!-- Navbar Links -->
     <div id="nav_close" class="navbar-collapse collapse page-scroll navbar-right" style="margin-right:0px;">
       <ul class="nav navbar-nav">
-        <li><a href="/"><div class="nav_off_scroll_1" alt="" /></div></a></li>
-        <li><a href="#"><div class="nav_off_scroll_2" alt="" /></div></a></li>
-        <li><a href="#"><div class="nav_off_scroll_3" alt="" /></div></a></li>
-        <li><a id="main_profile" href="#"><img src="<%= image_url('influencer_sample.jpg') %>" alt="" /></a></li>
-        <li><a href="/"><div class="nav_off_scroll_4" alt="" /></div></a></li>
+        <li><a href="#"><div class="nav_off_scroll_1" alt=""></div></a></li>
+        <li><a href="<%= shopping_items_path %>"><div class="nav_off_scroll_2" alt=""></div></a></li>
+        <li><a href="<%= wishlist_items_path %>"><div class="nav_off_scroll_3" alt=""></div></a></li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete, id: "main_profile" do %>
+            <%= image_tag "influencer_sample.jpg", alt: "" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_user_session_path do %>
+            <div class="nav_off_scroll_4" alt=""></div>
+          <% end %>
+        </li>
       </ul><!-- / .nav .navbar-nav -->
     </div><!--/.navbar-collapse -->
 
     <div id="nav_mb_menu" class="navbar-collapse collapse page-scroll navbar-right navbar-collapse_mb_left" style="margin-right:0px;">
       <ul class="nav navbar-nav">
-        <!-- <li> <a href="/home/index"> DEALS</a></li>
-        <li> <a href="/home/influencer"> INFLUENCERS</a></li>
-         --><li> <a href="#" style="" class="active"> ABOUT</a></li>
+        <li> <%= link_to "DEALS", products_path %></li>
+        <li> <%= link_to "INFLUENCERS", influences_path %></li>
+        <li> <%= link_to "ABOUT", about_products_path %></li>
       </ul><!-- / .nav .navbar-nav -->
     </div><!--/.navbar-collapse -->
 
   </nav><!-- / .navbar -->
 
-  <!--
-  <div class="main_nav">
-    <div class="container">
-      <nav>
-        <ul class="nav nav-pills pull-right">
-          <li>
-            <%= link_to "#" do %>
-              <%= image_tag "icon_gnb_search.png", alt: "" %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to wishlist_items_path do %>
-              <%= image_tag "icon_gnb_wish_list.png", alt: "" %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to wishlist_items_path do %>
-              <%= image_tag "icon_gnb_cart.png", alt: "" %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to "/users/sign_up", id: "main_profile" do %>
-              <%= image_tag "influencer_sample.jpg", alt: "" %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to "/" do %>
-              <%= image_tag "utility_triangle.png", alt: "" %>
-            <% end %>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  -->
   <%= yield %>
 
   <div class="container">

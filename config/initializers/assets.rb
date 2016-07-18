@@ -9,8 +9,4 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.precompile += %w( products.js )
-# Images
-Rails.application.config.assets.precompile << /\.(?:png|jpg|jpeg|gif)\z/
-
-# Fonts
-Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
+Rails.application.config.assets.precompile << /\.(?:png|jpg|jpeg|gif|svg|eot|woff|ttf)\z/
