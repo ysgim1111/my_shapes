@@ -43,9 +43,9 @@
            <label for="exampleInputEmail1">보내는 이<span class="recruit_require">*</span></label>
            <%= email_field_tag :giver, "", class: "form-control check",placeholder: "이메일을 입력해주세요" %>
          </div>
-         <div class="col-md-6 invisible">
-           <label>sample</label>
-           <%= email_field_tag :"", "", class: "form-control",placeholder: "이메일을 입력해주세요" %>
+         <div class="col-md-6">
+           <label>연락처<span class="recruit_require">*</span></label>
+           <%= text_field_tag :"cellPhone", "", class: "form-control check",placeholder: "연락처를 입력해주세요" %>
          </div>
        </div>
        <div class="form-group hide">
@@ -112,6 +112,44 @@
   </div>
 </div>
 <script>
+function autoHypenPhone(str){
+    str = str.replace(/[^0-9]/g, '');
+    var tmp = '';
+    if( str.length < 4){
+        return str;
+    }else if(str.length < 7){
+        tmp += str.substr(0, 3);
+        tmp += '-';
+        tmp += str.substr(3);
+        return tmp;
+    }else if(str.length < 11){
+        tmp += str.substr(0, 3);
+        tmp += '-';
+        tmp += str.substr(3, 3);
+        tmp += '-';
+        tmp += str.substr(6);
+        return tmp;
+    }else{
+        tmp += str.substr(0, 3);
+        tmp += '-';
+        tmp += str.substr(3, 4);
+        tmp += '-';
+        tmp += str.substr(7);
+        return tmp;
+    }
+    return str;
+}
+
+var cellPhone = document.getElementById('cellPhone');
+cellPhone.onkeyup = function(event){
+event = event || window.event;
+var _val = this.value.trim();
+this.value = autoHypenPhone(_val) ;
+}
+
+$('#cellPhone').attr('maxlength','13');
+</script>
+<script>
   var write_link = document.getElementById('recruit_submit');
   var select_check = document.getElementById('select_check');
   $('#recruit_submit').on('click', function() {
@@ -128,7 +166,7 @@
     else {
 
       var title = '인플루언서 지원자 : ' + $("input[name=inf_name]").val();
-      var contents = '이름 : '+$("input[name=inf_name]").val() + " / " + '연령대 : ' + $('#select_check').val() + " / " + 'SNS_URL : ' + $('input[name=inf_sns_url]').val() + " / " + '팔로워/구독자수 : ' + $('input[name=inf_subscribers]').val() + " / " + '주요 분야 : ' + $('input[name=inf_areas]').val() +" / " +'추천인 : ' + $('input[name=inf_recommend]').val() + ' / 판매희망제품 : ' + $('#inf_goods').val()
+      var contents = '이름 : '+$("input[name=inf_name]").val() + " / " + '연령대 : ' + $('#select_check').val() + " / " + '연락처 : '+$('#cellPhone').val()+'SNS_URL : ' + $('input[name=inf_sns_url]').val() + " / " + '팔로워/구독자수 : ' + $('input[name=inf_subscribers]').val() + " / " + '주요 분야 : ' + $('input[name=inf_areas]').val() +" / " +'추천인 : ' + $('input[name=inf_recommend]').val() + ' / 판매희망제품 : ' + $('#inf_goods').val()
 
       $('#contents').val(contents);
       $('#title').val(title);
