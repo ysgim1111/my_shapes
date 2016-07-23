@@ -53,8 +53,8 @@
     <div id="nav_close" class="navbar-collapse collapse page-scroll navbar-right" style="margin-right:0px;">
       <ul class="nav navbar-nav">
         <li class="invisible"><a href="#"><img class="nav_off_scroll_1" src="<%= image_url('icn_search_1.png') %>" alt=""><img class="nav_off_scroll_1_trans" src="<%= image_url('icn_search_2.png') %>" alt=""></a></li>
-      <li><a href="<%= shopping_items_path %>"><img src="<%= image_url('icn_wish_1.png') %>" class="nav_off_scroll_2" alt=""><img src="<%= image_url('icn_wish_2.png') %>" class="nav_off_scroll_2_trans" alt=""></a></li>
-        <li><a href="<%= wishlist_items_path %>"><img class="nav_off_scroll_3" src="<%= image_url('icn_cart_1.png') %>"alt=""><img class="nav_off_scroll_3_trans" src="<%= image_url('icn_cart_2.png') %>"alt=""></a></li>
+      <li><a href="<%= wishlist_items_path %>"><img src="<%= image_url('icn_wish_1.png') %>" class="nav_off_scroll_2" alt=""><img src="<%= image_url('icn_wish_2.png') %>" class="nav_off_scroll_2_trans" alt=""></a></li>
+        <li><a href="<%= shopping_items_path %>"><img class="nav_off_scroll_3" src="<%= image_url('icn_cart_1.png') %>"alt=""><img class="nav_off_scroll_3_trans" src="<%= image_url('icn_cart_2.png') %>"alt=""></a></li>
        <% if user_signed_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
@@ -85,9 +85,12 @@
 
   </nav><!-- / .navbar -->
 
+  <div class="container">
+    <div class="row">
     <%= render partial: "shared/flash_messages", flash: flash %>
 
     <%= yield %>
+  </div>
 
   <hr>
   <!-- Footer -->
