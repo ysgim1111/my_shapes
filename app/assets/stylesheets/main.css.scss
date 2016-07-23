@@ -22,64 +22,73 @@ body {
   color: #212121;
 }
 .mobile-nav #nav_close .nav_off_scroll_1 {
-  background: asset-url('icn_search_1.png');
-  width: 24px;
-  height: 24px;
+  display: block;
+}
+.mobile-nav #nav_close .nav_off_scroll_1_trans {
+  display: none;
 }
 .mobile-nav #nav_close .nav_off_scroll_2 {
-  background: asset-url('icn_wish_1.png');
-  width: 24px;
-  height: 24px;
+  display: block;
+}
+.mobile-nav #nav_close .nav_off_scroll_2_trans {
+  display: none;
 }
 .mobile-nav #nav_close .nav_off_scroll_3 {
-  background: asset-url('icn_cart_1.png');
-  width: 24px;
-  height: 24px;
+  display: block;
+}
+.mobile-nav #nav_close .nav_off_scroll_3_trans {
+  display: none;
 }
 .mobile-nav #nav_close .nav_off_scroll_4 {
-  background: asset-url('util_btn_1.png');
+  background: url('util_btn_1.png');
   width: 9px;
   height: 7px;
   margin-top: 5px;
 }
 .navbar-small .nav_off_scroll_1 {
-  background: asset-url('icn_search_1.png');
-  width: 24px;
-  height: 24px;
+  display: block;
+}
+.navbar-small .nav_off_scroll_1_trans {
+  display: none;
 }
 .navbar-small .nav_off_scroll_2 {
-  background: asset-url('icn_wish_1.png');
-  width: 24px;
-  height: 24px;
+  display: block;
+}
+.navbar-small .nav_off_scroll_2_trans {
+  display: none;
 }
 .navbar-small .nav_off_scroll_3{
-  background: asset-url('icn_cart_1.png');
-  width: 24px;
-  height: 24px;
+  display: block;
+}
+.navbar-small .nav_off_scroll_3_trans{
+  display: none;
 }
 .navbar-small .nav_off_scroll_4{
-  background: asset-url('util_btn_1.png');
+  background: url('util_btn_1.png');
   width: 9px;
   height: 7px;
   margin-top: 5px;
 }
 .navbar-trans .nav_off_scroll_1 {
-  background: asset-url('icn_search_2.png');
-  width: 24px;
-  height: 24px;
+  display: none;
+}
+.navbar-trans .nav_off_scroll_1_trans {
+  display: block;
 }
 .navbar-trans .nav_off_scroll_2 {
-  background: asset-url('icn_wish_2.png');
-  width: 24px;
-  height: 24px;
+  display: none;
+}
+.navbar-trans .nav_off_scroll_2_trans {
+  display: block;
 }
 .navbar-trans .nav_off_scroll_3{
-  background: asset-url('icn_cart_2.png');
-  width: 24px;
-  height: 24px;
+  display: none;
+}
+.navbar-trans .nav_off_scroll_3_trans{
+  display: block;
 }
 .navbar-trans .nav_off_scroll_4{
-  background: asset-url('util_btn_2.png');
+  background: url('util_btn_2.png');
   width: 9px;
   height: 7px;
   margin-top: 5px;
@@ -91,7 +100,7 @@ body {
   padding-left: 0px;
 }
 .mobile-nav a, .mobile-nav a.active{
-  color: #212121;
+  color: #212121 !important;
 }
 .mobile-nav a.active{
   padding-right: 0px;
@@ -116,6 +125,13 @@ body {
   background-color : #212121;
   color: #ffffff;
 }
+.mobile-nav #nav_close .navbar-nav>li>a, .navbar-small #nav_close .navbar-nav>li>a {
+  color: #212121;
+}
+.navbar-trans #nav_close .navbar-nav>li>a {
+  color: #ffffff;
+}
+.navbar-small >li > a
 .nav>li:last-child a{
   padding-left: 0px;
 }
@@ -127,38 +143,17 @@ body {
 .main_nav {
   background: #f3f3f3;
 }
+.navbar-trans .navbar-logo_trans {
+  display: block;
+}
 .navbar-trans .navbar-logo {
-  background: asset-url('logo_w1_1.png');
-  background-repeat: no-repeat;
-  width: 40px;
-  height: 40px;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  display: none;
 }
-.navbar-small  .navbar-logo {
-  background: asset-url('logo_desktop.png');
-  background-repeat: no-repeat;
-  width: 40px;
-  height: 40px;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+.navbar-small .navbar-logo, .mobile-nav .navbar-logo {
+  display: block;
 }
-.mobile-nav  .navbar-logo {
-  background: asset-url('logo_desktop.png');
-  background-repeat: no-repeat;
-  width: 40px;
-  height: 40px;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+.navbar-small .navbar-logo_trans, .mobile-nav .navbar-logo_trans {
+  display: none;
 }
 .main_service > a {
   color: #ffffff;
@@ -251,27 +246,27 @@ body {
   margin-right:10px;
 }
 #carousel_1.active{
-  background:asset-url('indicator_1.png');
+  background:url('indicator_1.png');
   margin-right:12px;
   width: 22px;
   height: 22px;
 }
 #carousel_2.active{
-  background:asset-url('indicator_2.png');
+  background:url('indicator_2.png');
   margin-right:12px;
   margin-left:12px;
   width: 22px;
   height: 22px;
 }
 #carousel_3.active{
-  background:asset-url('indicator_3.png');
+  background:url('indicator_3.png');
   margin-right:12px;
   margin-left:12px;
   width: 22px;
   height: 22px;
 }
 #carousel_4.active{
-  background: asset-url('indicator_4.png');
+  background:url('indicator_4.png');
   margin-right:12px;
   margin-left:12px;
   width: 22px;
