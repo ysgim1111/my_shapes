@@ -15,6 +15,9 @@
   .nav.navbar-nav > li {
     display: inline-block;
   }
+  .nav.navbar-nav > li.session {
+    display: block;
+  }
   .nav.navbar-nav > li:last-child {
     display: none;
   }

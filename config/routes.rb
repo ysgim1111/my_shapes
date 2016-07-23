@@ -11,5 +11,4 @@ Rails.application.routes.draw do
     get :complete, on: :collection
     post :email_send, on: :collection
   end
-
 end

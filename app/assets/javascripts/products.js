@@ -11,6 +11,7 @@ $(document).on('click', '#addBasketBtn, #addWishlistBtn', function() {
     }
   }).done(function(response) {
     console.log(response);
+    alert('추가되었습니다');
   });
 });
 
