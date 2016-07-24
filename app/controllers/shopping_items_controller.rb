@@ -1,11 +1,11 @@
 class ShoppingItemsController < ApplicationController
   def index
-    @shopping_items = ShoppingItem.where(user_id: 1)
+    @shopping_items = ShoppingItem.where(user_id: current_user)
   end
 
   def create
     shopping_item = ShoppingItem.new
-    shopping_item.user_id = 1
+    shopping_item.user = current_user
     shopping_item.product_id = params[:product_id]
     shopping_item.save
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160715211951) do
+ActiveRecord::Schema.define(version: 20160724082338) do
 
   create_table "influence_products", force: :cascade do |t|
     t.integer  "influence_id"
@@ -45,6 +45,54 @@ ActiveRecord::Schema.define(version: 20160715211951) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "purchase_lists", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "order_number", default: "", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "purchase_lists", ["user_id"], name: "index_purchase_lists_on_user_id"
+
+  create_table "purchase_products", force: :cascade do |t|
+    t.integer  "purchase_list_id"
+    t.integer  "product_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "purchase_products", ["product_id"], name: "index_purchase_products_on_product_id"
+  add_index "purchase_products", ["purchase_list_id"], name: "index_purchase_products_on_purchase_list_id"
+
+  create_table "purchase_results", force: :cascade do |t|
+    t.integer  "purchase_list_id"
+    t.string   "imp_uid"
+    t.string   "pay_method"
+    t.string   "merchant_uid"
+    t.string   "name"
+    t.integer  "paid_amount"
+    t.string   "pg_provider"
+    t.string   "pg_tid"
+    t.string   "apply_num"
+    t.string   "vbank_num"
+    t.string   "vbank_name"
+    t.string   "vbank_holder"
+    t.string   "vbank_date"
+    t.string   "buyer_name"
+    t.string   "buyer_email"
+    t.string   "buyer_tel"
+    t.string   "buyer_addr"
+    t.string   "buyer_postcode"
+    t.text     "custom_data"
+    t.string   "status"
+    t.datetime "paid_at"
+    t.string   "receipt_url"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "purchase_results", ["purchase_list_id"], name: "index_purchase_results_on_purchase_list_id"
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -93,6 +141,7 @@ ActiveRecord::Schema.define(version: 20160715211951) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
