@@ -17,6 +17,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
   <%= csrf_meta_tags %>
+  <script src="https://use.fontawesome.com/1dbbdbff8d.js"></script>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar">
@@ -86,21 +87,38 @@
 
   </nav><!-- / .navbar -->
 
-  <div class="container">
-    <div class="row">
     <%= render partial: "shared/flash_messages", flash: flash %>
 
     <%= yield %>
-  </div>
 
-  <hr>
-  <!-- Footer -->
-  <footer>
-    <div class="row">
-      <div class="col-lg-12">
-        <p>Copyright &copy; CDF Bros 2016</p>
-      </div>
-    </div>
-  </footer>
+  <footer style="clear:both;margin:0px;background-color:#212121">
+    <div class="copyright">
+      <div class="container footer-social-links" style="margin-top:0px;">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <div class="col-md-6 col-md-offset-3">
+              <h4 style="color:#ffffff">Company</h4>
+              <p style="color:#777;">
+                <strong>상호명</strong> : 주식회사 씨디에프브로스<br>
+    <strong>대표자명</strong> : 권재호, 주한결<br>
+    <strong>사업자번호</strong> : 372-81-00393<br>
+    <strong>사업장주소</strong> : 서울특별시 서초구 효령로14마길 32-4 2층(방배동)<br>
+    <strong>개인정보관리책임자</strong> : 권재호 contact@trd.st
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <small style="float:left;color:#777;">&copy; 2016 CDF-bros <a class="no-style-link" href="http://themeforest.net/user/octarinethemes" target="_blank"></a></small>
+          </div>
+
+          <div class="col-md-6">
+            <small style="float:right"><a href="#page-top" class="pull-right to-the-top">To the top<i class="fa fa-angle-up"></i></a></small>
+          </div>
+
+
+        </div><!-- / .row -->
+      </div><!-- / .container -->
+    </div><!-- / .copyright -->
+  </footer><!-- / .footer-contact -->
 </body>
 </html>

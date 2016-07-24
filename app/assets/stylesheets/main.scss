@@ -12,15 +12,6 @@ body {
 .nav>li {
   margin-top: 10px;
 }
-.nav>li>a {
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 0px;
-  color: #ffffff;
-}
-.nav > li > a:hover {
-  color: #212121;
-}
 .mobile-nav #nav_close .nav_off_scroll_1 {
   display: block;
 }
@@ -496,3 +487,522 @@ body {
   color: red;
 }
 /* recruit page ends */
+
+/* product specific */
+.product_header {
+  font-size: 20px;
+}
+.product_par {
+  font-size: 14px;
+  line-height: 1.5;
+}
+#ui-id-1-button{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
+  width: 25%;
+}
+
+.controlgroup-vertical #book {
+  margin-top:30px;
+}
+.product_detail .nav-tabs {
+  border-bottom: 2px solid #212121;
+  margin-top:30px;
+}
+.product_detail .nav-tabs > li {
+  width: 25%;
+  text-align: center;
+}
+.product_detail .nav-tabs > li.active > a {
+  border: 2px solid #212121;
+  border-bottom-color: #ffffff;
+  margin-bottom: -2px;
+  background: #ffffff;
+  color: #212121;
+  width: 100%;
+}
+.product_detail .nav-tabs > li > a {
+  text-align: center;
+  color: inherit;
+  border-collapse: collapse;
+  z-index: 1;
+  display: inline-block;
+  position: relative;
+  font-size: 14px;
+  box-sizing: border-box;
+  padding: 15px 20px 14px;
+  border-right: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  width: 100%;
+}
+#section1, #section2, #section3, #section4 {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+#section3 > .col-md-6 > .col-md-12 {
+  height: 400px;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+}
+#section3 > .col-md-6:first-child {
+  padding-left: 0px;
+}
+#section3 > .col-md-6:nth-child(2) {
+  padding-right: 0px;
+}
+#section3 .product_par {
+  padding : 0 15px;
+}
+/* product specific ends */
+
+/* footer */
+/* --------------------------------------------------
+	7.0 Footers
+-------------------------------------------------- */
+.copyright {
+  background: #222;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.copyright small {
+  font-family:  'Noto Sans KR', sans-serif, "Montserrat", "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+  font-size: .8em;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+}
+
+.copyright small a:hover {
+  color: #ececec;
+}
+
+.copyright small a:focus {
+  text-decoration: none;
+}
+
+.copyright .to-the-top {
+  color: #777;
+}
+
+.copyright .to-the-top i {
+  padding-left: 7px;
+  font-size: 21px;
+  vertical-align: top;
+}
+
+.footer-social-links {
+  text-align: center;
+}
+
+.footer-social-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 65px 0;
+}
+
+.footer-social-links ul li {
+  display: inline-block;
+  padding-right: 35px;
+  margin-right: 35px;
+  border-right: 1px solid #777;
+}
+
+.footer-social-links ul li:last-child {
+  border: none;
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.footer-social-links ul li a {
+  display: block;
+  color: #ececec;
+}
+
+.footer-social-links ul li a:hover {
+  color: #999;
+}
+
+.footer-social-links ul li a:focus {
+  text-decoration: none;
+}
+
+/* ---- 7.1 Footer Widgets ---- */
+.footer-widgets {
+  background: #111;
+}
+
+.footer-widgets .widget .header-widget {
+  padding-bottom: 17px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(204, 204, 204, 0.2);
+  color: #ececec;
+}
+
+.footer-widgets .widget p {
+  margin: 0;
+  font-size: .9em;
+}
+
+.footer-widgets .about-widget .social-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 30px;
+}
+
+.footer-widgets .about-widget .social-links li {
+  display: inline-block;
+  padding-right: 15px;
+  font-size: 22px;
+}
+
+.footer-widgets .about-widget .social-links li a {
+  color: #777;
+}
+
+.footer-widgets .about-widget .social-links li a:hover {
+  color: #ececec;
+}
+
+.footer-widgets .gallery-widget ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-widgets .gallery-widget ul li {
+  display: inline-block;
+  margin-right: 1px;
+  margin-bottom: 1px;
+  width: 86px;
+  height: 86px;
+  float: left;
+  background: #ccc;
+  overflow: hidden;
+}
+
+.footer-widgets .gallery-widget ul li a {
+  display: block;
+  position: relative;
+}
+
+.footer-widgets .gallery-widget ul li a img {
+  -webkit-transition: -webkit-transform 0.3s;
+          transition: transform 0.3s;
+}
+
+.footer-widgets .gallery-widget ul li a .hover-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 17, 17, 0);
+  text-align: center;
+  -webkit-transition: background 0.4s;
+          transition: background 0.4s;
+}
+
+.footer-widgets .gallery-widget ul li a .hover-link span {
+  display: block;
+  padding-top: 20px;
+  color: #ececec;
+  font-size: 50px;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s;
+          transition: opacity 0.4s;
+}
+
+.footer-widgets .gallery-widget ul li a:hover img {
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.footer-widgets .gallery-widget ul li a:hover .hover-link {
+  background: rgba(17, 17, 17, 0.55);
+}
+
+.footer-widgets .gallery-widget ul li a:hover .hover-link span {
+  opacity: 1;
+}
+
+.footer-widgets .gallery-widget ul li a:focus {
+  outline: none;
+}
+
+.footer-widgets .twitter-widget ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-widgets .twitter-widget ul li {
+  display: block;
+  margin-bottom: 20px;
+  padding: 2px;
+  border: 1px solid rgba(255, 255, 255, 0);
+  -webkit-transition: all 0.4s;
+          transition: all 0.4s;
+}
+
+.footer-widgets .twitter-widget ul li:hover {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(204, 204, 204, 0.1);
+}
+
+.footer-widgets .twitter-widget ul li i {
+  display: inline-block;
+  margin-right: 5px;
+  padding-top: 3px;
+  margin-bottom: 30px;
+  float: left;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-widgets .twitter-widget ul li p {
+  font-size: .85em;
+}
+
+.footer-widgets .twitter-widget ul li p a {
+  color: #ccc;
+}
+
+.footer-widgets .twitter-widget ul li p a:hover {
+  border-color: #ccc;
+}
+
+.footer-widgets .twitter-widget ul li p .tw-widget-date {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.footer-widgets .newsletter-widget form .form-group {
+  display: block;
+  position: relative;
+}
+
+.footer-widgets .newsletter-widget form .form-group input[type="email"] {
+  display: block;
+  width: 100%;
+  height: 42px;
+  padding-left: 20px;
+  padding-right: 70px;
+  border: none;
+  background: rgba(204, 204, 204, 0.1);
+  -webkit-transition: background 0.3s;
+          transition: background 0.3s;
+}
+
+.footer-widgets .newsletter-widget form .form-group input[type="email"]:focus {
+  outline: none;
+  background: rgba(204, 204, 204, 0.15);
+}
+
+.footer-widgets .newsletter-widget form .form-group button {
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 42px;
+  border: none;
+  color: rgba(244, 244, 244, 0.5);
+  background: rgba(204, 204, 204, 0.1);
+  -webkit-transition: all 0.4s;
+          transition: all 0.4s;
+}
+
+.footer-widgets .newsletter-widget form .form-group button i {
+  padding-top: 5px;
+  font-size: 20px;
+}
+
+.footer-widgets .newsletter-widget form .form-group button:focus {
+  outline: none;
+}
+
+.footer-widgets .newsletter-widget form .form-group button:hover {
+  background: #ececec;
+  color: #111;
+}
+
+/* ---- 7.2 Footer Contact ---- */
+.footer-contact .contact-info {
+  position: relative;
+}
+
+.footer-contact .contact-info .footer-map {
+  height: 770px;
+  background: #ccc;
+}
+
+.footer-contact .contact-info .show-info-link {
+  display: inline-block;
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  color: #111;
+  background: #fff;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.5s, visibility 0.6s, top 0.5s;
+          transition: opacity 0.5s, visibility 0.6s, top 0.5s;
+  z-index: 999;
+}
+
+.footer-contact .contact-info .show-info-link:hover {
+  background: #ececec;
+}
+
+.footer-contact .contact-info .show-info-link:focus {
+  text-decoration: none !important;
+  border-bottom: none;
+}
+
+.footer-contact .contact-info .show-info-link i {
+  display: inline-block;
+  padding-top: 18px;
+  padding-right: 15px;
+}
+
+.footer-contact .contact-info .info-open {
+  top: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+.footer-contact .contact-info address {
+  position: absolute;
+  margin-bottom: 0;
+  padding: 280px 100px 0 130px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 17, 17, 0.93);
+  -webkit-transition: opacity 0.5s, visibility 0.6s;
+          transition: opacity 0.5s, visibility 0.6s;
+}
+
+.footer-contact .contact-info address ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 50%;
+  float: left;
+}
+
+.footer-contact .contact-info address ul li {
+  display: block;
+  margin-bottom: 30px;
+  padding: 7px 0 7px 20px;
+  border-left: 1px solid #777;
+}
+
+.footer-contact .contact-info address ul li .adr-heading {
+  display: block;
+  color: #ececec;
+}
+
+.footer-contact .contact-info address ul li .adr-info {
+  font-size: .9em;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+  color: #999;
+}
+
+.footer-contact .contact-info address .show-map {
+  display: block;
+  position: absolute;
+  bottom: 100px;
+  color: #ececec;
+}
+
+.footer-contact .contact-info address .show-map span {
+  padding-right: 20px;
+  font-size: 35px;
+  vertical-align: middle;
+}
+
+.footer-contact .contact-info address .show-map:hover {
+  color: #999;
+}
+
+.footer-contact .contact-info address .show-map:focus {
+  text-decoration: none;
+}
+
+.footer-contact .map-open {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.footer-contact .contact-form {
+  padding-left: 100px;
+  padding-right: 12%;
+}
+
+.footer-contact .contact-form header {
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+/* ---- 7.3 Footer Litle ---- */
+.footer-litle address {
+  margin-bottom: 0;
+  padding-top: 85px;
+  padding-bottom: 85px;
+}
+
+.footer-litle address ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.footer-litle address ul li {
+  display: inline-block;
+  margin-right: 160px;
+}
+
+.footer-litle address ul li:last-child {
+  margin-right: 0;
+}
+
+.footer-litle address ul li .adr-icon {
+  padding-right: 20px;
+  float: left;
+  font-size: 36px;
+  color: #111;
+}
+
+.footer-litle address ul li .adr-group {
+  text-align: left;
+  float: right;
+}
+
+.footer-litle address ul li .adr-group .adr-heading {
+  display: block;
+  color: #111;
+}
+
+.footer-litle address ul li .adr-group .adr-info {
+  font-size: .9em;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+  color: #999;
+}
+/* footer ends */

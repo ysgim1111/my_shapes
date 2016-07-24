@@ -13,12 +13,10 @@ Rails.application.routes.draw do
   end
 
   resources :products do
-    collection do
-      get :about
-      get :recruit
-      get :complete
-      post :email_send
-    end
-
+    get :about, on: :collection
+    get :recruit, on: :collection
+    get :complete, on: :collection
+    post :email_send, on: :collection
+    get :product1, on: :collection
   end
 end
