@@ -20,5 +20,9 @@ Rails.application.routes.draw do
     get :purchases_complete, on: :collection
     post :email_send, on: :collection
     get :product1, on: :collection
+    get :product2, on: :collection
+    get :product3, on: :collection
+    get :product4, on: :collection
+    get :product5, on: :collection
   end
 end

@@ -1,0 +1,260 @@
+<style media="screen">
+.nav > li > a {
+  color: #212121;
+}
+.ui-draggable, .ui-droppable {
+	background-position: top;
+}
+</style>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+<style>
+    .ui-controlgroup-vertical {
+      width: 100%;
+    }
+    .ui-controlgroup.ui-controlgroup-vertical > button.ui-button,
+    .ui-controlgroup.ui-controlgroup-vertical > .ui-controlgroup-label {
+      text-align: center;
+    }
+    #car-type-button {
+      width: 120px;
+    }
+    .ui-controlgroup-horizontal .ui-spinner-input {
+      width: 20px;
+    }
+    /* fixed nav
+    .f-nav {z-index:9999; position:fixed; left:0; top:0; width:100%;}
+
+    .nav {height:42px;}
+    .nav ul {list-style:none;}
+    .nav ul li {float:left; margin-top:6px; padding:6px; border-right:1px solid #ACACAC;}
+    .nav ul li:first-child {padding-left:0;}
+    .nav ul li a:hover {text-decoration: underline;}
+    */
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( ".controlgroup" ).controlgroup()
+    $( ".controlgroup-vertical" ).controlgroup({
+      "direction": "vertical"
+    });
+  } );
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  $('body').scrollspy({ target: '#nav' })
+  </script>
+<div class="col-md-12 main_center_image no-gap">
+  <div class="main_logo_div">
+    <%= image_tag "logo_desktop.png", class: "main_logo" %>
+  </div>
+  <div class="main_service">
+    <%= link_to "DEALS", products_path, class: "menu_first active" %>
+    <%= link_to "INFLUENCERS", influences_path, class: "menu_second" %>
+    <%= link_to "ABOUT", about_products_path, class: "menu_third" %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6" style="height:300px;margin-top:50px;">
+      <img src="http://www.ygeshop.com/shopimages/ygnext/002010000012.jpg" style="width:100%;height:300px" alt="" />
+    </div>
+    <div class="col-md-6" style="height:300px;margin-top:50px;">
+      <fieldset>
+        <p>
+          Lee Hi
+        </p>
+        <h2 style="margin-top:5px;border-bottom:1px solid #777777;padding-bottom:5px;">[SEOULITE] LEEHI CANDLE SET </h2>
+        <h2>10,000원</h2>
+        <div class="controlgroup-vertical">
+          <select>
+            <option>옵션 : 없음</option>
+          </select>
+          <hr style="border:1px solid #777777">
+          <input id="vertical-spinner" class="ui-spinner-input" placeholder="1">
+          <div class="col-md-6" style="padding-left:0px;margin-top:15px;">
+              <a href="/products/purchases_ready" class="btn btn-default" style="width:100%;background-color: #212121;
+    width: 100%;
+    color: #ffffff;
+    padding: 10px 15px;"><i class="fa fa-check"></i> 구매</a>
+          </div>
+          <div class="col-md-6" style="padding-right:0px;margin-top:15px;">
+              <a href="#" onclick="alert('준비중입니다')" class="btn btn-default" style="width:100%;padding: 10px 15px;"><i class="fa fa-shopping-basket"></i> 장바구니</a>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 product_detail">
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#section1">상품정보</a></li>
+        <li role="presentation"><a href="#section2">상세 스펙</a></li>
+        <li role="presentation"><a href="#section3">구매 확인사항</a></li>
+        <li role="presentation"><a href="#section4">인플루언서 정보</a></li>
+      </ul>
+      <div class="col-md-12 no-gap" id="section1">
+        <img src="<%= image_url('product_leehi_4.jpg') %>" style="width:100%" alt="" />
+      </div>
+      <ul class="nav nav-tabs">
+        <li role="presentation"><a href="#section1">상품정보</a></li>
+        <li role="presentation" class="active"><a href="#section2">상세 스펙</a></li>
+        <li role="presentation"><a href="#section3">구매 확인사항</a></li>
+        <li role="presentation"><a href="#section4">인플루언서 정보</a></li>
+      </ul>
+      <div class="col-md-12 no-gap" id="section2">
+        <table class="tbl_basic tbl_type_basic">
+          <h5 class="product_header">상세 스펙</h5>
+  				<tbody>
+  					<tr class="fir">
+  						<th>제조</th>
+  						<td>KREATIVE</td>
+              <th>사이즈</th>
+              <td>15ml</td>
+  					</tr>
+  					<tr>
+  						<th>무게</th>
+  						  <td>110g
+  						  </td>
+              <th>
+                재질
+              </th>
+                <td>
+                  soy golden wax, fragrance oil
+                </td>
+  					</tr>
+  			  </tbody>
+    		</table>
+      </div><!-- #section2 -->
+      <ul class="nav nav-tabs">
+        <li role="presentation"><a href="#section1">상품정보</a></li>
+        <li role="presentation"><a href="#section2">상세 스펙</a></li>
+        <li role="presentation" class="active"><a href="#section3">구매 확인사항</a></li>
+        <li role="presentation"><a href="#section4">인플루언서 정보</a></li>
+      </ul>
+      <div class="col-md-12 no-gap" id="section3">
+        <div class="col-md-6">
+          <div class="col-md-12">
+            <h1 class="product_header">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
+              </span>결제 및 배송 관련 문의
+            </h1>
+            <p class="product_par">
+              결제관련 문의사항이 있다면 contact@trd.st로 연락주시기 바랍니다.<br><br>
+                <ul>
+                  <li>배송문의 : 02-1588-5353 (CJ택배)</li>
+                  <li>배송문의 : 02-1588-2121 (현대택배)</li>
+                  <li>배송문의 : 02-1588-1300 (EMS)</li>
+                  <li>배송문의 : 02-1588-0011 (한진택배)</li>
+                  <li>배송문의 : 02-1588-1255 (대한통운)</li>
+                </ul>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="col-md-12">
+            <h1 class="product_header">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-undo fa-stack-1x fa-inverse"></i>
+              </span>
+              교환 및 환불 관련 문의</h1>
+              <p class="product_par">
+                상품을 구입해주시는 고객여러분게 감사의 말씀을 드립니다.<br>
+                트렌디스트에서는 상품의 문제가 있을 경우 교환이 가능합니다.<br>
+                하지만 원활한 운영을 위하여 아래와 같은 규칙을 꼭 지켜주시기 바랍니다.
+              </p>
+                <ul>
+                  <li>상품에 이상이 있을 경우 상품을 받은 후 2일 이내에 교환 신청을 해야
+                  교환 하실 수 있습니다.</li>
+                  <li>고객의 부주의로 인한 상품의 변형, 훼손 또는 파손된 경우
+                  교환이 불가합니다.</li>
+                  <li>고객의 단순변심으로 인한 교환요청의 경우 교환이 불가합니다.</li>
+                  <li>내부 상품 파손이 아닌 패키지의 약간의 구겨짐 및 손상에 대해서는
+                  교환이 불가능 합니다.</li>
+                </ul>
+              <p class="product_par">
+                교환에 관하여 문의 사항이 있으신 분은 아래의 연락처로 연락주시기 바랍니다.
+              </p>
+                <ul>
+                  <li>종합 상담 : contact@trd.st</li>
+                  <li>보내는 주소 : 서울특별시 서초구 효령로14마길 32-4 2층(방배동)</li>
+                </ul>
+          </div>
+        </div>
+      </div><!-- #section3 -->
+      <ul class="nav nav-tabs">
+        <li role="presentation"><a href="#section1">상품정보</a></li>
+        <li role="presentation"><a href="#section2">상세 스펙</a></li>
+        <li role="presentation"><a href="#section3">구매 확인사항</a></li>
+        <li role="presentation" class="active"><a href="#section4">인플루언서 정보</a></li>
+      </ul>
+      <div class="col-md-12 no-gap" id="section4">
+        <div class="col-md-9 no-gap" style="margin-top:30px;">
+          <div class="col-md-2">
+            <%= image_tag "http://www.ygeshop.com/design/ygnext/wib/top/ygshop_logo.png", style: "width:100px;height:75px;margin-top:15px;", alt: "" %>
+          </div>
+          <div class="col-md-10 no-gap">
+            <h3 class="product">Trd_이하이</h3>
+            <p class="detail">
+              Trd_이하이의 트랜디스트 라이프스타일 스토어입니다.
+            </p>
+            <p class="detail">
+            http://trd.st/leehi <a href="#" class="inf_link">주소 복사</a>
+            </p>
+          </div>
+
+        </div>
+        <div class="col-md-3" style="margin-top:30px;">
+          <p class="detail">
+            <i class="fa fa-star"></i> 주간 인플루언서 랭킹 4위 2 <span class="fa fa-caret-up" style="color:red"></span>
+          </p>
+          <p class="detail">
+            <i class="fa fa-line-chart"></i> 판매지수 8,829 / 유입지수 42,991
+          </p>
+          <p class="detail">
+            <i class="fa fa-shopping-bag"></i> 판매 중인 딜 수 16개
+          </p>
+        </div>
+      </div>
+    </div><!-- .product_detail -->
+  </div>
+</div>
+
+<script type="text/javascript">
+// product 스크롤
+function scroll_if_anchor(href) {
+    href = typeof(href) == "string" ? href : $(this).attr("href");
+
+    // You could easily calculate this dynamically if you prefer
+    var fromTop = 155;
+
+    // If our Href points to a valid, non-empty anchor, and is on the same page (e.g. #foo)
+    // Legacy jQuery and IE7 may have issues: http://stackoverflow.com/q/1593174
+    if(href.indexOf("#") == 0) {
+        var $target = $(href);
+
+        // Older browser without pushState might flicker here, as they momentarily
+        // jump to the wrong position (IE < 10)
+        if($target.length) {
+            $('html, body').animate({ scrollTop: $target.offset().top - fromTop });
+            if(history && "pushState" in history) {
+                history.pushState({}, document.title, window.location.pathname + href);
+                return false;
+            }
+        }
+    }
+}
+
+// When our page loads, check to see if it contains and anchor
+scroll_if_anchor(window.location.hash);
+
+// Intercept all anchor clicks
+$("body").on("click", "a", scroll_if_anchor);
+</script>
