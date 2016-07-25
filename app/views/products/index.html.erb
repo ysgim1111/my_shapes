@@ -25,32 +25,32 @@
         <div class="carousel-inner" role="listbox">
 
           <div class="item active">
-            <%= image_tag("002.jpg", alt: "Chania", style: "width:100%") %>
-            <div class="carousel-caption">
+            <%= image_tag("product_main_1.png", alt: "", style: "width:100%") %>
+            <div class="carousel-caption invisible">
               <h3>Chania</h3>
               <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
             </div>
           </div>
 
           <div class="item">
-            <%= image_tag("003.jpg", alt: "Chania", style: "width:100%") %>
-            <div class="carousel-caption">
+            <%= image_tag("product_main_2.png", alt: "Chania", style: "width:100%") %>
+            <div class="carousel-caption invisible">
               <h3>Chania</h3>
               <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
             </div>
           </div>
 
           <div class="item">
-            <%= image_tag("002.jpg", alt: "Flower", style: "width:100%") %>
-            <div class="carousel-caption">
+            <%= image_tag("product_main_3.png", alt: "Flower", style: "width:100%") %>
+            <div class="carousel-caption invisible">
               <h3>Flowers</h3>
               <p>Beatiful flowers in Kolymbari, Crete.</p>
             </div>
           </div>
 
           <div class="item">
-            <%= image_tag("005.jpg", alt: "Flower", style: "width:100%") %>
-            <div class="carousel-caption">
+            <%= image_tag("product_main_4.png", alt: "Flower", style: "width:100%") %>
+            <div class="carousel-caption invisible">
               <h3>Flowers</h3>
               <p>Beatiful flowers in Kolymbari, Crete.</p>
             </div>
@@ -82,42 +82,7 @@
       </div>
       <% end %>
     <% end %>
-
-    <div class="col-md-6 card_guide no-gap">
-      <div class="col-md-5">
-        <%= image_tag("https://placeholdit.imgix.net/~text?txtsize=23&txt=250%C3%97250&w=250&h=250", alt: "", style: "width:100%") %>
-      </div>
-      <div class="col-md-7 no-gap">
-        <h3 class="product"> 문지르지 않아도 되는 수분 보습 각질제거팩</h3>
-        <p class="price">12,000 won
-        </p>
-        <p class="detail">
-          튼튼하며, 피고, 청춘이 곧 피부가 대중을 봄바람이다. 그들은 날카로우니 튼튼하며, 피고, 청춘이 곧 피부가 대중을 봄바람이다. 튼튼하며, 피고, 청춘이 곧 피부가 대중을 봄바람이다.
-        </p>
-        <div class="">
-          <a href="#"><%= image_tag("icon_btn_cart.png", alt: "") %></a>
-          <a href="#"><%= image_tag("icon_btn_wish_list.png", alt: "") %></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-6 card_guide no-gap">
-      <div class="col-md-5">
-        <%= image_tag("https://placeholdit.imgix.net/~text?txtsize=23&txt=250%C3%97250&w=250&h=250", alt: "", style: "width:100%") %>
-      </div>
-      <div class="col-md-7 no-gap">
-        <h3 class="product"> 문지르지 않아도 되는 수분 보습 각질제거팩</h3>
-        <p class="price">12,000 won
-        </p>
-        <p class="detail">
-          튼튼하며, 피고, 청춘이 곧 피부가 대중을 봄바람이다. 그들은 날카로우니 튼튼하며, 피고, 청춘이 곧 피부가 대중을 봄바람이다. 튼튼하며, 피고, 청춘이 곧 피부가 대중을 봄바람이다.
-        </p>
-        <div class="">
-          <a href="#"><%= image_tag("icon_btn_cart.png", alt: "") %></a>
-          <a href="#"><%= image_tag("icon_btn_wish_list.png", alt: "") %></a>
-        </div>
-      </div>
-    </div>
+    <%= render 'products_list' %>
   </div>
 </div>
 <%= render "image_setting" %>

@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     get :about, on: :collection
     get :recruit, on: :collection
     get :complete, on: :collection
+    get :purchases_ready, on: :collection
+    get :purchases_complete, on: :collection
     post :email_send, on: :collection
     get :product1, on: :collection
   end

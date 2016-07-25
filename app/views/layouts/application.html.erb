@@ -18,75 +18,17 @@
   <![endif]-->
   <%= csrf_meta_tags %>
   <script src="https://use.fontawesome.com/1dbbdbff8d.js"></script>
+  <style media="screen">
+
+  </style>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar">
-  <nav class="navbar navbar-default navbar-fixed-top mega navbar-trans navbar-fw neon" style="z-index:10;">
-    <ul class="nav nav-pills nav-justified" style="font-size: 14px; width: 300px; margin: auto; left: 0; right: 40px; position: fixed; z-index: 11; top: 15px; line-height: 16px; ">
-      <li> <%= link_to "DEALS", products_path %></li>
-      <li> <%= link_to "INFLUENCERS", influences_path %></li>
-      <li> <%= link_to "ABOUT", about_products_path %></li>
-    </ul>
-    <div class="navbar-header page-scroll">
-      <button id="nav_toggle_visibility" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" style="border:#f8f8f8;background:#f8f8f8">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <!-- Logo -->
-      <a class="navbar-brand" id="nav_main" style="cursor:pointer;"><img style="width:40px;" class="navbar-logo" src="<%= image_url('logo_desktop.png') %>"><img style="width:40px;" class="navbar-logo_trans" src="<%= image_url('logo_w1_1.png') %>"></a>
-      <a class="navbar-brand navbar-brand_mb" id="navbar-brand_mb" style="cursor:pointer;line-height:40px;padding-top:5px;">
-        <div>
-          ABOUT
-          <div style="margin-top: -7px;margin-bottom:0px;">
-            <hr>
-          </div>
-        </div>
-        <div>
-          <img src="<%=image_url('util_btn_1.png')%>" style="display:inline-block" alt="" />
-          <img src="<%=image_url('util_btn_up_1.png')%>" style="display:inline-block" alt="" />
-        </div>
-      </a>
-    </div>
-
-    <!-- Navbar Links -->
-    <div id="nav_close" class="navbar-collapse collapse page-scroll navbar-right" style="margin-right:0px;">
-      <ul class="nav navbar-nav">
-        <li class="invisible"><a href="#"><img class="nav_off_scroll_1" src="<%= image_url('icn_search_1.png') %>" alt=""><img class="nav_off_scroll_1_trans" src="<%= image_url('icn_search_2.png') %>" alt=""></a></li>
-      <li><a href="<%= wishlist_items_path %>"><img src="<%= image_url('icn_wish_1.png') %>" class="nav_off_scroll_2" alt=""><img src="<%= image_url('icn_wish_2.png') %>" class="nav_off_scroll_2_trans" alt=""></a></li>
-        <li><a href="<%= shopping_items_path %>"><img class="nav_off_scroll_3" src="<%= image_url('icn_cart_1.png') %>"alt=""><img class="nav_off_scroll_3_trans" src="<%= image_url('icn_cart_2.png') %>"alt=""></a></li>
-       <% if user_signed_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "My Profile", edit_user_registration_path %></li>
-              <li><%= link_to "주문내역", purchases_path %></li>
-              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %></li>
-            </ul>
-          </li>
-        <% else %>
-          <li class="session"><%= link_to "Sign in", new_user_session_path %></li>
-          <li class="session"><%= link_to "Sign up", new_user_registration_path %></li>
-        <% end %>
-        <li>
-          <%= link_to "#", id: "main_profile" do %>
-            <%= image_tag "influencer_sample.jpg", alt: "" %>
-          <% end %>
-        </li>
-      </ul><!-- / .nav .navbar-nav -->
-    </div><!--/.navbar-collapse -->
-
-    <div id="nav_mb_menu" class="navbar-collapse collapse page-scroll navbar-right navbar-collapse_mb_left" style="margin-right:0px;">
-      <ul class="nav navbar-nav">
-        <!--<li> <%= link_to "DEALS", products_path %></li>
-        <li> <%= link_to "INFLUENCERS", influences_path %></li> -->
-        <li> <%= link_to "ABOUT", about_products_path %></li>
-      </ul><!-- / .nav .navbar-nav -->
-    </div><!--/.navbar-collapse -->
-
-  </nav><!-- / .navbar -->
-
+  <% if params[:action] == "about" || params[:action] == "recruit" || params[:action] == "complete"%>
+    <%= render "/layouts/about_nav" %>
+  <% else %>
+    <%= render "/layouts/ordinary_nav" %>
+  <% end %>
     <%= render partial: "shared/flash_messages", flash: flash %>
 
     <%= yield %>
