@@ -1,0 +1,113 @@
+<div class="col-md-12 main_center_image no-gap">
+  <div class="main_logo_div">
+    <%= image_tag "logo_desktop.png", class: "main_logo" %>
+  </div>
+  <div class="main_service">
+    <%= link_to "DEALS", products_path, class: "menu_first active" %>
+    <%= link_to "INFLUENCERS", influences_path, class: "menu_second" %>
+    <%= link_to "ABOUT", about_products_path, class: "menu_third" %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row" style="padding-bottom:50px;">
+    <div class="col-md-12">
+      <div class="text-center" style="padding-top:50px;">
+        <img src="<%= image_url('about_sublogo_b.png') %>" alt=""/>
+        <h1 style="font-family: 'Noto Sans KR', sans-serif;margin-bottom:40px;font-weight:inherit" class="complete_head text-center">결제가 완료되었습니다</h1>
+      </div>
+      <div class="col-md-6 col-md-offset-3 card_guide no-gap">
+        <div class="col-md-5">
+          <%= image_tag("http://www.ygeshop.com/shopimages/ygnext/002010000013.jpg", alt: "", style: "width:100%") %>
+        </div>
+        <div class="col-md-7 no-gap">
+          <h3 class="product">[SEOULITE] LEEHI BALLCAP</h3>
+          <p class="price">35,000 won
+          </p>
+          <p class="detail">
+            이하이 MD의 신규 굿즈 1 - LEEHI BALLCAP
+          </p>
+        </div>
+      </div>
+      <div class="col-md-12 no-gap">
+        <table class="tbl_basic tbl_type_basic">
+          <h5 class="product_header">결제 정보</h5>
+          <tbody>
+            <tr class="fir">
+              <th>주소</th>
+              <td>서울시 강남구 삼성동</td>
+              <th>우편번호</th>
+              <td>123-456</td>
+            </tr>
+            <tr>
+              <th>구매자명</th>
+              <td><%= current_user.name %></td>
+              <th>상품명</th>
+              <td>[SEOULITE] LEEHI BALLCAP</td>
+            </tr>
+            <tr>
+              <th>
+                결제방식
+              </th>
+              <td>
+                신용카드
+              </td>
+              <th>결제금액</th>
+              <td>17,000원</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-12 no-gap">
+        <h5 class="product_header">LEEHI님의 다른 상품</h5>
+      </div>
+      <div class="col-md-6 card_guide no-gap">
+        <div class="col-md-5">
+          <%= image_tag("http://www.ygeshop.com/shopimages/ygnext/0020100000102.jpg?07181656", alt: "", style: "width:100%") %>
+        </div>
+        <div class="col-md-7 no-gap">
+          <h3 class="product">[SEOULITE] LEEHI T-SHIRTS</h3>
+          <p class="price">28,000 won
+          </p>
+          <p class="detail">
+            이하이 MD의 신규 굿즈 2 - LEEHI T-SHIRTS
+          </p>
+          <div class="">
+            <a href="#"><%= image_tag("icon_btn_cart.png", alt: "") %></a>
+            <a href="#"><%= image_tag("icon_btn_wish_list.png", alt: "") %></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 card_guide no-gap">
+        <div class="col-md-5">
+          <%= image_tag("http://www.ygeshop.com/shopimages/ygnext/0020100000112.jpg?07181656", alt: "", style: "width:100%") %>
+        </div>
+        <div class="col-md-7 no-gap">
+          <h3 class="product">[SEOULITE] LEEHI ECOBAG</h3>
+          <p class="price">25,000 won
+          </p>
+          <p class="detail">
+            이하이 MD의 신규 굿즈 3 - LEEHI ECOBAG
+          </p>
+          <div class="">
+            <a href="#"><%= image_tag("icon_btn_cart.png", alt: "") %></a>
+            <a href="#"><%= image_tag("icon_btn_wish_list.png", alt: "") %></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6" style="padding-left:0px;margin-top:15px;">
+          <a href="#" class="btn btn-default" style="width:100%;background-color: #212121;
+width: 100%;
+color: #ffffff;
+padding: 10px 15px;"><i class="fa fa-user"></i> 마이페이지</a>
+      </div>
+      <div class="col-md-6" style="padding-right:0px;margin-top:15px;">
+          <a href="/products/index" class="btn btn-default" style="width:100%;padding: 10px 15px;"><i class="fa fa-undo"></i> 메인으로</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%= render "image_setting" %>
