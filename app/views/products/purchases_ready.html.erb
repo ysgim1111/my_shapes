@@ -34,21 +34,21 @@
         <tbody>
           <tr class="fir">
             <th>주소</th>
-            <td>서울시 강남구 삼성동</td>
+            <td><input type="text" name="address" id="address" value="서울시 강남구 삼성동"/></td>
             <th>우편번호</th>
-            <td>123-456</td>
+            <td><input type="text" name="postcode" id="postcode" value="123-456"/></td>
           </tr>
           <tr>
             <th>전화번호</th>
-            <td>010-5555-5555</td>
+            <td><input type="text" name="phone" id="phone" value="010-5555-5555"/></td>
             <th>email</th>
-            <td><%= current_user.email %></td>
+            <td><input type="text" name="email" id="email" value="jamie@trd.st"/></td>
           </tr>
           <tr>
             <th>이름</th>
-            <td><%= current_user.name %></td>
+            <td><input type="text" name="name" id="name" value="홍길동"/></td>
             <th>상품명</th>
-            <td>[SEOULITE] LEEHI BALLCAP</td>
+            <td><input type="text" name="product" id="product" value="결제테스트 - 구매"/></td>
           </tr>
           <tr>
             <th>
@@ -58,12 +58,12 @@
               <%= select_tag "pay_method","<option value='card'>신용카드</option><option value='trans'>실시간계좌이체</option><option value='vbank'>가상계좌</option><option value='phone'>휴대폰소액결제</option>".html_safe %>
             </td>
             <th>결제금액</th>
-            <td>17,000원</td>
+            <td><input type="text" name="price" id="price" value="1000"/>원</td>
           </tr>
         </tbody>
       </table>
       <div class="col-md-6" style="padding-left:0px;margin-top:15px;">
-          <a href="#" class="btn btn-default" style="width:100%;background-color: #212121;
+          <a href="#" id="buyBtn" class="btn btn-default" style="width:100%;background-color: #212121;
 width: 100%;
 color: #ffffff;
 padding: 10px 15px;"><i class="fa fa-check"></i> 구매</a>
@@ -75,10 +75,9 @@ padding: 10px 15px;"><i class="fa fa-check"></i> 구매</a>
   </div>
 </div>
 
-
 <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.1.js"></script>
 <script type="text/javascript">
-  $(document).on('click', 'button#buyBtn', function() {
+  $(document).on('click', '#buyBtn', function() {
     var IMP = window.IMP;
     IMP.init('imp21979455');
 
@@ -107,7 +106,7 @@ padding: 10px 15px;"><i class="fa fa-check"></i> 구매</a>
               method: 'post',
               data: rsp
             }).done(function(res) {
-              location.href = '/purchases';
+              location.href = '/products/purchases_complete';
             });
         } else {
             var msg = '결제에 실패하였습니다.';

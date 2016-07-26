@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    redirect_to "/products/product#{params[:id]}"
   end
 
   def about
