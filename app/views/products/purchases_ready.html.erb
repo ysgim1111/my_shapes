@@ -106,7 +106,7 @@ padding: 10px 15px;"><i class="fa fa-check"></i> 구매</a>
               method: 'post',
               data: rsp
             }).done(function(res) {
-              location.href = '/products/purchases_ready?product_id=' + '<%= @product.id %>' + '&buyer_addr=' + res.buyer_addr + '&buyer_postcode=' + res.buyer_postcode + '&pay_method=' + res.pay_method + '&buyer_name=' + res.buyer_name;
+              location.href = '/products/purchases_complete?product_id=' + '<%= @product.id %>' + '&buyer_addr=' + res.buyer_addr + '&buyer_postcode=' + res.buyer_postcode + '&pay_method=' + res.pay_method + '&buyer_name=' + res.buyer_name;
             });
         } else {
             var msg = '결제에 실패하였습니다.';
