@@ -13,14 +13,14 @@
   <div class="row" style="padding-bottom:50px;">
     <div class="col-md-6 col-md-offset-3 card_guide no-gap">
       <div class="col-md-5">
-        <%= image_tag("http://www.ygeshop.com/shopimages/ygnext/002010000013.jpg", alt: "", style: "width:100%") %>
+        <%= image_tag(@product.image_url, alt: "", style: "width:100%") %>
       </div>
       <div class="col-md-7 no-gap">
-        <h3 class="product">[SEOULITE] LEEHI BALLCAP</h3>
-        <p class="price">35,000 won
+        <h3 class="product"><%= @product.name %></h3>
+        <p class="price"><%= @product.price %> won
         </p>
         <p class="detail">
-          이하이 MD의 신규 굿즈 1 - LEEHI BALLCAP
+          <%= @product.desc %>
         </p>
         <div class="">
           <a href="#"><%= image_tag("icon_btn_cart.png", alt: "") %></a>
@@ -34,21 +34,21 @@
         <tbody>
           <tr class="fir">
             <th>주소</th>
-            <td><input type="text" name="address" id="address" value="서울시 강남구 삼성동"/></td>
+            <td><input type="text" name="address" id="address" value="" placeholder="배송지를 입력해주세요" /></td>
             <th>우편번호</th>
-            <td><input type="text" name="postcode" id="postcode" value="123-456"/></td>
+            <td><input type="text" name="postcode" id="postcode" value=""/></td>
           </tr>
           <tr>
             <th>전화번호</th>
-            <td><input type="text" name="phone" id="phone" value="010-5555-5555"/></td>
+            <td><input type="text" name="phone" id="phone" value=""/></td>
             <th>email</th>
-            <td><input type="text" name="email" id="email" value="jamie@trd.st"/></td>
+            <td><input type="text" name="email" id="email" value=""/></td>
           </tr>
           <tr>
             <th>이름</th>
-            <td><input type="text" name="name" id="name" value="홍길동"/></td>
+            <td><input type="text" name="name" id="name" value=""/></td>
             <th>상품명</th>
-            <td><input type="text" name="product" id="product" value="결제테스트 - 구매"/></td>
+            <td><input type="text" name="product" id="product" value="<%= @product.name %>" readonly=true/></td>
           </tr>
           <tr>
             <th>
@@ -58,7 +58,7 @@
               <%= select_tag "pay_method","<option value='card'>신용카드</option><option value='trans'>실시간계좌이체</option><option value='vbank'>가상계좌</option><option value='phone'>휴대폰소액결제</option>".html_safe %>
             </td>
             <th>결제금액</th>
-            <td><input type="text" name="price" id="price" value="1000"/>원</td>
+            <td><input type="text" name="price" id="price" value="<%= @product.price %>" readonly=true/>원</td>
           </tr>
         </tbody>
       </table>
@@ -106,7 +106,7 @@ padding: 10px 15px;"><i class="fa fa-check"></i> 구매</a>
               method: 'post',
               data: rsp
             }).done(function(res) {
-              location.href = '/products/purchases_complete';
+              location.href = '/products/purchases_ready?product_id=' + '<%= @product.id %>' + '&buyer_addr=' + res.buyer_addr + '&buyer_postcode=' + res.buyer_postcode + '&pay_method=' + res.pay_method + '&buyer_name=' + res.buyer_name;
             });
         } else {
             var msg = '결제에 실패하였습니다.';

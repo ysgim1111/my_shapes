@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160724082338) do
+ActiveRecord::Schema.define(version: 20160726225054) do
 
   create_table "influence_products", force: :cascade do |t|
     t.integer  "influence_id"
@@ -32,6 +32,11 @@ ActiveRecord::Schema.define(version: 20160724082338) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "order_sheets", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "name",       default: "",   null: false
     t.string   "desc"
@@ -39,6 +44,7 @@ ActiveRecord::Schema.define(version: 20160724082338) do
     t.boolean  "enable",     default: true, null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "image_url"
   end
 
   create_table "purchase_lists", force: :cascade do |t|
@@ -100,6 +106,14 @@ ActiveRecord::Schema.define(version: 20160724082338) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
 
+  create_table "shopping_baskets", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "shopping_baskets", ["user_id"], name: "index_shopping_baskets_on_user_id"
+
   create_table "shopping_items", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "user_id"
@@ -152,5 +166,10 @@ ActiveRecord::Schema.define(version: 20160724082338) do
 
   add_index "wishlist_items", ["product_id"], name: "index_wishlist_items_on_product_id"
   add_index "wishlist_items", ["user_id"], name: "index_wishlist_items_on_user_id"
+
+  create_table "wishlists", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

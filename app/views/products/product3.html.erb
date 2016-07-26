@@ -66,9 +66,9 @@
         <p>
           Lee Hi
         </p>
-        <h2 style="margin-top:5px;border-bottom:1px solid #777777;padding-bottom:5px;">[SEOULITE] LEEHI ECOBAG</h2>
+        <h2 style="margin-top:5px;border-bottom:1px solid #777777;padding-bottom:5px;"><%= @product.name %></h2>
 
-        <h2>25,000원</h2>
+        <h2><%= @product.price %>원</h2>
         <div class="controlgroup-vertical">
           <select>
             <option>옵션 : 없음</option>
@@ -76,7 +76,7 @@
           <hr style="border:1px solid #777777">
           <input id="vertical-spinner" class="ui-spinner-input" placeholder="1">
           <div class="col-md-6" style="padding-left:0px;margin-top:15px;">
-              <a href="<%= ready_purchases_path(product_id: 3) %>" class="btn btn-default" style="width:100%;background-color: #212121;
+              <a href="<%= purchases_ready_products_path(product_id: 3) %>" class="btn btn-default" style="width:100%;background-color: #212121;
     width: 100%;
     color: #ffffff;
     padding: 10px 15px;"><i class="fa fa-check"></i> 구매</a>

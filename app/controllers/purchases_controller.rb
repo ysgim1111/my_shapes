@@ -10,7 +10,7 @@ class PurchasesController < ApplicationController
 
   def ready
     # @shopping_items = ShoppingItem.where(user_id: current_user)
-    # @product = Product.find(params[:product_id])
+    @product = Product.find(params[:product_id])
     redirect_to "/products/purchases_ready"
   end
 

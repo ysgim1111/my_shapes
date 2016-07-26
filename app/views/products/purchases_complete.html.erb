@@ -18,14 +18,14 @@
       </div>
       <div class="col-md-6 col-md-offset-3 card_guide no-gap">
         <div class="col-md-5">
-          <%= image_tag("http://www.ygeshop.com/shopimages/ygnext/002010000013.jpg", alt: "", style: "width:100%") %>
+          <%= image_tag(@product.image_url, alt: "", style: "width:100%") %>
         </div>
         <div class="col-md-7 no-gap">
-          <h3 class="product">[SEOULITE] LEEHI BALLCAP</h3>
-          <p class="price">35,000 won
+          <h3 class="product"><%= @product.name %></h3>
+          <p class="price"><%= @product.price %> won
           </p>
           <p class="detail">
-            이하이 MD의 신규 굿즈 1 - LEEHI BALLCAP
+            <%= @product.desc %>
           </p>
         </div>
       </div>
@@ -35,25 +35,25 @@
           <tbody>
             <tr class="fir">
               <th>주소</th>
-              <td>서울시 강남구 삼성동</td>
+              <td><%= params[:buyer_addr] %></td>
               <th>우편번호</th>
-              <td>123-456</td>
+              <td><%= params[:buyer_postcode] %></td>
             </tr>
             <tr>
               <th>구매자명</th>
-              <td></td>
+              <td><%= params[:buyer_name] %></td>
               <th>상품명</th>
-              <td>[SEOULITE] LEEHI BALLCAP</td>
+              <td><%= @product.name %></td>
             </tr>
             <tr>
               <th>
                 결제방식
               </th>
               <td>
-                신용카드
+                <%= params[:pay_method] %>
               </td>
               <th>결제금액</th>
-              <td>17,000원</td>
+              <td><%= @product.price %>원</td>
             </tr>
           </tbody>
         </table>
