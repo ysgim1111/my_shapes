@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users do
-
-    get :facebook_login, to: 'devise/sessions#facebook_login', as: :facebook_login
+  devise_for :users
+  devise_scope :user do
+    post 'facebook' => 'users/socials#facebook'
   end
 
   root 'products#index'
