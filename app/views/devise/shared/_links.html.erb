@@ -1,8 +1,3 @@
-<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true" data-scope="public_profile,email"></div>
-<div id="status">
-</div>
-<hr/>
-
 <%- if controller_name != 'sessions' %>
   <%= link_to "Log in", new_session_path(resource_name) %><br />
 <% end -%>
@@ -30,65 +25,3 @@
 <% end -%>
 
 
-<script>
-  function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-
-    if (response.status === 'connected') {
-      sendUserAccessInfo(response.authResponse);
-    } else if (response.status === 'not_authorized') {
-      document.getElementById('status').innerHTML = 'Please merge ' + 'into this app.';
-    } else {
-      document.getElementById('status').innerHTML = 'Please log ' + 'into Facebook.';
-    }
-  }
-
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  }
-
-  function sendUserAccessInfo(response) {
-    console.log('Welcome!  Fetching your information.... ');
-
-    FB.api('/me?fields=id,name,first_name,last_name,email,gender', function(userInfo) {
-      console.log(userInfo);
-
-      if (userInfo.hasOwnProperty('email')) {
-        $.ajax({
-          url: '/facebook',
-          method: 'post',
-          data: userInfo
-        }).done(function() {
-          location.reload();
-        });
-      } else {
-        console.log('not permited email');
-      }
-    });
-  }
-
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1751254675150181',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v2.2'
-    });
-
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  };
-
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/ko_KR/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>

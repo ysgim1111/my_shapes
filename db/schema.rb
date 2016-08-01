@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160801030245) do
+ActiveRecord::Schema.define(version: 20160801065253) do
+
+  create_table "desinations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "receiver",             null: false
+    t.integer  "postcode",             null: false
+    t.string   "address_number"
+    t.string   "address_number_other"
+    t.string   "address_road"
+    t.string   "address_road_other"
+    t.string   "phone_number",         null: false
+    t.string   "tel"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "desinations", ["user_id"], name: "index_desinations_on_user_id"
 
   create_table "influence_products", force: :cascade do |t|
     t.integer  "influence_id"
@@ -33,13 +49,16 @@ ActiveRecord::Schema.define(version: 20160801030245) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name",       default: "",   null: false
+    t.string   "name",              default: "",   null: false
     t.string   "desc"
-    t.integer  "price",      default: 0,    null: false
-    t.boolean  "enable",     default: true, null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "price",             default: 0,    null: false
+    t.boolean  "enable",            default: true, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "image_url"
+    t.integer  "discount"
+    t.integer  "shipping_expenses"
+    t.integer  "view_type",         default: 0,    null: false
   end
 
   create_table "purchase_lists", force: :cascade do |t|

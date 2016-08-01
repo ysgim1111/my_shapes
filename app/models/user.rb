@@ -7,19 +7,15 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable#, :omniauthable, omniauth_providers: [:facebook]
 
   has_many :purchase_lists, dependent: :destroy
+  has_many :destinations, dependent: :destroy
 
   def self.find_for_facebook_oauth(auth)
-    user = where(email: auth["email"]).first_or_create do |user|
-      user.provider = "facebook"
-      user.social_uid = auth["id"]
+    user = where(provider: "facebook", social_uid: auth["id"]).first_or_create do |user|
+      user.email = auth["email"]
       user.password = Devise.friendly_token[0,20]
       user.name = auth["name"]
       user.skip_confirmation!
     end
-
-    user.provider = "facebook" if user.provider.blank?
-    user.social_uid = auth["id"] if user.social_uid.blank?
-    user.save
   end
 
   def self.new_with_session(params, session)

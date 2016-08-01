@@ -1,5 +1,6 @@
 class PurchasesController < ApplicationController
-
+  before_filter :authenticate_user!
+  
   def index
     @purchase_lists = current_user.purchase_lists
   end
