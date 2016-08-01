@@ -45,7 +45,30 @@
       </div>
     </div>
 
-    <%= render 'products_list' %>
+    <!-- 스팟상품 -->
+    <% @products.where(view_type: Product.view_types[:regular]).each do |product| %>
+      <div class="col-md-6 card_guide no-gap">
+        <div class="col-md-5">
+          <%= link_to product_path(product), style: "text-decoration:none" do %>
+            <%= image_tag(product.image_url, alt: "", style: "width:100%") %>
+          <% end %>
+        </div>
+        <div class="col-md-7 no-gap">
+          <%= link_to product_path(product), style: "text-decoration:none" do %>
+            <h3 class="product"><%= product.name %></h3>
+            <p class="price"><%= product.price %> won
+            </p>
+            <p class="detail">
+              <%= product.desc %>
+            </p>
+          <% end %>
+          <div class="">
+            <a href="#"><%= image_tag("icon_btn_cart.png", alt: "") %></a>
+            <a href="#"><%= image_tag("icon_btn_wish_list.png", alt: "") %></a>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 <%= render "image_setting" %>
