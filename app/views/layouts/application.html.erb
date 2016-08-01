@@ -26,6 +26,8 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar">
   <% if params[:action] == "about" || params[:action] == "recruit" || params[:action] == "complete"%>
     <%= render "/layouts/about_nav" %>
+  <% elsif params[:controller] == "products" && params[:action] == "index" %>
+    <%= render "/layouts/main_nav" %>
   <% else %>
     <%= render "/layouts/ordinary_nav" %>
   <% end %>
