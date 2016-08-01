@@ -45,6 +45,18 @@
       </div>
     </div>
 
+    <% @products.where(view_type: Product.view_types[:deal_upper]).each do |product| %>
+    <div class="col-md-12 main_sub_image_first">
+    </div>
+    <% end %>
+
+    <% @products.where(view_type: Product.view_types[:deal]).each do |product| %>
+    <div class="col-md-6 main_sub_image">
+      <div class="col-md-12">
+      </div>
+    </div>
+    <% end %>
+
     <!-- 스팟상품 -->
     <% @products.where(view_type: Product.view_types[:regular]).each do |product| %>
       <div class="col-md-6 card_guide no-gap">
