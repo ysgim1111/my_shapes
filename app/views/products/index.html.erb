@@ -15,47 +15,22 @@
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-          <li id="carousel_1" data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li id="carousel_2" data-target="#myCarousel" data-slide-to="1"></li>
-          <li id="carousel_3" data-target="#myCarousel" data-slide-to="2"></li>
-          <li id="carousel_4" data-target="#myCarousel" data-slide-to="3"></li>
+          <% @products.where(view_type: Product.view_types[:main]).each_with_index do |product, i| %>
+            <li id="carousel_<%= i + 1 %>" data-target="#myCarousel" data-slide-to="<%= i %>" class="<%= i == 0 ? 'active' : '' %>"></li>
+          <% end %>
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-
-          <div class="item active">
-            <%= image_tag("product_main_1.png", alt: "", style: "width:100%") %>
+          <% @products.where(view_type: Product.view_types[:main]).each_with_index do |product, i| %>
+          <div class="item <%= i == 0 ? 'active' : '' %>">
+            <%= image_tag(product.image_url, alt: product.name, style: "width:100%") %>
             <div class="carousel-caption invisible">
-              <h3>Chania</h3>
-              <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+              <h3><%= product.name %></h3>
+              <p><%= product.desc %></p>
             </div>
           </div>
-
-          <div class="item">
-            <%= image_tag("product_main_2.png", alt: "Chania", style: "width:100%") %>
-            <div class="carousel-caption invisible">
-              <h3>Chania</h3>
-              <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
-            </div>
-          </div>
-
-          <div class="item">
-            <%= image_tag("product_main_3.png", alt: "Flower", style: "width:100%") %>
-            <div class="carousel-caption invisible">
-              <h3>Flowers</h3>
-              <p>Beatiful flowers in Kolymbari, Crete.</p>
-            </div>
-          </div>
-
-          <div class="item">
-            <%= image_tag("product_main_4.png", alt: "Flower", style: "width:100%") %>
-            <div class="carousel-caption invisible">
-              <h3>Flowers</h3>
-              <p>Beatiful flowers in Kolymbari, Crete.</p>
-            </div>
-          </div>
-
+          <% end %>
         </div>
 
         <!-- Left and right controls -->
@@ -70,7 +45,42 @@
       </div>
     </div>
 
-    <%= render 'products_list' %>
+    <% @products.where(view_type: Product.view_types[:deal_upper]).each do |product| %>
+    <div class="col-md-12 main_sub_image_first">
+    </div>
+    <% end %>
+
+    <% @products.where(view_type: Product.view_types[:deal]).each do |product| %>
+    <div class="col-md-6 main_sub_image">
+      <div class="col-md-12">
+      </div>
+    </div>
+    <% end %>
+
+    <!-- 스팟상품 -->
+    <% @products.where(view_type: Product.view_types[:regular]).each do |product| %>
+      <div class="col-md-6 card_guide no-gap">
+        <div class="col-md-5">
+          <%= link_to product_path(product), style: "text-decoration:none" do %>
+            <%= image_tag(product.image_url, alt: "", style: "width:100%") %>
+          <% end %>
+        </div>
+        <div class="col-md-7 no-gap">
+          <%= link_to product_path(product), style: "text-decoration:none" do %>
+            <h3 class="product"><%= product.name %></h3>
+            <p class="price"><%= product.price %> won
+            </p>
+            <p class="detail">
+              <%= product.desc %>
+            </p>
+          <% end %>
+          <div class="">
+            <a href="#"><%= image_tag("icon_btn_cart.png", alt: "") %></a>
+            <a href="#"><%= image_tag("icon_btn_wish_list.png", alt: "") %></a>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 <%= render "image_setting" %>
