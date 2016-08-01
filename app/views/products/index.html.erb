@@ -15,48 +15,23 @@
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-          <li id="carousel_1" data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li id="carousel_2" data-target="#myCarousel" data-slide-to="1"></li>
-          <li id="carousel_3" data-target="#myCarousel" data-slide-to="2"></li>
-          <li id="carousel_4" data-target="#myCarousel" data-slide-to="3"></li>
+          <% @products.where(view_type: Product.view_types[:main]).each_with_index do |product, i| %>
+            <li id="carousel_<%= i + 1 %>" data-target="#myCarousel" data-slide-to="<%= i %>" class="<%= i == 0 ? 'active' : '' %>"></li>
+          <% end %>
         </ol>
 
+        <% @products.where(view_type: Product.view_types[:main]).each_with_index do |product, i| %>
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-
-          <div class="item active">
-            <%= image_tag("product_main_1.png", alt: "", style: "width:100%") %>
+          <div class="item <%= i == 0 ? 'active' : '' %>">
+            <%= image_tag(product.image_url, alt: product.name, style: "width:100%") %>
             <div class="carousel-caption invisible">
-              <h3>Chania</h3>
-              <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+              <h3><%= product.name %></h3>
+              <p><%= product.desc %></p>
             </div>
           </div>
-
-          <div class="item">
-            <%= image_tag("product_main_2.png", alt: "Chania", style: "width:100%") %>
-            <div class="carousel-caption invisible">
-              <h3>Chania</h3>
-              <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
-            </div>
-          </div>
-
-          <div class="item">
-            <%= image_tag("product_main_3.png", alt: "Flower", style: "width:100%") %>
-            <div class="carousel-caption invisible">
-              <h3>Flowers</h3>
-              <p>Beatiful flowers in Kolymbari, Crete.</p>
-            </div>
-          </div>
-
-          <div class="item">
-            <%= image_tag("product_main_4.png", alt: "Flower", style: "width:100%") %>
-            <div class="carousel-caption invisible">
-              <h3>Flowers</h3>
-              <p>Beatiful flowers in Kolymbari, Crete.</p>
-            </div>
-          </div>
-
         </div>
+        <% end %>
 
         <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
