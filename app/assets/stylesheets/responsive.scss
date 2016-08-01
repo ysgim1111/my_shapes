@@ -1,7 +1,36 @@
+@media (max-width: 667px) {
+  .sign_up .header{
+    font-size: 20px;
+    padding-left: 15px;
+    border-bottom: 2px solid #212121;
+    padding-bottom: 15px;
+    font-weight: 300;
+    margin-top: 100px;
+  }
+  .sign_up a:first-child > .well {
+    width:100%;
+    margin:auto;
+    margin-top:30px;
+  }
+  .sign_up .well {
+    width:100%;
+    margin:auto;
+    margin-top:20px;
+  }
+  .sign_up a:nth-child(2) > .well {
+    width:100%;
+    margin:auto;
+    margin-top:20px;
+  }
+}
+
 @media (max-width: 767px) {
   /*about starts*/
   .mb_line_break {
     display: block;
+  }
+  .mb_line_break_reverse {
+    display: none;
   }
   .second_section_mb_line_break_reverse {
     display: none;
@@ -103,5 +132,9 @@
   }
   .about_last_underline hr {
     width: 216px;
+  }
+  .sign_in .col-md-6:nth-child(2) {
+    padding: 0 15px !important;
+    border-right: none;
   }
 }

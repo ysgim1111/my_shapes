@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     get :complete, on: :collection
     get :purchases_ready, on: :collection
     get :purchases_complete, on: :collection
+    get :sign_up_before, on: :collection
+    get :sign_up_complete, on: :collection
     post :email_send, on: :collection
   end
 end
