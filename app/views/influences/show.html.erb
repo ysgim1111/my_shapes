@@ -1,22 +1,11 @@
-<div class="inf_nav_back">
-</div>
-
-<div class="col-md-12 main_center_image inf_center_image no-gap">
-  <div class="main_service">
-    <%= link_to "DEALS", products_path, class: "menu_first active" %>
-        <%= link_to "INFLUENCERS", influences_path, class: "menu_second" %>
-        <%= link_to "ABOUT", about_products_path, class: "menu_third" %>
-  </div>
-</div>
-
-<div class="container">
+<div class="container inf_profile">
   <div class="row">
-    <div class="col-md-9" style="margin-top:30px;">
+    <div class="col-md-9 inf_header" style="margin-top:30px;">
       <div class="col-md-2">
         <%= image_tag "influencer_sample.jpg", style: "border-radius:100%;width:100px;margin-top:15px;", alt: "" %>
       </div>
       <div class="col-md-10 no-gap">
-        <h3 class="product">이성경</h3>
+        <h3>이성경</h3>
         <p class="detail">
           이성경의의 트랜디스트 라이프스타일 스토어입니다.
         </p>
@@ -24,9 +13,8 @@
         http://trd.st/heybiblee <a href="#" class="inf_link">주소 복사</a>
         </p>
       </div>
-
     </div>
-    <div class="col-md-3" style="margin-top:60px;">
+    <div class="col-md-3 inf_header" style="margin-top:60px;">
       <p class="detail">
         주간 인플루언서 랭킹 4위 2 <span class="fa fa-caret-up" style="color:red"></span>
       </p>
@@ -38,49 +26,179 @@
       </p>
     </div>
     <div class="col-md-12 no-gap main_slide">
-      render 'image_slide'
+      <%=render 'image_slide_basic'%>
     </div>
-    <h3>인스타그램 api</h3>
-    <div class="col-md-12 main_sub_image_first">
-    </div>
-    <h3>판매중인 딜</h3>
-    <div class="col-md-8 main_sub_image">
-        <img style="width:100%;height:300px;" src="http://gi.esmplus.com/vinchick/auctiongmarket/iframe/4_02_1.jpg" alt="" />
-    </div>
-
-    <div class="col-md-4 main_sub_image">
-      <div class="col-md-12 no-gap">
-        <img style="width:100%;height:300px;" src="http://gdimg1.gmarket.co.kr/goods_image2/shop_img/542/220/542220320.jpg" alt="" />
+    <div class="col-md-12 insta_feed_desk_parent no-gap mb_line_break_reverse">
+      <div class="insta_feed_desk">
+        <div class="slide">
+          <img src="http://placehold.it/245x245&text=Insta1">
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개</p>
+          </div>
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span></p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="http://placehold.it/245x245&text=Insta1-1">
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개</p>
+          </div>
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span></p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="http://placehold.it/245x245&text=Insta2">
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개</p>
+          </div>
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span></p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="http://placehold.it/245x245&text=Insta3">
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개</p>
+          </div>
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span></p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="http://placehold.it/245x245&text=Insta4">
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개</p>
+          </div>
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span></p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="http://placehold.it/245x245&text=Insta5">
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개</p>
+          </div>
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span></p>
+          </div>
+        </div>
       </div>
-      <div class="">
-        <p class="product text-right">
-          베이직 로고 크롭 티셔츠/블루-화이트
-        </p>
-        <p class="price text-right">
-          36,000 won
-        </p>
+    </div><!-- desk insta feed -->
+
+    <div class="col-md-12 insta_feed_mb_parent no-gap mb_line_break">
+      <div class="insta_feed_mb">
+        <div class="slide">
+          <img src="http://placehold.it/245x245&text=Insta1">
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개</p>
+          </div>
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span></p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="http://placehold.it/245x245&text=Insta1-1">
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개</p>
+          </div>
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span></p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="http://placehold.it/245x245&text=Insta2">
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개</p>
+          </div>
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span></p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="http://placehold.it/245x245&text=Insta3">
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개</p>
+          </div>
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span></p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="http://placehold.it/245x245&text=Insta4">
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개</p>
+          </div>
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span></p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="http://placehold.it/245x245&text=Insta5">
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개</p>
+          </div>
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span></p>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="col-md-8 main_sub_image">
-      <img style="width:100%;height:300px;" src="http://gi.esmplus.com/vinchick/auctiongmarket/iframe/4_02_1.jpg" alt="" />
+
+
+
+
+    <div class="col-md-12 sign_up on_deal_header">
+      <h3 class="header" style="margin-top:0px;">판매중인 딜</h3>
     </div>
 
-    <div class="col-md-4 main_sub_image">
-      <div class="col-md-12 no-gap">
-        <img style="width:100%;height:300px;" src="http://gdimg1.gmarket.co.kr/goods_image2/shop_img/542/220/542220320.jpg" alt="" />
+    <div class="col-md-12 on_deal">
+      <div class="col-md-8 main_sub_image_left no-gap">
+          <a href="#"><img style="width:100%;height:300px;" src="http://gi.esmplus.com/vinchick/auctiongmarket/iframe/4_02_1.jpg" alt="" /></a>
       </div>
-      <div class="">
-        <p class="product text-right">
-          베이직 로고 크롭 티셔츠/블루-화이트
-        </p>
-        <p class="price text-right">
-          36,000 won
-        </p>
+
+      <div class="col-md-4 main_sub_image_right">
+          <a href="#"><img style="width:100%;height:300px;" src="http://gdimg1.gmarket.co.kr/goods_image2/shop_img/542/220/542220320.jpg" alt="" /></a>
+        <div class="col-md-12 no-gap">
+          <a href="#" style="color:#212121">
+            <p class="product text-right">
+              베이직 로고 크롭 티셔츠/블루-화이트
+            </p>
+            <p class="price text-right">
+              36,000 won
+            </p>
+          </a>
+          <h3 class="on_deal_share"> <a href="#" style="color:#212121"> <span class="fa fa-share-alt"></span> </a></h3>
+        </div>
       </div>
     </div>
+    <div class="col-md-12 on_deal">
+      <div class="col-md-8 main_sub_image_left no-gap">
+          <a href="#"><img style="width:100%;height:300px;" src="http://gi.esmplus.com/vinchick/auctiongmarket/iframe/4_02_1.jpg" alt="" /></a>
+      </div>
 
-
+      <div class="col-md-4 main_sub_image_right">
+          <a href="#"><img style="width:100%;height:300px;" src="http://gdimg1.gmarket.co.kr/goods_image2/shop_img/542/220/542220320.jpg" alt="" /></a>
+        <div class="col-md-12 no-gap">
+          <a href="#" style="color:#212121">
+            <p class="product text-right">
+              베이직 로고 크롭 티셔츠/블루-화이트
+            </p>
+            <p class="price text-right">
+              36,000 won
+            </p>
+          </a>
+          <h3 class="on_deal_share"> <a href="#" style="color:#212121"> <span class="fa fa-share-alt"></span> </a></h3>
+        </div>
+      </div>
+    </div>
+    <div class="inf_feed_title">
+      <img src="https://lh3.googleusercontent.com/aYbdIM1abwyVSUZLDKoE0CDZGRhlkpsaPOg9tNnBktUQYsXflwknnOn2Ge1Yr7rImGk=w300" style="width:35px;"> <%= image_tag "influencer_sample.jpg", style: "border-radius:100%;width:45px;margin-top: 0px;
+    margin-left: 10px;
+    margin-right: 10px;", alt: "" %><a href="#">instagram</a> <p> <i class="fa fa-circle"></i>&nbsp;&nbsp;3일 전 </p>
+    </div>
   </div>
 </div>
 
@@ -94,4 +212,37 @@ function ServiceSize() {
   standard_width = standard_width - parseInt($('.main_service').width())/2 - 20;
   $('.main_service').css('left',standard_width);
 }
+
+
+$(document).ready(function(){
+  $('.insta_feed_desk').bxSlider({
+    slideWidth: 400,
+    minSlides: 4,
+    maxSlides: 4,
+    moveSlides: 3,
+    slideMargin: 20
+  });
+
+  var desk_feed = $('.bx-viewport').first();
+  var desk_feed_hieght = parseInt(desk_feed.height()) + 100;
+
+  desk_feed.prepend($('.inf_feed_title'));
+});
+
+$(document).ready(function(){
+  $('.insta_feed_mb').bxSlider({
+    slideWidth: 200,
+    minSlides: 1,
+    maxSlides: 3,
+    slideMargin: 10
+  });
+  var mb_feed = $('.bx-viewport:eq(1)');
+  var mb_feed_hieght = parseInt(mb_feed.height()) + 100;
+
+  mb_feed.prepend($('.inf_feed_title').clone());
+});
+
+$(document).ready(function() {
+  $('.menu_second:eq(1)').addClass('active');
+})
 </script>

@@ -144,6 +144,27 @@
   }
   /* payment ends */
 
+
+  /* inf_profile starts */
+  .inf_profile .inf_header {
+    text-align: center;
+  }
+
+  .inf_profile .on_deal_share {
+    top: inherit;
+    position: relative;
+    right: inherit;
+    margin-top: 5px;
+    text-align: right;
+  }
+  .on_deal {
+    padding-left:15px;
+    padding-right:15px;
+  }
+  .inf_profile .main_sub_image_right {
+    padding-left: 0px;
+}
+  /* inf_profile ends */
 }
 
 @media (max-width: 990px) {
