@@ -13,22 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160803030415) do
 
-  create_table "desinations", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "receiver",             null: false
-    t.integer  "postcode",             null: false
-    t.string   "address_number"
-    t.string   "address_number_other"
-    t.string   "address_road"
-    t.string   "address_road_other"
-    t.string   "phone_number",         null: false
-    t.string   "tel"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
-  add_index "desinations", ["user_id"], name: "index_desinations_on_user_id"
-
   create_table "destinations", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "receiver",                 null: false
