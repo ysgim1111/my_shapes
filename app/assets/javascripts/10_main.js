@@ -94,11 +94,11 @@ Scroll Nav
 
 function initScroller () {
 
-  $('#navbar').localScroll({
-    easing: 'easeInOutExpo'
-  });
+  // $('#navbar').localScroll({
+  //   easing: 'easeInOutExpo'
+  // });
 
-  $('#page-top').localScroll({
-    easing: 'easeInOutExpo'
-  });
+  // $('#page-top').localScroll({
+  //   easing: 'easeInOutExpo'
+  // });
 } // initScroller
