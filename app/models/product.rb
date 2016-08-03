@@ -6,4 +6,5 @@ class Product < ActiveRecord::Base
 
   has_many :influence_products
   has_many :influences, through: :influence_products
+  has_many :product_options, dependent: :destroy
 end

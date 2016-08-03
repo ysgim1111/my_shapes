@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DesinationTest < ActiveSupport::TestCase
+class ProductOptionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

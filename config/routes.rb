@@ -6,20 +6,23 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
-  resources :influences, :orders, :shopping_items, :wishlist_items
+  resources :influences, :shopping_items, :wishlist_items
 
   resources :purchases do
-    get :ready, on: :collection
+    collection do
+      post :save_post
+      get :complete
+    end
   end
 
   resources :products do
     get :about, on: :collection
     get :recruit, on: :collection
     get :complete, on: :collection
-    get :purchases_ready, on: :collection
-    get :purchases_complete, on: :collection
     get :sign_up_before, on: :collection
     get :sign_up_complete, on: :collection
+    get :purchases_ready_test, on: :collection
+    get :purchases_ready_test_mb, on: :collection
     post :email_send, on: :collection
   end
 end

@@ -117,6 +117,54 @@
     line-height: 1.5 !important;
   }
   /*complete_ends */
+
+  /* payment starts */
+  .purc_ready > .row > .col-md-12 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .purc_ready > .row > .col-md-12 > .col-md-7 > .col-md-12 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .pay_method .pay_method_box {
+    margin-bottom:15px;
+  }
+  .pay_info {
+    border:none;
+  }
+  .pay_info .header_sub {
+    padding-left:0px;
+  }
+  .pay_info .header.header_main {
+    padding-left:0px;
+  }
+  .pay_go a {
+    width:100%
+  }
+  /* payment ends */
+
+
+  /* inf_profile starts */
+  .inf_profile .inf_header {
+    text-align: center;
+  }
+
+  .inf_profile .on_deal_share {
+    top: inherit;
+    position: relative;
+    right: inherit;
+    margin-top: 5px;
+    text-align: right;
+  }
+  .on_deal {
+    padding-left:15px;
+    padding-right:15px;
+  }
+  .inf_profile .main_sub_image_right {
+    padding-left: 0px;
+}
+  /* inf_profile ends */
 }
 
 @media (max-width: 990px) {
