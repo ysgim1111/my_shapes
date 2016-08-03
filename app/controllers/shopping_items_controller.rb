@@ -1,15 +1,12 @@
 class ShoppingItemsController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @shopping_items = ShoppingItem.where(user_id: current_user)
   end
 
   def create
-    shopping_item = ShoppingItem.new
-    shopping_item.user = current_user
-    shopping_item.product_id = params[:product_id]
-    shopping_item.save
-
-    render json: shopping_item
+    render json: ShoppingItem.find_and_update(params[:product_id, user])
   end
 
   def destroy

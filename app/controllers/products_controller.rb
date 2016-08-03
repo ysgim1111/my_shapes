@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
-
-  # before_filter :authenticate_user!
+  before_filter :authenticate_user!, only: [:purchases_ready, :purchases_complete]
 
   def index
     @products = Product.all
@@ -8,8 +7,6 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-
-    render "products/product#{params[:id]}"
   end
 
   def about
@@ -18,13 +15,5 @@ class ProductsController < ApplicationController
   def email_send
     Contact.recruit(params[:title], params[:contents], params[:giver], params[:attachment]).deliver_now
     redirect_to '/products/complete'
-  end
-
-  def purchases_complete
-    @product = Product.find(params[:product_id])
-  end
-
-  def purchases_ready
-    @product = Product.find(params[:product_id])
   end
 end

@@ -11,7 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726225054) do
+ActiveRecord::Schema.define(version: 20160803030415) do
+
+  create_table "desinations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "receiver",             null: false
+    t.integer  "postcode",             null: false
+    t.string   "address_number"
+    t.string   "address_number_other"
+    t.string   "address_road"
+    t.string   "address_road_other"
+    t.string   "phone_number",         null: false
+    t.string   "tel"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "desinations", ["user_id"], name: "index_desinations_on_user_id"
+
+  create_table "destinations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "receiver",                 null: false
+    t.string   "name",                     null: false
+    t.integer  "zonecode",       limit: 5, null: false
+    t.string   "address",                  null: false
+    t.string   "address_detail"
+    t.string   "address_type",   limit: 1
+    t.string   "phone_number",             null: false
+    t.string   "tel"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "destinations", ["user_id"], name: "index_destinations_on_user_id"
 
   create_table "influence_products", force: :cascade do |t|
     t.integer  "influence_id"
@@ -32,14 +64,27 @@ ActiveRecord::Schema.define(version: 20160726225054) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "product_options", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "name"
+    t.integer  "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "product_options", ["product_id"], name: "index_product_options_on_product_id"
+
   create_table "products", force: :cascade do |t|
-    t.string   "name",       default: "",   null: false
+    t.string   "name",              default: "",   null: false
     t.string   "desc"
-    t.integer  "price",      default: 0,    null: false
-    t.boolean  "enable",     default: true, null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "price",             default: 0,    null: false
+    t.boolean  "enable",            default: true, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "image_url"
+    t.integer  "discount",          default: 0
+    t.integer  "shipping_expenses", default: 0
+    t.integer  "view_type",         default: 0,    null: false
   end
 
   create_table "purchase_lists", force: :cascade do |t|
@@ -86,6 +131,8 @@ ActiveRecord::Schema.define(version: 20160726225054) do
     t.string   "receipt_url"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "card_name"
+    t.string   "card_quota"
   end
 
   add_index "purchase_results", ["purchase_list_id"], name: "index_purchase_results_on_purchase_list_id"
@@ -130,6 +177,8 @@ ActiveRecord::Schema.define(version: 20160726225054) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.string   "provider"
+    t.string   "social_uid"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
