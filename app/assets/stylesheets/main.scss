@@ -96,7 +96,7 @@ body {
 .navbar-trans > .nav-justified > li > a.active {
   padding-right: 0px;
   border-radius: 0px;
-  border-bottom: 2px solid #ffffff;
+  border-bottom: 4px solid #ffffff;
   padding-left: 0px;
 }
 .mobile-nav a, .mobile-nav a.active{
@@ -300,9 +300,11 @@ body {
 }
 .main_sub_image_first {
   height:300px;
-  background-color: #ccc;
   margin-bottom:20px;
   margin-top:50px;
+}
+.main_sub_image_first > img {
+  width:100%;
 }
 .main_sub_image:nth-of-type(odd) {
   padding-right:10px;
@@ -596,6 +598,25 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
   padding-bottom: 20px;
   font-weight: 400;
   margin-top: 50px;
+}
+.basic_header a {
+  float: right;
+  color: #000000;
+  font-size: 12px;
+  margin-top: 5px;
+  text-decoration: none;
+}
+.deal_detail .basic_header {
+  font-size: 40px;
+}
+.deal_detail .basic_header a {
+  line-height: 67px;
+}
+.deal_detail .deal_desc p {
+  font-size: 14px;
+  color: #212121;
+  letter-spacing: -0.41px;
+  line-height: 30px;
 }
 .sign_up a:first-child > .well {
   width:300px;
@@ -1139,7 +1160,7 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
     color: #ffffff;
 }
 .deal_header .spec_choose {
-  margin-top:100px;
+  margin-top:50px;
 }
 .deal_header .spec_choose .form-control.spec_size {
   width: 160px;
@@ -1189,6 +1210,22 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
   line-height: 40px;
 }
 /* product_detail ends */
+
+/* deal_detail starts */
+.deal_detail .card_thm .product {
+  font-size: 12px;
+  letter-spacing: -0.31px;
+  line-height: 16px;
+  font-weight: bold;
+}
+.deal_detail .card_thm .price {
+  font-size: 14px;
+  color: #666666;
+  letter-spacing: 0px;
+  line-height: 23px;
+}
+/* deal_detail ends */
+
 /* footer */
 /* --------------------------------------------------
 	7.0 Footers

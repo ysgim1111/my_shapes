@@ -5,12 +5,16 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def deal_detail
+    @products = Product.all
+  end
+
   def show
     @product = Product.find(params[:id])
   end
 
   def sub_index
-    
+
   end
 
   def about

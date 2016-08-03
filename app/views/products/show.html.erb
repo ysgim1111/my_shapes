@@ -47,13 +47,13 @@
           <%= image_tag "profile_1.png", style: "border-radius:100%;width:60px;height:60px;margin-top:15px;", alt: "" %>
         </div>
         <div class="col-md-11 feed_content_profile_right">
-          <h3>이성경</h3>
+          <h3>우희</h3>
           <p class="detail">
-          http://trd.st/heybiblee
+          http://trd.st/woohee91
           </p>
         </div>
         <div class="col-md-12 blob" style="background:url('<%=image_url('blob_2.png')%>');">
-          <p class="blob_comment">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+          <p class="blob_comment">비방트 벤드레디는 정말 제 인생 선글라스예요!! 얼굴 갸름하게 보이게 해주고 실버 렌즈 때문인지 피부톤도 밝아보이는 것 같아요ㅎㅎ 썼을 때 코가 아프지 않은 것도 너무 좋아요 강추!</p>
         </div>
         <div class="col-md-12 inf_feed_title_top text-right no-gap">
           <a href="#" style="color:#212121">인스타그램 피드에서 보기</a> <%= image_tag "insta_logo_d_30.png", alt: "" %>
@@ -66,12 +66,12 @@
 <div class="container deal_header">
   <div class="row">
     <div class="col-md-6" style="margin-top:50px;">
-      <%= image_tag(@product.image_url, alt: "", style: "max-width:600px;max-height:600px;width:100%;") %>
+      <%= image_tag('product_thmb_6', alt: "", style: "max-width:600px;max-height:600px;width:100%;") %>
     </div>
     <div class="col-md-6" style="height:300px;margin-top:50px;">
       <fieldset>
-        <p class="sort"><%= @product.name %></p>
-        <h2 class="name" style=";"><%= @product.desc %></h2>
+        <p class="sort">비방트</p>
+        <h2 class="name" style=";">VENDREDI - BLACK BROWN /<br> SILVER MIRROR</h2>
         <div class="price_tag session_btn_black"><%= @product.price %> Won</div>
         <p class="delivery_fee">배송비 2,500 원</p>
         <p class="delivery_free">20,000 이상 구매 시 무료 배송</p>
@@ -101,7 +101,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" style="margin-top:150px;">
   <div class="row">
     <div class="col-md-12">
       <%=image_tag "banner_1.jpg", alt: "", style: "width:100%;" %>
@@ -115,20 +115,40 @@
       <div class="insta_feed_desk">
         <div class="slide">
           <div class="inf_feed_title">
-            <%= image_tag "influencer_sample.jpg", style: "border-radius:100%;width:32px;margin-top: 0px;
-          margin-right: 10px;display:inline-block", alt: "" %><a href="#">heybiblee&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
+            <%= image_tag "profile_1.png", style: "border-radius:100%;width:32px;margin-top: 0px;
+          margin-right: 10px;display:inline-block", alt: "" %><a href="#">woohee91&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
           </div>
-          <img src="http://placehold.it/245x245&text=Insta1">
+          <img src="<%= image_url('selfie_1') %>" style="width:245px;height:245px;">
           <div class="col-md-12 no-gap">
             <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "insta_logo_d_25.png", alt: "" %></span> </p>
           </div>
         </div>
         <div class="slide">
           <div class="inf_feed_title">
-            <%= image_tag "influencer_sample.jpg", style: "border-radius:100%;width:32px;margin-top: 0px;
-          margin-right: 10px;display:inline-block", alt: "" %><a href="#">김수현&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
+            <%= image_tag "profile_2.png", style: "border-radius:100%;width:32px;margin-top: 0px;
+          margin-right: 10px;display:inline-block", alt: "" %><a href="#">kimheenim&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
           </div>
-          <img src="http://placehold.it/245x245&text=Insta1">
+          <img src="<%= image_url('selfie_2') %>" style="width:245px;height:245px;">
+          <div class="col-md-12 no-gap">
+            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "facebook_logo_d_25.png", alt: "" %></span> </p>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="inf_feed_title">
+            <%= image_tag "profile_3.png", style: "border-radius:100%;width:32px;margin-top: 0px;
+          margin-right: 10px;display:inline-block", alt: "" %><a href="#">shabet_serri&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
+          </div>
+          <img src="<%= image_url('selfie_3') %>" style="width:245px;height:245px;">
+          <div class="col-md-12 no-gap">
+            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "insta_logo_d_25.png", alt: "" %></span> </p>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="inf_feed_title">
+            <%= image_tag "profile_4.png", style: "border-radius:100%;width:32px;margin-top: 0px;
+          margin-right: 10px;display:inline-block", alt: "" %><a href="#">주지훈&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
+          </div>
+          <img src="<%= image_url('selfie_4') %>" style="width:245px;height:245px;">
           <div class="col-md-12 no-gap">
             <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "facebook_logo_d_25.png", alt: "" %></span> </p>
           </div>
@@ -138,39 +158,9 @@
             <%= image_tag "influencer_sample.jpg", style: "border-radius:100%;width:32px;margin-top: 0px;
           margin-right: 10px;display:inline-block", alt: "" %><a href="#">heybiblee&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
           </div>
-          <img src="http://placehold.it/245x245&text=Insta1">
+            <img src="<%= image_url('selfie_5') %>" style="width:245px;height:245px;">
           <div class="col-md-12 no-gap">
             <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "insta_logo_d_25.png", alt: "" %></span> </p>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="inf_feed_title">
-            <%= image_tag "influencer_sample.jpg", style: "border-radius:100%;width:32px;margin-top: 0px;
-          margin-right: 10px;display:inline-block", alt: "" %><a href="#">김수현&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
-          </div>
-          <img src="http://placehold.it/245x245&text=Insta1">
-          <div class="col-md-12 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "facebook_logo_d_25.png", alt: "" %></span> </p>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="inf_feed_title">
-            <%= image_tag "influencer_sample.jpg", style: "border-radius:100%;width:32px;margin-top: 0px;
-          margin-right: 10px;display:inline-block", alt: "" %><a href="#">heybiblee&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
-          </div>
-          <img src="http://placehold.it/245x245&text=Insta1">
-          <div class="col-md-12 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "insta_logo_d_25.png", alt: "" %></span> </p>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="inf_feed_title">
-            <%= image_tag "influencer_sample.jpg", style: "border-radius:100%;width:32px;margin-top: 0px;
-          margin-right: 10px;display:inline-block", alt: "" %><a href="#">김수현&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
-          </div>
-          <img src="http://placehold.it/245x245&text=Insta1">
-          <div class="col-md-12 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "facebook_logo_d_25.png", alt: "" %></span> </p>
           </div>
         </div>
       </div>
@@ -248,12 +238,12 @@
   <div class="row">
     <div class="col-md-12 specific_detail">
       <p>
-        <strong>소재</strong> <span>겉감:가죽 90%, 폴리우레탄 10% 안감:면100% 밑창:고무</span><br class="mb_line_break">
-        <strong>색상</strong> <span>화이트</span><br class="mb_line_break">
+        <strong>소재</strong> <span>아세테이트, 셀룰로이드, 티타늄, 메탈 중 사용</span><br class="mb_line_break">
+        <strong>색상</strong> <span>블랙 / 브라운 / 실버</span><br class="mb_line_break">
         <strong>발길이</strong> <span>220~280(mm)</span>
       </p>
       <p>
-        <strong>제조자(수입여부)</strong> <span>컨버스(컨버스코리아)</span><br class="mb_line_break">
+        <strong>제조자(수입여부)</strong> <span>(주)비방트</span><br class="mb_line_break">
         <strong>제조국</strong> <span>베트남</span><br class="mb_line_break">
       </p>
       <div class="col-md-2 no-gap" style="display: inline-block;width:auto">
@@ -267,8 +257,8 @@
         </p>
       </div>
       <p style="clear:both">
-        <strong>품질보증기준</strong> <span>품질보증기간(1년)내 무상수선 품질보증기간 경과 혹은 소비자 과실 유상수선</span><br class="mb_line_break">
-        <strong>A/S 책임자/전화번호</strong> <span>컨버스코리아 1622-1300</span><br class="mb_line_break">
+        <strong>품질보증기준</strong> <span>구입하신 상품의 피팅/부품교체/수리 등 사후 관리를 책임집니다.</span><br class="mb_line_break">
+        <strong>A/S 책임자/전화번호</strong> <span>(주)비방트 02-554-7273</span><br class="mb_line_break">
       </p>
     </div>
   </div>

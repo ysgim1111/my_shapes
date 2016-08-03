@@ -27,7 +27,7 @@
   <% if params[:action] == "about" || params[:action] == "recruit" || params[:action] == "complete"%>
     <%= render "/layouts/about_nav" %>
   <% elsif params[:controller] == "products" && params[:action] == "index" %>
-    <%= render "/layouts/main_nav" %>
+    <%= render "/layouts/ordinary_nav" %>
   <% else %>
     <%= render "/layouts/ordinary_nav" %>
   <% end %>
@@ -67,4 +67,23 @@
     </div><!-- / .copyright -->
   </footer><!-- / .footer-contact -->
 </body>
+<% if params[:controller] == "products" %>
+  <script>
+  $(document).ready(function() {
+    $('.menu_second:eq(0)').addClass('active');
+  })
+  </script>
+  <% elsif params[:controller] == "influences" %>
+  <script>
+  $(document).ready(function() {
+    $('.menu_second:eq(1)').addClass('active');
+  })
+  </script>
+  <% elsif params[:controller] == "products" && (params[:action] == "about" || params[:action] == "recruit" ) %>
+  <script>
+  $(document).ready(function() {
+    $('.menu_second:eq(2)').addClass('active');
+  })
+  </script>
+<% end %>
 </html>
