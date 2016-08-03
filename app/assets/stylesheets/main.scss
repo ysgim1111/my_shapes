@@ -213,6 +213,16 @@ body {
   letter-spacing: 0.4px;
   color: #ffffff !important;;
 }
+.menu_second.active {
+  color: #212121 !important;
+  border-bottom: 2px solid #ffffff;
+  background: #ffffff !important;
+}
+.menu_second.active:hover {
+  color: #ffffff !important;
+  background: #212121 !important;
+  border-bottom: 2px solid #212121;
+}
 .menu_third {
   padding: 16px 40px 17px 40px !important;
   border-radius: 2px 2px 0px 0px !important;
@@ -226,7 +236,7 @@ body {
 }
 .main_service {
   position: absolute;
-  bottom:0px;
+  bottom:2px;
   margin-bottom: 10px;
   left:50px;
 }
@@ -234,7 +244,7 @@ body {
   margin-top:50px;
 }
 #myCarousel {
-  height:490px;
+  height:350px;
 }
 .carousel-indicators li {
   background-color: #212121 !important;
@@ -273,16 +283,18 @@ body {
 }
 .left.carousel-control img{
   position: absolute;
-  top:190px;
+  top:120px;
   left:0px;
+  z-index: 9;
 }
 .right.carousel-control img{
   position: absolute;
-  top:190px;
+  top:120px;
   right:0px;
+  z-index: 9;
 }
 .item img {
-  height:490px!important;
+  height:350px!important;
   width:100%;
 }
 .main_sub_image_first {
@@ -298,10 +310,6 @@ body {
 .main_sub_image:nth-of-type(even) {
   padding-left:10px;
   padding-right:0px;
-}
-.main_sub_image .col-md-12 {
-  background-color: #ccc;
-  height:300px;
 }
 .card_guide {
   margin-top:50px;
@@ -711,12 +719,172 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
 /* sign_in ends */
 
 
+/* purchase ready starts */
+.purc_ready .header{
+  font-weight: 400;
+  margin-top: 50px;
+  padding-left: 0px;
+  border-bottom: 2px solid #ccc;
+}
+.purc_ready .header_sub{
+  margin-top: 50px;
+  padding-left: 15px;
+  border-bottom: 2px solid #212121;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+  vertical-align: middle;
+}
+.table > tbody > tr > th:first-child {
+  text-align: center;
+}
+
+.purc_ready .form-control {
+  height: 40px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.purc_ready .purc_phone_form .purc_phone:nth-child(3){
+  width: 31.6%;
+  display: inline;
+}
+.purc_ready .purc_phone_form .purc_phone {
+  width: 33%;
+  display: inline;
+}
+.purc_delivery {
+  border-right: none !important;
+  padding-left: 20px !important;
+}
+.purc_delivery > a:first-child {
+  margin-right: 10px;
+}
+.purc_ready .purc_delivery .session_btn {
+  padding: 9px 18px;
+}
+.purc_ready .etc {
+  margin-top:150px;
+}
+
+.pay_go {
+  margin-top:30px;
+}
+.pay_go a {
+  width: 200px;
+}
+.pay_info .checkbox:first-child {
+  margin-bottom:25px;
+}
+.pay_info:nth-child(2) {
+  padding:30px 20px;
+}
+.pay_info .header_main {
+  font-size:20px;
+  border-bottom: none;
+  margin-bottom:50px;
+  padding-left: 0px;
+  margin-top:25px;
+}
+.pay_info .header_sub {
+  border-bottom: none;
+  margin-top: 25px;
+}
+.pay_info .header_sub:last-child {
+  border-bottom: none;
+  margin-top: 25px;
+  font-size:18px;
+  margin-bottom:25px;
+}
+.pay_info .header_sub > span{
+  float: right;
+}
+.pay_info {
+  border : 2px solid #ccc;
+  border-radius: 5px;
+  padding: 0px 20px;
+  margin-top: 50px;
+}
+.pay_info hr {
+  border : 1px solid #ccc;
+}
+.pay_method > p {
+  padding-left: 15px;
+}
+.pay_method .pay_method_box {
+  margin-bottom:15px;
+}
+.pay_method_box {
+  border: 1px solid #ccc;
+  width: 100px;
+  height: 100px;
+  margin: 0 5px;
+  display: inline-block;
+  border-radius: 10px;
+  text-align: center;
+}
+.pay_method_box > p {
+  margin-top: 5px;
+}
+.pay_method_box img {
+  margin-top: 15px;
+  position:relative;
+}
+/* purchase ready ends */
 
 
 
+/* influencer starts*/
+.inf_profile .row {
+  padding-bottom: 180px;
+}
+.inf_profile .insta {
+  color: #969696;
+}
+.insta_feed_desk_parent .bx-viewport {
+  height: 360px !important;
+}
+.insta_feed_desk_parent, .insta_feed_mb_parent {
+  margin-top:50px;
+}
+.insta_feed_desk .slide {
+  width: 245px !important;
+  height: 245px !important;
+}
+.insta_feed_mb_parent .bx-viewport {
+  height: 290px !important;
+}
+.inf_profile .main_sub_image_right {
+  padding-right: 0px;
+}
+.inf_profile .on_deal_share {
+  top: 0px;
+  position: absolute;
+  right: -50px;
+  margin-top: 5px;
+}
 
-
-
+.inf_profile .on_deal_share span {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+}
+.inf_profile .inf_feed_title {
+  margin-bottom:10px;
+}
+.inf_profile .inf_feed_title >img, .inf_profile .inf_feed_title > a,.inf_profile .inf_feed_title >p {
+  display: inline-block;
+}
+.inf_profile .inf_feed_title >p {
+  margin-left:10px;
+  color: #969696;
+}
+.on_deal_header {
+  padding: 0px;
+}
+.on_deal {
+  padding-left:0px;
+  padding-right:0px;
+}
+/* influencer ends*/
 
 /* footer */
 /* --------------------------------------------------
@@ -1164,5 +1332,9 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
   letter-spacing: 1.7px;
   text-transform: uppercase;
   color: #999;
+}
+.gap {
+  padding-left:15px !important;
+  padding-right:15px !important;
 }
 /* footer ends */
