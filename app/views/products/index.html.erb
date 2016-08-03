@@ -75,12 +75,17 @@
             </p>
           <% end %>
           <div class="">
-            <a href="#"><%= image_tag("icon_btn_cart.png", alt: "") %></a>
-            <a href="#"><%= image_tag("icon_btn_wish_list.png", alt: "") %></a>
+            <%= link_to "#", id: "addBasketBtn", data: {url: shopping_items_path, "product-id" => product.id} do %>
+              <%= image_tag("icon_btn_cart.png", alt: "장바구니") %>
+            <% end %>
+            <%= link_to "#", id: "addWishlistBtn", data: {url: shopping_items_path, "product-id" => product.id} do %>
+              <%= image_tag("icon_btn_wish_list.png", alt: "위시리스트") %>
+            <% end %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+
 <%= render "image_setting" %>

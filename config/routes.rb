@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :influences, :orders, :shopping_items, :wishlist_items
 
   resources :purchases do
-    get :ready, on: :collection
+    post :save_post, on: :collection
   end
 
   resources :products do

@@ -1,6 +1,6 @@
 class PurchasesController < ApplicationController
   before_filter :authenticate_user!
-  
+
   def index
     @purchase_lists = current_user.purchase_lists
   end
@@ -9,10 +9,9 @@ class PurchasesController < ApplicationController
     @purchase_list = PurchaseList.find(params[:id])
   end
 
-  def ready
-    # @shopping_items = ShoppingItem.where(user_id: current_user)
+  def new
+    shopping_items = ShoppingItem.find_and_update(params[:product_id], current_user)
     @product = Product.find(params[:product_id])
-    redirect_to "/products/purchases_ready"
   end
 
   def create
@@ -22,5 +21,13 @@ class PurchasesController < ApplicationController
     # purchase_list.save
 
     render json: params
+  end
+
+  def save_post
+    destination = Destination.create(receiver: params[:receiver], phone_number: params[:phone_number], zonecode: params[:zonecode], address: params[:address]) do |destination|
+      destination.user = current_user
+    end
+
+    render json: destination
   end
 end

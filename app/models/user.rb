@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :purchase_lists, dependent: :destroy
   has_many :destinations, dependent: :destroy
+  has_many :shopping_items, dependent: :destroy
 
   def self.find_for_facebook_oauth(auth)
     user = where(provider: "facebook", social_uid: auth["id"]).first_or_create do |user|

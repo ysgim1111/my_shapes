@@ -1,0 +1,152 @@
+<div class="container">
+  <div class="row" style="padding-bottom:50px;">
+  <div class="col-md-6 col-md-offset-3 card_guide no-gap">
+    <div class="col-md-5">
+    <%= image_tag(@product.image_url, alt: "", style: "width:100%") %>
+    </div>
+    <div class="col-md-7 no-gap">
+    <h3 class="product"><%= @product.name %></h3>
+    <p class="price"><%= @product.price %> won
+    </p>
+    <p class="detail">
+      <%= @product.desc %><br/>
+      옵션 선택 : <%= params[:option] %><br/>
+      개수 : <%= params[:quantity] %>
+    </p>
+    <% current_user.destinations.each do |destination| %>
+    <p><%= button_tag destination.receiver, onclick: "changePostInfo('#{destination.receiver}', #{destination.zonecode}, '#{destination.address}', '#{destination.address_detail}', '#{destination.phone_number}')" %></p>
+    <% end %>
+    <%= button_tag "우편번호검색", onclick: "openPostSearch()" %>
+    <%= button_tag "배송지저장하기", id: "savePostInfo" %>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <table class="tbl_basic tbl_type_basic">
+    <h5 class="product_header">주문 정보</h5>
+    <tbody>
+      <tr class="fir">
+      <th>주소</th>
+      <td><input type="text" name="address" id="address" value="" placeholder="배송지를 입력해주세요" /></td>
+      <th>우편번호</th>
+      <td><input type="text" name="zonecode" id="zonecode" value=""/></td>
+      </tr>
+      <tr>
+      <th>전화번호</th>
+      <td><input type="text" name="phone_number" id="phone_number" value=""/></td>
+      <th>email</th>
+      <td><input type="text" name="email" id="email" value="<%= current_user.email %>"/></td>
+      </tr>
+      <tr>
+      <th>이름</th>
+      <td><input type="text" name="name" id="name" value="<%= current_user.name %>"/></td>
+      <th>상품명</th>
+      <td><input type="text" name="product" id="product" value="<%= @product.name %>" readonly=true/></td>
+      </tr>
+      <tr>
+      <th>
+        결제방식
+      </th>
+      <td>
+        <%= select_tag "pay_method","<option value='card'>신용카드</option><option value='trans'>실시간계좌이체</option><option value='vbank'>가상계좌</option><option value='phone'>휴대폰소액결제</option>".html_safe %>
+      </td>
+      <th>결제금액</th>
+      <td><input type="text" name="price" id="price" value="<%= @product.price %>" readonly=true/>원</td>
+      </tr>
+    </tbody>
+    </table>
+    <div class="col-md-6" style="padding-left:0px;margin-top:15px;">
+      <a href="#" id="buyBtn" class="btn btn-default" style="width:100%;background-color: #212121;
+width: 100%;
+color: #ffffff;
+padding: 10px 15px;"><i class="fa fa-check"></i> 구매</a>
+    </div>
+    <div class="col-md-6" style="padding-right:0px;margin-top:15px;">
+      <a href="javascript:history.go(-1)" class="btn btn-default" style="width:100%;padding: 10px 15px;"><i class="fa fa-undo"></i> 뒤로가기</a>
+    </div>
+  </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.1.js"></script>
+<script type="text/javascript">
+  $(document).on('click', '#buyBtn', function() {
+    var IMP = window.IMP;
+    IMP.init('imp21979455');
+
+    IMP.request_pay({
+      pg : 'html5_inicis',
+      pay_method : $('#pay_method').val(),
+      merchant_uid : 'merchant_' + new Date().getTime(),
+      name : $('#product').val(),
+      amount : $('#price').val(),
+      buyer_email : $('#email').val(),
+      buyer_name : $('#name').val(),
+      buyer_tel : $('#phone_number').val(),
+      buyer_addr : $('#address').val(),
+      buyer_postcode : $('#zonecode').val(),
+      m_redirect_url: 'test-env2.ap-northeast-2.elasticbeanstalk.com'
+    }, function(rsp) {
+      if ( rsp.success ) {
+        var msg = '결제가 완료되었습니다.';
+        msg += '고유ID : ' + rsp.imp_uid;
+        msg += '상점 거래ID : ' + rsp.merchant_uid;
+        msg += '결제 금액 : ' + rsp.paid_amount;
+        msg += '카드 승인번호 : ' + rsp.apply_num;
+
+        $.ajax({
+          url: '/purchases',
+          method: 'post',
+          data: rsp
+        }).done(function(res) {
+          location.href = '/products/purchases_complete?product_id=' + '<%= @product.id %>' + '&buyer_addr=' + res.buyer_addr + '&buyer_postcode=' + res.buyer_postcode + '&pay_method=' + res.pay_method + '&buyer_name=' + res.buyer_name;
+        });
+      } else {
+        var msg = '결제에 실패하였습니다.';
+        msg += '에러내용 : ' + rsp.error_msg;
+
+        alert(msg);
+      }
+    });
+  });
+</script>
+
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+  function openPostSearch() {
+    new daum.Postcode({
+      oncomplete: function(data) {
+        var fullAddr = '';
+        var extraAddr = '';
+
+        if (data.userSelectedType === 'R') {
+          fullAddr = data.roadAddress;
+        } else {
+          fullAddr = data.jibunAddress;
+        }
+
+        if(data.userSelectedType === 'R'){
+          if (data.bname !== '') {
+            extraAddr += data.bname;
+          }
+
+          if (data.buildingName !== '') {
+            extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+          }
+
+          fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+        }
+
+        document.getElementById('zonecode').value = data.zonecode;
+        document.getElementById('address').value = fullAddr;
+        document.getElementById('address').focus();
+      }
+    }).open();
+  }
+
+  function changePostInfo(receiver, zonecode, address, address_detail, phone_number) {
+    document.getElementById('zonecode').value = zonecode;
+    document.getElementById('address').value = address + ' ' + address_detail;
+    document.getElementById('phone_number').value = phone_number;
+    document.getElementById('name').value = receiver;
+  }
+</script>

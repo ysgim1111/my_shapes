@@ -11,23 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160801065253) do
+ActiveRecord::Schema.define(version: 20160802153607) do
 
-  create_table "desinations", force: :cascade do |t|
+  create_table "destinations", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "receiver",             null: false
-    t.integer  "postcode",             null: false
-    t.string   "address_number"
-    t.string   "address_number_other"
-    t.string   "address_road"
-    t.string   "address_road_other"
-    t.string   "phone_number",         null: false
+    t.string   "receiver",                 null: false
+    t.integer  "zonecode",       limit: 5, null: false
+    t.string   "address",                  null: false
+    t.string   "address_detail"
+    t.string   "address_type",   limit: 1
+    t.string   "phone_number",             null: false
     t.string   "tel"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
-  add_index "desinations", ["user_id"], name: "index_desinations_on_user_id"
+  add_index "destinations", ["user_id"], name: "index_destinations_on_user_id"
 
   create_table "influence_products", force: :cascade do |t|
     t.integer  "influence_id"
@@ -47,6 +46,21 @@ ActiveRecord::Schema.define(version: 20160801065253) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "order_sheets", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "product_options", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "name"
+    t.integer  "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "product_options", ["product_id"], name: "index_product_options_on_product_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "name",              default: "",   null: false
@@ -120,6 +134,14 @@ ActiveRecord::Schema.define(version: 20160801065253) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
 
+  create_table "shopping_baskets", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "shopping_baskets", ["user_id"], name: "index_shopping_baskets_on_user_id"
+
   create_table "shopping_items", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "user_id"
@@ -150,6 +172,7 @@ ActiveRecord::Schema.define(version: 20160801065253) do
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.string   "provider"
+    t.string   "uid"
     t.string   "social_uid"
   end
 
@@ -174,5 +197,10 @@ ActiveRecord::Schema.define(version: 20160801065253) do
 
   add_index "wishlist_items", ["product_id"], name: "index_wishlist_items_on_product_id"
   add_index "wishlist_items", ["user_id"], name: "index_wishlist_items_on_user_id"
+
+  create_table "wishlists", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

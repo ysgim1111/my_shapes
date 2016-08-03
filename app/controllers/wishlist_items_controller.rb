@@ -1,4 +1,6 @@
 class WishlistItemsController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @wishlist = WishlistItem.where(user_id: 1)
   end
