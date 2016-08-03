@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803030415) do
+ActiveRecord::Schema.define(version: 20160803203628) do
 
   create_table "destinations", force: :cascade do |t|
     t.integer  "user_id"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20160803030415) do
     t.integer  "discount",          default: 0
     t.integer  "shipping_expenses", default: 0
     t.integer  "view_type",         default: 0,    null: false
+    t.string   "image_url2"
   end
 
   create_table "purchase_lists", force: :cascade do |t|
