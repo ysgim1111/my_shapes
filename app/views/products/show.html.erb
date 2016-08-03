@@ -8,22 +8,23 @@
 </style>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 <style>
-    .ui-controlgroup-vertical {
-      width: 100%;
-    }
-    .ui-controlgroup.ui-controlgroup-vertical > button.ui-button,
-    .ui-controlgroup.ui-controlgroup-vertical > .ui-controlgroup-label {
-      text-align: center;
-    }
-    #car-type-button {
-      width: 120px;
-    }
-    .ui-controlgroup-horizontal .ui-spinner-input {
-      width: 20px;
-    }
-  </style>
-  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-  <script>
+  .ui-controlgroup-vertical {
+    width: 100%;
+  }
+  .ui-controlgroup.ui-controlgroup-vertical > button.ui-button,
+  .ui-controlgroup.ui-controlgroup-vertical > .ui-controlgroup-label {
+    text-align: center;
+  }
+  #car-type-button {
+    width: 120px;
+  }
+  .ui-controlgroup-horizontal .ui-spinner-input {
+    width: 20px;
+  }
+</style>
+
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script>
   $( function() {
     $( ".controlgroup" ).controlgroup()
     $( ".controlgroup-vertical" ).controlgroup({
@@ -34,7 +35,7 @@
     $( "#tabs" ).tabs();
   } );
   $('body').scrollspy({ target: '#nav' })
-  </script>
+</script>
 
 <div class="pdt_detail">
 <div class="container top">
@@ -82,7 +83,7 @@
           </div>
           <div class="form-gorup">
             <label class="quantity">수량</label>
-            <%= select_tag "product_options", options_from_collection_for_select(@product.product_options, "id", "name") ,class: 'form-control spec_quantity'%>
+            <input type="number" min="1" max="10" class="form-control spec_quantity" value="1">
           </div>
           <div class="col-md-12 no-gap" style="margin-top:35px;">
             <div class="col-md-5" style="padding-left:0px;">
@@ -101,7 +102,7 @@
   </div>
 </div>
 
-<div class="container" style="margin-top:150px;">
+<div class="container">
   <div class="row">
     <div class="col-md-12">
       <%=image_tag "banner_1.jpg", alt: "", style: "width:100%;" %>

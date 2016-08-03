@@ -24,7 +24,9 @@
         <div class="carousel-inner" role="listbox">
           <% @products.where(view_type: Product.view_types[:main]).each_with_index do |product, i| %>
           <div class="item <%= i == 0 ? 'active' : '' %>">
-            <%= image_tag(product.image_url, alt: product.name, style: "width:100%") %>
+            <%= link_to product_path(product) do %>
+              <%= image_tag(product.image_url2, alt: product.name, style: "width:100%") %>
+            <% end %>
             <div class="carousel-caption invisible">
               <h3><%= product.name %></h3>
               <p><%= product.desc %></p>
@@ -47,7 +49,9 @@
 
     <% @products.where(view_type: Product.view_types[:deal_upper]).each do |product| %>
     <div class="col-md-12 main_sub_image_first">
-      <%= image_tag(product.image_url) %>
+      <%= link_to product_path(product) do %>
+        <%= image_tag(product.image_url2) %>
+      <% end %>
     </div>
     <% end %>
 

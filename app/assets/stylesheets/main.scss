@@ -245,7 +245,7 @@ body {
   margin-top:50px;
 }
 #myCarousel {
-  height:350px;
+  height:490px;
 }
 .carousel-indicators li {
   background-color: #212121 !important;
@@ -256,27 +256,27 @@ body {
   margin-right:10px;
 }
 #carousel_1.active{
-  background:url('indicator_1.png');
+  background:asset-url('indicator_1.png');
   margin-right:12px;
   width: 22px;
   height: 22px;
 }
 #carousel_2.active{
-  background:url('indicator_2.png');
+  background:asset-url('indicator_2.png');
   margin-right:12px;
   margin-left:12px;
   width: 22px;
   height: 22px;
 }
 #carousel_3.active{
-  background:url('indicator_3.png');
+  background:asset-url('indicator_3.png');
   margin-right:12px;
   margin-left:12px;
   width: 22px;
   height: 22px;
 }
 #carousel_4.active{
-  background:url('indicator_4.png');
+  background:asset-url('indicator_4.png');
   margin-right:12px;
   margin-left:12px;
   width: 22px;
@@ -284,18 +284,18 @@ body {
 }
 .left.carousel-control img{
   position: absolute;
-  top:120px;
+  top:193px;
   left:0px;
   z-index: 9;
 }
 .right.carousel-control img{
   position: absolute;
-  top:120px;
+  top:193px;
   right:0px;
   z-index: 9;
 }
 .item img {
-  height:350px!important;
+  height:490px!important;
   width:100%;
 }
 .main_sub_image_first {

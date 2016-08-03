@@ -9,14 +9,20 @@
     <div class="col-md-12 inf_rank_2">
       <div class="pd_adj margin_2cols col-md-6">
         <div class="col-md-12 left">
-          <a href="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
+          <a htef="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
           <div class="col-md-6 sub_left text-center">
             <div class="inf_rank_place">1위</div>
-            <img src="<%=image_url('influencer_sample.jpg')%>">
+            <%= link_to(influence_path(1)) do %>
+              <img src="<%=image_url('influencer_sample.jpg')%>">
+            <% end %>
           </div>
           <div class="col-md-6 sub_right">
-            <h3 class="name">이성경</h3>
-            <p class="url"><a href="#">http://trd.st/heybiblee</a></p>
+            <%= link_to(influence_path(1)) do %>
+              <h3 class="name">이성경</h3>
+            <% end %>
+            <p class="url">
+              <%= link_to("http://trd.st/heybiblee", influence_path(1)) %>
+            </p>
             <p class="index">판매 지수 <span class="index_number">8,829</span> <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span></p>
             <p class="index">유입 지수 <span class="index_number">48,829</span> <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span></p>
           </div>
