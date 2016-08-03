@@ -47,6 +47,7 @@
 
     <% @products.where(view_type: Product.view_types[:deal_upper]).each do |product| %>
     <div class="col-md-12 main_sub_image_first">
+      <%= image_tag(product.image_url) %>
     </div>
     <% end %>
 

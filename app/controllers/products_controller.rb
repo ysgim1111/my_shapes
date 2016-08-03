@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_filter :authenticate_user!, only: [:purchases_ready, :purchases_complete]
+  # before_filter :authenticate_user!, only: [:purchases_ready, :purchases_complete]
 
   def index
     @products = Product.all
@@ -7,6 +7,10 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+  end
+
+  def sub_index
+    
   end
 
   def about
