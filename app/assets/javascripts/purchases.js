@@ -5,7 +5,9 @@ $(document).on('click', '#savePostInfo', function() {
     data: {
       zonecode: $('#zonecode').val(),
       address: $('#address').val(),
-      phone_number: $('#phone_number').val(),
+      address_detail: $('#address_detail').val(),
+      phone_number: $('#phone_number1').val() + '-' + $('#phone_number2').val() + '-' + $('#phone_number3').val(),
+      name: $('#destination_name').val(),
       receiver: $('#receiver').val()
     }
   }).done(function() {

@@ -6,11 +6,13 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
-  resources :influences, :orders, :shopping_items, :wishlist_items
+  resources :influences, :shopping_items, :wishlist_items
 
   resources :purchases do
-    post :save_post, on: :collection
-    get :complete, on: :collection
+    collection do
+      post :save_post
+      get :complete
+    end
   end
 
   resources :products do

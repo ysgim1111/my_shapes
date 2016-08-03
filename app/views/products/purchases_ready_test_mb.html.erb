@@ -74,9 +74,12 @@ input[type=checkbox]:checked + label:before {
               <tr> <th>&nbsp;</th> <th>상품명</th> <th>배송비</th> <th>상품 가격</th> </tr>
             </thead>
             <tbody>
-              <tr> <th scope="row"> <img src="https://placehold.it/75x75"> </th> <td><h5>[챔스] 베이직 로고 크롭 티셔츠츠 / 블루-화이트</h5><p>옵션 : S</p></td> <td>2,500 원</td> <td>36,000 원</td> </tr>
-              <tr> <th scope="row"> <img src="https://placehold.it/75x75"> </th> <td><h5>[챔스] 베이직 로고 크롭 티셔츠츠 / 블루-화이트</h5><p>옵션 : S</p></td> <td>2,500 원</td> <td>36,000 원</td> </tr>
-              <tr> <th scope="row"> <img src="https://placehold.it/75x75"> </th> <td><h5>[챔스] 베이직 로고 크롭 티셔츠츠 / 블루-화이트</h5><p>옵션 : S</p></td> <td>무료 배송</td> <td>36,000 원</td> </tr>
+              <tr>
+                <th scope="row"> <%= image_tag(@product.image_url) %> </th> 
+                <td><h5><%= @product.name %></h5><p>옵션 : <%= params[:option] %></p></td>
+                <td><%= @product.shipping_expenses %> 원</td> 
+                <td><%= @product.price %> 원</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -105,12 +108,12 @@ input[type=checkbox]:checked + label:before {
           <div class="col-md-6">
             <div class="form-group">
               <label for="user_이름">이름</label><br>
-              <input class="form-control check" placeholder="이름을 입력해주세요" type="text" value="" name="user[email]" id="user_email">
+              <input class="form-control check" placeholder="이름을 입력해주세요" type="text" value="<%= current_user.name %>" name="user[email]" id="user_email">
             </div>
 
             <div class="form-group">
               <label for="user_이메일">이메일</label><br>
-              <input class="form-control check" placeholder="이메일을 입력해주세요" autofocus="autofocus" type="email" value="" name="user[email]">
+              <input class="form-control check" placeholder="이메일을 입력해주세요" autofocus="autofocus" type="email" value="<%= current_user.email %>" name="user[email]" id="buyer_email">
             </div>
 
             <div class="form-group purc_phone_form">
@@ -136,16 +139,13 @@ input[type=checkbox]:checked + label:before {
           <div class="col-md-12">
             <div class="col-md-6 no-gap">
             <div class="form-group">
-              <select class="form-control">
-                <option>새로운 배송지</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
+              <% current_user.destinations.each do |destination| %>
+    <p><%= button_tag destination.receiver, onclick: "changePostInfo('#{destination.receiver}', #{destination.zonecode}, '#{destination.address}', '#{destination.address_detail}', '#{destination.phone_number}')" %></p>
+    <% end %>
             </div>
             </div>
             <div class="col-md-6 purc_delivery mb_line_break_reverse">
-              <a href="#" class="btn session_btn">배송지 추가</a>
+              <%= button_tag "배송지저장하기", id: "savePostInfo", class: "btn session_btn" %>
               <a href="#" class="btn session_btn">배송지 관리</a>
             </div>
             <!-- mb -->
@@ -176,11 +176,11 @@ input[type=checkbox]:checked + label:before {
             <div class="col-md-12 no-gap form-group">
               <div class="col-md-6 no-gap">
                 <label for="user_이름">배송주소</label><br>
-                <input class="form-control check" placeholder="예) 남부순환로 199가길, 역삼동" type="text" value="" >
+                <input class="form-control check" placeholder="예) 남부순환로 199가길, 역삼동" type="text" id="address" value="" >
               </div>
               <div class="col-md-6 purc_delivery mb_line_break_reverse">
                 <label class="invisible" for="user_이름">배송주소</label><br>
-                <a href="#" class="btn session_btn">우편번호 검색</a>
+                <%= button_tag "우편번호 검색", onclick: "openPostSearch()", class: "btn session_btn" %>
               </div>
               <!-- mb -->
               <div class="col-md-6 no-gap mb_line_break" style="margin-top: 0px;padding: 0px;margin-bottom:15px;">
@@ -364,7 +364,7 @@ input[type=checkbox]:checked + label:before {
           </div>
         </div>
         <div class="col-md-12 text-center pay_go">
-          <a href="#" class="btn session_btn">결제 진행</a>
+          <%= button_tag "결제 진행", class: "btn session_btn", id: "buyBtn" %>
         </div>
       </div><!-- col-md-5 -->
 
@@ -373,3 +373,81 @@ input[type=checkbox]:checked + label:before {
 
   </div><!-- .row -->
 </div>
+
+<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.1.js"></script>
+<script type="text/javascript">
+  $(document).on('click', '#buyBtn', function() {
+    var IMP = window.IMP;
+    IMP.init('imp21979455');
+
+    IMP.request_pay({
+      pg : 'html5_inicis',
+      pay_method : $('#pay_method').val(),
+      merchant_uid : 'merchant_' + new Date().getTime(),
+      name : $('#product').val(),
+      amount : $('#price').val(),
+      buyer_email : $('#email').val(),
+      buyer_name : $('#name').val(),
+      buyer_tel : $('#phone_number').val(),
+      buyer_addr : $('#address').val(),
+      buyer_postcode : $('#zonecode').val(),
+      m_redirect_url: 'test-env2.ap-northeast-2.elasticbeanstalk.com'
+    }, function(rsp) {
+      if ( rsp.success ) {
+        $.ajax({
+          url: '/purchases',
+          method: 'post',
+          data: rsp
+        }).done(function(res) {
+          location.href = '/purchases/complete?product_id=' + '<%= @product.id %>' + '&buyer_addr=' + res.buyer_addr + '&buyer_postcode=' + res.buyer_postcode + '&pay_method=' + res.pay_method + '&buyer_name=' + res.buyer_name;
+        });
+      } else {
+        var msg = '결제에 실패하였습니다.';
+        msg += '에러내용 : ' + rsp.error_msg;
+
+        alert(msg);
+      }
+    });
+  });
+</script>
+
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+  function openPostSearch() {
+    new daum.Postcode({
+      oncomplete: function(data) {
+        var fullAddr = '';
+        var extraAddr = '';
+
+        if (data.userSelectedType === 'R') {
+          fullAddr = data.roadAddress;
+        } else {
+          fullAddr = data.jibunAddress;
+        }
+
+        if(data.userSelectedType === 'R'){
+          if (data.bname !== '') {
+            extraAddr += data.bname;
+          }
+
+          if (data.buildingName !== '') {
+            extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+          }
+
+          fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+        }
+
+        document.getElementById('zonecode').value = data.zonecode;
+        document.getElementById('address').value = fullAddr;
+        document.getElementById('address').focus();
+      }
+    }).open();
+  }
+
+  function changePostInfo(receiver, zonecode, address, address_detail, phone_number) {
+    document.getElementById('zonecode').value = zonecode;
+    document.getElementById('address').value = address + ' ' + address_detail;
+    document.getElementById('phone_number').value = phone_number;
+    document.getElementById('name').value = receiver;
+  }
+</script>
