@@ -15,12 +15,16 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    # purchase_list = PurchaseList.new(order_number: params["merchant_uid"])
-    # purchase_list.user_id = current_user.present? ? current_user.id : 1
-    # purchase_list.purchase_result = PurchaseResult.new(params)
-    # purchase_list.save
+    purchase_list = PurchaseList.new(order_number: params["merchant_uid"])
+    purchase_list.user = current_user
+    purchase_list.purchase_result = PurchaseResult.new(result_param)
+    purchase_list.save
 
     render json: params
+  end
+
+  def complete
+    @product = Product.find(params[:product_id])
   end
 
   def save_post
@@ -29,5 +33,12 @@ class PurchasesController < ApplicationController
     end
 
     render json: destination
+  end
+
+
+  private
+
+  def result_param
+    params.permit("imp_uid", "pay_method", "merchant_uid", "name", "paid_amount", "pg_provider", "pg_tid", "apply_num", "buyer_name", "buyer_email", "buyer_tel", "buyer_addr", "buyer_postcode", "custom_data", "status", "paid_at", "receipt_url", "card_name", "card_quota")
   end
 end

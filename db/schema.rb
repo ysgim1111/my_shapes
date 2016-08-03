@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802153607) do
+ActiveRecord::Schema.define(version: 20160803030415) do
 
   create_table "destinations", force: :cascade do |t|
     t.integer  "user_id"
@@ -119,6 +119,8 @@ ActiveRecord::Schema.define(version: 20160802153607) do
     t.string   "receipt_url"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "card_name"
+    t.string   "card_quota"
   end
 
   add_index "purchase_results", ["purchase_list_id"], name: "index_purchase_results_on_purchase_list_id"
