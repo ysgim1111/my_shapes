@@ -50,7 +50,7 @@
     <% @products.where(view_type: Product.view_types[:deal_upper]).each do |product| %>
     <div class="col-md-12 main_sub_image_first">
       <%= link_to product_path(product) do %>
-        <%= image_tag(product.image_url) %>
+        <%= image_tag(product.image_url2) %>
       <% end %>
     </div>
     <% end %>
