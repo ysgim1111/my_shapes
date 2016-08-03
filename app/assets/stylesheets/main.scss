@@ -3,6 +3,7 @@
 body {
   border-top: 5px solid #111;
   font-family: 'Noto Sans KR', sans-serif;
+  color: #212121;
 }
 .btn-trd {
   background-color: #212121;
@@ -583,10 +584,18 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
 .sign_up .header{
   font-size: 20px;
   padding-left: 15px;
-  border-bottom: 2px solid #212121;
-  padding-bottom: 15px;
-  font-weight: 300;
+  border-bottom: 3px solid #262626;
+  padding-bottom: 20px;
+  font-weight: 400;
   margin-top: 100px;
+}
+.basic_header{
+  font-size: 20px;
+  padding-left: 15px;
+  border-bottom: 3px solid #262626;
+  padding-bottom: 20px;
+  font-weight: 400;
+  margin-top: 50px;
 }
 .sign_up a:first-child > .well {
   width:300px;
@@ -883,6 +892,171 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
 .on_deal {
   padding-left:0px;
   padding-right:0px;
+}
+.inf_list .row {
+  padding-bottom:100px;
+}
+.inf_list .basic_header a {
+  float:right;
+  color: #000000;
+  font-size:12px;
+  margin-top:5px;
+  text-decoration: none;
+}
+.inf_list .inf_rank_2 .sub_left img {
+  border-radius: 100%;
+}
+.inf_list .inf_rank_2 .sub_left img {
+  width: 190px;
+  height: 190px;
+}
+.inf_list .inf_rank_2 .rank_3cols .sub_left img {
+  width: 140px;
+  height: 140px;
+}
+.inf_list .inf_rank_2 .new_rank_3cols .sub_left img {
+  width: 80px;
+  height: 80px;
+}
+.inf_rank_2 > .pd_adj:nth-child(2n-1) {
+  padding-right:10px;
+  padding-left:0px;
+}
+.inf_rank_2 > .pd_adj:nth-child(2n) {
+  padding-left:10px;
+  padding-right:0px;
+}
+.inf_rank_2 > .pd_adj.margin_3cols {
+  padding-left:0px;
+  padding-right:0px;
+}
+.inf_rank_2 > .pd_adj.margin_3cols:nth-child(2n-1) {
+  padding-right:10px;
+  padding-left:0px;
+}
+.inf_rank_2 > .pd_adj.margin_3cols:last-child {
+  padding-right:0px;
+  padding-left:10px;
+}
+.inf_rank_2 > .pd_adj.new_margin_3cols:nth-child(3n-2) {
+
+}
+.inf_rank_2 > .pd_adj.new_margin_3cols:nth-child(3n) {
+  padding-right:0px;
+}
+
+
+.inf_rank_2 > .pd_adj > .col-md-12 {
+  border: 1px solid #979797;
+  padding-top:60px;
+  padding-bottom:45px;
+}
+.inf_rank_2 .sub_right .name{
+  font-size: 36px;
+}
+.inf_rank_2 .new_rank_3cols .sub_right .name  {
+  margin-top:5px;
+}
+.inf_rank_2 .sub_right .url{
+  font-size: 14px;
+  color: #262626;
+  margin-bottom: 22px;
+  text-decoration: none;
+}
+.inf_rank_2 .new_rank_3cols .sub_bottom .detail {
+  font-size: 14px;
+  color: #262626;
+  margin-bottom: 0px;
+}
+.inf_rank_2 .sub_right .url a{
+  color: #262626;
+  text-decoration: none;
+}
+.inf_rank_2 .sub_right .index{
+  font-size: 16px;
+  color: #262626;
+  line-height: 22px;
+}
+.inf_rank_2 .sub_right .index .index_question {
+  float:right;
+  margin-right:45px;
+  line-height: 16px;
+}
+.inf_rank_2 .rank_3cols .sub_right .index .index_question {
+  float: inherit;
+  margin-right: 0px;
+}
+.inf_rank_2 .rank_3cols .sub_right .index .index_question > img {
+  margin-bottom:3px;
+}
+.inf_rank_2 .sub_right .index .index_number {
+  margin-left: 20px;
+}
+.inf_rank_2 .rank_3cols .sub_right .index .index_number {
+  margin-left: 0px;
+  float:right;
+}
+.inf_rank_2 .sub_bottom {
+  margin-top:30px;
+}
+.inf_rank_2 .rank_3cols .sub_bottom {
+  margin-top:15px;
+}
+.inf_rank_2 .sub_bottom > img {
+  width: 110px;
+  height: 110px;
+}
+.inf_rank_2 .rank_3cols .sub_bottom > img {
+  width: 68px;
+  height: 68px;
+}
+.inf_rank_2 .sub_bottom > img{
+  margin-right:15px;
+}
+.inf_rank_2 .sub_bottom > img:last-child{
+  margin-right:0px;
+}
+.inf_rank_2 .inf_rank_place {
+  top: -20px;
+  line-height: 47px;
+  font-size: 22px;
+  background-color: #212121;
+  width: 98px;
+  position: absolute;
+  height: 47px;
+  color: #ffffff;
+}
+.inf_rank_2 .rank_3cols .inf_rank_place {
+  left: 0px;
+  width: 76px;
+  height: 40px;
+  line-height: 40px;
+}
+.inf_rank_2 .inf_rank_share {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.inf_rank_2 > .pd_adj > .rank_3cols {
+  border: 1px solid #979797;
+  padding-top:40px;
+  padding-bottom:30px;
+}
+.inf_rank_2 > .pd_adj > .new_rank_3cols {
+  border: 1px solid #e0e0e0;
+}
+.inf_rank_2 .margin_3cols {
+  margin-top:40px;
+}
+.inf_rank_2 .margin_2cols {
+  margin-top:50px;
+}
+.inf_rank_2 .rank_3cols .sub_left {
+  margin-top:30px;
+}
+.inf_rank_2 .new_rank_3cols .sub_left {
+  margin-top:0px;
 }
 /* influencer ends*/
 
