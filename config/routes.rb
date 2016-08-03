@@ -24,5 +24,6 @@ Rails.application.routes.draw do
     get :purchases_ready_test, on: :collection
     get :purchases_ready_test_mb, on: :collection
     post :email_send, on: :collection
+    get :deal_detail, on: :collection
   end
 end
