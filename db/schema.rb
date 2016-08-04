@@ -48,11 +48,6 @@ ActiveRecord::Schema.define(version: 20160803203628) do
     t.datetime "updated_at",                null: false
   end
 
-  create_table "order_sheets", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "product_options", force: :cascade do |t|
     t.integer  "product_id"
     t.string   "name"
@@ -138,14 +133,6 @@ ActiveRecord::Schema.define(version: 20160803203628) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
 
-  create_table "shopping_baskets", force: :cascade do |t|
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "shopping_baskets", ["user_id"], name: "index_shopping_baskets_on_user_id"
-
   create_table "shopping_items", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "user_id"
@@ -176,7 +163,6 @@ ActiveRecord::Schema.define(version: 20160803203628) do
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.string   "provider"
-    t.string   "uid"
     t.string   "social_uid"
   end
 
@@ -201,10 +187,5 @@ ActiveRecord::Schema.define(version: 20160803203628) do
 
   add_index "wishlist_items", ["product_id"], name: "index_wishlist_items_on_product_id"
   add_index "wishlist_items", ["user_id"], name: "index_wishlist_items_on_user_id"
-
-  create_table "wishlists", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
 end

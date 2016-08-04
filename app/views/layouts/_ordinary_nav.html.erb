@@ -21,7 +21,7 @@
       <span class="icon-bar"></span>
     </button>
     <!-- Logo -->
-    <a class="navbar-brand" id="nav_main" style="cursor:pointer;"><img style="width:40px;" class="navbar-logo" src="<%= image_url('logo_desktop.png') %>"><img style="width:40px;" class="navbar-logo_trans" src="<%= image_url('logo_desktop.png') %>"></a>
+    <a class="navbar-brand" id="nav_main" style="cursor:pointer;"><img style="width:40px;" class="navbar-logo_trans" src="<%= image_url('logo_desktop.png') %>"></a>
     <a class="navbar-brand navbar-brand_mb" id="navbar-brand_mb" style="cursor:pointer;line-height:40px;padding-top:5px;">
       <div>
         ABOUT
@@ -31,7 +31,6 @@
       </div>
       <div>
         <img src="<%=image_url('util_btn_1.png')%>" style="display:inline-block" alt="" />
-        <img src="<%=image_url('util_btn_up_1.png')%>" style="display:inline-block" alt="" />
       </div>
     </a>
   </div>
@@ -39,9 +38,9 @@
   <!-- Navbar Links -->
   <div id="nav_close" class="navbar-collapse collapse page-scroll navbar-right" style="margin-right:0px;">
     <ul class="nav navbar-nav">
-      <li class="invisible"><a href="#"><img class="nav_off_scroll_1" src="<%= image_url('icn_search_1.png') %>" alt=""><img class="nav_off_scroll_1_trans" src="<%= image_url('icn_search_1.png') %>" alt=""></a></li>
-    <li><a href="<%= wishlist_items_path %>"><img src="<%= image_url('icn_wish_1.png') %>" class="nav_off_scroll_1" alt=""><img src="<%= image_url('icn_wish_1.png') %>" class="nav_off_scroll_1_trans" alt=""></a></li>
-      <li><a href="<%= shopping_items_path %>"><img class="nav_off_scroll_3" src="<%= image_url('icn_cart_1.png') %>"alt=""><img class="nav_off_scroll_3_trans" src="<%= image_url('icn_cart_1.png') %>"alt=""></a></li>
+      <li><a href="#"><img class="nav_off_scroll_1_trans" src="<%= image_url('icn_search_1.png') %>" alt=""></a></li>
+    <li><a href="<%= wishlist_items_path %>"><img src="<%= image_url('icn_wish_1.png') %>" class="nav_off_scroll_1_trans" alt=""></a></li>
+      <li><a href="<%= shopping_items_path %>"><img class="nav_off_scroll_3_trans" src="<%= image_url('icn_cart_1.png') %>"alt=""></a></li>
      <% if user_signed_in? %>
         <li class="dropdown">
           <a style="color:#212121" href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
@@ -51,15 +50,21 @@
             <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %></li>
           </ul>
         </li>
+        <li>
+          <%= link_to "#", id: "main_profile" do %>
+            <%= image_tag "influencer_sample.jpg", alt: "" %>
+          <% end %>
+        </li>
       <% else %>
         <li class="session"><%= link_to "로그인", new_user_session_path %></li>
-        <li style="color:#212121" class="session"><%= link_to "Sign up", new_user_registration_path %></li>
+        <li style="color:#212121" class="session"><%= link_to "회원가입", new_user_registration_path %></li>
+        <li class="invisible">
+          <%= link_to "#", id: "main_profile" do %>
+            <%= image_tag "influencer_sample.jpg", alt: "" %>
+          <% end %>
+        </li>
       <% end %>
-      <li>
-        <%= link_to "#", id: "main_profile" do %>
-          <%= image_tag "influencer_sample.jpg", alt: "" %>
-        <% end %>
-      </li>
+
     </ul><!-- / .nav .navbar-nav -->
   </div><!--/.navbar-collapse -->
 

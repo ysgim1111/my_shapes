@@ -31,10 +31,15 @@
     <div class="col-md-6 text-center sign_sns">
       <h4>SNS로 로그인</h4>
       <div class="col-md-12 no-gap">
-        <div class="fb-login-button session_btn" data-size="xlarge" data-show-faces="false" data-scope="public_profile,email" onlogin="checkLoginState();"></div>
+        <div class="fb-login-button" data-size="xlarge" data-show-faces="false" data-scope="public_profile,email" onlogin="checkLoginState();" style="background:url('<%= image_url('login_facebook_d.png') %>')">
+
+        </div>
+
       </div>
       <div class="col-md-12 no-gap">
-        <a href="#" class="btn session_btn">naver계정으로 로그인</a>
+        <a href="#" class="btn" alert('준비중입니다')>
+          <%= image_tag "login_naver_d.png", style: "width:100%;max-width:319px;" %>
+        </a>
       </div>
     </div><!-- col-md-6 -->
 
