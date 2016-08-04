@@ -1,4 +1,4 @@
-<div class="col-md-12 main_center_image no-gap">
+<!--<div class="col-md-12 main_center_image no-gap">
   <div class="main_logo_div">
     <%= image_tag "logo_desktop.png", class: "main_logo" %>
   </div>
@@ -8,10 +8,10 @@
     <%= link_to "ABOUT", about_products_path, class: "menu_third" %>
   </div>
 </div>
-
+-->
 <div class="container">
   <div class="row">
-    <div class="col-md-12 no-gap main_slide">
+    <div class="col-md-12 main_slide">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -63,7 +63,7 @@
     <% end %>
 
     <!-- 스팟상품 -->
-    <% @products.where(view_type: Product.view_types[:regular]).each do |product| %>
+    <!--<% @products.where(view_type: Product.view_types[:regular]).each do |product| %>
       <div class="col-md-6 card_guide no-gap">
         <div class="col-md-5">
           <%= link_to product_path(product), style: "text-decoration:none" do %>
@@ -89,8 +89,6 @@
           </div>
         </div>
       </div>
-    <% end %>
+    <% end %>-->
   </div>
 </div>
-
-<%= render "image_setting" %>
