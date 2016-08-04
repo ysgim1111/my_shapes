@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  # before_filter :authenticate_user!, only: [:purchases_ready, :purchases_complete]
+  # before_filter :authenticate_user!
 
   def index
     @products = Product.all
