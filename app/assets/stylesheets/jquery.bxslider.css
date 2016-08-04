@@ -66,7 +66,7 @@
 
 .bx-wrapper .bx-loading {
 	min-height: 50px;
-	background: url('bx_loader.gif') center center no-repeat #fff;
+	background: asset-url('bx_loader.gif') center center no-repeat #fff;
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -116,12 +116,12 @@
 
 .bx-wrapper .bx-prev {
 	left: 0px;
-	background: url('slide_arrow_left.png') no-repeat;
+	background: asset-url('slide_arrow_left.png') no-repeat;
 }
 
 .bx-wrapper .bx-next {
 	right: 0px;
-	background: url('slide_arrow_right.png') no-repeat;
+	background: asset-url('slide_arrow_right.png') no-repeat;
 }
 
 .bx-wrapper .bx-prev:hover {
@@ -164,7 +164,7 @@
 	width: 10px;
 	height: 11px;
 	outline: 0;
-	background: url('controls.png') -86px -11px no-repeat;
+	background: asset-url('controls.png') -86px -11px no-repeat;
 	margin: 0 3px;
 }
 
@@ -179,7 +179,7 @@
 	width: 9px;
 	height: 11px;
 	outline: 0;
-	background: url('controls.png') -86px -44px no-repeat;
+	background: asset-url('controls.png') -86px -44px no-repeat;
 	margin: 0 3px;
 }
 
