@@ -171,6 +171,20 @@
     padding: 0px;
   }
   /* loginends */
+
+  /* shopping_list */
+
+  .shopping_list .tb_desk {
+    border-bottom: none;
+    padding-bottom: 0px;
+  }
+  .shopping_list .go_purc {
+    text-align: center;
+    margin-top: 40px;
+  }
+  .shopping_list .go_purc a {
+    max-width: 200px;
+  }
 }
 
 @media (max-width: 990px) {

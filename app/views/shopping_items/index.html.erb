@@ -64,9 +64,9 @@ input[type=checkbox]:checked + label:before {
   </div>
   <div class="row">
     <div class="col-md-12">
-      <div class="col-md-12 tb_desk">
+      <div class="col-md-12">
         <!-- desktop -->
-        <div class="mb_line_break_reverse">
+        <div class="mb_line_break_reverse tb_desk">
           <table class="table table-hover tb_purc">
             <thead>
               <tr>
@@ -127,56 +127,120 @@ input[type=checkbox]:checked + label:before {
           </table>
         </div>
         <!-- desktop -->
+      </div>
+      <!-- mb -->
+      <div class="mb_line_break tb_mb">
+        <table class="table table-hover tb_purc_mb">
+          <thead>
+            <tr> <th>&nbsp;</th> <th>&nbsp;</th> </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" colspan="2">
+                <div class="checkbox">
+                  <input type="checkbox" id="check2" class="checkbox-style tb_purc_check_mb"/>
+                  <label for="check2" class="tb_purc_name_mb">[챔스] 베이직 로고 크롭 티셔츠 /<br> 블루-화이트</label>
+                </div>
+            </tr>
+            <tr>
+              <th scope="row"> <img src="https://placehold.it/75x75"> </th>
+              <td class="tb_purc_spec_mb">
+                <p class="help-block">옵션 : S<br> 36,000 원&nbsp;&nbsp;2,500 원
+                <a href="#"><%= image_tag 'cart_delete_m' %></a> </p>
+                <div class="col-md-12 no-gap">
+                  <div class="form-group">
+                    <select class="form-control" style="width:50%;">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                    </select>
+                  </div>
+                </div>
+              </td>
+            </tr>
 
-        <!-- mb -->
-        <div class="mb_line_break">
-          <table class="table table-hover">
-            <thead>
-              <tr> <th>&nbsp;</th> <th>&nbsp;</th> </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row" colspan="2">
-                  <div class="checkbox">
-                    <input type="checkbox" id="check1" class="checkbox-style"/>
-                    <label for="check1"></label>
+            <tr>
+              <th scope="row" colspan="2">
+                <div class="checkbox">
+                  <input type="checkbox" id="check2" class="checkbox-style tb_purc_check_mb"/>
+                  <label for="check2" class="tb_purc_name_mb">[챔스] 베이직 로고 크롭 티셔츠 /<br> 블루-화이트</label>
+                </div>
+            </tr>
+            <tr>
+              <th scope="row"> <img src="https://placehold.it/75x75"> </th>
+              <td class="tb_purc_spec_mb">
+                <p class="help-block">옵션 : S<br> 36,000 원&nbsp;&nbsp;2,500 원
+                <a href="#"><%= image_tag 'cart_delete_m' %></a> </p>
+                <div class="col-md-12 no-gap">
+                  <div class="form-group">
+                    <select class="form-control" style="width:50%;">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                    </select>
                   </div>
-                  <div>
-                    <h5 class="text-left">[챔스] 베이직 로고 크롭 티셔츠츠 / 블루-화이트</h5></th>
-                  </div>
-              </tr>
-              <tr>
-                <th scope="row"> <img src="https://placehold.it/75x75"> </th>
-                <td><p class="help-block">옵션 : S<br> 36,000 원&nbsp;&nbsp;2,500 원</p></td>
-              </tr>
-              <tr>
-                <th scope="row" colspan="2"> hi</th>
-              </tr>
-              <tr>
-                <th scope="row"> <img src="https://placehold.it/75x75"> </th>
-                <td><h5>[챔스] 베이직 로고 크롭 티셔츠츠 / 블루-화이트</h5><p class="help-block">옵션 : S<br> 36,000 원&nbsp;&nbsp;2,500 원</p></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!-- mb -->
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+      <!-- mb -->
     </div><!-- col-md-12 -->
-    <div class="col-md-12 specific_detail">
-      <div class="col-md-3">
-        <a href="#" class="btn session_btn">선택 삭제</a>
-      </div>
-      <div class="col-md-9 text-right">
-        <p>
-          <strong>상품 가격</strong> <span>78,900 원</span>
-          <strong>+</strong><br class="mb_line_break">
-          <strong>배송비</strong>
-          <span>2,500 원</span><br class="mb_line_break">
-          <strong>=</strong>
-          <strong>78,900 원</strong>
-        </p>
+
+    <!-- desktop -->
+    <div class="row specific_detail mb_line_break_reverse">
+      <div class="col-md-12" style="margin-top:30px;">
+        <div class="col-md-12">
+          <div class="col-md-3">
+            <a href="#" class="btn session_btn">선택 삭제</a>
+          </div>
+          <div class="col-md-9 text-right">
+            <p>
+              <strong>상품 가격</strong> <span>78,900 원</span>
+              <strong>+</strong><br class="mb_line_break">
+              <strong>배송비</strong>
+              <span>2,500 원</span><br class="mb_line_break">
+              <strong>=</strong>
+              <strong>78,900 원</strong>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
+    <!-- desktop -->
+
+    <!-- mb -->
+    <div class="row specific_detail_mb mb_line_break">
+      <div class="col-md-12 seperate_line">
+        <hr>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-3">
+          <a href="#" class="btn session_btn">전체 선택</a>
+          <a href="#" class="btn session_btn">선택 삭제</a>
+        </div>
+        <div class="col-md-9 price_result_mb">
+          <p>
+            <strong>총 상품 금액</strong> <span>78,900 원</span>
+            <br class="mb_line_break">
+            <strong>배송비</strong>
+            <span>2,500 원</span><br class="mb_line_break">
+          </p>
+        </div>
+        <div class="col-md-12 seperate_line_result">
+          <hr>
+        </div>
+        <div class="col-md-9 price_result_mb">
+          <p>
+            <strong>최종 결제 금액</strong> <span>73,510 원</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- mb -->
     <div class="col-md-12">
       <div class="col-md-12 go_purc">
         <a href="#" class="btn session_btn_black">주문 하기</a>
