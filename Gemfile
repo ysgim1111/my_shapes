@@ -63,6 +63,7 @@ gem 'rolify'
 
 # Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
 gem 'carrierwave'
+gem 'mini_magick'
 
 gem 'twitter-bootstrap-rails'
 

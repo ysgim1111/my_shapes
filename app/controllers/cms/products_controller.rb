@@ -37,6 +37,6 @@ class Cms::ProductsController < BaseCmsController
   private
 
   def product_params
-    params.require(:product).permit(:name, :desc, :price, :view_type)
+    params.require(:product).permit(:name, :desc, :price, :view_type, :image_url)
   end
 end
