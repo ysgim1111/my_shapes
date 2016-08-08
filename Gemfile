@@ -37,9 +37,8 @@ group :production do
   gem 'mysql2'
 end
 
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Flexible authentication solution for Rails with Warden
 gem 'devise'
@@ -64,11 +63,13 @@ gem 'rolify'
 # Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'carrierwave-aws'
 
 gem 'twitter-bootstrap-rails'
 
 # web server
 gem 'puma'
 
-gem 'aws-sdk', '~> 1.5.7'
+gem 'aws-sdk'
+
 gem 'mailgun_rails'
