@@ -65,11 +65,11 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = { host: 'http://test-env2.ap-northeast-2.elasticbeanstalk.com', port: 80 }
+  config.action_mailer.default_url_options = { host: Rails.application.secrets.mailer_default_url, port: 80 }
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
-    api_key: 'key-0ff3314990fe930634141b11af0835b8',
-    domain: 'sandbox5d17226037754d60b141ae617eef45d6.mailgun.org'
+    api_key: Rails.application.secrets.mailgun_api_key,
+    domain: Rails.application.secrets.mailgun_domain
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
