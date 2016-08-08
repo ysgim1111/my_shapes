@@ -21,7 +21,9 @@ body {
 .nav>li {
   margin-top: 10px;
 }
-
+.navbar-default {
+  border-bottom: 4px solid #212121;
+}
 
 .navbar-trans > .nav-justified > li > a.active {
   padding-right: 0px;
@@ -310,10 +312,6 @@ body {
 }
 .about .about_content {
   position: absolute;
-}
-.navbar-trans {
-  background: transparent !important;
-  border:none;
 }
 .navbar-default .navbar-toggle .icon-bar {
   background-color: #212121 !important;
@@ -1260,6 +1258,9 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
 .shopping_list .tb_purc_mb .tb_purc_name_mb {
   text-align: left !important;
 }
+.shopping_list .tb_purc_mb .tb_purc_header_mb {
+  text-align: left;
+}
 .shopping_list .tb_purc_mb input[type=checkbox]+ label:before {
   top: calc(50% - 10px) !important;
 }
@@ -1313,6 +1314,13 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
 }
 /* shopping list ends */
 
+
+
+/* mobile nav  starts */
+.nav_mb_right_slide .wish_cart_btn {
+  border : 1px solid #777;
+}
+/* mobile nav ends */
 /* footer */
 /* --------------------------------------------------
 	7.0 Footers

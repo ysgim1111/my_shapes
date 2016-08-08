@@ -25,6 +25,11 @@
 }
 
 @media (max-width: 767px) {
+  .navbar-default.mobile-nav {
+    background-color: #ffffff;
+    border-bottom: none;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.20);
+  }
   /*about starts*/
   .mb_line_break {
     display: block;
