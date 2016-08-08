@@ -1,0 +1,2 @@
+module BaseCmsHelper
+end

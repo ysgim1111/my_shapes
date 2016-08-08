@@ -1,4 +1,7 @@
 class Product < ActiveRecord::Base
+  include Authority::Abilities
+  resourcify
+
   enum view_type: [:regular, :main, :deal_upper, :deal]
 
   default_scope -> { where(enable: true) }

@@ -27,4 +27,8 @@ Rails.application.routes.draw do
     get :deal_detail, on: :collection
     get :show_test, on: :collection
   end
+
+  namespace :cms do
+    resources :products, :users
+  end
 end

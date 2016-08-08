@@ -1,0 +1,21 @@
+<dl class="dl-horizontal">
+  <dt></dt>
+  <dd>
+    <%= link_to("수정", edit_cms_product_path(@product)) %>
+    <%= link_to("삭제", cms_product_path(@product), method: :delete, data: {confirm: "삭제하시겠습니까?"}) %>
+  </dd>
+  <dt>상품명</dt>
+  <dd><%= @product.name %></dd>
+  <dt>상세설명</dt>
+  <dd><%= @product.desc %></dd>
+  <dt>가격</dt>
+  <dd><%= @product.price %></dd>
+  <dt>뷰타입</dt>
+  <dd><%= @product.view_type %></dd>
+  <dt>썸네일이미지</dt>
+  <dd><%= @product.image_url %></dd>
+  <dt>메인이미지</dt>
+  <dd><%= @product.image_url2 %></dd>
+  <dt>생성일</dt>
+  <dd><%= @product.created_at %></dd>
+</dl>
