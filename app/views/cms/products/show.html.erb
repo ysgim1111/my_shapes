@@ -1,8 +1,8 @@
 <dl class="dl-horizontal">
   <dt></dt>
   <dd>
-    <%= link_to("수정", edit_cms_product_path(@product)) %>
-    <%= link_to("삭제", cms_product_path(@product), method: :delete, data: {confirm: "삭제하시겠습니까?"}) %>
+    <%= link_to "수정", edit_cms_product_path(@product), class: "btn btn-primary" %>
+    <%= link_to "삭제", cms_product_path(@product), method: :delete, data: {confirm: "삭제하시겠습니까?"}, class: "btn btn-danger" %>
   </dd>
   <dt>상품명</dt>
   <dd><%= @product.name %></dd>

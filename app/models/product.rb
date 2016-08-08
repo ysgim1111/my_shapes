@@ -3,6 +3,7 @@ class Product < ActiveRecord::Base
   resourcify
 
   mount_uploader :image_url, ProductUploader
+  mount_uploader :image_url2, ProductUploader
 
   enum view_type: [:regular, :main, :deal_upper, :deal]
 
