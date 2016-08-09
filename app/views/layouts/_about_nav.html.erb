@@ -1,3 +1,89 @@
+<style>
+.mobile-nav #nav_close .nav_off_scroll_1 {
+  display: block;
+}
+.mobile-nav #nav_close .nav_off_scroll_1_trans {
+  display: none;
+}
+.mobile-nav #nav_close .nav_off_scroll_2 {
+  display: block;
+}
+.mobile-nav #nav_close .nav_off_scroll_2_trans {
+  display: none;
+}
+.mobile-nav #nav_close .nav_off_scroll_3 {
+  display: block;
+}
+.mobile-nav #nav_close .nav_off_scroll_3_trans {
+  display: none;
+}
+.mobile-nav #nav_close .nav_off_scroll_4 {
+  background: url('util_btn_1.png');
+  width: 9px;
+  height: 7px;
+  margin-top: 5px;
+}
+.navbar-small .nav_off_scroll_1 {
+  display: block;
+}
+.navbar-small .nav_off_scroll_1_trans {
+  display: none;
+}
+.navbar-small .nav_off_scroll_2 {
+  display: block;
+}
+.navbar-small .nav_off_scroll_2_trans {
+  display: none;
+}
+.navbar-small .nav_off_scroll_3{
+  display: block;
+}
+.navbar-small .nav_off_scroll_3_trans{
+  display: none;
+}
+.navbar-small .nav_off_scroll_4{
+  background: url('util_btn_1.png');
+  width: 9px;
+  height: 7px;
+  margin-top: 5px;
+}
+.navbar-trans .nav_off_scroll_1 {
+  display: none;
+}
+.navbar-trans .nav_off_scroll_1_trans {
+  display: block;
+}
+.navbar-trans .nav_off_scroll_2 {
+  display: none;
+}
+.navbar-trans .nav_off_scroll_2_trans {
+  display: block;
+}
+.navbar-trans .nav_off_scroll_3{
+  display: none;
+}
+.navbar-trans .nav_off_scroll_3_trans{
+  display: block;
+}
+.navbar-trans .nav_off_scroll_4{
+  background: url('util_btn_2.png');
+  width: 9px;
+  height: 7px;
+  margin-top: 5px;
+}
+.navbar-trans .navbar-logo_trans {
+  display: block;
+}
+.navbar-trans .navbar-logo {
+  display: none;
+}
+.navbar-small .navbar-logo, .mobile-nav .navbar-logo {
+  display: block;
+}
+.navbar-small .navbar-logo_trans, .mobile-nav .navbar-logo_trans {
+  display: none;
+}
+</style>
 <nav class="navbar navbar-default navbar-fixed-top mega navbar-trans navbar-fw neon" style="z-index:10;">
   <ul class="nav nav-pills nav-justified" style="font-size: 14px; width: 300px; margin: auto; left: 0; right: 40px; position: fixed; z-index: 11; top: 15px; line-height: 16px; ">
     <li> <%= link_to "DEALS", products_path %></li>
@@ -12,7 +98,7 @@
       <span class="icon-bar"></span>
     </button>
     <!-- Logo -->
-    <a class="navbar-brand" id="nav_main" style="cursor:pointer;"><img style="width:40px;" class="navbar-logo" src="<%= image_url('logo_desktop.png') %>"><img style="width:40px;" class="navbar-logo_trans" src="<%= image_url('logo_w1_1.png') %>"></a>
+    <a href="/" class="navbar-brand" id="nav_main" style="cursor:pointer;"><img style="width:40px;" class="navbar-logo" src="<%= image_url('logo_desktop.png') %>"><img style="width:40px;" class="navbar-logo_trans" src="<%= image_url('logo_w1_1.png') %>"></a>
     <a class="navbar-brand navbar-brand_mb" id="navbar-brand_mb" style="cursor:pointer;line-height:40px;padding-top:5px;">
       <div>
         ABOUT
