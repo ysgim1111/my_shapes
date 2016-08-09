@@ -1,3 +1,9 @@
+<!-- assets_for_mobile_nav-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
+<!-- assets_for_mobile_nav-->
+
 <style>
   .navbar-trans {
     background-color: #f8f8f8 !important;
@@ -7,35 +13,70 @@
 }
 </style>
 <!-- ordinary nav-->
-<nav class="navbar navbar-default navbar-fixed-top mega navbar-small navbar-fw neon" style="z-index:10;border-bottom: 4px solid #212121;">
+<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-right offcanvas nav_mb_right_slide" role="navigation">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-xs-4">
+        <%= image_tag "profile_1.png", style: "border-radius:100%;width:60px;margin-top:15px;", alt: "" %>
+      </div>
+      <div class="col-xs-8">
+        <h3>우희 님</h3>
+        <p class="detail">
+        asdf@gmail.com
+        </p>
+      </div>
+    </div>
+  </div>
+    <div class="col-xs-6">
+        <a class="btn wish_cart_btn" style="width:100%"> <%= image_tag "icn_wish_1" %>위시리스트</a>
+    </div>
+    <div class="col-xs-6">
+        <a class="btn wish_cart_btn" style="width:100%"> <%= image_tag "icn_cart_1" %>장바구니</a>
+    </div>
+    <div class="col-xs-12 no-gap">
+      <ul class="nav navmenu-nav">
+        <li class="active"><a href="#">DEALS</a></li>
+        <li><a href="#">INFLUENCERS</a></li>
+        <li><a href="#">ABOUT</a></li>
+      </ul>
+    </div>
+    <div class="col-xs-12">
+      <ul class="nav navmenu-nav">
+        <li class="active">
+          <a role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            마이페이지
+          </a>
+        </li>
+        <div id="collapseExample" class="collapse">
+          <ul class="nav navmenu-nav">
+            <li><a href="#">주문 조회</a></li>
+            <li><a href="#">교환 / 반품</a></li>
+            <li><a href="#">쿠폰</a></li>
+            <li><a href="#">상품 문의 내역</a></li>
+            <li><a href="#">1:1 문의 내역</a></li>
+            <li><a href="#">회원 정보 관리</a></li>
+            <li><a href="#">배송지 관리</a></li>
+          </ul>
+        </div>
+      </ul>
+    </div>
+    <div class="col-xs-12 no-gap">
+      <ul class="nav navmenu-nav">
+        <li class="active"><a href="#">DEALS</a></li>
+        <li><a href="#">INFLUENCERS</a></li>
+        <li><a href="#">ABOUT</a></li>
+      </ul>
+    </div>
+</nav>
+
+
+<div class="navbar navbar-default navbar-fixed-top  mega navbar-small navbar-fw neon" style="z-index:10;">
+
   <ul class="nav nav-pills nav-justified main_service" style="font-size: 14px; width: 500px; margin: auto; left: 0; right: 0px; position: fixed; z-index: 11; top: 20px; line-height: 16px;">
     <li> <%= link_to "DEALS", products_path, class: "menu_second" %></li>
     <li> <%= link_to "INFLUENCERS", influences_path, class: "menu_second" %></li>
     <li> <%= link_to "ABOUT", about_products_path, class: "menu_second" %></li>
   </ul>
-  <div class="navbar-header page-scroll">
-    <button id="nav_toggle_visibility" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" style="border:#f8f8f8;background:#f8f8f8">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <!-- Logo -->
-    <a href="/" class="navbar-brand" id="nav_main" style="cursor:pointer;"><img style="width:40px;" class="navbar-logo_trans" src="<%= image_url('logo_desktop.png') %>"></a>
-    <a class="navbar-brand navbar-brand_mb" id="navbar-brand_mb" style="cursor:pointer;line-height:40px;padding-top:5px;">
-      <div>
-        ABOUT
-        <div style="margin-top: -7px;margin-bottom:0px;">
-          <hr>
-        </div>
-      </div>
-      <div>
-        <img src="<%=image_url('util_btn_1.png')%>" style="display:inline-block" alt="" />
-        <img src="<%=image_url('util_btn_up_1.png')%>" style="display:inline-block" alt="" />
-      </div>
-    </a>
-  </div>
-
   <!-- Navbar Links -->
   <div id="nav_close" class="navbar-collapse collapse page-scroll navbar-right" style="margin-right:0px;">
     <ul class="nav navbar-nav navbar-right_profile">
@@ -70,12 +111,14 @@
 
     </ul><!-- / .nav .navbar-nav -->
   </div><!--/.navbar-collapse -->
-
-  <div id="nav_mb_menu" class="navbar-collapse collapse page-scroll navbar-right navbar-collapse_mb_left" style="margin-right:0px;">
-    <ul class="nav navbar-nav">
-      <li> <%= link_to "DEALS", products_path %></li>
-      <li> <%= link_to "INFLUENCERS", influences_path %></li>
-      <li> <%= link_to "ABOUT", about_products_path %></li>
-    </ul><!-- / .nav .navbar-nav -->
-  </div><!--/.navbar-collapse -->
-</nav><!-- / .navbar -->
+  <!-- Logo -->
+  <a href="/" class="navbar-brand" id="nav_main" style="cursor:pointer;"><img style="width:40px;" class="navbar-logo_trans" src="<%= image_url('logo_desktop.png') %>"></a>
+  <a class="navbar-brand navbar-brand_mb" id="navbar-brand_mb" style="cursor:pointer;line-height:40px;padding-top:5px;">
+    <img style="width:40px;" class="navbar-logo_trans" src="<%= image_url('logo_desktop.png') %>">
+  </a>
+  <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+</div>

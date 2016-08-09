@@ -25,6 +25,11 @@
 }
 
 @media (max-width: 767px) {
+  .navbar-default.mobile-nav {
+    background-color: #ffffff;
+    border-bottom: none;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.20);
+  }
   /*about starts*/
   .mb_line_break {
     display: block;
@@ -171,6 +176,20 @@
     padding: 0px;
   }
   /* loginends */
+
+  /* shopping_list */
+
+  .shopping_list .tb_desk {
+    border-bottom: none;
+    padding-bottom: 0px;
+  }
+  .shopping_list .go_purc {
+    text-align: center;
+    margin-top: 40px;
+  }
+  .shopping_list .go_purc a {
+    max-width: 200px;
+  }
 }
 
 @media (max-width: 990px) {
@@ -190,5 +209,9 @@
   .sign_in .col-md-6:nth-child(2) {
     padding: 0 15px !important;
     border-right: none;
+  }
+  .inf_rank_2 > .pd_adj {
+    padding-left:10px !important;
+    padding-right:10px !important;
   }
 }
