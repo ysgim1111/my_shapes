@@ -1320,6 +1320,65 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
 .nav_mb_right_slide .wish_cart_btn {
   border : 1px solid #777;
 }
+.navmenu-default, .navbar-default .navbar-offcanvas {
+  background-color: #ffffff;
+  box-shadow: 0px 2px 8px 2px rgba(0,0,0,0.30);;
+}
+#myNavmenu .up_down i {
+  float:right;
+  margin-top:3px;
+}
+#myNavmenu .nav.navmenu-nav > li.active {
+  margin-top:0px;
+}
+#myNavmenu .nav.navmenu-nav > li.active > a {
+  padding: 14px 30px;
+}
+#myNavmenu .nav.navmenu-nav > li.active:first-child {
+  margin-top:10px;
+}
+#myNavmenu #collapseExample {
+  background-color: #f4f4f4;
+  border-radius: 4px;
+}
+#myNavmenu #collapseExample .nav > li > a{
+  color: #212121 !important;
+}
+#myNavmenu #collapseExample .nav > li > a:focus,#myNavmenu #collapseExample .nav > li > a:hover {
+  background: #212121;
+  color: #ffffff;
+  border-radius: 4px;
+}
+#myNavmenu .nav.navmenu-nav {
+  margin-bottom:0px;
+}
+.navmenu-default .navmenu-nav>li>a {
+  color: #212121;
+}
+#myNavmenu .nav.navmenu-nav >li >a >img {
+  width:18px;
+  margin-bottom:2px;
+  margin-right:6px;
+}
+#myNavmenu .mb_nav_right_btn > a{
+  border: 1px solid #B2B2B2;
+  border-radius: 4px;
+}
+#myNavmenu .mb_nav_right_btn:nth-child(2) {
+  padding-right: 7.5px;
+}
+#myNavmenu .mb_nav_right_btn:nth-child(3) {
+  padding-left: 7.5px;
+}
+#myNavmenu .nav_mb_menu_cancel {
+  top: 23px;
+  width: 15px;
+  right: 15px;
+  position: absolute;
+}
+#myNavmenu > .row:first-child {
+  margin-top:15px;
+}
 /* mobile nav ends */
 /* footer */
 /* --------------------------------------------------
