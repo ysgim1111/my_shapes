@@ -1,0 +1,15 @@
+<dl class="dl-horizontal">
+  <dt></dt>
+  <dd>
+    <%= link_to "수정", edit_cms_user_path(@user), class: "btn btn-primary" %>
+    <%= link_to "삭제", cms_user_path(@user), method: :delete, data: {confirm: "삭제하시겠습니까?"}, class: "btn btn-danger" %>
+  </dd>
+  <dt>이름</dt>
+  <dd><%= @user.name %></dd>
+  <dt>email</dt>
+  <dd><%= @user.email %></dd>
+  <dt>권한</dt>
+  <dd><%= @user.roles_name %></dd>
+  <dt>생성일</dt>
+  <dd><%= @user.created_at %></dd>
+</dl>

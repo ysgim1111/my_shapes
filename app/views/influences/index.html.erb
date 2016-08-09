@@ -14,7 +14,7 @@
           <% @products.where(view_type: Product.view_types[:main]).each_with_index do |product, i| %>
           <div class="item <%= i == 0 ? 'active' : '' %>">
             <%= link_to product_path(product) do %>
-              <%= image_tag(product.image_url2, alt: product.name, style: "width:100%") %>
+              <%= image_tag(product.image_basic, alt: product.name, style: "width:100%") %>
             <% end %>
             <div class="carousel-caption invisible">
               <h3><%= product.name %></h3>
