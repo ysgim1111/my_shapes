@@ -25,7 +25,7 @@
           <% @products.where(view_type: Product.view_types[:main]).each_with_index do |product, i| %>
           <div class="item <%= i == 0 ? 'active' : '' %>">
             <%= link_to deal_detail_products_path do %>
-              <%= image_tag(product.image_url2, alt: product.name, style: "width:100%") %>
+              <%= image_tag(product.image_basic, alt: product.name, style: "width:100%") %>
             <% end %>
             <div class="carousel-caption invisible">
               <h3><%= product.name %></h3>
@@ -50,7 +50,7 @@
     <% @products.where(view_type: Product.view_types[:deal_upper]).each do |product| %>
     <div class="col-md-12 main_sub_image_first">
       <%= link_to deal_detail_products_path do %>
-        <%= image_tag(product.image_url2) %>
+        <%= image_tag(product.image_basic) %>
       <% end %>
     </div>
     <% end %>
@@ -67,7 +67,7 @@
       <div class="col-md-6 card_guide no-gap">
         <div class="col-md-5">
           <%= link_to product_path(product), style: "text-decoration:none" do %>
-            <%= image_tag(product.image_url, alt: "", style: "width:100%") %>
+            <%= image_tag(product.image_basic.thumb, alt: "", style: "width:100%") %>
           <% end %>
         </div>
         <div class="col-md-7 no-gap">

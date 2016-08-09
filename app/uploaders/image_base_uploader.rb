@@ -1,5 +1,6 @@
-class ProductUploader < CarrierWave::Uploader::Base
+# encoding: utf-8
 
+class ImageBaseUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   include CarrierWave::MiniMagick
 
@@ -11,15 +12,7 @@ class ProductUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    # For Rails 3.1+ asset pipeline compatibility:
-    # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-    [version_name, "default_#{model.class.to_s.underscore}.png"].compact.join('_')
-  end
-
-  process resize_to_fit: [600, 600]
-  # Create different versions of your uploaded files:
-  version :thumb do
-    process :resize_to_fit => [182, 136]
+    "default_#{model.class.to_s.underscore}.png"
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
