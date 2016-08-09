@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803203628) do
+ActiveRecord::Schema.define(version: 20160808140919) do
 
   create_table "destinations", force: :cascade do |t|
     t.integer  "user_id"
@@ -59,17 +59,34 @@ ActiveRecord::Schema.define(version: 20160803203628) do
   add_index "product_options", ["product_id"], name: "index_product_options_on_product_id"
 
   create_table "products", force: :cascade do |t|
-    t.string   "name",              default: "",   null: false
+    t.string   "name",                       default: "",   null: false
     t.string   "desc"
-    t.integer  "price",             default: 0,    null: false
-    t.boolean  "enable",            default: true, null: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.string   "image_url"
-    t.integer  "discount",          default: 0
-    t.integer  "shipping_expenses", default: 0
-    t.integer  "view_type",         default: 0,    null: false
-    t.string   "image_url2"
+    t.integer  "price",                      default: 0,    null: false
+    t.boolean  "enable",                     default: true, null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.integer  "discount",                   default: 0
+    t.integer  "shipping_expenses",          default: 0
+    t.integer  "view_type",                  default: 0,    null: false
+    t.string   "image_basic"
+    t.string   "image_desc"
+    t.integer  "stack"
+    t.string   "manufacturer"
+    t.string   "brand"
+    t.string   "made_in"
+    t.date     "date_of_manufacturing"
+    t.date     "use_by_date"
+    t.string   "public_phrase"
+    t.integer  "minimum_purchase"
+    t.integer  "maximum_purchase"
+    t.string   "seller_product_code"
+    t.date     "sell_by_date"
+    t.integer  "status"
+    t.integer  "return_shipping_expenses"
+    t.integer  "exchange_shipping_expenses"
+    t.string   "return_address"
+    t.string   "as_tel"
+    t.string   "as_info"
   end
 
   create_table "purchase_lists", force: :cascade do |t|

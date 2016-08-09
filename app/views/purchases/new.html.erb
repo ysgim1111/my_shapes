@@ -75,9 +75,9 @@ input[type=checkbox]:checked + label:before {
             </thead>
             <tbody>
               <tr>
-                <th scope="row"> <%= image_tag(@product.image_url) %> </th> 
+                <th scope="row"> <%= image_tag(@product.image_basic) %> </th>
                 <td><h5><%= @product.name %></h5><p>옵션 : <%= params[:option] %></p></td>
-                <td><%= @product.shipping_expenses %> 원</td> 
+                <td><%= @product.shipping_expenses %> 원</td>
                 <td><%= @product.price %> 원</td>
               </tr>
             </tbody>
