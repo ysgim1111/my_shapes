@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160808140919) do
+ActiveRecord::Schema.define(version: 20160809172115) do
 
   create_table "destinations", force: :cascade do |t|
     t.integer  "user_id"
@@ -29,24 +29,32 @@ ActiveRecord::Schema.define(version: 20160808140919) do
 
   add_index "destinations", ["user_id"], name: "index_destinations_on_user_id"
 
-  create_table "influence_products", force: :cascade do |t|
-    t.integer  "influence_id"
-    t.integer  "product_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "influence_products", ["influence_id"], name: "index_influence_products_on_influence_id"
-  add_index "influence_products", ["product_id"], name: "index_influence_products_on_product_id"
-
-  create_table "influences", force: :cascade do |t|
-    t.string   "name",                      null: false
-    t.string   "desc"
+  create_table "influencer_stores", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "url"
+    t.string   "string"
+    t.text     "desc"
     t.integer  "selling_point", default: 0
     t.integer  "user_point",    default: 0
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  add_index "influencer_stores", ["user_id"], name: "index_influencer_stores_on_user_id"
+
+  create_table "influencer_stores_products", force: :cascade do |t|
+    t.integer  "influencer_store_id"
+    t.integer  "product_id"
+    t.integer  "status",              default: 0
+    t.datetime "proposal_date"
+    t.text     "comment"
+    t.string   "feed_url"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "influencer_stores_products", ["influencer_store_id"], name: "index_influencer_stores_products_on_influencer_store_id"
+  add_index "influencer_stores_products", ["product_id"], name: "index_influencer_stores_products_on_product_id"
 
   create_table "product_options", force: :cascade do |t|
     t.integer  "product_id"

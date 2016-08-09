@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   rolify
 
+  has_one :influencer_store, dependent: :destroy
+
   has_many :purchase_lists, dependent: :destroy
   has_many :destinations, dependent: :destroy
   has_many :shopping_items, dependent: :destroy
