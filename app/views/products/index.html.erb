@@ -11,7 +11,7 @@
 -->
 <div class="container">
   <div class="row">
-    <div class="col-md-12 main_slide">
+    <div class="col-md-12 main_slide mb_line_break_reverse">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -46,13 +46,47 @@
         </a>
       </div>
     </div>
+    <!-- mb용 사진_slider -->
+    <div class="col-md-12 main_slide_mb mb_line_break no-gap">
+      <div id="myCarousel_mb" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <% @products.where(view_type: Product.view_types[:main]).each_with_index do |product, i| %>
+            <li id="carousel_<%= i + 1 %>" data-target="#myCarousel_mb" data-slide-to="<%= i %>" class="<%= i == 0 ? 'active' : '' %>"></li>
+          <% end %>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <% @products.where(view_type: Product.view_types[:main]).each_with_index do |product, i| %>
+          <div class="item <%= i == 0 ? 'active' : '' %>">
+            <%= link_to deal_detail_products_path do %>
+              <%= image_tag(product.image_basic, alt: product.name, style: "width:100%") %>
+            <% end %>
+            <div class="carousel-caption invisible">
+              <h3><%= product.name %></h3>
+              <p><%= product.desc %></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <!-- mb용 사진_slider -->
 
     <% @products.where(view_type: Product.view_types[:deal_upper]).each do |product| %>
-    <div class="col-md-12 main_sub_image_first">
+    <div class="col-md-12 main_sub_image_first mb_line_break_reverse">
       <%= link_to deal_detail_products_path do %>
         <%= image_tag(product.image_basic) %>
       <% end %>
     </div>
+    <!-- mb용 사진 딜 배너 -->
+    <div class="col-md-12 main_sub_image_first_mb mb_line_break no-gap">
+      <%= link_to deal_detail_products_path do %>
+        <%= image_tag(product.image_basic) %>
+      <% end %>
+    </div>
+    <!-- mb용 사진 딜 배너 -->
     <% end %>
 
     <% @products.where(view_type: Product.view_types[:deal]).each do |product| %>

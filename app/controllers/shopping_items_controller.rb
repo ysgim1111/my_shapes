@@ -1,8 +1,8 @@
 class ShoppingItemsController < ApplicationController
   before_filter :authenticate_user!
-
   def index
     @shopping_items = ShoppingItem.where(user_id: current_user)
+    @current_page = "장바구니"
   end
 
   def create
