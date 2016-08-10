@@ -697,7 +697,7 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
   font-weight: 400;
   margin-top: 50px;
   padding-left: 0px;
-  border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid #979797;
   margin-bottom: 0px;
 }
 .purc_ready .header_sub{
@@ -1114,7 +1114,7 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
 }
 .session_btn_black {
     text-decoration: none;
-    width:200px;
+    max-width:200px;
     border:inherit;
     min-height: 20px;
     padding: 13px 18px;
@@ -1346,7 +1346,7 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
   border-radius: 4px;
 }
 #myNavmenu #collapseExample .nav > li > a{
-  color: #212121 !important;
+  color: #212121;
 }
 #myNavmenu #collapseExample .nav > li > a:focus,#myNavmenu #collapseExample .nav > li > a:hover {
   background: #212121;
@@ -1392,6 +1392,7 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
 }
 .my_page .pass_change label,.my_page .name_email_change label {
   padding-left:15px;
+  padding-right:0px;
   text-align: left;
 }
 .my_page .name_email_change .profile_name_img label {
@@ -1400,6 +1401,17 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
 .my_page .name_email_change .profile_name_img img {
   width: 100px;
   border-radius: 100%;
+}
+.my_page .header {
+  display: inline-block;
+  padding-bottom:15px;
+}
+.my_page .nav li.ui-tabs-active > a {
+  background-color : #212121;
+  color: #ffffff;
+}
+.my_page .nav li > a {
+  color: #212121;
 }
 /* mypage ends */
 /* footer */
