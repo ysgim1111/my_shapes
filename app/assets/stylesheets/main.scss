@@ -50,7 +50,7 @@ body {
 .navbar-small > .nav-justified > li > a.active{
   padding-right: 0px;
   border-radius: 0px;
-  border-bottom: 2px solid #212121;
+  border-bottom: 4px solid #ffffff;
   padding-left: 0px;
 }
 .navbar-small > .nav-justified > li > a:hover{
@@ -214,16 +214,22 @@ body {
   right:0px;
   z-index: 9;
 }
-.item img {
+.main_slide .item img {
   height:490px!important;
   width:100%;
 }
 .main_sub_image_first {
-  height:300px;
+  margin-bottom:20px;
+  margin-top:50px;
+}
+.main_sub_image_first_mb {
   margin-bottom:20px;
   margin-top:50px;
 }
 .main_sub_image_first img {
+  width:100%;
+}
+.main_sub_image_first_mb img {
   width:100%;
 }
 .main_sub_image:nth-of-type(odd) {
@@ -1314,13 +1320,88 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
 }
 /* shopping list ends */
 
-
-
 /* mobile nav  starts */
 .nav_mb_right_slide .wish_cart_btn {
   border : 1px solid #777;
 }
+.navmenu-default, .navbar-default .navbar-offcanvas {
+  background-color: #ffffff;
+  box-shadow: 0px 2px 8px 2px rgba(0,0,0,0.30);;
+}
+#myNavmenu .up_down i {
+  float:right;
+  margin-top:3px;
+}
+#myNavmenu .nav.navmenu-nav > li.active {
+  margin-top:0px;
+}
+#myNavmenu .nav.navmenu-nav > li.active > a {
+  padding: 14px 30px;
+}
+#myNavmenu .nav.navmenu-nav > li.active:first-child {
+  margin-top:10px;
+}
+#myNavmenu #collapseExample {
+  background-color: #f4f4f4;
+  border-radius: 4px;
+}
+#myNavmenu #collapseExample .nav > li > a{
+  color: #212121 !important;
+}
+#myNavmenu #collapseExample .nav > li > a:focus,#myNavmenu #collapseExample .nav > li > a:hover {
+  background: #212121;
+  color: #ffffff;
+  border-radius: 4px;
+}
+#myNavmenu .nav.navmenu-nav {
+  margin-bottom:0px;
+}
+.navmenu-default .navmenu-nav>li>a {
+  color: #212121;
+}
+#myNavmenu .nav.navmenu-nav >li >a >img {
+  width:18px;
+  margin-bottom:2px;
+  margin-right:6px;
+}
+#myNavmenu .mb_nav_right_btn > a{
+  border: 1px solid #B2B2B2;
+  border-radius: 4px;
+}
+#myNavmenu .mb_nav_right_btn:nth-child(2) {
+  padding-right: 7.5px;
+}
+#myNavmenu .mb_nav_right_btn:nth-child(3) {
+  padding-left: 7.5px;
+}
+#myNavmenu .nav_mb_menu_cancel {
+  top: 23px;
+  width: 15px;
+  right: 15px;
+  position: absolute;
+}
+#myNavmenu > .row:first-child {
+  margin-top:15px;
+}
 /* mobile nav ends */
+
+
+/* mypage starts */
+.my_page .pass_change,.my_page .name_email_change {
+  margin-top:30px;
+}
+.my_page .pass_change label,.my_page .name_email_change label {
+  padding-left:15px;
+  text-align: left;
+}
+.my_page .name_email_change .profile_name_img label {
+  line-height: 93px;
+}
+.my_page .name_email_change .profile_name_img img {
+  width: 100px;
+  border-radius: 100%;
+}
+/* mypage ends */
 /* footer */
 /* --------------------------------------------------
 	7.0 Footers
