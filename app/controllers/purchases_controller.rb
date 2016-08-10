@@ -28,9 +28,7 @@ class PurchasesController < ApplicationController
   end
 
   def save_post
-    destination = Destination.create(destination_param) do |destination|
-      destination.user = current_user
-    end
+    destination = Destination.update_or_create(params[:destination_id], destination_param, current_user)
 
     render json: destination
   end
@@ -41,7 +39,8 @@ class PurchasesController < ApplicationController
   def result_param
     params.permit("imp_uid", "pay_method", "merchant_uid", "name", "paid_amount", "pg_provider", "pg_tid", "apply_num", "buyer_name", "buyer_email", "buyer_tel", "buyer_addr", "buyer_postcode", "custom_data", "status", "paid_at", "receipt_url", "card_name", "card_quota")
   end
+
   def destination_param
-    params.permit(:receiver, :name, :phone_number, :zonecode, :address, :address_detail)
+    params.permit(:receiver, :name, :phone_number, :zonecode, :address, :address_detail, :default)
   end
 end
