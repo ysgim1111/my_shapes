@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     collection do
       post :save_post
       get :complete
+      get :user_info
     end
   end
 

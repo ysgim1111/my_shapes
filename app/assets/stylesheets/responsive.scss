@@ -34,6 +34,9 @@
   .mb_line_break {
     display: block;
   }
+  .mb_line_break_inline {
+    display: inline !important;
+  }
   .mb_line_break_reverse {
     display: none;
   }
@@ -137,6 +140,8 @@
   }
   .pay_info {
     border:none;
+    padding-left:0px;
+    padding-right: 0px;
   }
   .pay_info .header_sub {
     padding-left:0px;
