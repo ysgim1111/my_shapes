@@ -837,18 +837,73 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
 .inf_profile .insta {
   color: #969696;
 }
+.inf_profile .inf_header_mb {
+  margin-top:30px;
+  margin-bottom: 30px;
+}
+.inf_profile .inf_header_mb_upper .store_owner {
+  font-size: 32px;
+  color: #262626;
+  letter-spacing: 0px;
+  margin-bottom: 0px;
+  margin-top:10px;
+}
+.inf_profile .inf_header_mb_upper .store_desc {
+  font-size: 13px;
+  color: #262626;
+  letter-spacing: 0px;
+  line-height: 21px;
+  margin-bottom: 0px;
+}
+.inf_profile .inf_header_mb_upper .store_url {
+  font-size: 14px;
+  color: #7C7C7C;
+  letter-spacing: 0px;
+  margin-bottom: 0px;
+ }
+.inf_profile .inf_header_mb .seperate_line_vertical {
+  height: 30%;
+  position: absolute;
+  border-right: 1px solid #979797;
+  right: 0;
+  top: 15px;
+}
+.inf_profile .inf_header_mb .detail {
+  font-size: 13px;
+  color: #262626;
+  letter-spacing: -1px;
+  margin-bottom:10px;
+}
+.inf_profile .inf_header_mb .detail_sub {
+  font-size: 14px;
+  color: #262626;
+  letter-spacing: -1px;
+}
 .insta_feed_desk_parent .bx-viewport {
   height: 360px !important;
 }
-.insta_feed_desk_parent, .insta_feed_mb_parent {
+.wannabe_letter_desk_parent .bx-viewport {
+  height: 340px !important;
+}
+.insta_feed_desk_parent, .insta_feed_mb_parent, .wannabe_letter_desk_parent , .wannabe_letter_mb_parent{
   margin-top:50px;
 }
 .insta_feed_desk .slide {
   width: 245px !important;
   height: 245px !important;
 }
+.wannabe_letter_desk .slide {
+  width: 240px !important;
+  height: 240px !important;
+}
+.inf_profile .wannabe_letter_mb .wnb_letter_div {
+  width: 200px !important;
+}
 .insta_feed_mb_parent .bx-viewport {
-  height: 290px !important;
+  height: 300px !important;
+}
+.wannabe_letter_mb_parent .bx-viewport {
+  height: 330px !important;
 }
 .inf_profile .main_sub_image_right {
   padding-right: 0px;
@@ -874,6 +929,62 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
 .inf_profile .inf_feed_title >p {
   margin-left:10px;
   color: #969696;
+}
+.inf_profile .inf_feed_title > img {
+  border-radius:100%;width:45px;margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 10px;
+}
+.inf_profile .inf_feed_title .inf_feed_title_sub_right {
+  line-height: 40px;
+  float: right;
+  margin-right: 5px;
+}
+.inf_profile .inf_feed_title .inf_feed_title_sub_right > a {
+  color:#212121;
+  text-decoration:none;
+}
+.inf_profile .inf_feed_title .inf_feed_title_sub_right > img {
+  width:35px;
+  display:inline-block;
+  margin-right:0px;
+}
+.inf_profile .wnb_letter_div {
+  width:240px;
+  height:240px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 20px;
+}
+.inf_profile .wnb_letter_div .wnb_letter_customer {
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  height: 45%;
+  margin-bottom:10%;
+  padding: 6px 12px;
+}
+.inf_profile .wnb_letter_div p, .inf_profile .wnb_letter_div span {
+  font-size: 12px;
+  letter-spacing: -0.4px;
+}
+.inf_profile .wnb_letter_div p {
+  font-weight: bold;
+}
+.inf_profile .wnb_letter_div .wnb_letter_customer > span, .inf_profile .wnb_letter_div .wnb_letter_inf > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* 라인수 */
+  -webkit-box-orient: vertical;
+  word-wrap:break-word;
+  line-height: 1.2em;
+  height: 3.6em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
+}
+.inf_profile .wnb_letter_div .wnb_letter_inf {
+  border-radius: 4px;
+  background-color: #ccf8ba;
+  height: 45%;
+  padding: 6px 12px;
 }
 .on_deal_header {
   padding: 0px;

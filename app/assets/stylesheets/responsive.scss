@@ -173,7 +173,20 @@
   }
   .inf_profile .main_sub_image_right {
     padding-left: 0px;
-}
+  }
+  .bx-controls-direction {
+    display: none;
+  }
+  .inf_profile .wnb_letter_div {
+    padding : 10px 15px;
+  }
+  .inf_profile .inf_feed_title .inf_feed_title_sub_right > a {
+    font-size:10px;
+    letter-spacing: -0.67px;
+  }
+  .inf_profile .inf_feed_title .inf_feed_title_sub_right > img {
+    width:20px;
+  }
   /* inf_profile ends */
 
   /* login*/
