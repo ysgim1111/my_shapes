@@ -30,5 +30,11 @@ Rails.application.routes.draw do
 
   namespace :cms do
     resources :products, :users
+
+    resources :influencer_stores
+
+    resources :influencer_stores_products do
+      get :products, on: :collection
+    end
   end
 end

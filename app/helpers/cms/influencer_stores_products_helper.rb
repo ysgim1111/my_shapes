@@ -1,0 +1,2 @@
+module Cms::InfluencerStoresProductsHelper
+end
