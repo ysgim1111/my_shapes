@@ -118,7 +118,7 @@
 
 
     <div class="col-md-12 sign_up on_deal_header">
-      <h3 class="header" style="margin-top:0px;">판매중인 딜</h3>
+      <h3 class="header" style="margin-top:0px;">판매중인 상품</h3>
     </div>
 
     <% @influencer_stores_products.each do |isp| %>
@@ -148,8 +148,8 @@
     </div>
     <% end %>
     <% if @influencer_stores_products.blank? %>
-    <div class="col-md-12 on_deal">
-      판매 중인 상품이 없습니다
+    <div class="col-md-12 on_deal text-center" style="margin-top:50px;">
+      <%= image_tag 'default_product' %>
     </div>
     <% end %>
     <!-- insta_feed_title -->

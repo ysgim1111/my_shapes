@@ -98,9 +98,9 @@
         <li class="dropdown">
           <a style="color:#212121" href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "My Profile", edit_user_registration_path %></li>
+            <li><%= link_to "마이페이지", edit_user_registration_path %></li>
             <li><%= link_to "주문내역", purchases_path %></li>
-            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %></li>
+            <li><%= link_to "로그아웃", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %></li>
           </ul>
         </li>
         <li>
@@ -112,7 +112,7 @@
         <li class="session"><%= link_to "로그인", new_user_session_path %></li>
         <li style="color:#212121" class="session"><%= link_to "회원가입", new_user_registration_path %></li>
         <li class="invisible">
-          <%= link_to "#", id: "main_profile" do %>
+          <%= link_to "#", id: "main_profile", class: "invisible" do %>
             <%= image_tag current_user ? current_user.image_profile : "default_profile.png", alt: "" %>
           <% end %>
         </li>
