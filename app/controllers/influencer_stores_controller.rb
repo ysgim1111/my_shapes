@@ -1,6 +1,8 @@
 class InfluencerStoresController < ApplicationController
   def index
-
+    @influencer_stores = InfluencerStore.limit(5)
+    @new_influencer_stores = InfluencerStore.where.not(id: @influencer_stores.pluck(:id)).order(created_at: :desc)
+    @products = Product.where(view_type: 1)
   end
 
   def show

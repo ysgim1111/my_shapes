@@ -36,192 +36,95 @@
       </div>
     </div>
     <div class="col-md-12">
-      <h3 class="basic_header">7월 첫째주 인플루언서 랭킹 <a href="#">인플루언서 전체보기</a></h3>
+      <h3 class="basic_header"><%= Date.current.month %>월 첫째주 인플루언서 랭킹 <a href="#">인플루언서 전체보기</a></h3>
     </div>
     <div class="col-md-12 inf_rank_2">
-      <div class="pd_adj margin_2cols col-md-6">
-        <div class="col-md-12 left">
-          <a htef="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
-          <div class="col-md-6 sub_left text-center">
-            <div class="inf_rank_place">1위</div>
-            <%= link_to(influence_path(1)) do %>
-              <img src="<%=image_url('profile_1.png')%>">
-            <% end %>
-          </div>
-          <div class="col-md-6 sub_right">
-            <%= link_to(influence_path(1)) do %>
-              <h3 class="name" style="text-decoration:none;color:#212121">우희</h3>
-            <% end %>
-            <p class="url">
-              <%= link_to("http://trd.st/heybiblee", influence_path(1)) %>
-            </p>
-            <p class="index">판매 지수 <span class="index_number">8,829</span> <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span></p>
-            <p class="index">유입 지수 <span class="index_number">48,829</span> <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span></p>
-          </div>
-          <div class="col-md-12 no-gap sub_bottom text-center">
-              <img src="http://placehold.it/110x110&text=Insta1">
-              <img src="http://placehold.it/110x110&text=Insta1">
-              <img src="http://placehold.it/110x110&text=Insta1">
-              <img src="http://placehold.it/110x110&text=Insta1">
-          </div>
-        </div>
-      </div><!-- profile .col-md-6 -->
-      <div class="pd_adj margin_2cols col-md-6">
-        <div class="col-md-12 right">
-          <a href="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
-          <div class="col-md-6 sub_left text-center">
-            <div class="inf_rank_place">2위</div>
-            <img src="http://placehold.it/190x190&text=profile">
-          </div>
-          <div class="col-md-6 sub_right">
-            <h3 class="name">이성경</h3>
-            <p class="url"><a href="#">http://trd.st/heybiblee</a></p>
-            <p class="index">판매 지수 <span class="index_number">8,829</span> <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span></p>
-            <p class="index">유입 지수 <span class="index_number">48,829</span> <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span></p>
-          </div>
-          <div class="col-md-12 no-gap sub_bottom text-center">
-              <img src="http://placehold.it/110x110&text=Insta1">
-              <img src="http://placehold.it/110x110&text=Insta1">
-              <img src="http://placehold.it/110x110&text=Insta1">
-              <img src="http://placehold.it/110x110&text=Insta1">
+      <% @influencer_stores.limit(2).each do |is| %>
+        <div class="pd_adj margin_2cols col-md-6">
+          <div class="col-md-12 left">
+            <a htef="#" onclick="javascript:alert('준비중')"><%= image_tag "share_30.png", class: "inf_rank_share" %></a>
+            <div class="col-md-6 sub_left text-center">
+              <div class="inf_rank_place"><%= is.id %>위</div>
+              <%= link_to(influencer_store_path(is)) do %>
+                <%= image_tag is.user ? is.user.image_profile : nil %>
+              <% end %>
+            </div>
+            <div class="col-md-6 sub_right">
+              <%= link_to(influencer_store_path(is)) do %>
+                <h3 class="name" style="text-decoration:none;color:#212121"><%= is.nickname %></h3>
+              <% end %>
+              <p class="url">
+                <%= link_to("http://trd.st/#{is.url}", influencer_store_path(is)) %>
+              </p>
+              <p class="index">판매 지수 <span class="index_number"><% is.selling_point %></span> <span class="index_question"> <%= image_tag "score_help_16.png" %> </span></p>
+              <p class="index">유입 지수 <span class="index_number"><% is.user_point %></span> <span class="index_question"> <%= image_tag "score_help_16.png" %> </span></p>
+            </div>
+            <div class="col-md-12 no-gap sub_bottom text-center">
+              <% is.influencer_stores_products.each do |isp| %>
+                <img src="http://placehold.it/110x110&text=Insta1">
+              <% end %>
+              <% if %>
+                판매 중인 상품이 없습니다
+              <% end %>
+            </div>
           </div>
         </div>
-      </div><!-- profile .col-md-6 -->
+      <% end %>
 
-      <!-- 3rd rank strats -->
-      <div class="pd_adj margin_3cols col-md-4">
-        <div class="col-lg-12 rank_3cols">
-          <a href="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
-          <div class="col-lg-6 sub_left text-center">
-            <div class="inf_rank_place">3위</div>
-            <img src="http://placehold.it/190x190&text=profile">
+      <% @influencer_stores.offset(2).limit(3).each do |is| %>
+        <!-- 3rd rank strats -->
+        <div class="pd_adj margin_3cols col-md-4">
+          <div class="col-lg-12 rank_3cols">
+            <a href="#" onclick="javascript:alert('준비중')"><%= image_tag "share_30.png", class: "inf_rank_share" %></a>
+            <div class="col-lg-6 sub_left text-center">
+              <div class="inf_rank_place"><%= is.id %>위</div>
+              <%= link_to(influencer_store_path(is)) do %>
+                <%= image_tag is.user ? is.user.image_profile : nil %>
+              <% end %>
+            </div>
+            <div class="col-lg-6 sub_right">
+              <h3 class="name"><%= is.nickname %></h3>
+              <p class="url"><%= link_to("http://trd.st/#{is.url}", influencer_store_path(is)) %></p>
+              <p class="index">판매 지수 <span class="index_number"><%= is.selling_point %></span> <span class="index_question"> <%= image_tag "score_help_16.png" %> </span></p>
+              <p class="index">유입 지수 </span><span class="index_number"><%= is.user_point %></span> <span class="index_question"> <%= image_tag "score_help_16.png" %> </span></p>
+            </div>
+            <div class="col-lg-12 no-gap sub_bottom text-center">
+              <% is.influencer_stores_products.each do |isp| %>
+                <img src="http://placehold.it/110x110&text=Insta1">
+              <% end %>
+              <% if %>
+                판매 중인 상품이 없습니다
+              <% end %>
+            </div>
           </div>
-          <div class="col-lg-6 sub_right">
-            <h3 class="name">이성경</h3>
-            <p class="url"><a href="#">http://trd.st/heybiblee</a></p>
-            <p class="index">판매 지수 <span class="index_number">8,829</span> <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span></p>
-            <p class="index">유입 지수 </span><span class="index_number">48,829</span> <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span></p>
-          </div>
-          <div class="col-lg-12 no-gap sub_bottom text-center">
-              <img src="http://placehold.it/110x110&text=Insta1">
-              <img src="http://placehold.it/110x110&text=Insta1">
-              <img src="http://placehold.it/110x110&text=Insta1">
-              <img src="http://placehold.it/110x110&text=Insta1">
-          </div>
-        </div>
-      </div><!-- profile .col-md-4 -->
-
-      <div class="pd_adj margin_3cols col-md-4">
-        <div class="col-lg-12 rank_3cols">
-          <a href="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
-          <div class="col-lg-6 sub_left text-center">
-            <div class="inf_rank_place">4위</div>
-            <img src="http://placehold.it/190x190&text=profile">
-          </div>
-          <div class="col-lg-6 sub_right">
-            <h3 class="name">이성경</h3>
-            <p class="url"><a href="#">http://trd.st/heybiblee</a></p>
-            <p class="index">판매 지수 <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span> <span class="index_number">8,829</span> </p>
-            <p class="index">유입 지수 <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span><span class="index_number">48,829</span> </p>
-          </div>
-          <div class="col-lg-12 no-gap sub_bottom text-center">
-              <img src="http://placehold.it/110x110&text=Insta1">
-              <img src="http://placehold.it/110x110&text=Insta1">
-              <img src="http://placehold.it/110x110&text=Insta1">
-              <img src="http://placehold.it/110x110&text=Insta1">
-          </div>
-        </div>
-      </div><!-- profile .col-md-4 -->
-
-      <div class="pd_adj margin_3cols col-md-4">
-        <div class="col-lg-12 rank_3cols">
-          <a href="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
-          <div class="col-lg-6 sub_left text-center">
-            <div class="inf_rank_place">5위</div>
-            <img src="http://placehold.it/190x190&text=profile">
-          </div>
-          <div class="col-lg-6 sub_right">
-            <h3 class="name">이성경</h3>
-            <p class="url"><a href="#">http://trd.st/heybiblee</a></p>
-            <p class="index">판매 지수 <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span> <span class="index_number">8,829</span> </p>
-            <p class="index">유입 지수 <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span><span class="index_number">48,829</span> </p>
-          </div>
-          <div class="col-lg-12 no-gap sub_bottom text-center">
-              <img src="http://placehold.it/110x110&text=Insta1">
-              <img src="http://placehold.it/110x110&text=Insta1">
-              <img src="http://placehold.it/110x110&text=Insta1">
-              <img src="http://placehold.it/110x110&text=Insta1">
-          </div>
-        </div>
-      </div><!-- profile .col-md-4 -->
+        </div><!-- profile .col-md-4 -->
+      <% end %>
       <!-- 3rd rank ends -->
-
     </div><!-- .inf_rank_2 -->
 
     <div class="col-md-12">
       <h3 class="basic_header">새로운 인플루언서 랭킹 <a href="#">인플루언서 전체보기</a></h3>
     </div>
     <div class="col-md-12 inf_rank_2">
+      <% @new_influencer_stores.each do |is| %>
       <div class="pd_adj margin_3cols new_margin_3cols col-md-4">
         <div class="col-lg-12 rank_3cols new_rank_3cols">
-          <a href="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
+          <a href="#" onclick="javascript:alert('준비중')"><%= image_tag "share_30.png", class: "inf_rank_share" %></a>
           <div class="col-lg-4 sub_left text-center">
-            <img src="http://placehold.it/190x190&text=profile">
+            <%= link_to(influencer_store_path(is)) do %>
+              <%= image_tag is.user ? is.user.image_profile : nil %>
+            <% end %>
           </div>
           <div class="col-lg-8 sub_right">
-            <h3 class="name">도복순</h3>
-            <p class="url"><a href="#">http://trd.st/heybiblee</a></p>
+            <h3 class="name"><%= is.nickname %></h3>
+            <p class="url"><%= link_to("http://trd.st/#{is.url}", influencer_store_path(is)) %></p>
           </div>
           <div class="col-lg-12 sub_bottom">
-            <p class="detail">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p class="detail"><%= is.desc %></p>
           </div>
         </div>
       </div><!-- profile .col-md-4 -->
-      <div class="pd_adj margin_3cols new_margin_3cols col-md-4">
-        <div class="col-lg-12 rank_3cols new_rank_3cols">
-          <a href="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
-          <div class="col-lg-4 sub_left text-center">
-            <img src="http://placehold.it/190x190&text=profile">
-          </div>
-          <div class="col-lg-8 sub_right">
-            <h3 class="name">도복순</h3>
-            <p class="url"><a href="#">http://trd.st/heybiblee</a></p>
-          </div>
-          <div class="col-lg-12 sub_bottom">
-            <p class="detail">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-        </div>
-      </div><!-- profile .col-md-4 -->
-      <div class="pd_adj margin_3cols new_margin_3cols col-md-4">
-        <div class="col-lg-12 rank_3cols new_rank_3cols">
-          <a href="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
-          <div class="col-lg-4 sub_left text-center">
-            <img src="http://placehold.it/190x190&text=profile">
-          </div>
-          <div class="col-lg-8 sub_right">
-            <h3 class="name">도복순</h3>
-            <p class="url"><a href="#">http://trd.st/heybiblee</a></p>
-          </div>
-          <div class="col-lg-12 sub_bottom">
-            <p class="detail">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-        </div>
-      </div><!-- profile .col-md-4 -->
-      <div class="pd_adj margin_3cols new_margin_3cols col-md-4">
-        <div class="col-lg-12 rank_3cols new_rank_3cols">
-          <a href="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
-          <div class="col-lg-4 sub_left text-center">
-            <img src="http://placehold.it/190x190&text=profile">
-          </div>
-          <div class="col-lg-8 sub_right">
-            <h3 class="name">도복순</h3>
-            <p class="url"><a href="#">http://trd.st/heybiblee</a></p>
-          </div>
-          <div class="col-lg-12 sub_bottom">
-            <p class="detail">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-        </div>
-      </div><!-- profile .col-md-4 -->
+      <% end %>
     </div>
   </div>
 </div>
