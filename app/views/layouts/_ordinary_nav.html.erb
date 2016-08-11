@@ -102,7 +102,7 @@
         </li>
         <li>
           <%= link_to "#", id: "main_profile" do %>
-            <%= image_tag "influencer_sample.jpg", alt: "" %>
+            <%= image_tag current_user ? current_user.image_profile : "default_profile.png", alt: "" %>
           <% end %>
         </li>
       <% else %>
@@ -110,7 +110,7 @@
         <li style="color:#212121" class="session"><%= link_to "회원가입", new_user_registration_path %></li>
         <li class="invisible">
           <%= link_to "#", id: "main_profile" do %>
-            <%= image_tag "influencer_sample.jpg", alt: "" %>
+            <%= image_tag current_user ? current_user.image_profile : "default_profile.png", alt: "" %>
           <% end %>
         </li>
       <% end %>

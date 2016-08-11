@@ -31,9 +31,10 @@
   <% else %>
     <%= render "/layouts/ordinary_nav" %>
   <% end %>
-    <%= render partial: "shared/flash_messages", flash: flash %>
 
-    <%= yield %>
+  <%= render partial: "shared/flash_messages", flash: flash %>
+
+  <%= yield %>
 
   <footer style="clear:both;margin:0px;background-color:#212121">
     <div class="copyright">
