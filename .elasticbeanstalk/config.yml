@@ -1,6 +1,6 @@
 branch-defaults:
   develop:
-    environment: local-env
+    environment: test-inner
 global:
   application_name: test
   default_ec2_keyname: null
