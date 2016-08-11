@@ -5,7 +5,7 @@ class ProductBasicUploader < ImageBaseUploader
     process :resize_to_fit => [250, 250]
 
     def default_url
-      "product_thumb_default_#{model.class.to_s.underscore}.png"
+      "thumb_default_#{model.class.to_s.underscore}.png"
     end
   end
 end

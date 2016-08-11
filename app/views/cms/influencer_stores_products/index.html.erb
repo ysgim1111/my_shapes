@@ -1,0 +1,28 @@
+<table class="table table-condensed table-striped">
+  <thead>
+    <tr>
+      <th>상품썸네일</th>
+      <th>상품명</th>
+      <th>판매자</th>
+      <th>가격</th>
+      <th>상품번호</th>
+      <th>신청일</th>
+      <th>상태</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @influencer_stores_products.each do |influencer_stores_product| %>
+      <tr>
+        <td><%= image_tag influencer_stores_product.product.image_basic.thumb %></td>
+        <td><%= influencer_stores_product.product.name %></td>
+        <td><%= influencer_stores_product.product.name %></td>
+        <td><%= influencer_stores_product.product.price %></td>
+        <td><%= influencer_stores_product.product.seller_product_code %></td>
+        <td><%= influencer_stores_product.created_at.strftime("%Y-%m-%d") %></td>
+        <td><%= influencer_stores_product.status %></td>
+        <td><%= link_to "선택", edit_cms_influencer_stores_product_path(influencer_stores_product), class: "btn btn-default" %></td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>

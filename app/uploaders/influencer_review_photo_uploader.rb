@@ -1,0 +1,2 @@
+class InfluencerReviewPhotoUploader < ImageBaseUploader
+end

@@ -29,11 +29,12 @@
   <% elsif params[:controller] == "products" && params[:action] == "index" %>
     <%= render "/layouts/ordinary_nav" %>
   <% else %>
-    <%= render "/layouts/ordinary_nav" %>
+    <%= render "/layouts/apply_nav" %>
   <% end %>
-    <%= render partial: "shared/flash_messages", flash: flash %>
 
-    <%= yield %>
+  <%= render partial: "shared/flash_messages", flash: flash %>
+
+  <%= yield %>
 
   <footer style="clear:both;margin:0px;background-color:#212121">
     <div class="copyright">
@@ -73,7 +74,7 @@
     $('.menu_second:eq(0)').addClass('active');
   })
   </script>
-  <% elsif params[:controller] == "influences" %>
+  <% elsif params[:controller] == "influencer_stores" %>
   <script>
   $(document).ready(function() {
     $('.menu_second:eq(1)').addClass('active');

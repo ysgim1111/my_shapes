@@ -2,6 +2,8 @@ class BaseCmsController < ApplicationController
   before_action :authenticate_user!
 
   authorize_actions_for Product
+  authorize_actions_for InfluencerStore
+  authorize_actions_for InfluencerStoresProduct
 
   layout "cms"
 

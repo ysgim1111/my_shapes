@@ -6,13 +6,14 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
-  resources :influences, :shopping_items, :wishlist_items
+  resources :influencer_stores, :shopping_items, :wishlist_items
 
   resources :purchases do
     collection do
       post :save_post
       get :complete
       get :user_info
+      get :apply_product
     end
   end
 
@@ -31,5 +32,11 @@ Rails.application.routes.draw do
 
   namespace :cms do
     resources :products, :users
+
+    resources :influencer_stores
+
+    resources :influencer_stores_products do
+      get :products, on: :collection
+    end
   end
 end

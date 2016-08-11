@@ -1,0 +1,27 @@
+<%= form_for @influencer_stores_product, url: {action: :update}, html: {multipart: true, class: "form-horizontal", method: :put} do |f|  %>
+  <div class="form-group">
+    <%= f.label :comment, "코멘트", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :comment, class: "form-control", placeholder: "코멘트" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :feed_url, "피드연결", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :feed_url, class: "form-control", placeholder: "피드연결" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :image_review, "사용사진 업로드", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.file_field :image_review, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary">저장</button>
+      <%= link_to "뒤로", :back, class: "btn btn-default" %>
+    </div>
+  </div>
+
+<% end %>

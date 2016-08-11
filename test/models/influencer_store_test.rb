@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class InfluencesControllerTest < ActionController::TestCase
+class InfluencerStoreTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

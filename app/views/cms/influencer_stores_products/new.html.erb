@@ -1,0 +1,14 @@
+<%= form_for @influencer_stores_product, url: {action: :create}, html: {multipart: true, class: "form-horizontal"} do |f|  %>
+
+  <%= render "shared/destination" %>
+
+  <%= hidden_field_tag :product_id, params[:product_id] %>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary">저장</button>
+      <%= link_to "뒤로", :back, class: "btn btn-default" %>
+    </div>
+  </div>
+
+<% end %>
