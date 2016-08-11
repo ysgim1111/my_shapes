@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160810125614) do
+ActiveRecord::Schema.define(version: 20160811003735) do
 
   create_table "destinations", force: :cascade do |t|
     t.integer  "user_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160810125614) do
     t.integer  "user_id"
     t.string   "url"
     t.text     "desc"
+    t.string   "nickname"
     t.integer  "selling_point", default: 0
     t.integer  "user_point",    default: 0
     t.datetime "created_at",                null: false
@@ -196,6 +197,7 @@ ActiveRecord::Schema.define(version: 20160810125614) do
     t.string   "name"
     t.string   "provider"
     t.string   "social_uid"
+    t.string   "image_profile"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
