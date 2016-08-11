@@ -10,4 +10,12 @@ class InfluencerStoresController < ApplicationController
     @influencer_stores_products = @influencer_store ? @influencer_store.influencer_stores_products : nil
     # @influencer_stores_products = @influencer_store.influencer_stores_products.where(status: InfluencerStoresProduct.statuses["complete"])
   end
+
+  def mapping
+    if InfluencerStore.where(url: params[:url]).present?
+      redirect_to influencer_store_path(InfluencerStore.where(url: params[:url]).first)
+    else
+      redirect_to root_path, flash: {error: "unknown url"}
+    end
+  end
 end

@@ -38,4 +38,6 @@ Rails.application.routes.draw do
       get :products, on: :collection
     end
   end
+
+  get ':url', to: 'influencer_stores#mapping'
 end
