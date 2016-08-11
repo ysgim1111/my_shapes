@@ -5,8 +5,10 @@
     <%= link_to "삭제", cms_influencer_store_path(@influencer_store), method: :delete, data: {confirm: "삭제하시겠습니까?"}, class: "btn btn-danger" %>
     <%= link_to "뒤로", cms_influencer_stores_path, class: "btn btn-default" %>
   </dd>
-  <dt>상품명</dt>
+  <dt>스토어url</dt>
   <dd><%= @influencer_store.url %></dd>
-  <dt>상세설명</dt>
+  <dt>소개</dt>
   <dd><%= @influencer_store.desc %></dd>
+  <dt>닉네임</dt>
+  <dd><%= @influencer_store.nickname %></dd>
 </dl>

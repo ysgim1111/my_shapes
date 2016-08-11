@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
-  resources :influences, :shopping_items, :wishlist_items
+  resources :influencer_stores, :shopping_items, :wishlist_items
 
   resources :purchases do
     collection do
