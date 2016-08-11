@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     post 'facebook' => 'users/socials#facebook'
   end
 
-  root 'products#index'
+  root 'products#about'
 
   resources :influencer_stores, :shopping_items, :wishlist_items
 
