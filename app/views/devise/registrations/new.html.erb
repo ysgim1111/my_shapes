@@ -3,9 +3,17 @@
     <div class="col-md-12 mb_line_break_reverse">
       <h3 class="header">이메일 주소로 회원가입</h3>
     </div>
+    <% unless devise_error_messages! == "" %>
+    <div class="col-md-12">
+      <div class="alert alert-danger alert-dismissable fade in">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <%= devise_error_messages! %>
+      </div>
+    </div>
+    <% end %>
     <div class="col-md-6 col-md-offset-3" style="padding-top:80px;">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
+
 
         <div class="form-group">
           <%= f.label :'이메일' %><br />
@@ -13,8 +21,8 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :'이름' %><br />
-          <%= f.text_field :name, class: "form-control check",placeholder: "이름을 입력해주세요", autofocus: false %>
+          <%= f.label :'닉네임' %><br />
+          <%= f.text_field :name, class: "form-control check",placeholder: "닉네임을 입력해주세요", autofocus: false %>
         </div>
 
         <div class="form-group">
@@ -32,22 +40,25 @@
 
         <div class="col-md-12 no-gap">
           <div class="checkbox">
-            <input type="checkbox" id="check1" class="checkbox-style"/>
-            <label for="check1"><a href="#">서비스 이용 약관</a>에 동의합니다</label>
+            <input type="checkbox" id="check1" class="checkbox-style check"/>
+            <label for="check1"><a data-toggle="modal" data-target=".personal_inf_term">서비스 이용 약관</a>에 동의합니다</label>
           </div>
           <div class="checkbox">
-            <input type="checkbox" id="check2" class="checkbox-style"/>
-            <label for="check2"><a href="#">개인정보취급방침</a>에 동의합니다</label>
+            <input type="checkbox" id="check2" class="checkbox-style check"/>
+            <label for="check2"><a data-toggle="modal" data-target=".usage_term">개인정보취급방침</a>에 동의합니다</label>
           </div>
         </div>
 
         <div class="col-md-12 text-center actions">
-          <%= f.submit "회원가입", class:"session_btn_black" %>
+          <%= f.submit "회원가입", class:"session_btn_black", id:"sign_up_go" %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
+
+
+<%= render 'layouts/terms' %>
 <style>
 input[type=checkbox] {
     display: none;
@@ -98,3 +109,25 @@ input[type=checkbox]:checked + label:before {
 
 }
 </style>
+<script>
+  $('#sign_up_go').on('click', function() {
+    var validation = true;
+    $('.check').each(function(){
+        if ($(this).is(':checkbox')) {
+          if (!$(this).is(":checked")) {
+            validation = false;
+          }
+        }
+        else if ($.trim($(this).val()) === ''){
+          validation = false;
+        }
+    });
+    if (!validation){
+      alert('작성하지 않은 부분이 있습니다.');
+      return false;
+    }
+    else {
+      $('#sign_up_go').submit();
+    }
+  })
+</script>

@@ -32,9 +32,9 @@
     </div>
     <div class="col-xs-12 no-gap">
       <ul class="nav navmenu-nav">
-        <li class="active"><a href="#">DEALS</a></li>
-        <li class="active"><a href="#">INFLUENCERS</a></li>
-        <li class="active"><a href="#">ABOUT</a></li>
+        <li class="active"><%= link_to "DEALS", "#", onclick: "javascript:alert('준비중입니다')"%></li>
+        <li class="active"><%= link_to "INFLUENCERS", "#", onclick: "javascript:alert('준비중입니다')" %></li>
+        <li class="active"><%= link_to "ABOUT", "#", onclick: "javascript:alert('준비중입니다')" %></li>
       </ul>
     </div>
     <div class="col-xs-12">
@@ -79,9 +79,12 @@
 <nav class="navbar navbar-default navbar-fixed-top mega navbar-small navbar-fw neon text-center" style="z-index:10;">
 
   <ul class="nav nav-pills nav-justified main_service" style="font-size: 14px; width: 500px; margin: auto; left: 0; right: 0px; position: fixed; z-index: 11; top: 20px; line-height: 16px;">
-    <li> <%= link_to "DEALS", products_path, class: "menu_second" %></li>
+    <!--<li> <%= link_to "DEALS", products_path, class: "menu_second" %></li>
     <li> <%= link_to "INFLUENCERS", influencer_stores_path, class: "menu_second" %></li>
-    <li> <%= link_to "ABOUT", about_products_path, class: "menu_second" %></li>
+    <li> <%= link_to "ABOUT", about_products_path, class: "menu_second" %></li>-->
+    <li> <%= link_to "DEALS", "#", class: "menu_second", onclick: "javascript:alert('준비중입니다')"%></li>
+    <li> <%= link_to "INFLUENCERS", "#", class: "menu_second", onclick: "javascript:alert('준비중입니다')" %></li>
+    <li> <%= link_to "ABOUT", "#", class: "menu_second", onclick: "javascript:alert('준비중입니다')" %></li>
   </ul>
   <!-- Navbar Links -->
   <div id="nav_close" class="navbar-collapse collapse page-scroll navbar-right" style="margin-right:0px;">

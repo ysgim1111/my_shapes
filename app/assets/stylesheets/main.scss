@@ -5,6 +5,18 @@ body {
   font-family: 'Noto Sans KR', sans-serif;
   color: #212121;
 }
+.main_alert {
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  margin-top: 65px;
+  z-index: 9999;
+}
+.personal_inf_term .modal-body > p , .usage_term .modal-body > p {
+  white-space: pre-wrap;
+}
 .btn-trd {
   background-color: #212121;
   color:#ffffff;

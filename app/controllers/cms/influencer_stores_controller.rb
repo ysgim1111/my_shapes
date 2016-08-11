@@ -1,6 +1,6 @@
 class Cms::InfluencerStoresController < BaseCmsController
   def index
-    @influencer_stores = InfluencerStore.order(id: :desc)
+    @influencer_stores = InfluencerStore.order(:id)
   end
 
   def new
