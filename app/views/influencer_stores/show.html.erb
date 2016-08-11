@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-9 inf_header" style="margin-top:30px;">
       <div class="col-md-2">
-        <%= image_tag current_user.image_profile, style: "border-radius:100%;width:100px;margin-top:15px;", alt: "" %>
+        <%= image_tag @influencer_store.user ? @influencer_store.user.image_profile : nil, style: "border-radius:100%;width:100px;margin-top:15px;", alt: "" %>
       </div>
       <div class="col-md-10 no-gap">
         <h3><%= @influencer_store.nickname %></h3>
