@@ -1,0 +1,107 @@
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script>
+$( function() {
+  $( "#tabs" ).tabs();
+} );
+</script>
+<div class="container inf_admin purc_ready">
+  <div class="row inf_admin_header">
+    <div class="col-md-12 mb_line_break_reverse no-gap">
+      <h3 class="basic_header">상품 판매 신청</h3>
+    </div>
+    <div class="col-md-12">
+      <div class="col-md-6 prdt_apply_process">
+        <div class="col-xs-4 text-center">
+          <i class="fa fa-lg fa-arrow-right"></i>
+          <div class="circle_selected">
+            <span>1</span>
+          </div>
+          <p class="prdt_apply_process_desc">신청 상품 조회</p>
+        </div>
+        <div class="col-xs-4 text-center">
+          <i class="fa fa-lg fa-arrow-right"></i>
+          <div class="circle_default">
+            <span>2</span>
+          </div>
+          <p class="prdt_apply_process_desc">샘플 수령 정보 입력</p>
+        </div>
+        <div class="col-xs-4 text-center">
+          <div class="circle_default">
+            <span>3</span>
+          </div>
+          <p class="prdt_apply_process_desc">사용 정보 입력</p>
+        </div>
+      </div>
+    </div>
+  </div><!-- .row -->
+
+  <div class="row search_applied_prdt">
+    <div class="col-md-12">
+      <h3 class="inf_admin_sub_header">신청상품 조회</h3>
+    </div>
+    <div class="col-md-12">
+      <div class="col-md-6 no-gap form-group">
+        <div class="col-md-5 col-xs-9 no-gap">
+          <label for="user_이름" class="invisible">배송지 관리</label><br>
+          <select class="form-control">
+            <option>상품명</option>
+            <option>2</option>
+          </select>
+        </div>
+        <!-- desk btn -->
+        <div class="col-md-7 purc_delivery mb_line_break_reverse" style="margin-top:0px;">
+          <div class="col-md-9">
+            <div class="form-group">
+              <label for="user_이름">&nbsp;</label><br>
+              <input class="form-control check" placeholder="검색어를 입력하세요" type="text" value="" name="destination_name" id="destination_name">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label class="invisible" for="user_이름">&nbsp;</label><br>
+            <%= button_tag "검색", class: "btn session_btn_black", style: "margin-bottom:0px;" %>
+          </div>
+        </div>
+        <!-- desk btn -->
+        <!-- mb btn -->
+        <div class="col-md-6 col-xs-3 no-gap mb_line_break" style="text-align: center;margin-top: 0px;padding: 0px;margin-bottom: 15px;">
+          <label class="invisible" for="user_이름">배송주소</label><br>
+          <%= button_tag "+", class: "btn session_btn", style: "margin-bottom: 0px;padding-bottom: 9px;padding-top: 9px;" %>
+        </div>
+        <!-- mb btn -->
+      </div>
+    </div>
+  </div><!-- .row -->
+
+  <div class="row">
+    <div class="col-md-12">
+      <!--desktop-->
+      <div class="mb_line_break_reverse">
+        <table class="table table-hover tb_inf_prdt" style="border-collapse: separate;border-spacing: 0 20px;">
+          <tbody>
+            <tr>
+              <th class="tb_inf_prdt_image" scope="row">
+                 <%=image_tag 'https://placehold.it/120x120', style: 'width:120px;height:120px;' %>
+               </th>
+              <td class="tb_inf_prdt_brand">컨버스</td>
+              <td class="tb_inf_prdt_name">척테일러 올스타 레더 화이트 </td>
+              <td class="tb_inf_prdt_number"> 132173C </td>
+              <td class="tb_inf_prdt_price"> 36,000 원</td>
+              <td class="tb_inf_prdt_choose"> <%= link_to "상품 선택", "#", class: "btn session_btn_black"%> </td>
+            </tr>
+            <tr>
+              <th class="tb_inf_prdt_image" scope="row">
+                 <%=image_tag 'https://placehold.it/120x120', style: 'width:120px;height:120px;' %>
+               </th>
+              <td class="tb_inf_prdt_brand">컨버스</td>
+              <td class="tb_inf_prdt_name">척테일러 올스타 레더 화이트 </td>
+              <td class="tb_inf_prdt_number"> 132173C </td>
+              <td class="tb_inf_prdt_price"> 36,000 원</td>
+              <td class="tb_inf_prdt_choose"> <%= link_to "상품 선택", "#", class: "btn session_btn_black"%> </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--desktop-->
+    </div>
+  </div><!-- .row -->
+</div>

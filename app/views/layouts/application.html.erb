@@ -88,6 +88,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
     initNav();
+    initCurrentPage();
   })
 
 function initNav() {
@@ -114,6 +115,11 @@ function initNav() {
       image_down.siblings().removeClass('hide').addClass('show');
     }
   })
+}
+function initCurrentPage() {
+  var current_page = $('.container').find('.row').find('.col-md-12.mb_line_break_reverse').find('h3').html();
+  $('nav').find('.current_page').html(current_page);
+
 }
 </script>
 </html>

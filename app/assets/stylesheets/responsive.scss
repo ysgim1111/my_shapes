@@ -225,6 +225,15 @@
     margin-top: 0px;
   }
   /* my_page */
+
+  /* inf_apply */
+  .navbar_apply .apply_current_page, .navbar_apply#tabs .tab_menu_sub {
+    display: none !important;
+  }
+  .navbar-default.mobile-nav.navbar_apply {
+    background-color: #212121;
+  }
+  /* inf_apply */
 }
 
 @media (max-width: 990px) {
