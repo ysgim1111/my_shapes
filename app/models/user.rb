@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 
   after_create :assign_default_role
 
+  validates :nickname, length: { maximum: 20 }, presence: true
 
   def self.find_with_update_or_create(auth)
     user = where(email: auth["email"])
@@ -23,9 +24,9 @@ class User < ActiveRecord::Base
       user.provider = "facebook"
       user.social_uid = auth["id"]
       user.password = Devise.friendly_token[0,20]
-      user.name = auth["name"]
+      user.nickname = auth["name"]
       user.skip_confirmation!
-    end.update_attributes(provider: "facebook", social_uid: auth["id"], name: auth["name"])
+    end.update_attributes(provider: "facebook", social_uid: auth["id"], nickname: auth["name"])
     user.first
   end
 

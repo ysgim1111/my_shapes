@@ -24,17 +24,21 @@
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar">
-  <% if params[:action] == "about" || params[:action] == "recruit" || params[:action] == "complete"%>
-    <%= render "/layouts/about_nav" %>
-  <% elsif params[:controller] == "products" && params[:action] == "index" %>
-    <%= render "/layouts/ordinary_nav" %>
-  <% else %>
-    <%= render "/layouts/ordinary_nav" %>
-  <% end %>
+  <header>
+    <% if params[:action] == "about" || params[:action] == "recruit" || params[:action] == "complete"%>
+      <%= render "/layouts/about_nav" %>
+    <% elsif params[:controller] == "products" && params[:action] == "index" %>
+      <%= render "/layouts/ordinary_nav" %>
+    <% else %>
+      <%= render "/layouts/ordinary_nav" %>
+    <% end %>
+  </header>
 
-  <%= render partial: "shared/flash_messages", flash: flash %>
+  <main role="main">
+    <%= render partial: "shared/flash_messages", flash: flash %>
 
-  <%= yield %>
+    <%= yield %>
+  </main>
 
   <footer style="clear:both;margin:0px;background-color:#212121">
     <div class="copyright">
