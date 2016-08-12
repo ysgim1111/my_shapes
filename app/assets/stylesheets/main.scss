@@ -1609,6 +1609,9 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
 .navbar_apply#tabs .tab_menu_sub ul > li {
   margin-top: 4px;
 }
+.navbar_apply#tabs .tab_menu_sub ul > li >a  {
+  color: #212121;
+}
 .navbar_apply#tabs .tab_menu_sub ul {
   display: inline-block;
 }
@@ -1808,6 +1811,19 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
   color: #333333;
   letter-spacing: -0.59px;
   line-height: 30px;
+}
+.inf_admin .pay_info > p{
+  padding-left: 0px !important;
+  font-weight: bold;
+  font-size: 16px;
+  color: #212121;
+  letter-spacing: 0px;
+}
+.inf_admin .pay_info > p >span{
+  font-weight: 400;
+}
+.inf_admin .table.tb_balance th, .inf_admin .table.tb_balance td{
+  text-align: center;
 }
 /* inf_apply */
 /* footer */

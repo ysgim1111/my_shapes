@@ -1,0 +1,51 @@
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script>
+$( function() {
+  $( "#tabs" ).tabs();
+} );
+</script>
+<div class="container inf_admin purc_ready">
+  <div class="row inf_admin_header">
+    <div class="col-md-12 mb_line_break_reverse no-gap">
+      <h3 class="basic_header">상품 판매 신청</h3>
+    </div>
+    <div class="col-md-12">
+      <div class="col-md-6 prdt_apply_process">
+        <div class="col-xs-4 text-center">
+          <i class="fa fa-lg fa-arrow-right"></i>
+          <div class="circle_default">
+            <span>1</span>
+          </div>
+          <p class="prdt_apply_process_desc">신청 상품 조회</p>
+        </div>
+        <div class="col-xs-4 text-center">
+          <i class="fa fa-lg fa-arrow-right"></i>
+          <div class="circle_default">
+            <span>2</span>
+          </div>
+          <p class="prdt_apply_process_desc">샘플 수령 정보 입력</p>
+        </div>
+        <div class="col-xs-4 text-center">
+          <div class="circle_selected">
+            <span>3</span>
+          </div>
+          <p class="prdt_apply_process_desc">사용 정보 입력</p>
+        </div>
+      </div>
+    </div>
+  </div><!-- .row -->
+
+  <div class="row" style="padding-bottom:100px;">
+    <div class="col-md-12">
+      <h3 class="sample_complete_header">상품 판매 신청이 접수되었습니다.</h3>
+
+      <h5 class="sample_complete_bottom">작성해 주신 사용 정보를 검토 후 신청이 승인되면,<br>
+스토어에 상품이 등록되어 판매하실 수 있습니다.</h5>
+      <div class="col-md-12 no-gap">
+        <%= link_to "신청 내역 조회", "#", class: "btn session_btn_black" %>
+      </div>
+    </div>
+  </div>
+
+
+</div>

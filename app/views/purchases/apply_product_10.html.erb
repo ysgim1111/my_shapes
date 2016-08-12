@@ -1,0 +1,98 @@
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script>
+$( function() {
+  $( "#tabs" ).tabs();
+} );
+</script>
+<div class="container inf_admin purc_ready">
+  <div class="row inf_admin_header" style="border-bottom:none;">
+    <div class="col-md-12 mb_line_break_reverse no-gap">
+      <h3 class="basic_header">기간별 판매 내역</h3>
+    </div>
+  </div><!-- .row -->
+
+  <div class="row search_applied_prdt" style="margin-bottom:50px;padding-bottom:50px;">
+    <div class="col-md-9">
+      <div class="col-md-6">
+        <div class="col-md-12 form-horizontal name_email_change">
+          <div class="form-group">
+            <label for="user_이름" class="col-md-4 control-label">조회 월 선택</label>
+            <div class="col-md-8">
+              <select class="form-control">
+                <option>2016년 08월</option>
+                <option>2</option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="col-md-12 pay_info" style="margin-top:0px;">
+          <p class="header_sub">월 총 판매액 <span> 4,968,120 원</span></p>
+          <p class="header_sub">판매 리워드율 <span> 25 %</span></p>
+          <p class="header_sub" style="margin-bottom:25px;">정산 예정 금액 <span>3,726,090 원</span></p>
+          <p class="header_sub hidden">할인 <span> 원</span></p>
+        </div>
+      </div><!-- col-md-5 -->
+    </div>
+  </div><!-- .row -->
+
+  <div class="row">
+    <div class="col-md-12 no-gap">
+      <table class="table table-bordered tb_balance">
+        <thead>
+          <tr class="active">
+            <th>기간</th>
+            <th>정산 예정일</th>
+            <th>승인 건수</th>
+            <th>취소 건수</th>
+            <th>일별 총 판매액</th>
+            <th>정산 예정 금액</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="row">2016년 08월 09일</td>
+            <td>2016년 09월 15일</td>
+            <td>29</td>
+            <td>2</td>
+            <td>198,720</td>
+            <td>49,680</td>
+            <td> <%= link_to "일별 상세 조회", "#", class: "btn session_btn_black", style: "margin-bottom:0px;"%> </td>
+          </tr>
+          <tr>
+            <td scope="row">2016년 08월 09일</td>
+            <td>2016년 09월 15일</td>
+            <td>29</td>
+            <td>2</td>
+            <td>198,720</td>
+            <td>49,680</td>
+            <td> <%= link_to "일별 상세 조회", "#", class: "btn session_btn_black", style: "margin-bottom:0px;"%> </td>
+          </tr>
+          <tr>
+            <td scope="row">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td scope="row">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+</div>

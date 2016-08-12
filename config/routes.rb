@@ -23,6 +23,9 @@ Rails.application.routes.draw do
       get :apply_product_8
       get :apply_product_9
       get :apply_product_10
+      get :apply_product_11
+      get :apply_product_12
+      get :apply_product_13
 
     end
   end
