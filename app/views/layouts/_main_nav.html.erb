@@ -42,7 +42,7 @@
           <ul class="dropdown-menu">
             <li><%= link_to "My Profile", edit_user_registration_path %></li>
             <li><%= link_to "주문내역", purchases_path %></li>
-            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %></li>
+            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
       <% else %>
@@ -51,7 +51,7 @@
       <% end %>
       <li>
         <%= link_to "#", id: "main_profile" do %>
-          <%= image_tag current_user ? current_user.image_profile : "default_profile.png", alt: "" %>
+          <%= image_tag current_user ? current_user.image_profile : "default_user.png", alt: "" %>
         <% end %>
       </li>
     </ul><!-- / .nav .navbar-nav -->

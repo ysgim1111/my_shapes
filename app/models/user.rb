@@ -17,13 +17,16 @@ class User < ActiveRecord::Base
   after_create :assign_default_role
 
 
-  def self.find_for_facebook_oauth(auth)
-    user = where(provider: "facebook", social_uid: auth["id"]).first_or_create do |user|
-      user.email = auth["email"]
+  def self.find_with_update_or_create(auth)
+    user = where(email: auth["email"])
+    user.first_or_create do |user|
+      user.provider = "facebook"
+      user.social_uid = auth["id"]
       user.password = Devise.friendly_token[0,20]
       user.name = auth["name"]
       user.skip_confirmation!
-    end
+    end.update_attributes(provider: "facebook", social_uid: auth["id"], name: auth["name"])
+    user.first
   end
 
 
