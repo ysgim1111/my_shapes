@@ -10,7 +10,11 @@ class BaseCmsController < ApplicationController
 
   def redirect_to_root_path_by_base_authority
     if current_user.is_influencer?
-      redirect_to cms_influencer_stores_path
+      if current_user.influencer_store
+        redirect_to cms_influencer_store_path(current_user.influencer_store)
+      else
+        redirect_to new_cms_influencer_store_path
+      end
     else
       redirect_to cms_products_path
     end
