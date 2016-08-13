@@ -1,5 +1,6 @@
 <style>
 input[type=checkbox] {
+    display: inline;
     z-index: -99;
     left: 40px;
     top: 30px;
@@ -55,9 +56,16 @@ input[type=checkbox]:checked + label:before {
     <div class="col-md-12 mb_line_break_reverse">
       <h3 class="header">이메일 주소로 회원가입</h3>
     </div>
+    <% unless devise_error_messages! == "" %>
+      <div class="col-md-12">
+        <div class="alert alert-danger alert-dismissable fade in">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <%= devise_error_messages! %>
+        </div>
+      </div>
+    <% end %>
     <div class="col-md-6 col-md-offset-3" style="padding-top:80px;">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
 
         <div class="form-group">
           <%= f.label :email, "이메일" %><br />
@@ -85,12 +93,12 @@ input[type=checkbox]:checked + label:before {
 
         <div class="col-md-12 no-gap">
           <div class="checkbox">
-            <input type="checkbox" name="term" id="term" required class="checkbox-style">
-            <label for="term"><a href="#">서비스 이용 약관</a>에 동의합니다</label>
+            <input type="checkbox" name="term" id="term" required class="checkbox-style check">
+            <label for="term"><a data-toggle="modal" data-target=".personal_inf_term">서비스 이용 약관</a>에 동의합니다</label>
           </div>
           <div class="checkbox">
             <input type="checkbox" name="privacy" id="privacy" required class="checkbox-style">
-            <label for="privacy"><a href="#">개인정보취급방침</a>에 동의합니다</label>
+            <label for="privacy"><a data-toggle="modal" data-target=".usage_term">개인정보취급방침</a>에 동의합니다</label>
           </div>
         </div>
 
@@ -101,6 +109,8 @@ input[type=checkbox]:checked + label:before {
     </div>
   </div>
 </div>
+
+<%= render 'layouts/terms' %>
 
 <script>
   var password = document.getElementById("user_password");

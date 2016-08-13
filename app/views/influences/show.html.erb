@@ -3,41 +3,40 @@
     <div class="mb_line_break_reverse">
       <div class="col-md-9 inf_header" style="margin-top:30px;">
         <div class="col-md-2">
-          <%= image_tag @influencer_store.user ? @influencer_store.user.image_profile : nil, style: "border-radius:100%;width:100px;height:100px;margin-top:15px;", alt: "" %>
+          <%= image_tag "profile_1.png", style: "border-radius:100%;width:100px;margin-top:15px;", alt: "" %>
         </div>
         <div class="col-md-10 no-gap">
-          <h3><%= @influencer_store.nickname %></h3>
+          <h3>우희</h3>
           <p class="detail">
-            <%= @influencer_store.desc %>
+            이성경의의 트랜디스트 라이프스타일 스토어입니다.
           </p>
           <p class="detail">
-          <%= "trd.st/#{@influencer_store.url}" %> <%= button_tag "주소 복사", type: "button", class: "inf_link", onclick: "copyUrl('http://trd.st/#{@influencer_store.url}')" %>
+          http://trd.st/woohee91 <a href="#" class="inf_link">주소 복사</a>
           </p>
         </div>
       </div>
       <div class="col-md-3 inf_header" style="margin-top:60px;">
         <p class="detail">
-          주간 인플루언서 랭킹 <%= @influencer_store.id %>위 ? <span class="fa fa-caret-up" style="color:red"></span>
+          주간 인플루언서 랭킹 4위 2 <span class="fa fa-caret-up" style="color:red"></span>
         </p>
         <p class="detail">
-          판매지수 <%= @influencer_store.selling_point %> / 유입지수 <%= @influencer_store.user_point %>
+          판매지수 8,829 / 유입지수 42,991
         </p>
         <p class="detail">
-          판매 중인 딜 수 <%= @influencer_stores_products.count %>개
+          판매 중인 딜 수 16개
         </p>
       </div>
     </div>
-
     <div class="mb_line_break">
       <div class="col-md-12 inf_header_mb_upper">
         <div class="col-xs-4 no-gap">
-          <%= image_tag @influencer_store.user ? @influencer_store.user.image_profile : nil, style: "border-radius:100%;width:90px;height:90px;margin-top:15px;", alt: "" %>
+          <%= image_tag "profile_1.png", style: "border-radius:100%;width:90px;margin-top:15px;", alt: "" %>
         </div>
         <div class="col-xs-8">
-          <h3 class="store_owner"><%= @influencer_store.nickname %></h3>
-          <p class="store_desc"><%= @influencer_store.desc %></p>
+          <h3 class="store_owner">우희</h3>
+          <p class="store_desc">이성경의 트랜디스트 라이프스타일 스토어입니다.</p>
           <p class="store_url">
-          <%= "trd.st/#{@influencer_store.url}" %>
+          asdf@gmail.com
           </p>
         </div>
       </div>
@@ -48,7 +47,7 @@
             주간 랭킹
           </p>
           <p class="detail_sub">
-            <%= @influencer_store.id %>위 ? <span class="fa fa-caret-up" style="color:red"></span>
+            4위 2 <span class="fa fa-caret-up" style="color:red"></span>
           </p>
         </div>
         <div class="col-xs-3 inf_header inf_header_mb">
@@ -57,7 +56,7 @@
             판매지수
           </p>
           <p class="detail_sub">
-            <%= @influencer_store.selling_point %>
+            8,829
           </p>
         </div>
         <div class="col-xs-3 inf_header inf_header_mb">
@@ -66,7 +65,7 @@
             유입지수
           </p>
           <p class="detail_sub">
-            <%= @influencer_store.user_point %>
+            42,991
           </p>
         </div>
         <div class="col-xs-3 inf_header inf_header_mb">
@@ -74,95 +73,74 @@
             판매 딜 수
           </p>
           <p class="detail_sub">
-            <%= @influencer_stores_products.count %>개
+            16 개
           </p>
         </div>
       </div>
     </div>
 
-    <div class="col-md-12 insta_feed_desk_parent no-gap mb_line_break_reverse">
-      <div class="insta_feed_desk">
-        <% @influencer_stores_products.each do |isp| %>
-        <div class="slide">
-          <%= image_tag isp.image_review, style: "width:245px;height:245px"%>
-          <div class="col-xs-6 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 ??개</p>
-          </div>
-          <div class="col-xs-6 no-gap">
-            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 ??개</span></p>
-          </div>
-        </div>
-        <% end %>
-        <% if @influencer_stores_products.blank? %>
-          피드가 없습니다
-        <% end %>
-      </div>
-    </div><!-- desk insta feed -->
 
-    <div class="col-md-12 insta_feed_mb_parent no-gap mb_line_break">
-      <div class="insta_feed_mb">
-        <% @influencer_stores_products.each do |isp| %>
-        <div class="slide">
-          <%= image_tag isp.image_review %>
-          <div class="col-xs-6 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 ??개</p>
-          </div>
-          <div class="col-xs-6 no-gap">
-            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 ??개</span></p>
-          </div>
-        </div>
-        <% end %>
-      </div>
-    </div><!-- mobile insta feed-->
+    <%= render 'insta_feed' %>
 
     <%= render 'wannabe_letter' %>
 
     <div class="col-md-12 sign_up on_deal_header">
-      <h3 class="header" style="margin-top:0px;">판매중인 상품</h3>
+      <h3 class="header" style="margin-top:0px;">판매중인 딜</h3>
     </div>
 
-    <% @influencer_stores_products.each do |isp| %>
     <div class="col-md-12 on_deal">
       <div class="col-md-8 main_sub_image_left no-gap">
-        <%= link_to product_path(isp.product) do %>
-          <%= image_tag isp.product.image_basic, style: "width:100%;height:350px;" %>
-        <% end %>
+          <a href="#"><%= image_tag ('product_thmb_6.jpg'), style: "width:100%;height:350px;" %></a>
       </div>
 
       <div class="col-md-4 main_sub_image_right">
-          <%= link_to product_path(isp.product) do %>
-            <%= image_tag isp.image_review, style: "width:100%;height:350px;" %>
-          <% end %>
+          <a href="#"><%= image_tag ('selfie_1.png'), style: "width:100%;height:350px;" %></a>
         <div class="col-md-12 no-gap">
-          <%= link_to product_path(isp.product), style:"color:#212121" do %>
+          <a href="#" style="color:#212121">
             <p class="product text-right">
-              <%= isp.product.name %>
+              VENDREDI - BLACK BROWN / SILVER MIRROR
             </p>
             <p class="price text-right">
-              <%= isp.product.price %> won
+              229,000 won
             </p>
-          <% end %>
-          <h3 class="on_deal_share"> <a href="#" style="color:#212121" onclick="javascript:alert('준비 중');"> <span class="fa fa-share-alt"></span> </a></h3>
+          </a>
+          <h3 class="on_deal_share"> <a href="#" style="color:#212121"> <span class="fa fa-share-alt"></span> </a></h3>
         </div>
       </div>
     </div>
-    <% end %>
-    <% if @influencer_stores_products.blank? %>
+    <div class="col-md-12 on_deal">
+      <div class="col-md-8 main_sub_image_left no-gap">
+        <a href="#"><%= image_tag ('product_thmb_1.jpg'), style: "width:100%;height:350px;" %></a>
 
-    <div class="col-md-12 on_deal text-center" style="margin-top:50px;">
-      <%= image_tag 'default_product' %>
+      </div>
+
+      <div class="col-md-4 main_sub_image_right">
+        <a href="#"><%= image_tag ('selfie_1.png'), style: "width:100%;height:350px;" %></a>
+        <div class="col-md-12 no-gap">
+          <a href="#" style="color:#212121">
+            <p class="product text-right">
+              베이직 로고 크롭 티셔츠/블루-화이트
+            </p>
+            <p class="price text-right">
+              36,000 won
+            </p>
+          </a>
+          <h3 class="on_deal_share"> <a href="#" style="color:#212121"> <span class="fa fa-share-alt"></span> </a></h3>
+        </div>
+      </div>
     </div>
-    <% end %>
+
+
     <!-- insta_feed_title -->
     <div class="inf_feed_title">
       <%= image_tag "profile_1.png", alt: "" %>
-      <%= link_to "@sample", "#", onclick: "javascript:alert('준비중')" %>
-      <span class="inf_feed_title_sub_right">
-        <%= link_to "인스타그램 피드에서 보기", "#", onclick: "javascript:alert('준비중')" %>
-      <%= image_tag "https://lh3.googleusercontent.com/aYbdIM1abwyVSUZLDKoE0CDZGRhlkpsaPOg9tNnBktUQYsXflwknnOn2Ge1Yr7rImGk=w300" %>
-      </span>
+    <a href="#">woohee91</a>
+    <span class="inf_feed_title_sub_right">
+    <a href="#">인스타그램 피드에서 보기</a>
+    <img src="https://lh3.googleusercontent.com/aYbdIM1abwyVSUZLDKoE0CDZGRhlkpsaPOg9tNnBktUQYsXflwknnOn2Ge1Yr7rImGk=w300">
+    </span>
     </div>
-    <!-- insta_feed_title -->
+    <!-- insta_feed_header -->
     <!-- wannabe_letter_title -->
     <div class="wannabe_letter_title">
       <h3 style="margin-top:10px;">워너비 레터</h3>

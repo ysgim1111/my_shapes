@@ -13,6 +13,20 @@ Rails.application.routes.draw do
       post :save_post
       get :complete
       get :user_info
+      get :apply_product
+      get :apply_product_2
+      get :apply_product_3
+      get :apply_product_4
+      get :apply_product_5
+      get :apply_product_6
+      get :apply_product_7
+      get :apply_product_8
+      get :apply_product_9
+      get :apply_product_10
+      get :apply_product_11
+      get :apply_product_12
+      get :apply_product_13
+
     end
   end
 

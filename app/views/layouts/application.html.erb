@@ -18,21 +18,16 @@
   <![endif]-->
   <%= csrf_meta_tags %>
   <script src="https://use.fontawesome.com/1dbbdbff8d.js"></script>
-  <style media="screen">
-
-  </style>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar">
-  <header>
-    <% if params[:action] == "about" || params[:action] == "recruit" || params[:action] == "complete"%>
-      <%= render "/layouts/about_nav" %>
-    <% elsif params[:controller] == "products" && params[:action] == "index" %>
-      <%= render "/layouts/ordinary_nav" %>
-    <% else %>
-      <%= render "/layouts/ordinary_nav" %>
-    <% end %>
-  </header>
+  <% if params[:action] == "about" || params[:action] == "recruit" || params[:action] == "complete"%>
+    <%= render "/layouts/about_nav" %>
+  <% elsif params[:controller] == "products" && params[:action] == "index" %>
+    <%= render "/layouts/ordinary_nav" %>
+  <% else %>
+    <%= render "/layouts/apply_nav" %>
+  <% end %>
 
   <main role="main">
     <%= render partial: "shared/flash_messages", flash: flash %>
@@ -95,6 +90,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
     initNav();
+    initCurrentPage();
   })
 
 function initNav() {
@@ -121,6 +117,11 @@ function initNav() {
       image_down.siblings().removeClass('hide').addClass('show');
     }
   })
+}
+function initCurrentPage() {
+  var current_page = $('.container').find('.row').find('.col-md-12.mb_line_break_reverse').find('h3').html();
+  $('nav').find('.current_page').html(current_page);
+
 }
 </script>
 </html>

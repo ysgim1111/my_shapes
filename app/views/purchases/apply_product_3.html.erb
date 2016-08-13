@@ -1,0 +1,60 @@
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script>
+$( function() {
+  $( "#tabs" ).tabs();
+} );
+</script>
+<div class="container inf_admin purc_ready">
+  <div class="row inf_admin_header">
+    <div class="col-md-12 mb_line_break_reverse no-gap">
+      <h3 class="basic_header">상품 판매 신청</h3>
+    </div>
+    <div class="col-md-12">
+      <div class="col-md-6 prdt_apply_process">
+        <div class="col-xs-4 text-center">
+          <i class="fa fa-lg fa-arrow-right"></i>
+          <div class="circle_default">
+            <span>1</span>
+          </div>
+          <p class="prdt_apply_process_desc">신청 상품 조회</p>
+        </div>
+        <div class="col-xs-4 text-center">
+          <i class="fa fa-lg fa-arrow-right"></i>
+          <div class="circle_selected">
+            <span>2</span>
+          </div>
+          <p class="prdt_apply_process_desc">샘플 수령 정보 입력</p>
+        </div>
+        <div class="col-xs-4 text-center">
+          <div class="circle_default">
+            <span>3</span>
+          </div>
+          <p class="prdt_apply_process_desc">사용 정보 입력</p>
+        </div>
+      </div>
+    </div>
+  </div><!-- .row -->
+
+  <div class="row" style="padding-bottom:100px;">
+    <div class="col-md-12">
+      <h3 class="sample_complete_header">샘플 수령 신청이 접수되었습니다.</h3>
+      <div class="col-md-12">
+        <p class="sample_complete_middle">
+          브랜드 : 컨버스<br>
+제품명 :  척테일러 올스타 레더 화이트<br>
+제품 번호 : 132173C<br>
+옵션 : 240<br>
+수령인 : 홍길동<br>
+연락처 : 010-1234-1234<br>
+        </p>
+      </div>
+      <h5 class="sample_complete_bottom"> 신청하신 내용이 승인되면 상품 배송이 진행됩니다.<br>
+상품을 받으시면 3일 이내에 사용 정보를 입력해 주시기 바랍니다.</h5>
+      <div class="col-md-12">
+        <%= link_to "신청내역조회", "#", class: "btn session_btn_black" %>
+      </div>
+    </div>
+  </div>
+
+
+</div>

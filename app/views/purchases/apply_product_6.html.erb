@@ -1,0 +1,58 @@
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script>
+$( function() {
+  $( "#tabs" ).tabs();
+} );
+</script>
+<div class="container inf_admin purc_ready">
+  <div class="row inf_admin_header">
+    <div class="col-md-12 mb_line_break_reverse no-gap">
+      <h3 class="basic_header">상품 판매 신청</h3>
+    </div>
+    <div class="col-md-12">
+      <div class="col-md-6 prdt_apply_process">
+        <div class="col-xs-4 text-center">
+          <i class="fa fa-lg fa-arrow-right"></i>
+          <div class="circle_default">
+            <span>1</span>
+          </div>
+          <p class="prdt_apply_process_desc">신청 상품 조회</p>
+        </div>
+        <div class="col-xs-4 text-center">
+          <i class="fa fa-lg fa-arrow-right"></i>
+          <div class="circle_default">
+            <span>2</span>
+          </div>
+          <p class="prdt_apply_process_desc">샘플 수령 정보 입력</p>
+        </div>
+        <div class="col-xs-4 text-center">
+          <div class="circle_selected">
+            <span>3</span>
+          </div>
+          <p class="prdt_apply_process_desc">사용 정보 입력</p>
+        </div>
+      </div>
+    </div>
+  </div><!-- .row -->
+
+  <div class="row" style="padding-bottom:100px;">
+    <div class="col-md-12">
+      <h3 class="sample_complete_header">샘플 상품을 받으셨나요?</h3>
+      <div class="col-md-12">
+        <p class="sample_complete_middle">
+          1. 샘플 상품을 사용해 보세요<br>
+2. 사용 사진을 멋지고 예쁘게 찍어 주세요<br>
+3. 간단한 추천 코멘트를 준비해주세요<br>
+4. 개인 SNS에 사용 사진을 업로드 해주세요<br>
+        </p>
+      </div>
+      <h5 class="sample_complete_bottom">위 네가지가 모두 끝나셨으면,<br>
+다음 페이지에서 사용 정보를 입력해 주세요.</h5>
+      <div class="col-md-12 no-gap">
+        <%= link_to "사용정보입력", "#", class: "btn session_btn_black" %>
+      </div>
+    </div>
+  </div>
+
+
+</div>
