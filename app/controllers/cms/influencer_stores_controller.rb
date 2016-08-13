@@ -2,6 +2,11 @@ class Cms::InfluencerStoresController < BaseCmsController
   authorize_actions_for InfluencerStore
 
   def index
+    # unless current_user.is_admin?
+    #   redirect_to cms_path
+    #   return
+    # end
+
     @influencer_stores = InfluencerStore.order(:id)
   end
 
@@ -12,7 +17,7 @@ class Cms::InfluencerStoresController < BaseCmsController
   def create
     current_user.influencer_store = InfluencerStore.new(influencer_store_params)
 
-    redirect_to action: :index
+    redirect_to current_user.is_admin? ? cms_influencer_stores_path : cms_influencer_store_path(current_user.influencer_store)
   end
 
   def show
@@ -32,7 +37,7 @@ class Cms::InfluencerStoresController < BaseCmsController
   def destroy
     InfluencerStore.find(params[:id]).destroy
 
-    redirect_to action: :index
+    redirect_to new_cms_influencer_store_path
   end
 
 
