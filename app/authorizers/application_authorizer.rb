@@ -12,10 +12,10 @@ class ApplicationAuthorizer < Authority::Authorizer
   end
 
   def updatable_by?(user)
-    resource.user == user
+    resource.user == user || user.is_admin?
   end
 
   def deletable_by?(user)
-    resource.user == user
+    resource.user == user || user.is_admin?
   end
 end
