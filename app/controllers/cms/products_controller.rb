@@ -1,4 +1,6 @@
 class Cms::ProductsController < BaseCmsController
+  authorize_actions_for Product
+
   def index
     @products = Product.order(id: :desc)
   end

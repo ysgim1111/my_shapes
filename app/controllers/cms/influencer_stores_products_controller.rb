@@ -1,5 +1,5 @@
 class Cms::InfluencerStoresProductsController < BaseCmsController
-  authorize_actions_for Product, actions: {products: :read}
+  authorize_actions_for InfluencerStoresProduct, actions: {products: :read}
 
   before_filter :redirect_to_index, only: [:new, :create]
 
@@ -11,7 +11,7 @@ class Cms::InfluencerStoresProductsController < BaseCmsController
   end
 
   def index
-    @influencer_stores_products = current_user.influencer_store.influencer_stores_products
+    @influencer_stores_products = current_user.influencer_store ? current_user.influencer_store.influencer_stores_products : []
   end
 
   def new

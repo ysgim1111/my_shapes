@@ -43,6 +43,8 @@ Rails.application.routes.draw do
     get :show_test, on: :collection
   end
 
+  get :cms, to: "base_cms#redirect_to_root_path_by_base_authority"
+
   namespace :cms do
     resources :products, :users
 

@@ -1,4 +1,6 @@
 class Cms::InfluencerStoresController < BaseCmsController
+  authorize_actions_for InfluencerStore
+
   def index
     @influencer_stores = InfluencerStore.order(:id)
   end
