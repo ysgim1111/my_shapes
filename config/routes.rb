@@ -26,6 +26,8 @@ Rails.application.routes.draw do
       get :apply_product_11
       get :apply_product_12
       get :apply_product_13
+      get :wannabe_letter
+      get :apply_product_login
 
     end
   end
