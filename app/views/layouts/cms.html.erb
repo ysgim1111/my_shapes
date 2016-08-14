@@ -38,7 +38,25 @@
                 상품관리 <span class="caret"></span>
               <% end %>
               <ul class="dropdown-menu" role="menu">
-                <li><%= link_to "상품추가", new_cms_product_path %></li>
+                <li><%= link_to "상품등록", new_cms_product_path %></li>
+                <li><%= link_to "상품목록", cms_products_path %></li>
+                <li><%= link_to "문의관리", "javascript:alert('만드는 중');" %></li>
+              </ul>
+            </li>
+          <% end %>
+          <% if current_user.can_update?(Product) %>
+            <li class="dropdown">
+              <%= link_to cms_purchases_path, class: "dropdown-toggle", data: {toggle: "dropdown", role: "button", "aria-expanded" => "false"} do %>
+                주문관리 <span class="caret"></span>
+              <% end %>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to "샘플배송", samples_cms_purchases_path %></li>
+                <li><%= link_to "신규주문", "javascript:alert('만드는 중');" %></li>
+                <li><%= link_to "배송관리", "javascript:alert('만드는 중');" %></li>
+                <li><%= link_to "구매확정관리", "javascript:alert('만드는 중');" %></li>
+                <li><%= link_to "반품관리", "javascript:alert('만드는 중');" %></li>
+                <li><%= link_to "교환관리", "javascript:alert('만드는 중');" %></li>
+                <li><%= link_to "취소관리", "javascript:alert('만드는 중');" %></li>
               </ul>
             </li>
           <% end %>

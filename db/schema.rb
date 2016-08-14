@@ -11,30 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160812024320) do
+ActiveRecord::Schema.define(version: 20160814064242) do
 
-  create_table "destinations", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "receiver",                                 null: false
+  create_table "address_books", force: :cascade do |t|
+    t.integer  "user_id",                                  null: false
     t.string   "name",                                     null: false
+    t.string   "receiver",                                 null: false
     t.integer  "zonecode",       limit: 5,                 null: false
     t.string   "address",                                  null: false
     t.string   "address_detail"
     t.string   "address_type",   limit: 1
     t.string   "phone_number",                             null: false
     t.string   "tel"
+    t.boolean  "default",                  default: false
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
-    t.boolean  "default",                  default: false
   end
 
-  add_index "destinations", ["user_id"], name: "index_destinations_on_user_id"
+  add_index "address_books", ["user_id"], name: "index_address_books_on_user_id"
+
+  create_table "destinations", force: :cascade do |t|
+    t.string   "receiver",                                   null: false
+    t.integer  "zonecode",         limit: 5,                 null: false
+    t.string   "address",                                    null: false
+    t.string   "address_detail"
+    t.string   "address_type",     limit: 1
+    t.string   "phone_number",                               null: false
+    t.string   "tel"
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.boolean  "default",                    default: false
+    t.integer  "deliverable_id"
+    t.string   "deliverable_type"
+    t.string   "tracking_number"
+    t.string   "demand_message"
+  end
+
+  add_index "destinations", ["deliverable_type", "deliverable_id"], name: "index_destinations_on_deliverable_type_and_deliverable_id"
 
   create_table "influencer_stores", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "url"
     t.text     "desc"
-    t.string   "nickname"
     t.integer  "selling_point", default: 0
     t.integer  "user_point",    default: 0
     t.datetime "created_at",                null: false
@@ -46,12 +64,6 @@ ActiveRecord::Schema.define(version: 20160812024320) do
   create_table "influencer_stores_products", force: :cascade do |t|
     t.integer  "influencer_store_id"
     t.integer  "product_id"
-    t.string   "receiver"
-    t.integer  "zonecode"
-    t.string   "address"
-    t.string   "address_detail"
-    t.string   "phone_number"
-    t.string   "demand_message"
     t.integer  "status",              default: 0
     t.datetime "proposal_date"
     t.text     "comment"
@@ -103,7 +115,10 @@ ActiveRecord::Schema.define(version: 20160812024320) do
     t.string   "return_address"
     t.string   "as_tel"
     t.string   "as_info"
+    t.integer  "user_id"
   end
+
+  add_index "products", ["user_id"], name: "index_products_on_user_id"
 
   create_table "purchase_lists", force: :cascade do |t|
     t.integer  "user_id"

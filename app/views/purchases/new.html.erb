@@ -109,8 +109,8 @@ input[type=checkbox]:checked + label:before {
           <div class="col-md-12">
             <div class="col-md-6 no-gap">
               <div class="form-group">
-                <% current_user.destinations.each do |destination| %>
-                  <%= button_tag destination.receiver, onclick: "changePostInfo('#{destination.receiver}', '#{destination.name}', #{destination.zonecode}, '#{destination.address}', '#{destination.address_detail}', '#{destination.phone_number}')" %>
+                <% current_user.address_books.each do |address_book| %>
+                  <%= button_tag address_book.receiver, onclick: "changePostInfo('#{address_book.receiver}', '#{address_book.name}', #{address_book.zonecode}, '#{address_book.address}', '#{address_book.address_detail}', '#{address_book.phone_number}')" %>
                 <% end %>
               </div>
             </div>
@@ -126,7 +126,7 @@ input[type=checkbox]:checked + label:before {
             <div class="col-md-6 no-gap pd_mg">
               <div class="form-group">
                 <label for="user_이름">배송지 명</label><br>
-                <input class="form-control check" placeholder="이름을 입력해주세요" type="text" value="" name="destination_name" id="destination_name">
+                <input class="form-control check" placeholder="이름을 입력해주세요" type="text" value="" name="address_book_name" id="address_book_name">
               </div>
 
               <div class="form-group">
@@ -446,6 +446,6 @@ input[type=checkbox]:checked + label:before {
     document.getElementById('phone_number2').value = phone_number.split('-')[1];
     document.getElementById('phone_number3').value = phone_number.split('-')[2];
     document.getElementById('receiver').value = receiver;
-    document.getElementById('destination_name').value = name;
+    document.getElementById('address_book_name').value = name;
   }
 </script>
