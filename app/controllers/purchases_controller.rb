@@ -28,9 +28,9 @@ class PurchasesController < ApplicationController
   end
 
   def save_post
-    destination = Destination.update_or_create(params[:destination_id], destination_param, current_user)
+    address_book = AddressBook.update_or_create(params[:address_book_id], address_book_param, current_user)
 
-    render json: destination
+    render json: address_book
   end
 
 
@@ -40,7 +40,7 @@ class PurchasesController < ApplicationController
     params.permit("imp_uid", "pay_method", "merchant_uid", "name", "paid_amount", "pg_provider", "pg_tid", "apply_num", "buyer_name", "buyer_email", "buyer_tel", "buyer_addr", "buyer_postcode", "custom_data", "status", "paid_at", "receipt_url", "card_name", "card_quota")
   end
 
-  def destination_param
+  def address_book_param
     params.permit(:receiver, :name, :phone_number, :zonecode, :address, :address_detail, :default)
   end
 end

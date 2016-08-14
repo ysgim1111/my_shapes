@@ -1,8 +1,9 @@
 class Cms::ProductsController < BaseCmsController
-  authorize_actions_for Product
+  authorize_actions_for Product, only: [:create]
 
   def index
     @products = Product.order(id: :desc)
+    authorize_action_for(@products)
   end
 
   def new
@@ -17,6 +18,7 @@ class Cms::ProductsController < BaseCmsController
 
   def show
     @product = Product.find(params[:id])
+    authorize_action_for(@product)
   end
 
   def edit
