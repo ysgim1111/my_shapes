@@ -40,6 +40,6 @@ class Cms::InfluencerStoresController < BaseCmsController
   private
 
   def influencer_store_params
-    params.require(:influencer_store).permit(:url, :desc, :nickname)
+    params.require(:influencer_store).permit(:url, :desc)
   end
 end
