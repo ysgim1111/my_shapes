@@ -25,6 +25,12 @@
 }
 
 @media (max-width: 767px) {
+  .find_pwd_header {
+    margin-bottom: 50px;
+  }
+  .sign_up .sign_sns {
+    padding-top: 50px;
+  }
   .navbar-default.mobile-nav {
     background-color: #ffffff;
     border-bottom: none;
