@@ -74,6 +74,9 @@
   .mb_line_break_inline {
     display: inline !important;
   }
+  .mb_line_break_tb_row {
+    display: table-row;
+  }
   .mb_line_break_reverse {
     display: none;
   }
@@ -293,6 +296,27 @@
     font-size: 12.8px;
     letter-spacing: -0.3px;
     line-height: 24px;
+  }
+  .tb_mp_spec_info_parent {
+    border: none;
+    padding:0px;
+    margin-bottom:50px;
+  }
+  .table.tb_mp_spec_info .tb_mp_spec_info_header {
+    font-size: 22.5px;
+    letter-spacing: -0.9px;
+  }
+  .tb_mp_spec_info_parent_pd {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+  .table.tb_mp_spec_info_nested>tbody>tr>th>img {
+    width:100px;
+    height:100px;
+  }
+  .table.tb_exchg_nested>tbody>tr>.tb_purc_check>.checkbox>label {
+    margin-right: 0px;
+    padding-left: 15px;
   }
   /* inf_apply */
 }
