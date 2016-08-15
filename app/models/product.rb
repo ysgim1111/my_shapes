@@ -13,7 +13,8 @@ class Product < ActiveRecord::Base
 
   belongs_to :user
 
-  has_many :influencer_stores_products, dependent: :destroy
+  has_many :influencer_stores_products
   has_many :influencer_stores, through: :influencer_stores_products
   has_many :product_options, dependent: :destroy
+  has_many :purchase_items
 end

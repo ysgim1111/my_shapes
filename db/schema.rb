@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160815064710) do
+ActiveRecord::Schema.define(version: 20160815121913) do
 
   create_table "address_books", force: :cascade do |t|
     t.integer  "user_id",                                  null: false
@@ -122,6 +122,20 @@ ActiveRecord::Schema.define(version: 20160815064710) do
   end
 
   add_index "products", ["user_id"], name: "index_products_on_user_id"
+
+  create_table "purchase_items", force: :cascade do |t|
+    t.integer  "purchase_list_id",             null: false
+    t.integer  "product_id",                   null: false
+    t.integer  "quantity",         default: 1, null: false
+    t.integer  "status",           default: 0, null: false
+    t.string   "option",                       null: false
+    t.date     "confirm_date"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "purchase_items", ["product_id"], name: "index_purchase_items_on_product_id"
+  add_index "purchase_items", ["purchase_list_id"], name: "index_purchase_items_on_purchase_list_id"
 
   create_table "purchase_lists", force: :cascade do |t|
     t.integer  "user_id"

@@ -60,6 +60,8 @@ Rails.application.routes.draw do
       collection do
         get :samples
       end
+
+      patch :status
     end
   end
 
