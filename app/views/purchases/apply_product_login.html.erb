@@ -1,0 +1,28 @@
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script>
+$( function() {
+  $( "#tabs" ).tabs();
+} );
+</script>
+<div class="container inf_admin purc_ready">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 inf_login">
+      <div class="col-md-12 mb_line_break_reverse no-gap text-center">
+        <%= image_tag "logo_b1_1.png", style: "width:60px;"%>
+        <h3 class="basic_header">인플루언서 센터 로그인</h3>
+      </div>
+      <div class="form-group">
+        <label for="user_이름">이메일</label><br>
+        <input class="form-control check"  type="text" value="" name="destination_name" id="destination_name">
+      </div>
+      <div class="form-group">
+        <label for="user_이름">비밀 번호</label><br>
+        <input class="form-control check"  type="text" value="" name="destination_name" id="destination_name">
+      </div>
+
+      <div class="col-md-6 col-md-offset-3 no-gap text-center inf_login_btn">
+        <%= link_to "로그인", "#", class: "btn session_btn_black width_full"%>
+      </div>
+    </div>
+  </div><!-- .row -->
+</div>

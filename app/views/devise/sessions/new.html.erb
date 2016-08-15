@@ -17,12 +17,12 @@
         </div>
 
         <div class="col-md-12 no-gap actions mb_line_break_reverse">
-          <p class="find_acc"><a href="#">아이디 찾기</a><%= link_to "비밀번호 찾기", new_password_path(resource_name) %></p>
-          <%= f.submit "로그인", class:"session_btn btn login_btn" %>
+          <p class="find_acc"><%= link_to "비밀번호 찾기", new_password_path(resource_name) %>
+          <%= f.submit "로그인", class:"session_btn btn login_btn" %></p>
         </div>
 
         <div class="col-md-12 no-gap actions mb_line_break">
-          <p class="find_acc_mb"><a href="#">아이디 찾기</a><a href="#">비밀번호 찾기</a>
+          <p class="find_acc_mb"><%= link_to "비밀번호 찾기", new_password_path(resource_name) %>
           <%= f.submit "로그인", class:"session_btn btn login_btn" %></p>
         </div>
       <% end %>

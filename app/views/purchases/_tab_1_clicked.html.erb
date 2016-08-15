@@ -1,0 +1,197 @@
+<div class="col-md-12">
+  <%= link_to "< 주문 목록 돌아가기", "#", class: "btn session_btn" %>
+</div>
+<div class="col-md-12">
+  <!--desktop-->
+  <div class="mb_line_break_reverse" style="border: 1px solid #B2B2B2;
+border-radius: 2px;padding:35px 50px;margin-bottom:50px;">
+    <table class="table  tb_mp_delivery tb_mp_spec_info">
+      <tbody>
+        <tr>
+          <th colspan="2">
+            <h3 class="tb_mp_spec_info_header text-left">[챔스] 베이직 로고 크롭 티셔츠 / 블루-화이트  외 3건에 대한 주문</h3>
+          </th>
+        </tr>
+        <tr>
+          <td class="tb_mp_delivery_name text-left">
+            <div class="col-md-2 no-gap">
+              <p class="header_spec">주문 번호</p>
+              <p class="header_spec">결제 금액</p>
+              <p class="header_spec">주문일</p>
+            </div>
+            <div class="col-md-4 no-gap">
+              <p class="header_spec_sub">10345279693</p>
+              <p class="header_spec_sub">73,800원</p>
+              <p class="header_spec_sub">2016년 8월 8일</p>
+            </div>
+          </td>
+          <td class="tb_mp_delivery_choose" style="width:20%;">
+            <a href="#" class="btn session_btn big_session_btn width_full" style="margin-bottom:0px;"> 배송중 <br> <span>대한통운 <br> 336223287151</span> </a>
+          </td>
+        </tr>
+
+        <tr>
+          <table class="table  tb_mp_spec_info_nested">
+            <tbody>
+              <tr>
+                <th cols="2">
+                  <p class="nested_menu text-left">
+                    주문 상품 정보
+                  </p>
+                </th>
+              </tr>
+              <tr>
+                <th scope="row" style="width:20%"><%= image_tag "https://placehold.it/140x140", style:"width:140px;height:140px;" %></th>
+                <td>
+                <span class="tb_brand">컨버스</span><br> <p class="tb_name">척테일러 올스타 레더 화이트</p>
+                <span class="tb_option">옵션 : S</span> <span class="tb_price">36,000 won</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" style="width:20%"><%= image_tag "https://placehold.it/140x140", style:"width:140px;height:140px;" %></th>
+                <td>
+                <span class="tb_brand">컨버스</span><br> <p class="tb_name">척테일러 올스타 레더 화이트</p>
+                <span class="tb_option">옵션 : S</span> <span class="tb_price">36,000 won</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </tr>
+
+
+        <table class="table  tb_mp_delivery tb_mp_spec_info">
+          <tbody>
+            <tr>
+              <td colspan="2">
+                <div class="col-md-6 no-gap">
+                  <p class="nested_menu" style="margin-bottom:30px;">
+                    주문 상품 정보
+                  </p>
+                  <div class="col-md-4 text-left">
+                    <p class="header_spec">받는 사람</p>
+                    <p class="header_spec">연락처</p>
+                    <p class="header_spec">주소</p>
+                  </div>
+                  <div class="col-md-8 text-left">
+                    <p class="header_spec_sub">이현욱</p>
+                    <p class="header_spec_sub">010-0000-0000</p>
+                    <p class="header_spec_sub">서울특별시 관악구 남부순환로</p>
+                  </div>
+                  <div class="col-md-6 col-md-offset-6 text-right">
+                    <%= link_to "배송 정보 변경", "#", class: "btn session_btn width_full", disabled: "true", style: " margin-top:30px;" %>
+                  </div>
+                </div>
+                <div class="col-md-6 no-gap">
+                  <p class="nested_menu" style="margin-bottom:30px;">
+                   결제 정보
+                  </p>
+                  <div class="col-md-4 text-left">
+                    <p class="header_spec">총 상품 금액</p>
+                    <p class="header_spec">배송비</p>
+                    <p class="header_spec">할인</p>
+                  </div>
+                  <div class="col-md-8 text-right">
+                    <p class="header_spec_sub">73,800원</p>
+                    <p class="header_spec_sub">무료</p>
+                    <p class="header_spec_sub">0원</p>
+                  </div>
+                  <div class="col-md-12">
+                    <hr style="border: 1px solid #979797;">
+                  </div>
+                  <div class="col-md-4 text-left">
+                    <p class="header_spec">&nbsp;</p>
+                    <p class="header_spec"> <strong>최종결제금액</strong></p>
+                  </div>
+                  <div class="col-md-8 text-right">
+                    <p class="header_spec_sub">신용카드 <span style="margin-left:30px;">73,800원</span> </p>
+                    <p class="header_spec_sub"><strong>73,800원</strong></p>
+                  </div>
+
+                  <div class="col-md-6 col-md-offset-6 text-right">
+                    <%= link_to "교환/반품 신청", "#", class: "btn session_btn_black width_full", style: " margin-top:50px;" %>
+                  </div>
+                  <div class="col-md-6">
+                    <%= link_to "현금 영수증 출력", "#", class: "btn session_btn width_full" %>
+                  </div>
+                  <div class="col-md-6">
+                    <%= link_to "거래 명세서 출력", "#", class: "btn session_btn width_full" %>
+                  </div>
+
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+      </tbody>
+    </table>
+  </div>
+  <!--desktop-->
+
+  <!-- mb -->
+  <div class="mb_line_break">
+    <table class="table tb_inf_prdt_mb tb_inf_prdt_big_mb table-hover">
+      <tbody>
+        <tr>
+          <th scope="row">
+            <img src="https://placehold.it/100x100">
+          </th>
+          <td>
+            <span class="tb_inf_prdt_brand">컨버스</span><br>
+            <span class="tb_inf_prdt_name">척테일러 올스타 레더 화이트</span><br>
+            <span class="tb_inf_prdt_number">132173C</span><br>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="tb_inf_prdt_sub">
+            <span class="tb_inf_prdt_price tb_inf_prdt_sub_sub">신청일</span><br>
+            <span class="tb_inf_prdt_number">2016년 8월 5일</span>
+          </th>
+          <td>
+            <span class="tb_inf_prdt_price tb_inf_prdt_sub_sub">배송중</span><br>
+            <span class="tb_inf_prdt_number">대한 통운 10160968997163</span>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" colspan="2">
+            <%= link_to "사용 정보 입력", "#", class: "btn session_btn width_full_mb", disabled: "true", style: "margin-bottom:0px;" %>
+          </td>
+        </tr>
+      </tbody>
+    </table><!-- table sample1 -->
+
+
+    <table class="table tb_inf_prdt_mb tb_inf_prdt_big_mb ">
+      <tbody>
+        <tr>
+          <th scope="row">
+            <img src="https://placehold.it/100x100">
+          </th>
+          <td>
+            <span class="tb_inf_prdt_brand">컨버스</span><br>
+            <span class="tb_inf_prdt_name">척테일러 올스타 레더 화이트</span><br>
+            <span class="tb_inf_prdt_number">132173C</span><br>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="tb_inf_prdt_sub">
+            <span class="tb_inf_prdt_price tb_inf_prdt_sub_sub">신청일</span><br>
+            <span class="tb_inf_prdt_number">2016년 8월 5일</span>
+          </th>
+          <td>
+            <span class="tb_inf_prdt_price tb_inf_prdt_sub_sub">배송중</span><br>
+            <span class="tb_inf_prdt_number">대한 통운 10160968997163</span>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" colspan="2">
+            <%= link_to "사용 정보 입력", "#", class: "btn session_btn_black width_full_mb", style: "margin-bottom:0px;" %>
+          </td>
+        </tr>
+      </tbody>
+    </table><!-- table sample2 -->
+  </div>
+  <!-- mb -->
+</div>

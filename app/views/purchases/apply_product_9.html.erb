@@ -4,15 +4,18 @@ $( function() {
   $( "#tabs" ).tabs();
 } );
 </script>
-<div class="container inf_admin purc_ready">
-  <div class="row inf_admin_header" style="border-bottom:none;">
+<div class="container inf_admin">
+  <div class="row inf_admin_header no-margin_mb search_applied_prdt_mb">
     <div class="col-md-12 mb_line_break_reverse no-gap">
       <h3 class="basic_header">사용 정보 수정</h3>
     </div>
   </div><!-- .row -->
 
-  <div class="row search_applied_prdt">
-    <div class="col-md-12">
+  <div class="row search_applied_prdt search_applied_prdt_mb">
+    <div class="col-md-12 mb_line_break_reverse">
+      <h3 class="inf_admin_sub_header">샘플 수령 정보 입력</h3>
+    </div>
+    <div class="col-md-12 no-gap_mb">
       <!--desktop-->
       <div class="mb_line_break_reverse">
         <table class="table table-hover tb_inf_prdt" style="border-collapse: separate;border-spacing: 0 20px;">
@@ -30,11 +33,22 @@ $( function() {
         </table>
       </div>
       <!--desktop-->
+      <!-- mb -->
+      <div class="mb_line_break">
+        <table class="table tb_inf_prdt tb_inf_prdt_mb table-hover">
+          <tbody>
+            <tr> <th scope="row"> <img src="https://placehold.it/100x100"> </th> <td>
+              <span class="tb_inf_prdt_brand">컨버스</span><br> <span class="tb_inf_prdt_name">척테일러 올스타 레더 화이트</span><br> <span class="tb_inf_prdt_number">132173C</span><br> <span class="tb_inf_prdt_price">36,000 원</span> </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- mb -->
     </div>
   </div><!-- .row -->
 
   <div class="row usage_inf" style="margin-top:30px;">
-    <div class="col-md-8">
+    <div class="col-md-8 no-gap_mb">
         <div class="col-md-12 no-gap form-group">
           <div class="col-md-6 no-gap image-upload">
             <label class="image_input" for="image_input">사용 사진 업로드<span class="help-block">600*600px  이상 권장</span><br>

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       post :save_post
       get :complete
       get :user_info
+      get :user_info_tab_clicked
+      get :user_info_tab_clicked_clicked
       get :apply_product
       get :apply_product_2
       get :apply_product_3
@@ -26,6 +28,8 @@ Rails.application.routes.draw do
       get :apply_product_11
       get :apply_product_12
       get :apply_product_13
+      get :wannabe_letter
+      get :apply_product_login
 
     end
   end

@@ -11,42 +11,33 @@ $( function() {
     </div>
   </div><!-- .row -->
 
-  <div class="row search_applied_prdt">
-    <div class="col-md-12">
+  <div class="row search_applied_prdt no-margin_mb">
+    <div class="col-md-12 no-gap_mb">
       <h3 class="inf_admin_sub_header">조회 옵션</h3>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12 no-gap_mb">
       <div class="col-md-6 no-gap form-group">
-        <div class="col-md-3 col-xs-9 no-gap">
-          <label for="user_이름" class="invisible">조회</label><br>
+        <div class="col-md-5 col-xs-6 no-gap">
+          <label for="user_이름" class="invisible">배송지 관리</label><br>
           <select class="form-control">
-            <option value="" disabled selected>선택</option>
             <option>상품명</option>
-            <option>판매자</option>
-            <option>상품 번호</option>
-            <option>상태</option>
+            <option>2</option>
           </select>
         </div>
         <!-- desk btn -->
-        <div class="col-md-9 purc_delivery mb_line_break_reverse" style="margin-top:0px;">
-          <div class="col-md-9">
+        <div class="col-md-7 no-gap_mb" style="margin-top:0px;">
+          <div class="col-xs-8 no-gap_mb">
             <div class="form-group">
               <label for="user_이름">&nbsp;</label><br>
               <input class="form-control check" placeholder="검색어를 입력하세요" type="text" value="" name="destination_name" id="destination_name">
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-xs-4 no-pd_right_mb">
             <label class="invisible" for="user_이름">&nbsp;</label><br>
-            <%= button_tag "검색", class: "btn session_btn_black", style: "margin-bottom:0px;" %>
+            <%= button_tag "검색", class: "btn session_btn_black width_full_mb", style: "margin-bottom:0px;" %>
           </div>
         </div>
         <!-- desk btn -->
-        <!-- mb btn -->
-        <div class="col-md-6 col-xs-3 no-gap mb_line_break" style="text-align: center;margin-top: 0px;padding: 0px;margin-bottom: 15px;">
-          <label class="invisible" for="user_이름">배송주소</label><br>
-          <%= button_tag "+", class: "btn session_btn", style: "margin-bottom: 0px;padding-bottom: 9px;padding-top: 9px;" %>
-        </div>
-        <!-- mb btn -->
       </div>
     </div>
   </div><!-- .row -->
@@ -89,6 +80,47 @@ $( function() {
         </table>
       </div>
       <!--desktop-->
+      <!-- mb -->
+      <div class="mb_line_break">
+        <table class="table tb_inf_prdt_mb tb_inf_prdt_big_mb tb_inf_prdt_admin table-hover">
+          <tbody>
+            <tr>
+              <th scope="row" colspan="2">
+                <%= image_tag "https://placehold.it/100x100" %>
+                <%= image_tag "https://placehold.it/100x100" %>
+              </th>
+            </tr>
+            <tr>
+              <th scope="row" class="tb_inf_prdt_sub">
+                <span class="tb_inf_prdt_brand" style="font-weight:normal">컨버스</span><br>
+                <span class="tb_inf_prdt_name">척테일러 올스타 레더 화이트</span><br>
+                <span class="tb_inf_prdt_number" style="font-weight:normal">132173C</span><br>
+              </th>
+              <td style="vertical-align:bottom" class="text-right">
+                <span class="tb_inf_prdt_price tb_inf_prdt_sub_sub">판매중</span><br>
+                <span class="tb_inf_prdt_number">36,000 원</span>
+              </td>
+            </tr>
+            <tr>
+              <td scope="row" colspan="2" class="tb_two_btn">
+                <div class="col-xs-6 no-pd_left_mb tb_two_btn_sub_left">
+                  <%= link_to "고유 링크 복사", "#", class: "btn session_btn_black width_full_mb", style: "margin-bottom:0px;" %>
+                </div>
+                <div class="col-xs-6 no-pd_right_mb">
+                  <%= link_to "사용 정보 수정", "#", class: "btn session_btn width_full_mb", style: "margin-bottom:0px;" %>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table><!-- table sample1 -->
+<!--<td>
+  <span class="tb_inf_prdt_brand">컨버스</span><br>
+  <span class="tb_inf_prdt_name">척테일러 올스타 레더 화이트</span><br>
+  <span class="tb_inf_prdt_number">132173C</span><br>
+</td>-->
+
+      </div>
+      <!-- mb -->
     </div>
   </div><!-- .row -->
 </div>
