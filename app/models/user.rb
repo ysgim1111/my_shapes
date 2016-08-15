@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :address_books, dependent: :destroy
   has_many :shopping_items, dependent: :destroy
   has_many :products, dependent: :destroy
+  has_many :purchase_items, through: :products
 
   after_create :assign_default_role
 
