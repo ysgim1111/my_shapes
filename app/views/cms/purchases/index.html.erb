@@ -32,7 +32,7 @@
       <tr>
         <td><%= item.purchase_lists_id %></td>
         <td><%= item.id %></td>
-        <td><%= item.purchase_date[0..10] %></td>
+        <td><%= item.purchase_date.class == String ? item.purchase_date[0..9] : item.purchase_date.strftime("%Y-%m-%d") %></td>
         <td><%= item.nickname %><br/>(<%= item.email %>)</td>
         <td><%= item.products_name %><br/>(<%= item.option %>)</td>
         <td><%= item.quantity %></td>
