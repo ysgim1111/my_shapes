@@ -64,6 +64,7 @@ class Cms::InfluencerStoresProductsController < BaseCmsController
   end
 
   def destination_params
-    params.require(:destination).permit(:tracking_number)
+    params[:destination][:shipping_date] = Date.current if params[:destination][:shipping_date].blank?
+    params.require(:destination).permit(:tracking_number, :shipping_type, :shipping_company, :shipping_date)
   end
 end
