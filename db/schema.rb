@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160814064242) do
+ActiveRecord::Schema.define(version: 20160815064710) do
 
   create_table "address_books", force: :cascade do |t|
     t.integer  "user_id",                                  null: false
@@ -45,6 +45,9 @@ ActiveRecord::Schema.define(version: 20160814064242) do
     t.string   "deliverable_type"
     t.string   "tracking_number"
     t.string   "demand_message"
+    t.integer  "shipping_type"
+    t.integer  "shipping_company"
+    t.date     "shipping_date"
   end
 
   add_index "destinations", ["deliverable_type", "deliverable_id"], name: "index_destinations_on_deliverable_type_and_deliverable_id"
@@ -128,16 +131,6 @@ ActiveRecord::Schema.define(version: 20160814064242) do
   end
 
   add_index "purchase_lists", ["user_id"], name: "index_purchase_lists_on_user_id"
-
-  create_table "purchase_products", force: :cascade do |t|
-    t.integer  "purchase_list_id"
-    t.integer  "product_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
-
-  add_index "purchase_products", ["product_id"], name: "index_purchase_products_on_product_id"
-  add_index "purchase_products", ["purchase_list_id"], name: "index_purchase_products_on_purchase_list_id"
 
   create_table "purchase_results", force: :cascade do |t|
     t.integer  "purchase_list_id"
