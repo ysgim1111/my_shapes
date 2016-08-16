@@ -25,13 +25,13 @@
     <%= render "/layouts/about_nav" %>
   <% elsif params[:controller] == "products" && params[:action] == "index" %>
     <%= render "/layouts/ordinary_nav" %>
+  <% else %>
+    <%= render "/layouts/ordinary_nav" %>
   <% end %>
 
-  <main role="main">
-    <%= render partial: "shared/flash_messages", flash: flash %>
+  <%= render partial: "shared/flash_messages", flash: flash %>
 
-    <%= yield %>
-  </main>
+  <%= yield %>
 
   <footer style="clear:both;margin:0px;background-color:#212121">
     <div class="copyright">
