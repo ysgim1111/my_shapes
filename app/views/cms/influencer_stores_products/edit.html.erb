@@ -1,22 +1,50 @@
 <%= form_for @influencer_stores_product, url: {action: :update}, html: {multipart: true, class: "form-horizontal", method: :put} do |f|  %>
-  <div class="form-group">
-    <%= f.label :comment, "코멘트", class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :comment, class: "form-control", placeholder: "코멘트" %>
+  <% if current_user.is_influencer? || current_user.is_influencer? %>
+    <div class="form-group">
+      <%= f.label :comment, "코멘트", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :comment, class: "form-control", placeholder: "코멘트" %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :feed_url, "피드연결", class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :feed_url, class: "form-control", placeholder: "피드연결" %>
+    <div class="form-group">
+      <%= f.label :feed_url, "피드연결", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :feed_url, class: "form-control", placeholder: "피드연결" %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :image_review, "사용사진 업로드", class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.file_field :image_review, class: "form-control" %>
+    <div class="form-group">
+      <%= f.label :image_review, "사용사진 업로드", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.file_field :image_review, class: "form-control" %>
+      </div>
     </div>
-  </div>
+  <% end %>
+  <% if current_user.is_seller? || current_user.is_admin? %>
+    <div class="form-group">
+      <%= f.label :status, "상태", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.select :status, [["배송중", "shipping"], ["신규", "approved"], ["배송완료", "shipping_complete"]], class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :tracking_number, "송장번호", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= text_field :destination, :tracking_number, class: "form-control", placeholder: "송장번호" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :shipping_type, "배송방법", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= select :destination, :shipping_type, [["택배", "door"]], class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :shipping_company, "택배사", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= select :destination, :shipping_company, [["CJ", "cj"]], class: "form-control" %>
+      </div>
+    </div>
+  <% end %>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-primary">저장</button>

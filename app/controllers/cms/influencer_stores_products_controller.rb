@@ -19,21 +19,25 @@ class Cms::InfluencerStoresProductsController < BaseCmsController
   end
 
   def create
-    Destination.find(params[:destination_id]).update_attribute(:default, params[:set_default]) if params[:destination_id] && params[:set_default]
+    AddressBook.find(params[:address_book][:id]).update_attribute(:default, params[:set_default]) if params[:address_book][:id] && params[:set_default]
 
     influencer_stores_product = InfluencerStoresProduct.new(influencer_stores_product_params)
     influencer_stores_product.influencer_store = current_user.influencer_store
+    influencer_stores_product.destination = Destination.new(address_book_params)
     influencer_stores_product.save
   end
 
   def edit
     @influencer_stores_product = InfluencerStoresProduct.find(params[:id])
+    @destination = @influencer_stores_product.destination
   end
 
   def update
-    InfluencerStoresProduct.find(params[:id]).update_attributes(influencer_stores_product_update_params)
+    influencer_store_product = InfluencerStoresProduct.find(params[:id])
+    influencer_store_product.update_attributes(influencer_stores_product_update_params)
+    influencer_store_product.destination.update_attributes(destination_params) if influencer_store_product.destination
 
-    redirect_to action: :index
+    redirect_to current_user.is_influencer? ? cms_influencer_stores_products_path : samples_cms_purchases_path
   end
 
 
@@ -47,12 +51,20 @@ class Cms::InfluencerStoresProductsController < BaseCmsController
   end
 
   def influencer_stores_product_params
-    params["phone_number"] = "#{params[:phone_number1]}-#{params[:phone_number2]}-#{params[:phone_number3]}"
+    params.permit(:product_id)
+  end
 
-    params.permit(:product_id, :receiver, :address, :address_detail, :phone_number, :zonecode, :demand_message)
+  def address_book_params
+    params[:address_book][:phone_number] = "#{params[:address_book][:phone_number1]}-#{params[:address_book][:phone_number2]}-#{params[:address_book][:phone_number3]}"
+    params.require(:address_book).permit(:receiver, :zonecode, :address, :address_detail, :address_type, :phone_number, :tel, :demand_message)
   end
 
   def influencer_stores_product_update_params
-    params.require(:influencer_stores_product).permit(:comment, :feed_url, :image_review)
+    params.require(:influencer_stores_product).permit(:comment, :feed_url, :image_review, :status)
+  end
+
+  def destination_params
+    params[:destination][:shipping_date] = Date.current if params[:destination][:shipping_date].blank?
+    params.require(:destination).permit(:tracking_number, :shipping_type, :shipping_company, :shipping_date)
   end
 end

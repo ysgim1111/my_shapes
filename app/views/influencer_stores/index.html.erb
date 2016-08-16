@@ -51,7 +51,7 @@
             </div>
             <div class="col-md-6 sub_right">
               <%= link_to(influencer_store_path(is)) do %>
-                <h3 class="name" style="text-decoration:none;color:#212121"><%= is.nickname %></h3>
+                <h3 class="name" style="text-decoration:none;color:#212121"><%= is.user ? is.user.nickname : "" %></h3>
               <% end %>
               <p class="url">
                 <%= link_to("http://trd.st/#{is.url}", influencer_store_path(is)) %>
@@ -83,7 +83,7 @@
               <% end %>
             </div>
             <div class="col-lg-6 sub_right">
-              <h3 class="name"><%= is.nickname %></h3>
+              <h3 class="name"><%= is.user ? is.user.nickname : "" %></h3>
               <p class="url"><%= link_to("http://trd.st/#{is.url}", influencer_store_path(is)) %></p>
               <p class="index">판매 지수 <span class="index_number"><%= is.selling_point %></span> <span class="index_question"> <%= image_tag "score_help_16.png" %> </span></p>
               <p class="index">유입 지수 </span><span class="index_number"><%= is.user_point %></span> <span class="index_question"> <%= image_tag "score_help_16.png" %> </span></p>
@@ -116,7 +116,7 @@
             <% end %>
           </div>
           <div class="col-lg-8 sub_right">
-            <h3 class="name"><%= is.nickname %></h3>
+            <h3 class="name"><%= is.user ? is.user.nickname : "" %></h3>
             <p class="url"><%= link_to("http://trd.st/#{is.url}", influencer_store_path(is)) %></p>
           </div>
           <div class="col-lg-12 sub_bottom">

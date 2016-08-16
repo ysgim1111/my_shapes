@@ -1,42 +1,42 @@
 <div class="col-md-6 no-gap">
   <div class="form-group">
-    <% current_user.destinations.each do |destination| %>
-      <%= button_tag destination.receiver, type: "button", class: "btn btn-default", onclick: "changePostInfo('#{destination.receiver}', '#{destination.name}', #{destination.zonecode}, '#{destination.address}', '#{destination.address_detail}', '#{destination.phone_number}', '#{destination.id}')" %>
+    <% current_user.address_books.each do |address_book| %>
+      <%= button_tag address_book.receiver, type: "button", class: "btn btn-default", onclick: "changePostInfo('#{address_book.receiver}', '#{address_book.name}', #{address_book.zonecode}, '#{address_book.address}', '#{address_book.address_detail}', '#{address_book.phone_number}', '#{address_book.id}')" %>
     <% end %>
   </div>
 </div>
 <div class="col-md-6 purc_delivery mb_line_break_reverse">
-  <%= button_tag "배송지저장하기", type: "button", id: "saveDestination", class: "btn session_btn" %>
+  <%= button_tag "배송지저장하기", type: "button", id: "saveAddressBook", class: "btn session_btn" %>
   <a href="#" class="btn session_btn">배송지 관리</a>
 </div>
 <!-- mb -->
 <div class="col-md-6 mb_line_break no-gap" style="margin-top: 0px;padding: 0px;">
-  <%= button_tag "배송지저장하기", type: "button", id: "saveDestination", class: "btn session_btn", style: "width:100%;" %>
+  <%= button_tag "배송지저장하기", type: "button", id: "saveAddressBook", class: "btn session_btn", style: "width:100%;" %>
 </div>
 <!-- mb -->
 <div class="col-md-12 no-gap pd_mg">
   <div class="form-group">
     <label for="user_이름">배송지 명</label><br>
-    <input class="form-control check" placeholder="이름을 입력해주세요" type="text" value="" name="destination_name" id="destination_name">
+    <input class="form-control check" placeholder="이름을 입력해주세요" type="text" value="" name="[address_book]name" id="address_book_name">
   </div>
 
   <div class="form-group">
     <label for="user_이름">수령인 명</label><br>
-    <input class="form-control check" placeholder="이름을 입력해주세요" type="text" value="" name="receiver" id="receiver">
+    <input class="form-control check" placeholder="이름을 입력해주세요" type="text" value="" name="[address_book]receiver" id="receiver">
   </div>
 
   <div class="form-group purc_phone_form form-inline">
     <label for="user_이름">수령인 연락처</label><br>
-    <input class="form-control check purc_phone" type="text" value="" name="phone_number1" id="phone_number1">-
-    <input class="form-control check purc_phone" type="text" value="" name="phone_number2" id="phone_number2">-
-    <input class="form-control check purc_phone" type="text" value="" name="phone_number3" id="phone_number3">
+    <input class="form-control check purc_phone" type="text" value="" name="[address_book]phone_number1" id="phone_number1" maxlength="4">-
+    <input class="form-control check purc_phone" type="text" value="" name="[address_book]phone_number2" id="phone_number2" maxlength="4">-
+    <input class="form-control check purc_phone" type="text" value="" name="[address_book]phone_number3" id="phone_number3" maxlength="4">
   </div>
 </div>
 
 <div class="col-md-12 no-gap form-group">
   <div class="col-md-6 no-gap">
     <label for="user_이름">배송주소</label><br>
-    <input class="form-control check" placeholder="우편번호" type="text" name="zonecode" id="zonecode" value="" >
+    <input class="form-control check" placeholder="우편번호" type="text" name="[address_book]zonecode" id="zonecode" value="" >
   </div>
   <div class="col-md-6 purc_delivery mb_line_break_reverse">
     <label class="invisible" for="user_이름">배송주소</label><br>
@@ -48,21 +48,21 @@
     <%= button_tag "우편번호 검색", type: "button", onclick: "openPostSearch()", class: "btn session_btn", style: "width: 100%" %>
   </div>
   <!-- mb -->
-  <input class="form-control check" placeholder="기본 주소" type="text" value="" name="address" id="address">
+  <input class="form-control check" placeholder="기본 주소" type="text" value="" name="[address_book]address" id="address">
   <label class="invisible" for="user_이름">배송주소</label><br>
-  <input class="form-control check" placeholder="상세 주소" type="text" value="" name="address_detail" id="address_detail">
+  <input class="form-control check" placeholder="상세 주소" type="text" value="" name="[address_book]address_detail" id="address_detail">
 </div>
 
 <div class="col-md-12 no-gap">
   <div class="form-group">
-    <label for="user_이름">배송 요청사항</label><br>
+    <label for="demand_message">배송 요청사항</label><br>
     <!-- <select class="form-control">
       <option>배송시 요청사항을 선택하세요</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
     </select> -->
-    <input class="form-control check" type="text" value="" maxlength="30" name="demand_message" id="demand_message">
+    <input class="form-control check" type="text" value="" maxlength="30" name="[address_book]demand_message" id="demand_message">
     <p class="help-block text-right">0/30자</p>
   </div>
 </div>
@@ -74,7 +74,8 @@
   </div>
 </div>
 
-<%= hidden_field_tag :destination_id %>
+<%= hidden_field :address_book, :address_type %>
+<%= hidden_field :address_book, :id %>
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
@@ -104,12 +105,13 @@
 
         document.getElementById('zonecode').value = data.zonecode;
         document.getElementById('address').value = fullAddr;
+        document.getElementById('address_book_address_type').value = data.userSelectedType;
         document.getElementById('address_detail').focus();
       }
     }).open();
   }
 
-  function changePostInfo(receiver, name, zonecode, address, address_detail, phone_number, destination_id) {
+  function changePostInfo(receiver, name, zonecode, address, address_detail, phone_number, address_book_id) {
     document.getElementById('zonecode').value = zonecode;
     document.getElementById('address').value = address;
     document.getElementById('address_detail').value = address_detail;
@@ -117,11 +119,11 @@
     document.getElementById('phone_number2').value = phone_number.split('-')[1];
     document.getElementById('phone_number3').value = phone_number.split('-')[2];
     document.getElementById('receiver').value = receiver;
-    document.getElementById('destination_name').value = name;
-    document.getElementById('destination_id').value = destination_id;
+    document.getElementById('address_book_name').value = name;
+    document.getElementById('address_book_id').value = address_book_id;
   }
 
-  $(document).on('click', '#saveDestination', function() {
+  $(document).on('click', '#saveAddressBook', function() {
     $.ajax({
       url: '/purchases/save_post',
       method: 'post',
@@ -130,9 +132,9 @@
         address: $('#address').val(),
         address_detail: $('#address_detail').val(),
         phone_number: $('#phone_number1').val() + '-' + $('#phone_number2').val() + '-' + $('#phone_number3').val(),
-        name: $('#destination_name').val(),
+        name: $('#address_book_name').val(),
         receiver: $('#receiver').val(),
-        destination_id: $('#destination_id').val(),
+        address_book_id: $('#address_book_id').val(),
         default: $('#set_default').prop("checked")
       },
       before_send: function() {

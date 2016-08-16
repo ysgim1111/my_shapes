@@ -50,12 +50,18 @@ Rails.application.routes.draw do
   get :cms, to: "base_cms#redirect_to_root_path_by_base_authority"
 
   namespace :cms do
-    resources :products, :users
-
-    resources :influencer_stores
+    resources :influencer_stores, :products, :users
 
     resources :influencer_stores_products do
       get :products, on: :collection
+    end
+
+    resources :purchases do
+      collection do
+        get :samples
+      end
+
+      patch :status
     end
   end
 

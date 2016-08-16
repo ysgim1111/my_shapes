@@ -6,7 +6,7 @@
           <%= image_tag @influencer_store.user ? @influencer_store.user.image_profile : nil, style: "border-radius:100%;width:100px;height:100px;margin-top:15px;", alt: "" %>
         </div>
         <div class="col-md-10 no-gap">
-          <h3><%= @influencer_store.nickname %></h3>
+          <h3><%= @influencer_store.user ? @influencer_store.user.nickname : "" %></h3>
           <p class="detail">
             <%= @influencer_store.desc %>
           </p>
@@ -34,7 +34,7 @@
           <%= image_tag @influencer_store.user ? @influencer_store.user.image_profile : nil, style: "border-radius:100%;width:90px;height:90px;margin-top:15px;", alt: "" %>
         </div>
         <div class="col-xs-8">
-          <h3 class="store_owner"><%= @influencer_store.nickname %></h3>
+          <h3 class="store_owner"><%= @influencer_store.user ? @influencer_store.user.nickname : "" %></h3>
           <p class="store_desc"><%= @influencer_store.desc %></p>
           <p class="store_url">
           <%= "trd.st/#{@influencer_store.url}" %>

@@ -11,7 +11,10 @@ class Product < ActiveRecord::Base
   default_scope -> { where(enable: true) }
   scope :disable, -> { where(enable: false) }
 
-  has_many :influencer_stores_products, dependent: :destroy
+  belongs_to :user
+
+  has_many :influencer_stores_products
   has_many :influencer_stores, through: :influencer_stores_products
   has_many :product_options, dependent: :destroy
+  has_many :purchase_items
 end

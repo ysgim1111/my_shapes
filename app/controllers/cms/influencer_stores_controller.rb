@@ -1,12 +1,8 @@
 class Cms::InfluencerStoresController < BaseCmsController
   authorize_actions_for InfluencerStore
+  authority_actions index: 'delete'
 
   def index
-    # unless current_user.is_admin?
-    #   redirect_to cms_path
-    #   return
-    # end
-
     @influencer_stores = InfluencerStore.order(:id)
   end
 
@@ -44,6 +40,6 @@ class Cms::InfluencerStoresController < BaseCmsController
   private
 
   def influencer_store_params
-    params.require(:influencer_store).permit(:url, :desc, :nickname)
+    params.require(:influencer_store).permit(:url, :desc)
   end
 end

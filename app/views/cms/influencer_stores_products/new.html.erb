@@ -1,6 +1,6 @@
 <%= form_for @influencer_stores_product, url: {action: :create}, html: {multipart: true, class: "form-horizontal"} do |f|  %>
 
-  <%= render "shared/destination" %>
+  <%= render "shared/address_book" %>
 
   <%= hidden_field_tag :product_id, params[:product_id] %>
 
