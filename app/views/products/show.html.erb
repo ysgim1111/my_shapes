@@ -79,15 +79,20 @@
         <div class="form-inline spec_choose">
           <div class="form-gorup">
             <label class="size">사이즈</label>
-            <%= select_tag "product_options", options_from_collection_for_select(@product.product_options, "id", "name") ,class: 'form-control spec_size'%>
+            <%= select_tag "product_options", options_from_collection_for_select(@product.product_options, "name", "name") ,class: 'form-control spec_size'%>
           </div>
           <div class="form-gorup">
             <label class="quantity">수량</label>
-            <input type="number" min="1" max="10" class="form-control spec_quantity" value="1">
+            <input type="number" min="1" max="10" class="form-control spec_quantity" value="1" id="quantity">
           </div>
           <div class="col-md-12 no-gap" style="margin-top:35px;">
             <div class="col-md-5" style="padding-left:0px;">
-              <a href="<%= new_purchase_path(product_id: @product, option: 1, quantity: 1) %>" class="btn session_btn_black" style="width:100%;height:60px;line-height:34px">바로 구매</a>
+              <%= form_for @product, url: new_purchase_path, method: :get do |f| %>
+                <%= hidden_field :purchase_item, :quantity, value: 1 %>
+                <%= hidden_field :purchase_item, :option, value: @product.product_options.first.name %>
+                <%= hidden_field :product, :id %>
+                <%= f.submit "바로구매", class: "btn session_btn_black", style: "width:100%;height:60px;line-height:34px" %>
+              <% end %>
             </div>
             <div class="col-md-5">
               <a id="addBasketBtn" data-url="<%= shopping_items_path %>" data-product-id="<%= @product.id %>" class="btn session_btn" style="width:100%;height:60px;line-height:34px">장바구니 담기</a>
@@ -294,36 +299,38 @@ SPECIAL ORDER | PT 등 예약주문은 상세설명의 출고일정을 확인하
 <div class="test">
   <h3 style="margin-bottom:30px;">이 제품을 추천하는 인플루언서</h3>
 </div>
+
 <script type="text/javascript">
-$(document).ready(function(){
-  $('.insta_feed_desk').bxSlider({
-    slideWidth: 400,
-    minSlides: 4,
-    maxSlides: 4,
-    moveSlides: 3,
-    slideMargin: 20
+  $(document).ready(function(){
+    var desk_feed = $('.bx-viewport').first();
+    var mb_feed = $('.bx-viewport:eq(1)');
+
+    $('.insta_feed_desk').bxSlider({
+      slideWidth: 400,
+      minSlides: 4,
+      maxSlides: 4,
+      moveSlides: 3,
+      slideMargin: 20
+    });
+
+    $('.insta_feed_mb').bxSlider({
+      slideWidth: 200,
+      minSlides: 1,
+      maxSlides: 3,
+      slideMargin: 10
+    });
+
+    desk_feed.prepend($('.test'));
+    mb_feed.prepend($('.test').clone());
+
+    $('.menu_second:eq(0)').addClass('active');
   });
 
-  var desk_feed = $('.bx-viewport').first();
-  var desk_feed_hieght = parseInt(desk_feed.height()) + 100;
-
-  desk_feed.prepend($('.test'));
-});
-
-$(document).ready(function(){
-  $('.insta_feed_mb').bxSlider({
-    slideWidth: 200,
-    minSlides: 1,
-    maxSlides: 3,
-    slideMargin: 10
+  $(document).on('change', '#product_options', function() {
+    $('#purchase_item_option').val($(this).val());
   });
-  var mb_feed = $('.bx-viewport:eq(1)');
-  var mb_feed_hieght = parseInt(mb_feed.height()) + 100;
 
-  mb_feed.prepend($('.test').clone());
-});
-
-$(document).ready(function() {
-  $('.menu_second:eq(0)').addClass('active');
-})
+  $(document).on('change', '#quantity', function() {
+    $('#purchase_item_quantity').val($(this).val());
+  });
 </script>

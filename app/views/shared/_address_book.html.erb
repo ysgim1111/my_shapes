@@ -7,7 +7,6 @@
 </div>
 <div class="col-md-6 purc_delivery mb_line_break_reverse">
   <%= button_tag "배송지저장하기", type: "button", id: "saveAddressBook", class: "btn session_btn" %>
-  <a href="#" class="btn session_btn">배송지 관리</a>
 </div>
 <!-- mb -->
 <div class="col-md-6 mb_line_break no-gap" style="margin-top: 0px;padding: 0px;">
@@ -27,9 +26,9 @@
 
   <div class="form-group purc_phone_form form-inline">
     <label for="user_이름">수령인 연락처</label><br>
-    <input class="form-control check purc_phone" type="text" value="" name="[address_book]phone_number1" id="phone_number1" maxlength="4">-
-    <input class="form-control check purc_phone" type="text" value="" name="[address_book]phone_number2" id="phone_number2" maxlength="4">-
-    <input class="form-control check purc_phone" type="text" value="" name="[address_book]phone_number3" id="phone_number3" maxlength="4">
+    <input class="form-control" type="text" value="" name="[address_book]phone_number1" id="phone_number1" maxlength="4">&nbsp;-&nbsp;
+    <input class="form-control" type="text" value="" name="[address_book]phone_number2" id="phone_number2" maxlength="4">&nbsp;-&nbsp;
+    <input class="form-control" type="text" value="" name="[address_book]phone_number3" id="phone_number3" maxlength="4">
   </div>
 </div>
 
@@ -63,7 +62,7 @@
       <option>4</option>
     </select> -->
     <input class="form-control check" type="text" value="" maxlength="30" name="[address_book]demand_message" id="demand_message">
-    <p class="help-block text-right">0/30자</p>
+    <p id="showTypingLength" class="help-block text-right">0/30자</p>
   </div>
 </div>
 
@@ -147,5 +146,9 @@
       $('#savePostInfo').prop("disabled", false);
       alert('실패');
     });
+  });
+
+  $(document).on('keyup', '#demand_message', function() {
+    $('#showTypingLength').text($(this).val().length + '/30자');
   });
 </script>
