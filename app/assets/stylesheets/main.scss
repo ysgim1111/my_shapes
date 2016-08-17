@@ -894,6 +894,7 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
   width: 100px;
   height: 100px;
   margin: 0 5px;
+  padding-top: 55px;
   display: inline-block;
   border-radius: 10px;
   text-align: center;
@@ -902,14 +903,27 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
 .pay_method_box > p {
   margin-top: 5px;
 }
-.pay_method_box > a {
-  text-decoration: none;
-  color: #212121;
+.pay_method_box.pay_method_card {
+  background: asset-url('pay_method_card') center 15px no-repeat #fff;
+  background-size: 50px 50px;
 }
-.pay_method_box img {
-  margin-top: 15px;
-  position:relative;
+.pay_method_box.pay_method_vbank {
+  background: asset-url('pay_method_vbank') center 15px no-repeat #fff;
+  background-size: 50px 50px;
 }
+.pay_method_box.pay_method_trans {
+  background: asset-url('pay_method_trans') center 15px no-repeat #fff;
+  background-size: 50px 50px;
+}
+.pay_method_box.pay_method_phone {
+  background: asset-url('pay_method_phone') center 15px no-repeat #fff;
+  background-size: 50px 50px;
+}
+.pay_method_box.pay_method_selected {
+  background-color: #EEE
+}
+
+
 /* purchase ready ends */
 
 

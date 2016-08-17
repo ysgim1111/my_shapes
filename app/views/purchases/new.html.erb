@@ -60,22 +60,18 @@
         <div class="col-md-12 pay_method" style="padding-left:15px;padding-right:15px;">
           <p>*결제 수단</p>
           <div class="pay_method_box pay_method_card">
-            <%= image_tag "pay_card_d" %>
             <p>신용 카드</p>
           </div>
 
-          <div class="pay_method_box pay_method_account">
-            <%= image_tag "pay_account_d" %>
+          <div class="pay_method_box pay_method_vbank">
             <p>무통장 입금</p>
           </div>
 
-          <div class="pay_method_box pay_method_withdraw">
-            <%= image_tag "pay_withdraw_d" %>
+          <div class="pay_method_box pay_method_trans">
             <p>계좌 이체</p>
           </div>
 
-          <div class="pay_method_box pay_method_mobile">
-            <%= image_tag "pay_mobile_d" %>
+          <div class="pay_method_box pay_method_phone">
             <p>휴대폰 결제</p>
           </div>
         </div>
@@ -160,19 +156,22 @@
     $(this).next().removeClass('notchecked');
   });
 
-  $(document).on('click', '.pay_method_card', function() {
-    $('#pay_method').val('card');
-  });
+  $(document).on('click', '.pay_method_box', function() {
+    var payMethod = 'card';
 
-  $(document).on('click', '.pay_method_account', function() {
-    $('#pay_method').val('vbank');
-  });
+    if ($(this).hasClass('pay_method_card')) {
+      payMethod = 'card';
+    } else if ($(this).hasClass('pay_method_vbank')) {
+      payMethod = 'vbank';
+    } else if ($(this).hasClass('pay_method_trans')) {
+      payMethod = 'trans';
+    } else if ($(this).hasClass('pay_method_phone')) {
+      payMethod = 'phone';
+    }
 
-  $(document).on('click', '.pay_method_withdraw', function() {
-    $('#pay_method').val('trans');
-  });
+    $('#pay_method').val(payMethod);
 
-  $(document).on('click', '.pay_method_mobile', function() {
-    $('#pay_method').val('phone');
+    $('.pay_method_box').removeClass('pay_method_selected');
+    $(this).addClass('pay_method_selected');
   });
 </script>
