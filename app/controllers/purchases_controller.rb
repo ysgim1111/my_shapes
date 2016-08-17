@@ -10,17 +10,22 @@ class PurchasesController < ApplicationController
   end
 
   def new
-    @purchase_list = current_user.purchase_lists.new
-    @purchase_list.purchase_items.new(quantity: params[:purchase_item][:quantity], option: params[:purchase_item][:option], product_id: params[:product][:id])
+    @purchase_list = current_user.purchase_lists.new(purchase_list_params)
+    @purchase_list.purchase_items.new(purchase_item_params)
+    @purchase_list.save
   end
 
   def create
-    purchase_list = PurchaseList.new(order_number: params["merchant_uid"])
+    purchase_list = PurchaseList.find(params["merchant_uid"])
+    purchase_list.status = "comeplete"
     purchase_list.user = current_user
     purchase_list.purchase_result = PurchaseResult.new(iamport_pg_param)
-    purchase_list.save
+    purcahse_list.influencer_store.inrement!(:selling_point)
+    purchase_list.save!
 
     render json: params
+  rescue => e
+    purcahse_list.update(status: "fail")
   end
 
   def complete
@@ -36,8 +41,16 @@ class PurchasesController < ApplicationController
 
   private
 
+  def purchase_list_params
+    params.require(:purchase_list).permit(:influencer_store_id)
+  end
+
+  def purchase_item_params
+    params.require(:purchase_item).permit(:quantity, :option, :product_id)
+  end
+
   def iamport_pg_param
-    params.permit("imp_uid", "pay_method", "merchant_uid", "name", "paid_amount", "pg_provider", "pg_tid", "apply_num", "buyer_name", "buyer_email", "buyer_tel", "buyer_addr", "buyer_postcode", "custom_data", "status", "paid_at", "receipt_url", "card_name", "card_quota")
+    params.permit("imp_uid", "pay_method", "name", "paid_amount", "pg_provider", "pg_tid", "apply_num", "buyer_name", "buyer_email", "buyer_tel", "buyer_addr", "buyer_postcode", "custom_data", "status", "paid_at", "receipt_url", "card_name", "card_quota")
   end
 
   def address_book_param

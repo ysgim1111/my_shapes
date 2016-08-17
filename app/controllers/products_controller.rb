@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @purchase_list = current_user.purchase_lists.new
+    InfluencerStore.increment_counter(:user_point, params[:influencer_store_id])
   end
 
   def sub_index

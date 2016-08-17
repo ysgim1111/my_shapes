@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160815121913) do
+ActiveRecord::Schema.define(version: 20160817131658) do
 
   create_table "address_books", force: :cascade do |t|
     t.integer  "user_id",                                  null: false
@@ -139,18 +139,20 @@ ActiveRecord::Schema.define(version: 20160815121913) do
 
   create_table "purchase_lists", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "order_number", default: "", null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "merchant_uid"
+    t.integer  "status",              default: 0, null: false
+    t.integer  "influencer_store_id"
   end
 
+  add_index "purchase_lists", ["influencer_store_id"], name: "index_purchase_lists_on_influencer_store_id"
   add_index "purchase_lists", ["user_id"], name: "index_purchase_lists_on_user_id"
 
   create_table "purchase_results", force: :cascade do |t|
     t.integer  "purchase_list_id"
     t.string   "imp_uid"
     t.string   "pay_method"
-    t.string   "merchant_uid"
     t.string   "name"
     t.integer  "paid_amount"
     t.string   "pg_provider"

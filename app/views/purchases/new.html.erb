@@ -117,7 +117,7 @@
       IMP.request_pay({
         pg : 'html5_inicis',
         pay_method : $('#pay_method').val(),
-        merchant_uid : 'merchant_' + new Date().getTime(),
+        merchant_uid : '<%= @purchase_list.id %>',
         name : $('#purchase_list_name').val(),
         amount : $('#total_purchase_price').val(),
         buyer_email : '<%= current_user.email %>',
@@ -135,7 +135,7 @@
             method: 'post',
             data: rsp
           }).done(function(res) {
-            location.href = '/purchases/complete?purchase_list_id=' + '<%= @purchase_list.purchase_items.first.product.id %>' + '&buyer_addr=' + res.buyer_addr + '&buyer_postcode=' + res.buyer_postcode + '&pay_method=' + res.pay_method + '&buyer_name=' + res.buyer_name;
+            location.href = '/purchases/complete?purchase_list_id=' + '<%= @purchase_list.id %>' + '&buyer_addr=' + res.buyer_addr + '&buyer_postcode=' + res.buyer_postcode + '&pay_method=' + res.pay_method + '&buyer_name=' + res.buyer_name;
           });
         } else {
           var msg = '결제에 실패하였습니다.';

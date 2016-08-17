@@ -5,19 +5,21 @@
         <img src="<%= image_url('about_sublogo_b.png') %>" alt=""/>
         <h1 style="font-family: 'Noto Sans KR', sans-serif;margin-bottom:40px;font-weight:inherit" class="complete_head text-center">결제가 완료되었습니다</h1>
       </div>
+      <% @purchase_list.purchase_items.each do |item| %>
       <div class="col-md-6 col-md-offset-3 card_guide no-gap">
         <div class="col-md-5">
-          <%= image_tag(@product.image_basic, alt: "", style: "width:100%") %>
+          <%= image_tag(item.product.image_basic, alt: "", style: "width:100%") %>
         </div>
         <div class="col-md-7 no-gap">
-          <h3 class="product"><%= @product.name %></h3>
-          <p class="price"><%= @product.price %> won
+          <h3 class="product"><%= item.product.name %></h3>
+          <p class="price"><%= item.product.price %> won
           </p>
           <p class="detail">
-            <%= @product.desc %>
+            <%= item.product.desc %>
           </p>
         </div>
       </div>
+      <% end %>
       <div class="col-md-12 no-gap">
         <table class="tbl_basic tbl_type_basic">
           <h5 class="product_header">결제 정보</h5>
@@ -32,7 +34,7 @@
               <th>구매자명</th>
               <td><%= params[:buyer_name] %></td>
               <th>상품명</th>
-              <td><%= @product.name %></td>
+              <td><%= params[:name] %></td>
             </tr>
             <tr>
               <th>
@@ -42,7 +44,7 @@
                 <%= params[:pay_method] %>
               </td>
               <th>결제금액</th>
-              <td><%= @product.price %>원</td>
+              <td><%= params[:pay_amount] %>원</td>
             </tr>
           </tbody>
         </table>
