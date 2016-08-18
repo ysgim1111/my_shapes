@@ -74,11 +74,11 @@ input[type=checkbox]:checked + label:before {
           <%= f.email_field :email, required: true, class: "form-control check", placeholder: "이메일을 입력해주세요", autofocus: true %>
         </div>
 
-        <!--<div class="form-group">
+        <div class="form-group">
           <%= f.label :nickname, "닉네임" %>
           <em>(20 자 이하)</em><br />
           <%= f.text_field :nickname, required: true, class: "form-control check", placeholder: "닉네임을 입력해주세요", autofocus: false, maxlength: 20 %>
-        </div>-->
+        </div>
 
         <div class="form-group">
           <%= f.label :password, "비밀번호" %>
@@ -108,7 +108,7 @@ input[type=checkbox]:checked + label:before {
           <%= f.submit "회원가입", class:"session_btn_black width_full" %>
         </div>
       <% end %>
-    </div><!-- .col-md-6 -->
+    </div>
     <div class="col-md-12 sign_in_bottom text-center mb_line_break">
       <h5>또는</h5>
     </div>
@@ -119,19 +119,13 @@ input[type=checkbox]:checked + label:before {
         <% end %>
         </a>
       </div>
-      <!-- facebook login
-        <div class="fb-login-button" data-size="xlarge" data-show-faces="false" data-scope="public_profile,email" onlogin="checkLoginState();">
-        </div>
-      -->
+
       <div class="col-md-12 no-gap">
         <a href="#" class="btn" onclick="javascript:alert('준비 중입니다');" style="width:100%;max-width:400px;">
           <%= image_tag "join_naver_d.png", style: "width:100%;" %>
         </a>
       </div>
-      <!-- <div id="naver_id_login" class="col-md-12 no-gap"></div> -->
-    </div><!-- col-md-6 -->
-
-
+    </div>
   </div>
 </div>
 

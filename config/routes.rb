@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {registrations: "users/registrations"}
+  devise_for :users, controllers: {registrations: 'users/registrations', confirmations: 'users/confirmations'}
   devise_scope :user do
     post 'facebook' => 'users/socials#facebook'
+    get 'users/confirmations/complete' => 'users/confirmations#complete', as: 'complete_users_confirmation'
   end
 
   root 'products#about'
@@ -47,7 +48,7 @@ Rails.application.routes.draw do
     get :show_test, on: :collection
   end
 
-  get :cms, to: "base_cms#redirect_to_root_path_by_base_authority"
+  get :cms, to: 'base_cms#redirect_to_root_path_by_base_authority'
 
   namespace :cms do
     resources :influencer_stores, :products, :users

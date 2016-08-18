@@ -5,13 +5,13 @@
     </div>
     <div class="sign_confirm">
       <div class="col-md-12 text-center">
-        <h3>이현욱님,<br class="mb_line_break"> 회원가입이 완료되었습니다.</h3>
+        <h3><%= current_user.nickname %>,<br class="mb_line_break"> 회원가입이 완료되었습니다.</h3>
       </div>
       <div class="col-md-12 text-center">
         <h5>가입하신 이메일</h5>
       </div>
       <div class="col-md-12 text-center">
-        <p>loco7530@gmail.com</p>
+        <p><%= current_user.email %></p>
       </div>
       <div class="col-md-12 text-center">
         <a href="/" class="session_btn">메인화면으로</a>
