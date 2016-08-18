@@ -15,7 +15,7 @@ function statusChangeCallback(response) {
     alert('Please merge into this app.');
   } else {
     FB.login(function(response) {
-      statusChangeCallback(response);
+      if (response.status === 'connected') sendUserAccessInfo(response.authResponse);
     }, {scope: 'public_profile,email'});
   }
 }
@@ -40,7 +40,7 @@ function sendUserAccessInfo(response) {
 
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : '1751254675150181',
+    appId      : '<%= Rails.application.secrets.facebook_app_id %>',
     cookie     : true,
     xfbml      : false,
     version    : 'v2.7'
