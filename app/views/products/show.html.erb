@@ -38,36 +38,43 @@
 </script>
 
 <div class="pdt_detail">
-<div class="container top">
-  <div class="row">
-    <div class="col-md-3 col-md-offset-1 feed_content">
-      <%= image_tag "selfie_1.png", style: "width:100%;max-width:300px", alt: "" %>
-    </div>
-    <div class="col-md-8 feed_content_profile">
-        <div class="col-md-1 text-left feed_content_profile_left no-gap">
-          <%= image_tag "profile_1.png", style: "border-radius:100%;width:60px;height:60px;margin-top:15px;", alt: "" %>
+  <div class="container top">
+    <div class="row">
+      <div class="col-md-3 col-md-offset-1 feed_content mb_line_break_reverse">
+        <%= image_tag "selfie_1.png", style: "width:100%;max-width:300px", alt: "" %>
+      </div>
+      <div class="col-md-8 feed_content_profile">
+          <div class="col-md-1 col-xs-3 text-left feed_content_profile_left no-gap">
+            <%= image_tag "profile_1.png", style: "border-radius:100%;width:60px;height:60px;margin-top:15px;", alt: "" %>
+          </div>
+          <div class="col-md-11 col-xs-9 feed_content_profile_right">
+            <h3>우희</h3>
+            <p class="detail">
+            http://trd.st/woohee91
+            </p>
+          </div>
+          <div class="col-md-12 col-xs-12 blob" style="background:url('<%=image_url('blob_2.png')%>');">
+            <p class="blob_comment">비방트 벤드레디는 정말 제 인생 선글라스예요!! 얼굴 갸름하게 보이게 해주고 실버 렌즈 때문인지 피부톤도 밝아보이는 것 같아요ㅎㅎ 썼을 때 코가 아프지 않은 것도 너무 좋아요 강추!</p>
+          </div>
+          <div class="col-md-12 inf_feed_title_top text-right no-gap mb_line_break_reverse">
+            <a href="#" style="color:#212121">인스타그램 피드에서 보기</a> <%= image_tag "insta_logo_d_30.png", alt: "" %>
+          </div>
+      </div>
+      <div class="mb_line_break">
+        <div class="col-md-3 col-md-offset-1 feed_content no-gap_mb">
+          <%= image_tag "selfie_1.png", style: "width:100%;", alt: "" %>
         </div>
-        <div class="col-md-11 feed_content_profile_right">
-          <h3>우희</h3>
-          <p class="detail">
-          http://trd.st/woohee91
-          </p>
-        </div>
-        <div class="col-md-12 blob" style="background:url('<%=image_url('blob_2.png')%>');">
-          <p class="blob_comment">비방트 벤드레디는 정말 제 인생 선글라스예요!! 얼굴 갸름하게 보이게 해주고 실버 렌즈 때문인지 피부톤도 밝아보이는 것 같아요ㅎㅎ 썼을 때 코가 아프지 않은 것도 너무 좋아요 강추!</p>
-        </div>
-        <div class="col-md-12 inf_feed_title_top text-right no-gap">
+        <div class="col-md-12 inf_feed_title_top text-right no-gap" style="padding-top:15px;padding-bottom:15px;">
           <a href="#" style="color:#212121">인스타그램 피드에서 보기</a> <%= image_tag "insta_logo_d_30.png", alt: "" %>
         </div>
+      </div>
     </div>
-
   </div>
-</div>
 </div>
 <div class="container deal_header">
   <div class="row">
     <div class="col-md-6" style="margin-top:50px;">
-      <%= image_tag @product.image_basic, alt: "", style: "max-width:600px;max-height:600px;width:100%;" %>
+      <%= image_tag @product.image_basic, alt: "", style: "max-width:600px;max-height:500px;width:100%;" %>
     </div>
     <div class="col-md-6" style="margin-top:50px;">
       <fieldset>
@@ -86,13 +93,13 @@
             <input type="number" min="1" max="10" class="form-control spec_quantity" value="1">
           </div>
           <div class="col-md-12 no-gap" style="margin-top:35px;">
-            <div class="col-md-5" style="padding-left:0px;">
-              <a href="<%= new_purchase_path(product_id: @product, option: 1, quantity: 1) %>" class="btn session_btn_black" style="width:100%;height:60px;line-height:34px">바로 구매</a>
+            <div class="col-md-5 col-xs-12 no-gap_mb" style="padding-left:0px;">
+              <a href="<%= new_purchase_path(product_id: @product, option: 1, quantity: 1) %>" class="btn session_btn_black width_full" style="height:60px;line-height:34px">바로 구매</a>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 col-xs-9 no-pd_left_mb">
               <a id="addBasketBtn" data-url="<%= shopping_items_path %>" data-product-id="<%= @product.id %>" class="btn session_btn" style="width:100%;height:60px;line-height:34px">장바구니 담기</a>
             </div>
-            <div class="col-md-2 text-right" style="padding-right:0px;">
+            <div class="col-md-2 col-xs-3 text-right no-pd_left_mb" style="padding-right:0px;">
                 <a href="#"><%= image_tag "add_wish_d.png", alt: "" %></a>
             </div>
           </div>
@@ -104,132 +111,17 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <%=image_tag "banner_1.jpg", alt: "", style: "width:100%;" %>
+    <div class="col-md-12 no-gap_mb">
+      <%=image_tag "banner_1.jpg", alt: "", style: "width:100%;",class: "mb_line_break_reverse" %>
+      <%=image_tag "banner_1_m.jpg", alt: "", style: "width:100%;", class: "mb_line_break" %>
     </div>
   </div>
 </div>
 
-<div class="container inf_profile pdt_inf_profile">
-  <div class="row" style="padding-bottom:0px;">
-    <div class="col-md-12 insta_feed_desk_parent mb_line_break_reverse">
-      <div class="insta_feed_desk">
-        <div class="slide">
-          <div class="inf_feed_title">
-            <%= image_tag "profile_1.png", style: "border-radius:100%;width:32px;margin-top: 0px;
-          margin-right: 10px;display:inline-block", alt: "" %><a href="#">woohee91&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
-          </div>
-          <img src="<%= image_url('selfie_1') %>" style="width:245px;height:245px;">
-          <div class="col-md-12 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "insta_logo_d_25.png", alt: "" %></span> </p>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="inf_feed_title">
-            <%= image_tag "profile_2.png", style: "border-radius:100%;width:32px;margin-top: 0px;
-          margin-right: 10px;display:inline-block", alt: "" %><a href="#">kimheenim&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
-          </div>
-          <img src="<%= image_url('selfie_2') %>" style="width:245px;height:245px;">
-          <div class="col-md-12 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "facebook_logo_d_25.png", alt: "" %></span> </p>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="inf_feed_title">
-            <%= image_tag "profile_3.png", style: "border-radius:100%;width:32px;margin-top: 0px;
-          margin-right: 10px;display:inline-block", alt: "" %><a href="#">shabet_serri&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
-          </div>
-          <img src="<%= image_url('selfie_3') %>" style="width:245px;height:245px;">
-          <div class="col-md-12 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "insta_logo_d_25.png", alt: "" %></span> </p>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="inf_feed_title">
-            <%= image_tag "profile_4.png", style: "border-radius:100%;width:32px;margin-top: 0px;
-          margin-right: 10px;display:inline-block", alt: "" %><a href="#">주지훈&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
-          </div>
-          <img src="<%= image_url('selfie_4') %>" style="width:245px;height:245px;">
-          <div class="col-md-12 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "facebook_logo_d_25.png", alt: "" %></span> </p>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="inf_feed_title">
-            <%= image_tag "influencer_sample.jpg", style: "border-radius:100%;width:32px;margin-top: 0px;
-          margin-right: 10px;display:inline-block", alt: "" %><a href="#">heybiblee&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
-          </div>
-            <img src="<%= image_url('selfie_5') %>" style="width:245px;height:245px;">
-          <div class="col-md-12 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "insta_logo_d_25.png", alt: "" %></span> </p>
-          </div>
-        </div>
-      </div>
-    </div><!-- desk insta feed -->
-
-    <div class="col-md-12 insta_feed_mb_parent mb_line_break">
-      <div class="insta_feed_mb">
-        <div class="slide">
-          <img src="http://placehold.it/245x245&text=Insta1">
-          <div class="col-xs-6 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개</p>
-          </div>
-          <div class="col-xs-6 no-gap">
-            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span></p>
-          </div>
-        </div>
-        <div class="slide">
-          <img src="http://placehold.it/245x245&text=Insta1-1">
-          <div class="col-xs-6 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개</p>
-          </div>
-          <div class="col-xs-6 no-gap">
-            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span></p>
-          </div>
-        </div>
-        <div class="slide">
-          <img src="http://placehold.it/245x245&text=Insta2">
-          <div class="col-xs-6 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개</p>
-          </div>
-          <div class="col-xs-6 no-gap">
-            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span></p>
-          </div>
-        </div>
-        <div class="slide">
-          <img src="http://placehold.it/245x245&text=Insta3">
-          <div class="col-xs-6 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개</p>
-          </div>
-          <div class="col-xs-6 no-gap">
-            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span></p>
-          </div>
-        </div>
-        <div class="slide">
-          <img src="http://placehold.it/245x245&text=Insta4">
-          <div class="col-xs-6 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개</p>
-          </div>
-          <div class="col-xs-6 no-gap">
-            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span></p>
-          </div>
-        </div>
-        <div class="slide">
-          <img src="http://placehold.it/245x245&text=Insta5">
-          <div class="col-xs-6 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개</p>
-          </div>
-          <div class="col-xs-6 no-gap">
-            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render "insta_feed_prdt" %>
 <div class="container" style="margin-top:30px;">
   <div class="row">
-    <div class="col-md-12 no-gap text-center">
+    <div class="col-md-12 text-center">
       <%= image_tag @product.image_desc, style: "width:100%;max-width:600px;", alt: "" %>
     </div>
   </div>
@@ -291,39 +183,3 @@ SPECIAL ORDER | PT 등 예약주문은 상세설명의 출고일정을 확인하
     </div>
   </div>
 </div>
-<div class="test">
-  <h3 style="margin-bottom:30px;">이 제품을 추천하는 인플루언서</h3>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){
-  $('.insta_feed_desk').bxSlider({
-    slideWidth: 400,
-    minSlides: 4,
-    maxSlides: 4,
-    moveSlides: 3,
-    slideMargin: 20
-  });
-
-  var desk_feed = $('.bx-viewport').first();
-  var desk_feed_hieght = parseInt(desk_feed.height()) + 100;
-
-  desk_feed.prepend($('.test'));
-});
-
-$(document).ready(function(){
-  $('.insta_feed_mb').bxSlider({
-    slideWidth: 200,
-    minSlides: 1,
-    maxSlides: 3,
-    slideMargin: 10
-  });
-  var mb_feed = $('.bx-viewport:eq(1)');
-  var mb_feed_hieght = parseInt(mb_feed.height()) + 100;
-
-  mb_feed.prepend($('.test').clone());
-});
-
-$(document).ready(function() {
-  $('.menu_second:eq(0)').addClass('active');
-})
-</script>

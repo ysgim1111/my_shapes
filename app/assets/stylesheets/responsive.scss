@@ -67,6 +67,13 @@
     margin-left: 0px;
     margin-right: 0px;
   }
+  .deal_header fieldset .name {
+    font-size: 30.4px;
+    letter-spacing: 0px;
+  }
+  .deal_header .spec_choose {
+    margin-top: 20px;
+  }
   /*about starts*/
   .mb_line_break {
     display: block;
@@ -199,6 +206,9 @@
   .inf_profile .inf_header {
     text-align: center;
   }
+  .inf_profile .inf_header_parent {
+    margin-top:110px;
+  }
 
   .inf_profile .on_deal_share {
     top: inherit;
@@ -319,6 +329,33 @@
     padding-left: 15px;
   }
   /* inf_apply */
+
+  /* product starts */
+
+  .pdt_bottom .row {
+    padding: 30px 0px;
+  }
+  .pdt_detail {
+    margin-top: 45px;
+  }
+  .container.top {
+    margin-top:0px;
+  }
+  .pdt_detail .feed_content_profile .blob .blob_comment {
+    margin-top:15px;
+  }
+  /* product ends */
+
+
+  /* brand cms starts */
+  .brand_cms .form_3cols_double_label .label_right_side {
+    display: block;
+    text-align: right;
+  }
+  .brand_cms .form_3cols_double_label .percent_left {
+    margin-left: 15px;
+  }
+  /* brand cms ends */
 }
 
 @media (max-width: 990px) {

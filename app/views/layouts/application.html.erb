@@ -117,7 +117,7 @@ function initNav() {
   })
 }
 function initCurrentPage() {
-  var current_page = $('.container').find('.row').find('.col-md-12.mb_line_break_reverse').find('h3').html();
+  var current_page = $('.container').first().find('.row').find('.col-md-12.mb_line_break_reverse').find('h3').html();
   $('nav').find('.current_page').html(current_page);
 
 }
