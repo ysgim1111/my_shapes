@@ -25,13 +25,13 @@
     <%= render "/layouts/about_nav" %>
   <% else %>
     <%= render "/layouts/ordinary_nav" %>
+  <% else %>
+    <%= render "/layouts/ordinary_nav" %>
   <% end %>
 
-  <main role="main">
-    <%= render partial: "shared/flash_messages", flash: flash %>
+  <%= render partial: "shared/flash_messages", flash: flash %>
 
-    <%= yield %>
-  </main>
+  <%= yield %>
 
   <footer style="clear:both;margin:0px;background-color:#212121">
     <div class="copyright">
@@ -117,7 +117,7 @@ function initNav() {
   })
 }
 function initCurrentPage() {
-  var current_page = $('.container').find('.row').find('.col-md-12.mb_line_break_reverse').find('h3').html();
+  var current_page = $('.container').first().find('.row').find('.col-md-12.mb_line_break_reverse').find('h3').html();
   $('nav').find('.current_page').html(current_page);
 
 }

@@ -66,7 +66,7 @@ input[type=checkbox]:checked + label:before {
     <% end %>
     <div class="col-md-1"></div>
     <div class="col-md-5" style="padding-top:80px;">
-      <div class="mb_line_break_reverse" style="width: 100%;height: 200px;position: absolute;border-right: 1px solid #979797;top: 125px;"></div>
+      <div class="mb_line_break_reverse" style="width: 100%;height: 275px;position: absolute;border-right: 1px solid #979797;top: 140px;"></div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
         <div class="form-group">
@@ -76,8 +76,8 @@ input[type=checkbox]:checked + label:before {
 
         <div class="form-group">
           <%= f.label :nickname, "닉네임" %>
-          <em>(20 자 이하)</em><br />
-          <%= f.text_field :nickname, required: true, class: "form-control check", placeholder: "닉네임을 입력해주세요", autofocus: false, maxlength: 20 %>
+          <em>(7 자 이하)</em><br />
+          <%= f.text_field :nickname, required: true, class: "form-control check", placeholder: "닉네임을 입력해주세요", autofocus: false, maxlength: 7 %>
         </div>
 
         <div class="form-group">
