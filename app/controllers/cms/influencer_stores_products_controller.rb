@@ -5,8 +5,7 @@ class Cms::InfluencerStoresProductsController < BaseCmsController
 
   def products
     @products = Product
-    @products = @products.where(name: params[:product_name]) if params[:product_name].present?
-    @products = @products.where(seller_product_code: params[:seller_product_code]) if params[:seller_product_code].present?
+    @products = @products.where(params[:search_type].to_sym => params[:search_input]) if params[:search_input].present?
     @products = @products.order(id: :desc)
   end
 
