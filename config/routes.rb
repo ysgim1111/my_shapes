@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     post 'facebook' => 'users/socials#facebook'
     get 'users/confirmations/complete' => 'users/confirmations#complete', as: 'complete_users_confirmation'
   end
+  resources :users do
+    resources :purchase_lists
+  end
 
   root 'products#about'
 
@@ -31,7 +34,6 @@ Rails.application.routes.draw do
       get :apply_product_13
       get :wannabe_letter
       get :apply_product_login
-
     end
   end
 
@@ -39,13 +41,8 @@ Rails.application.routes.draw do
     get :about, on: :collection
     get :recruit, on: :collection
     get :complete, on: :collection
-    get :sign_up_before, on: :collection
-    get :sign_up_complete, on: :collection
-    get :purchases_ready_test, on: :collection
-    get :purchases_ready_test_mb, on: :collection
     post :email_send, on: :collection
     get :deal_detail, on: :collection
-    get :show_test, on: :collection
   end
 
   get :cms, to: 'base_cms#redirect_to_root_path_by_base_authority'

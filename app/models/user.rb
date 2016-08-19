@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   rolify
 
-  mount_uploader :image_profile, ProductBasicUploader
+  mount_uploader :image_profile, UserProfileUploader
 
   has_one :influencer_store, dependent: :destroy
 
