@@ -25,15 +25,8 @@ Rails.application.routes.draw do
       get :user_info
       get :user_info_tab_clicked
       get :user_info_tab_clicked_clicked
-      get :apply_product
-      get :apply_product_2
-      get :apply_product_3
-      get :apply_product_4
-      get :apply_product_5
       get :apply_product_6
-      get :apply_product_7
       get :apply_product_8
-      get :apply_product_9
       get :apply_product_10
       get :apply_product_11
       get :apply_product_12
@@ -67,7 +60,11 @@ Rails.application.routes.draw do
     resources :influencer_stores, :products, :users
 
     resources :influencer_stores_products do
-      get :products, on: :collection
+      collection do
+        get :products
+        get :complete
+        get :update_complete
+      end
     end
 
     resources :purchases do

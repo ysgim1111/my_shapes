@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160819080055) do
+ActiveRecord::Schema.define(version: 20160819111029) do
 
   create_table "address_books", force: :cascade do |t|
     t.integer  "user_id",        limit: 4,                   null: false
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20160819080055) do
     t.string   "image_review",        limit: 255
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
+    t.string   "option",              limit: 255
   end
 
   add_index "influencer_stores_products", ["influencer_store_id"], name: "index_influencer_stores_products_on_influencer_store_id", using: :btree

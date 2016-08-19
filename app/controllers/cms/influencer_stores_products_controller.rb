@@ -1,5 +1,5 @@
 class Cms::InfluencerStoresProductsController < BaseCmsController
-  authorize_actions_for InfluencerStoresProduct, actions: {products: :read}
+  authorize_actions_for InfluencerStoresProduct, actions: {products: :read, complete: :read, update_complete: :read}
 
   before_filter :redirect_to_index, only: [:new, :create]
 
@@ -24,6 +24,12 @@ class Cms::InfluencerStoresProductsController < BaseCmsController
     influencer_stores_product.influencer_store = current_user.influencer_store
     influencer_stores_product.destination = Destination.new(address_book_params)
     influencer_stores_product.save
+
+    redirect_to action: :complete, id: influencer_stores_product.id
+  end
+
+  def complete
+    @influencer_stores_product = InfluencerStoresProduct.find(params[:id])
   end
 
   def edit
@@ -36,7 +42,10 @@ class Cms::InfluencerStoresProductsController < BaseCmsController
     influencer_store_product.update_attributes(influencer_stores_product_update_params)
     influencer_store_product.destination.update_attributes(destination_params) if influencer_store_product.destination
 
-    redirect_to current_user.is_influencer? ? cms_influencer_stores_products_path : samples_cms_purchases_path
+    redirect_to current_user.is_influencer? ? update_complete_cms_influencer_stores_products_path : samples_cms_purchases_path
+  end
+
+  def update_complete
   end
 
 
@@ -50,7 +59,7 @@ class Cms::InfluencerStoresProductsController < BaseCmsController
   end
 
   def influencer_stores_product_params
-    params.permit(:product_id)
+    params.permit(:product_id, :option)
   end
 
   def address_book_params
