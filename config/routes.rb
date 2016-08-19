@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   end
 
   resource :user, only: [:show, :update] do
-    resources :purchase_lists, shallow: true
+    shallow do
+      resources :purchase_lists
+      resources :wannabe_letters
+    end
 
     collection do
       patch :update_password
@@ -31,7 +34,6 @@ Rails.application.routes.draw do
       get :apply_product_11
       get :apply_product_12
       get :apply_product_13
-      get :wannabe_letter
       get :apply_product_login
       get :apply_product_store
       get :brand_cms_1
@@ -57,7 +59,7 @@ Rails.application.routes.draw do
   get :cms, to: 'base_cms#redirect_to_root_path_by_base_authority'
 
   namespace :cms do
-    resources :influencer_stores, :products, :users
+    resources :influencer_stores, :products, :users, :wannabe_letters
 
     resources :influencer_stores_products do
       collection do

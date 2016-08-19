@@ -1,0 +1,27 @@
+<div class="container inf_admin">
+  <div class="row search_applied_prdt no-margin_mb">
+    <div class="col-md-12 no-gap_mb">
+      <h3 class="inf_admin_sub_header">워너비레터 입력</h3>
+    </div>
+  </div>
+
+  <%= form_for @wannabe_letter, url: {action: :create}, html: {class: "form-horizontal"} do |f|  %>
+    <div class="row">
+      <div class="col-md-8 no-gap_mb">
+        <%= f.hidden_field :purchase_list_id %>
+        <%= f.hidden_field :influencer_store_id %>
+        <div class="col-md-12 no-gap form-group">
+          <div class="col-md-6 no-gap">
+            <%= f.label :content, "내용" %>
+            <%= f.text_field :content, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="col-md-12 no-gap">
+          <%= button_tag "워너비레터 남기기", type: "submit", class: "btn session_btn_black" %>
+          <%= link_to "뒤로", :back, class: "btn session_btn_black" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

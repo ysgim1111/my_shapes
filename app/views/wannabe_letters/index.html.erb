@@ -1,0 +1,37 @@
+<div class="container inf_admin purc_ready">
+  <div class="row inf_admin_header" style="border-bottom: 1px solid #d4d4d4">
+    <div class="col-md-12 mb_line_break_reverse no-gap">
+      <h3 class="basic_header">워너비레터들</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="mb_line_break_reverse">
+        <table class="table table-hover tb_inf_prdt" style="border-collapse: separate;border-spacing: 0 20px;">
+          <tbody>
+            <% @wannabe_letters.each do |wannabe_letter| %>
+              <tr>
+                <td class="tb_inf_prdt_number" style="width:10%">
+                  <span class="tb_inf_sub"><%= wannabe_letter.content %></span>
+                </td>
+                <td class="tb_inf_prdt_number" style="width:10%">
+                  <span class="tb_inf_sub"><%= wannabe_letter.purchase_list_id %></span>
+                </td>
+                <td class="tb_inf_prdt_number" style="width:10%">
+                  <span class="tb_inf_sub"><%= wannabe_letter.influencer_store_id %></span>
+                </td>
+                <td class="tb_inf_prdt_number" style="width:10%">
+                  <span class="tb_inf_sub"><%= wannabe_letter.status %></span>
+                </td>
+                <td class="tb_inf_prdt_number" style="width:10%">
+                  <span class="tb_inf_sub"><%= wannabe_letter.until_reply_date %></span>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160819111029) do
+ActiveRecord::Schema.define(version: 20160819155957) do
 
   create_table "address_books", force: :cascade do |t|
     t.integer  "user_id",        limit: 4,                   null: false
@@ -236,6 +236,20 @@ ActiveRecord::Schema.define(version: 20160819111029) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
+
+  create_table "wannabe_letters", force: :cascade do |t|
+    t.integer  "purchase_list_id",    limit: 4,     default: 0,  null: false
+    t.integer  "influencer_store_id", limit: 4,     default: 0,  null: false
+    t.string   "content",             limit: 255,   default: "", null: false
+    t.text     "reply",               limit: 65535
+    t.integer  "status",              limit: 4,     default: 0,  null: false
+    t.datetime "until_reply_date"
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+  end
+
+  add_index "wannabe_letters", ["influencer_store_id"], name: "index_wannabe_letters_on_influencer_store_id", using: :btree
+  add_index "wannabe_letters", ["purchase_list_id"], name: "index_wannabe_letters_on_purchase_list_id", using: :btree
 
   create_table "wishlist_items", force: :cascade do |t|
     t.integer  "product_id", limit: 4

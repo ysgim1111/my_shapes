@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_one :influencer_store, dependent: :destroy
 
   has_many :purchase_lists, dependent: :destroy
+  has_many :wannabe_letters, through: :purchase_lists
   has_many :address_books, dependent: :destroy
   has_many :shopping_items, dependent: :destroy
   has_many :products, dependent: :destroy

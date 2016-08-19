@@ -6,4 +6,5 @@ class InfluencerStore < ActiveRecord::Base
 
   has_many :influencer_stores_products, dependent: :destroy
   has_many :products, through: :influencer_stores_products
+  has_many :wannabe_letters
 end
