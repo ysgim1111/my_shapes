@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
     collection do
       patch :update_password
+      get :address_book
     end
   end
 

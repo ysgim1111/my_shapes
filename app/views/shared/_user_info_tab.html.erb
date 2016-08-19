@@ -23,7 +23,7 @@
       <li><a href="#tabs-3">상품 문의</a></li>
       <li><a href="#tabs-3">1:1문의</a></li>
       <li class="<%= 'ui-tabs-active ui-state-active' if current_page?(user_path(current_user)) %>"><%= link_to "회원 정보 관리", user_path(current_user) %></li>
-      <li><a href="#tabs-3">배송지 관리</a></li>
+      <li class="<%= 'ui-tabs-active ui-state-active' if current_page?(address_book_user_path) %>"><%= link_to "배송지 관리", address_book_user_path %></li>
       <li><a href="#tabs-4">인플루언서 신청</a></li>
     </ul>
   </div>

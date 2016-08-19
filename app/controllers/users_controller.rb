@@ -24,6 +24,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def address_book
+    @user = current_user
+  end
 
   private
 
