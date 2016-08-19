@@ -70,6 +70,15 @@ input[type=checkbox]:checked + label:before {
   width: 100% !important;
   max-width: none !important;
 }
+.no-gap_right {
+  padding-right: 0px;
+}
+.no-gap_left {
+  padding-left: 0px;
+}
+.no-mg_bottom {
+  margin-bottom: 0px !important;
+}
 .personal_inf_term .modal-body > p , .usage_term .modal-body > p {
   white-space: pre-wrap;
 }
@@ -82,6 +91,9 @@ input[type=checkbox]:checked + label:before {
 }
 .mb_line_break_reverse {
   display: block;
+}
+.mb_line_break_tb_row {
+  display: none;
 }
 .second_section_mb_line_break_reverse {
   display: inline-block;
@@ -578,7 +590,7 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
   margin-bottom:80px;
 }
 .sign_up .sign_sns {
-  padding-top: 150px;
+  padding-top: 200px;
 }
 .sign_up .row {
   padding-bottom: 100px;
@@ -1388,6 +1400,16 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
   letter-spacing: 0px;
   line-height: 40px;
 }
+.insta_feed_prdt_header .insta_feed_prdt_header_text {
+  font-size: 17.6px;
+  letter-spacing: -0.4px;
+}
+.insta_feed_mb_parent.insta_feed_prdt_mb_parent .bx-viewport {
+  height: 420px !important;
+}
+.insta_feed_mb_parent.insta_feed_prdt_mb_parent .bx-viewport .slide {
+ width: 250px !important;
+}
 /* product_detail ends */
 
 /* deal_detail starts */
@@ -1688,8 +1710,53 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
   letter-spacing: -0.43px;
   line-height: 17px;
 }
+.table.tb_mp_delivery_mb > tbody > tr .tb_mp_delivery_mb_header {
+  font-size: 16px;
+  color: #000000;
+  letter-spacing: -0.6px;
+  line-height: 18.5px;
+  text-align: left;
+}
+.tb_mp_delivery_mb .tb_mp_delivery_mb_btn > a {
+  font-size: 12.8px;
+  color: #FFFFFF;
+  letter-spacing: -0.5px;
+}
+.tb_mp_delivery_mb .tb_mp_delivery_mb_btn > a > span {
+  font-size: 9px;
+  color: #FFFFFF;
+  letter-spacing: -0.3px;
+  line-height: 13.5px;
+ }
+.table.tb_mp_delivery_mb > tbody > tr:first-child > th {
+  border-right: 1px solid #979797;
+  border-top-right-radius: 4px;
+}
+.table.tb_mp_delivery_mb > tbody > tr .tb_mp_delivery_mb_text {
+  text-align: right;
+  font-size: 13px;
+  color: #666666;
+  letter-spacing: -0.5px;
+}
+.table.tb_mp_delivery_mb > tbody > tr .tb_mp_delivery_mb_text > span{
+  float: left;
+  font-weight: 500;
+  font-size: 13px;
+  color: #666666;
+  letter-spacing: -0.5px;
+}
+.tb_mp_spec_info_parent {
+  border: 1px solid #B2B2B2;
+  border-radius: 2px;
+  padding:35px 50px;
+  margin-bottom:50px;
+}
 .table.tb_mp_spec_info_nested>tbody>tr>th, .table.tb_mp_spec_info_nested>tbody>tr>td, .table.tb_mp_spec_info>tbody>tr>th, .table.tb_mp_spec_info>tbody>tr>td  {
   border-top: none;
+}
+.table.tb_mp_spec_info_nested>tbody>tr>th>img {
+  width:140px;
+  height:140px;
 }
 .table.tb_mp_spec_info .tb_mp_spec_info_header {
   font-weight: 500;
@@ -2195,6 +2262,56 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
   margin-top: 50px;
 }
 /* inf_apply */
+
+/* brand_cms starts */
+.brand_cms .header {
+  color: #ffffff;
+  background-color: #212121;
+  padding: 15px 0px 15px 15px;
+  border-bottom: none;
+  display: block;
+  font-size: 14px;
+  letter-spacing: -0.36px;
+}
+.brand_cms .pfolio .input-group .input-group-btn {
+  padding: 0px;
+}
+.brand_cms .pfolio .input-group .input-group-btn > span {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  margin-right: 10px;
+}
+.brand_cms .pfolio .input-group input[readonly] {
+  background-color: #ffffff;
+}
+label.double_label {
+  left: 15px;
+  top: -35px;
+  position: absolute;
+}
+.brand_cms .form_3cols_double_label .form_3cols_double_label_3c {
+  margin-top: 30px;
+}
+.brand_cms .form_3cols_double_label .label_right_side  {
+  text-align: left;
+}
+.brand_cms label.control-label {
+  padding-top:10px !important;
+}
+.brand_cms .brand_cms_inf {
+  border: 1px solid #D4D4D4;
+  border-radius: 4px;
+}
+.brand_cms_inf .radio {
+  padding-left:20px;
+}
+.brand_cms_inf .radio_parent > .radio:nth-last-child(2) {
+  margin-bottom:10px;
+}
+.brand_cms .tb_balance tr > th, .brand_cms .tb_balance tr > td {
+  font-size: 12px;
+}
+/* brand_cms ends */
 /* footer */
 /* --------------------------------------------------
 	7.0 Footers
@@ -2645,5 +2762,10 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
 .gap {
   padding-left:15px !important;
   padding-right:15px !important;
+}
+.btn_group {
+  margin-left: 7px;
+  margin-right: 7px;
+  margin-bottom: 7px !important;
 }
 /* footer ends */

@@ -1,10 +1,9 @@
 <div class="col-md-12">
-  <%= link_to "< 목록으로 돌아가기", "#", class: "btn session_btn" %>
+  <%= link_to "< 목록으로 돌아가기", "#", class: "btn session_btn", style: "margin-top:20px;" %>
 </div>
-<div class="col-md-12">
+<div class="col-md-12 tb_mp_spec_info_parent_pd">
   <!--desktop-->
-  <div class="mb_line_break_reverse" style="border: 1px solid #B2B2B2;
-border-radius: 2px;padding:35px 50px;margin-bottom:50px;">
+  <div class="tb_mp_spec_info_parent">
     <table class="table  tb_mp_delivery tb_mp_spec_info">
       <tbody>
         <tr>
@@ -14,12 +13,12 @@ border-radius: 2px;padding:35px 50px;margin-bottom:50px;">
         </tr>
         <tr>
           <td class="tb_mp_delivery_name text-left" colspan="2">
-            <div class="col-md-2 no-gap">
+            <div class="col-xs-4 no-gap">
               <p class="header_spec">주문 번호</p>
               <p class="header_spec">결제 금액</p>
               <p class="header_spec">주문일</p>
             </div>
-            <div class="col-md-4 no-gap">
+            <div class="col-xs-8 no-gap">
               <p class="header_spec_sub">10345279693</p>
               <p class="header_spec_sub">73,800원</p>
               <p class="header_spec_sub">2016년 8월 8일</p>
@@ -28,34 +27,36 @@ border-radius: 2px;padding:35px 50px;margin-bottom:50px;">
         </tr>
 
         <tr>
-          <table class="table  tb_mp_spec_info_nested tb_exchg_nested">
+          <table class="table tb_mp_spec_info_nested tb_exchg_nested">
             <tbody>
               <tr>
-                <th class="tb_purc_check" style="width:5%;">
+                <th class="tb_purc_check" >
                   <div class="checkbox">
                     <input type="checkbox" id="check1" class="checkbox-style"/>
                     <label for="check1"></label>
                   </div>
                 </th>
-                <th scope="row" style="width:20%"><%= image_tag "https://placehold.it/140x140", style:"width:140px;height:140px;" %></th>
+                <th scope="row" ><%= image_tag "https://placehold.it/140x140" %></th>
                 <td>
                 <span class="tb_brand">컨버스</span><br> <p class="tb_name">척테일러 올스타 레더 화이트</p>
                 <span class="tb_option">옵션 : S</span> <span class="tb_price">36,000 won</span>
                 </td>
               </tr>
+
               <tr>
-                <th class="tb_purc_check" style="width:10%;">
+                <th class="tb_purc_check" >
                   <div class="checkbox">
                     <input type="checkbox" id="check1" class="checkbox-style"/>
                     <label for="check1"></label>
                   </div>
                 </th>
-                <th scope="row" style="width:20%"><%= image_tag "https://placehold.it/140x140", style:"width:140px;height:140px;" %></th>
+                <th scope="row" ><%= image_tag "https://placehold.it/140x140" %></th>
                 <td>
                 <span class="tb_brand">컨버스</span><br> <p class="tb_name">척테일러 올스타 레더 화이트</p>
                 <span class="tb_option">옵션 : S</span> <span class="tb_price">36,000 won</span>
                 </td>
               </tr>
+
             </tbody>
           </table>
         </tr>
@@ -90,7 +91,7 @@ border-radius: 2px;padding:35px 50px;margin-bottom:50px;">
                       </select>
                     </div>
                   </div>
-                  <div class="col-md-4 col-md-offset-8 text-right">
+                  <div class="col-md-4 col-md-offset-8 text-right no-gap_mb">
                     <%= link_to "교환 / 환불 신청", "#", class: "btn session_btn_black width_full", style: " margin-top:30px;" %>
                   </div>
                 </div>
@@ -106,68 +107,5 @@ border-radius: 2px;padding:35px 50px;margin-bottom:50px;">
   </div>
   <!--desktop-->
 
-  <!-- mb -->
-  <div class="mb_line_break">
-    <table class="table tb_inf_prdt_mb tb_inf_prdt_big_mb table-hover">
-      <tbody>
-        <tr>
-          <th scope="row">
-            <img src="https://placehold.it/100x100">
-          </th>
-          <td>
-            <span class="tb_inf_prdt_brand">컨버스</span><br>
-            <span class="tb_inf_prdt_name">척테일러 올스타 레더 화이트</span><br>
-            <span class="tb_inf_prdt_number">132173C</span><br>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row" class="tb_inf_prdt_sub">
-            <span class="tb_inf_prdt_price tb_inf_prdt_sub_sub">신청일</span><br>
-            <span class="tb_inf_prdt_number">2016년 8월 5일</span>
-          </th>
-          <td>
-            <span class="tb_inf_prdt_price tb_inf_prdt_sub_sub">배송중</span><br>
-            <span class="tb_inf_prdt_number">대한 통운 10160968997163</span>
-          </td>
-        </tr>
-        <tr>
-          <td scope="row" colspan="2">
-            <%= link_to "사용 정보 입력", "#", class: "btn session_btn width_full_mb", disabled: "true", style: "margin-bottom:0px;" %>
-          </td>
-        </tr>
-      </tbody>
-    </table><!-- table sample1 -->
 
-
-    <table class="table tb_inf_prdt_mb tb_inf_prdt_big_mb ">
-      <tbody>
-        <tr>
-          <th scope="row">
-            <img src="https://placehold.it/100x100">
-          </th>
-          <td>
-            <span class="tb_inf_prdt_brand">컨버스</span><br>
-            <span class="tb_inf_prdt_name">척테일러 올스타 레더 화이트</span><br>
-            <span class="tb_inf_prdt_number">132173C</span><br>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row" class="tb_inf_prdt_sub">
-            <span class="tb_inf_prdt_price tb_inf_prdt_sub_sub">신청일</span><br>
-            <span class="tb_inf_prdt_number">2016년 8월 5일</span>
-          </th>
-          <td>
-            <span class="tb_inf_prdt_price tb_inf_prdt_sub_sub">배송중</span><br>
-            <span class="tb_inf_prdt_number">대한 통운 10160968997163</span>
-          </td>
-        </tr>
-        <tr>
-          <td scope="row" colspan="2">
-            <%= link_to "사용 정보 입력", "#", class: "btn session_btn_black width_full_mb", style: "margin-bottom:0px;" %>
-          </td>
-        </tr>
-      </tbody>
-    </table><!-- table sample2 -->
-  </div>
-  <!-- mb -->
 </div>

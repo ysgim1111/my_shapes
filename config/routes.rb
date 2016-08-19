@@ -34,6 +34,16 @@ Rails.application.routes.draw do
       get :apply_product_13
       get :wannabe_letter
       get :apply_product_login
+      get :apply_product_store
+      get :brand_cms_1
+      get :brand_cms_2
+      get :brand_cms_3
+      get :brand_cms_4
+      get :brand_cms_5
+      get :brand_cms_6
+      get :brand_cms_7
+      get :brand_cms_8
+      get :brand_cms_9
     end
   end
 
