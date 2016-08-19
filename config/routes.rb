@@ -62,6 +62,7 @@ Rails.application.routes.draw do
     resources :influencer_stores_products do
       collection do
         get :products
+        get :info_apply
         get :complete
         get :update_complete
       end

@@ -1,5 +1,5 @@
 class Cms::InfluencerStoresProductsController < BaseCmsController
-  authorize_actions_for InfluencerStoresProduct, actions: {products: :read, complete: :read, update_complete: :read}
+  authorize_actions_for InfluencerStoresProduct, actions: {products: :read, complete: :read, update_complete: :read, info_apply: :read}
 
   before_filter :redirect_to_index, only: [:new, :create]
 
@@ -48,11 +48,16 @@ class Cms::InfluencerStoresProductsController < BaseCmsController
   def update_complete
   end
 
+  def info_apply
+  end
+
 
   private
 
   def redirect_to_index
-    if InfluencerStoresProduct.where(influencer_store_id: current_user.influencer_store, product_id: params[:product_id]).present?
+    check_product = InfluencerStoresProduct.where(influencer_store_id: current_user.influencer_store, product_id: params[:product_id]).first
+
+    if check_product.present?
       redirect_to action: :index
       return
     end
