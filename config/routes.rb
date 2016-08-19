@@ -4,8 +4,13 @@ Rails.application.routes.draw do
     post 'facebook' => 'users/socials#facebook'
     get 'users/confirmations/complete' => 'users/confirmations#complete', as: 'complete_users_confirmation'
   end
-  resources :users do
-    resources :purchase_lists
+
+  resource :user, only: [:show, :update] do
+    resources :purchase_lists, shallow: true
+
+    collection do
+      patch :update_password
+    end
   end
 
   root 'products#about'

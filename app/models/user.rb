@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   after_create :assign_default_role
 
-  validates :nickname, length: { maximum: 20 }, presence: true
+  validates :nickname, length: { maximum: 20 }, presence: true, uniqueness: true
 
   def self.find_with_update_or_create(auth)
     user = where(email: auth["email"])

@@ -1,7 +1,7 @@
 <div class="col-md-6 no-gap">
   <div class="form-group">
     <% current_user.address_books.each do |address_book| %>
-      <%= button_tag address_book.receiver, type: "button", class: "btn btn-default", onclick: "changePostInfo('#{address_book.receiver}', '#{address_book.name}', #{address_book.zonecode}, '#{address_book.address}', '#{address_book.address_detail}', '#{address_book.phone_number}', '#{address_book.id}')" %>
+      <%= button_tag address_book.name, type: "button", class: "btn btn-default", onclick: "changePostInfo('#{address_book.receiver}', '#{address_book.name}', #{address_book.zonecode}, '#{address_book.address}', '#{address_book.address_detail}', '#{address_book.phone_number}', '#{address_book.id}')" %>
     <% end %>
   </div>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817131658) do
+ActiveRecord::Schema.define(version: 20160819080055) do
 
   create_table "address_books", force: :cascade do |t|
     t.integer  "user_id",        limit: 4,                   null: false
@@ -148,16 +148,6 @@ ActiveRecord::Schema.define(version: 20160817131658) do
   add_index "purchase_lists", ["influencer_store_id"], name: "index_purchase_lists_on_influencer_store_id", using: :btree
   add_index "purchase_lists", ["user_id"], name: "index_purchase_lists_on_user_id", using: :btree
 
-  create_table "purchase_products", force: :cascade do |t|
-    t.integer  "purchase_list_id"
-    t.integer  "product_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
-
-  add_index "purchase_products", ["product_id"], name: "index_purchase_products_on_product_id"
-  add_index "purchase_products", ["purchase_list_id"], name: "index_purchase_products_on_purchase_list_id"
-
   create_table "purchase_results", force: :cascade do |t|
     t.integer  "purchase_list_id", limit: 4
     t.string   "imp_uid",          limit: 255
@@ -232,6 +222,7 @@ ActiveRecord::Schema.define(version: 20160817131658) do
     t.string   "social_uid",             limit: 255
     t.string   "image_profile",          limit: 255
     t.string   "nickname",               limit: 255
+    t.string   "phone",                  limit: 255
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
