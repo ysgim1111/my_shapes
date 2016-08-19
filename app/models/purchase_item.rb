@@ -3,6 +3,4 @@ class PurchaseItem < ActiveRecord::Base
 
   belongs_to :purchase_list
   belongs_to :product
-
-  has_one :destination, as: :deliverable
 end
