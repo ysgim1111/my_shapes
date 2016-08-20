@@ -1,0 +1,176 @@
+<div class="container inf_list">
+  <div class="row">
+    <div class="col-md-12 main_slide">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <% @products.where(view_type: Product.view_types[:main]).each_with_index do |product, i| %>
+            <li id="carousel_<%= i + 1 %>" data-target="#myCarousel" data-slide-to="<%= i %>" class="<%= i == 0 ? 'active' : '' %>"></li>
+          <% end %>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <% @products.where(view_type: Product.view_types[:main]).each_with_index do |product, i| %>
+          <div class="item <%= i == 0 ? 'active' : '' %>">
+            <%= link_to product_path(product) do %>
+              <%= image_tag(product.image_basic, alt: product.name, style: "width:100%") %>
+            <% end %>
+            <div class="carousel-caption invisible">
+              <h3><%= product.name %></h3>
+              <p><%= product.desc %></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <%= image_tag("slide_arrow_left.png", alt: "") %>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <%= image_tag("slide_arrow_right.png", alt: "") %>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <h3 class="basic_header"><%= Date.current.month %>월 첫째주 인플루언서 랭킹 <a href="#">인플루언서 전체보기</a></h3>
+    </div>
+    <div class="col-md-12 inf_rank_2">
+      <% @influencer_stores.limit(2).each do |is| %>
+        <div class="pd_adj margin_2cols col-md-6">
+          <div class="col-md-12 left">
+            <a htef="#" onclick="javascript:alert('준비중')"><%= image_tag "share_30.png", class: "inf_rank_share" %></a>
+            <div class="col-md-6 sub_left text-center">
+              <div class="inf_rank_place"><%= is.id %>위</div>
+              <%= link_to(influencer_store_path(is)) do %>
+                <%= image_tag is.user ? is.user.image_profile : nil %>
+              <% end %>
+            </div>
+            <div class="col-md-6 sub_right">
+              <%= link_to(influencer_store_path(is)) do %>
+                <h3 class="name" style="text-decoration:none;color:#212121"><%= is.user ? is.user.nickname : "" %></h3>
+              <% end %>
+              <p class="url">
+                <%= link_to("http://trd.st/#{is.url}", influencer_store_path(is)) %>
+              </p>
+              <p class="index">판매 지수 <span class="index_number"><% is.selling_point %></span> <span class="index_question"> <%= image_tag "score_help_16.png" %> </span></p>
+              <p class="index">유입 지수 <span class="index_number"><% is.user_point %></span> <span class="index_question"> <%= image_tag "score_help_16.png" %> </span></p>
+            </div>
+            <div class="col-md-12 no-gap sub_bottom text-center">
+              <% is.influencer_stores_products.each do |isp| %>
+                <img src="http://placehold.it/110x110&text=Insta1">
+              <% end %>
+              <% if %>
+                판매 중인 상품이 없습니다
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <% @influencer_stores.offset(2).limit(3).each do |is| %>
+        <!-- 3rd rank strats -->
+        <div class="pd_adj margin_3cols col-md-4">
+          <div class="col-lg-12 rank_3cols">
+            <a href="#" onclick="javascript:alert('준비중')"><%= image_tag "share_30.png", class: "inf_rank_share" %></a>
+            <div class="col-lg-6 sub_left text-center">
+              <div class="inf_rank_place"><%= is.id %>위</div>
+              <%= link_to(influencer_store_path(is)) do %>
+                <%= image_tag is.user ? is.user.image_profile : nil %>
+              <% end %>
+            </div>
+            <div class="col-lg-6 sub_right">
+              <h3 class="name"><%= is.user ? is.user.nickname : "" %></h3>
+              <p class="url"><%= link_to("http://trd.st/#{is.url}", influencer_store_path(is)) %></p>
+              <p class="index">판매 지수 <span class="index_number"><%= is.selling_point %></span> <span class="index_question"> <%= image_tag "score_help_16.png" %> </span></p>
+              <p class="index">유입 지수 </span><span class="index_number"><%= is.user_point %></span> <span class="index_question"> <%= image_tag "score_help_16.png" %> </span></p>
+            </div>
+            <div class="col-lg-12 no-gap sub_bottom text-center">
+              <% is.influencer_stores_products.each do |isp| %>
+                <img src="http://placehold.it/110x110&text=Insta1">
+              <% end %>
+              <% if %>
+                판매 중인 상품이 없습니다
+              <% end %>
+            </div>
+          </div>
+        </div><!-- profile .col-md-4 -->
+      <% end %>
+      <!-- 3rd rank ends -->
+    </div><!-- .inf_rank_2 -->
+
+    <div class="col-md-12">
+      <h3 class="basic_header">새로운 인플루언서 랭킹 <a href="#">인플루언서 전체보기</a></h3>
+    </div>
+    <div class="col-md-12 inf_rank_2">
+      <% @new_influencer_stores.each do |is| %>
+      <div class="pd_adj margin_3cols new_margin_3cols col-md-4">
+        <div class="col-lg-12 rank_3cols new_rank_3cols">
+          <a href="#" onclick="javascript:alert('준비중')"><%= image_tag "share_30.png", class: "inf_rank_share" %></a>
+          <div class="col-lg-4 sub_left text-center">
+            <%= link_to(influencer_store_path(is)) do %>
+              <%= image_tag is.user ? is.user.image_profile : nil %>
+            <% end %>
+          </div>
+          <div class="col-lg-8 sub_right">
+            <h3 class="name"><%= is.user ? is.user.nickname : "" %></h3>
+            <p class="url"><%= link_to("http://trd.st/#{is.url}", influencer_store_path(is)) %></p>
+          </div>
+          <div class="col-lg-12 sub_bottom">
+            <p class="detail"><%= is.desc %></p>
+          </div>
+        </div>
+      </div><!-- profile .col-md-4 -->
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+/*
+$(window).load(function(){
+  ServiceSize(); // 3메뉴 조정
+});
+
+function ServiceSize() {
+  var standard_width = parseInt($('.main_center_image').width())/2;
+  standard_width = standard_width - parseInt($('.main_service').width())/2 - 20;
+  $('.main_service').css('left',standard_width);
+}
+
+
+$(document).ready(function(){
+  $('.insta_feed_desk').bxSlider({
+    slideWidth: 400,
+    minSlides: 4,
+    maxSlides: 4,
+    moveSlides: 3,
+    slideMargin: 20
+  });
+
+  var desk_feed = $('.bx-viewport').first();
+  var desk_feed_hieght = parseInt(desk_feed.height()) + 100;
+
+  desk_feed.prepend($('.inf_feed_title'));
+});
+
+$(document).ready(function(){
+  $('.insta_feed_mb').bxSlider({
+    slideWidth: 200,
+    minSlides: 1,
+    maxSlides: 3,
+    slideMargin: 10
+  });
+  var mb_feed = $('.bx-viewport:eq(1)');
+  var mb_feed_hieght = parseInt(mb_feed.height()) + 100;
+
+  mb_feed.prepend($('.inf_feed_title').clone());
+});
+
+$(document).ready(function() {
+  $('.menu_second:eq(1)').addClass('active');
+})*/
+</script>

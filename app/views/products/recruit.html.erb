@@ -1,0 +1,225 @@
+<style media="screen">
+.row {
+  margin-right:0px !important;
+  margin-left:0px !important;
+}
+.container {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+</style>
+<%= render 'header' %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 recruit_form">
+      <h3>트렌디스트 1기 신청서</h3>
+      <p>
+        트렌디스트의 1기 멤버를 지원하는 신청서입니다.<br>
+        트렌디스트는 다양한 연예인들, 그리고 인플루언서 여러분들과 함께합니다.<br>
+        8월에 시작되는 트렌디스트에서는 한정적으로 20분의 소수 정예 인플루언서 분들을 모집하고 있습니다.<br>
+        <br>
+        본 신청서 링크는 직접 연락드린분과 그 지인에 한정하여 제공됩니다.
+        <br><br>
+        <strong>트렌디스트 주소</strong> : <a href="http://www.trd.st/">http://www.trd.st/</a><br>
+        <strong>문의처</strong> : contact@trd.st<br>
+      </p>
+      <div class="col-md-12 no-gap">
+        <iframe src="http://www.slideshare.net/slideshow/embed_code/key/pcKfZTYukAkKOB" width="595" height="350" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+        <br>
+        <a class="btn" style="background-color:#212121;color:#ffffff;margin-bottom:15px;" target="_blank" href="http://works.do/xEwonp"><i class="fa fa-floppy-o"></i> 제안서 다운로드  </a>
+      </div>
+      <br>
+      <h4>Be wanna be, Trendist</h4>
+      <p>
+      트렌디스트는 많은 팬들의 워너비인 인플루언서가 직접 팬들에게 추천하고 싶은 제품을 중개하여 상호간에 수익을 창출하는 커머스 서비스입니다.<br>
+      트렌디스트 사이트에서 발급하는 상품 링크를 공유하고 팬들에게 추천했을때, 링크를 통해 판매된 금액 중 일부를 리워드로 지급받을 수 있습니다.
+      <br>
+      또한 무의미한 광고가 아닌 직접 써보고 괜찮다고 생각했던 상품을 팬들에게 판매할 수 있도록,
+      인플루언서가 추천하는 브랜드/상품을 취합하고, 직접 컨택하여 인플루언서들이 팬들에게 판매할 수 있도록 지원합니다.
+      </p>
+      <p style="color:red;">
+        * 필수항목
+      </p>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">신청서</h3>
+        </div>
+        <div class="panel-body">
+          <%= form_tag('/products/email_send', multipart: true) do %>
+           <div class="form-group">
+             <div class="col-md-6">
+               <label for="exampleInputEmail1">보내는 이<span class="recruit_require">*</span></label>
+               <%= email_field_tag :giver, "", class: "form-control check",placeholder: "이메일을 입력해주세요" %>
+             </div>
+             <div class="col-md-6">
+               <label>연락받으실 번호<span class="recruit_require">*</span></label>
+               <%= text_field_tag :"cellPhone", "", class: "form-control check",placeholder: "연락처를 입력해주세요" %>
+             </div>
+           </div>
+           <div class="form-group hide">
+             <label for="exampleInputFile">제목</label>
+             <%= text_field_tag :title, "",class: "form-control", id: "title", placeholder: "제목을 입력해주세요"  %>
+           </div>
+           <div class="form-group">
+             <div class="col-md-6">
+               <label for="exampleInputFile">성함<span class="recruit_require">*</span></label>
+               <%= text_field_tag :"inf_name", "",class: "form-control check",placeholder: "성함을 입력해주세요"  %>
+             </div>
+             <div class="col-md-6">
+               <label for="exampleInputFile">연령대<span class="recruit_require">*</span></label>
+               <%= select_tag(:select_check, options_for_select([['선택', '0'], ['16~19', '16~19'], ['20~24', '20~24'], ['25~29', '25~29'], ['30~34', '30~34'], ['35~39', '35~39'] ]),  class: "form-control", id: "select_check") %>
+             </div>
+           </div>
+           <div class="form-group">
+             <div class="col-md-6">
+               <label for="exampleInputFile">Instagram/Facebook/Blog 주소<span class="recruit_require">*</span></label>
+               <%= text_field_tag :"inf_sns_url", "",class: "form-control check",placeholder: "해당되는 부분만 입력해주세요"  %>
+             </div>
+             <div class="col-md-6">
+               <label for="exampleInputFile">팔로워 / 구독자 수<span class="recruit_require">*</span></label>
+               <%= text_field_tag :"inf_subscribers", "",class: "form-control check",placeholder: ""  %>
+             </div>
+           </div>
+           <div class="form-group">
+             <div class="col-md-6">
+               <label for="exampleInputFile">주요 분야<span class="recruit_require">*</span></label>
+               <%= text_field_tag :"inf_areas", "",class: "form-control check",placeholder: "뷰티, 패션, 헬스 등. 여러 분야 가능."  %>
+             </div>
+             <div class="col-md-6">
+               <label for="exampleInputFile">추천인</label>
+               <%= text_field_tag :"inf_recommend", "",class: "form-control",placeholder: ""  %>
+             </div>
+           </div>
+           <div class="form-group">
+             <div class="col-md-12 no-gap" style="margin-top:15px;">
+               <label for="exampleInputFile">판매 희망 제품<span class="recruit_require">*</span></label>
+               <%= text_area_tag :"inf_goods", "",class: "form-control check", rows: "3", placeholder: "팔고 싶은 제품의 브랜드 혹은 특정 제품을 말씀해주시면 저희가 인플루언서의 의견을 종합하여 브랜드를 컨택해서 연결해드립니다."  %>
+             </div>
+           </div>
+           <div class="form-group hide">
+             <label for="exampleInputFile">내용</label>
+             <%= text_area_tag :contents, "", class: "form-control",id: "contents", rows: "5" %>
+             <p class="help-block">성함, 나이, instagram,facebook,blog주소 (해당하는 것만), 팔로워 혹은 구독자수, </p>
+           </div>
+           <div class="form-group">
+             <div class="col-md-6">
+               <label for="exampleInputFile">포트폴리오</label>
+               <div class="input-group">
+                    <label class="input-group-btn">
+                        <span class="btn btn-primary">
+                            Browse&hellip; <%= file_field_tag 'attachment[]',class: 'hidden' %>
+                        </span>
+                    </label>
+                    <input type="text" class="form-control" readonly>
+                </div>
+             </div>
+             <div class="col-md-6 invisible">
+               <label>sample</label>
+               <%= email_field_tag :"", "", class: "form-control",placeholder: "이메일을 입력해주세요" %>
+             </div>
+           </div>
+           <div class="col-md-12 no-gap" style="margin-top:15px;">
+               <%= submit_tag("제출", class: "btn btn-default", id: "recruit_submit") %>
+           </div>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+$(function() {
+
+// We can attach the `fileselect` event to all file inputs on the page
+$(document).on('change', ':file', function() {
+  var input = $(this),
+      numFiles = input.get(0).files ? input.get(0).files.length : 1,
+      label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+  input.trigger('fileselect', [numFiles, label]);
+});
+
+// We can watch for our custom `fileselect` event like this
+$(document).ready( function() {
+    $(':file').on('fileselect', function(event, numFiles, label) {
+
+        var input = $(this).parents('.input-group').find(':text'),
+            log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+        if( input.length ) {
+            input.val(log);
+        } else {
+            if( log ) alert(log);
+        }
+
+    });
+});
+
+});
+</script>
+<script>
+function autoHypenPhone(str){
+    str = str.replace(/[^0-9]/g, '');
+    var tmp = '';
+    if( str.length < 4){
+        return str;
+    }else if(str.length < 7){
+        tmp += str.substr(0, 3);
+        tmp += '-';
+        tmp += str.substr(3);
+        return tmp;
+    }else if(str.length < 11){
+        tmp += str.substr(0, 3);
+        tmp += '-';
+        tmp += str.substr(3, 3);
+        tmp += '-';
+        tmp += str.substr(6);
+        return tmp;
+    }else{
+        tmp += str.substr(0, 3);
+        tmp += '-';
+        tmp += str.substr(3, 4);
+        tmp += '-';
+        tmp += str.substr(7);
+        return tmp;
+    }
+    return str;
+}
+
+var cellPhone = document.getElementById('cellPhone');
+cellPhone.onkeyup = function(event){
+event = event || window.event;
+var _val = this.value.trim();
+this.value = autoHypenPhone(_val) ;
+}
+
+$('#cellPhone').attr('maxlength','13');
+</script>
+<script>
+  var write_link = document.getElementById('recruit_submit');
+  var select_check = document.getElementById('select_check');
+  $('#recruit_submit').on('click', function() {
+    var validation = true;
+    $('.check').each(function(){
+       if($.trim($(this).val()) == ''){
+          var validation = false;
+       }
+    });
+    if ( (select_check.options[select_check.selectedIndex].value === '0') && validation){
+      alert('작성하지 않은 부분이 있습니다.');
+      return false;
+    }
+    else {
+
+      var title = '인플루언서 지원자 : ' + $("input[name=inf_name]").val();
+      var contents = '이름 : '+$("input[name=inf_name]").val() + " / " + '연령대 : ' + $('#select_check').val() + " / " + '연락처 : '+$('#cellPhone').val()+'SNS_URL : ' + $('input[name=inf_sns_url]').val() + " / " + '팔로워/구독자수 : ' + $('input[name=inf_subscribers]').val() + " / " + '주요 분야 : ' + $('input[name=inf_areas]').val() +" / " +'추천인 : ' + $('input[name=inf_recommend]').val() + ' / 판매희망제품 : ' + $('#inf_goods').val()
+
+      $('#contents').val(contents);
+      $('#title').val(title);
+
+      $('#recruit_submit').submit();
+    }
+  })
+</script>
+
+<%= render "image_setting" %>

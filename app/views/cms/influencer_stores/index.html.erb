@@ -1,0 +1,18 @@
+<table class="table table-condensed table-striped">
+  <thead>
+    <tr>
+      <th>스토어url</th>
+      <th>설명</th>
+      <th>생성일</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @influencer_stores.each do |influencer_store| %>
+      <tr>
+        <td><%= link_to influencer_store.url, cms_influencer_store_path(influencer_store) %></td>
+        <td><%= influencer_store.desc %></td>
+        <td><%= influencer_store.created_at.strftime("%Y-%m-%d") %></td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>

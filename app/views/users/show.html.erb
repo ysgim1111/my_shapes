@@ -1,0 +1,94 @@
+<div class="container purc_ready my_page">
+  <div class="row" id="tabs">
+    <%= render "shared/user_info_tab" %>
+
+    <div class="col-md-9 no-gap">
+      <div class="col-md-10 no-gap">
+        <div class="col-md-12">
+          <h3 class="header">회원 기본 정보</h3>
+        </div>
+        <div class="col-md-12 form-horizontal name_email_change">
+          <%= form_for @user, url: {action: "update"}, html: {multipart: true} do |f| %>
+          <div class="form-group profile_name_img">
+            <label for="inputEmail3" class="col-md-2 control-label">프로필 사진</label>
+            <div class="col-md-6">
+              <%= image_tag @user.image_profile %>
+              <%= f.file_field :image_profile, class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :nickname, "닉네임", class: "col-md-2 control-label" %>
+            <div class="col-md-5">
+              <%= f.text_field :nickname, class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :name, "이름", class: "col-md-2 control-label" %>
+            <div class="col-md-5">
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="" class="col-md-2 control-label">이메일</label>
+            <div class="col-md-6">
+              <%= @user.email %>
+            </div>
+          </div>
+          <div class="form-group purc_phone_form">
+            <label for="phone_number1" class="col-md-2 control-label">연락처</label>
+            <div class="col-md-6">
+              <input class="form-control check purc_phone" type="text" value="<%= @user.phone.split('-')[0] if @user.phone %>" name="phone_number1" id="phone_number1" maxlength="4">
+              <input class="form-control check purc_phone" type="text" value="<%= @user.phone.split('-')[1] if @user.phone %>" name="phone_number2" id="phone_number2" maxlength="4">
+              <input class="form-control check purc_phone" type="text" value="<%= @user.phone.split('-')[2] if @user.phone %>" name="phone_number3" id="phone_number3" maxlength="4">
+            </div>
+          </div>
+          <div class="actions">
+            <%= f.submit "기본정보 변경", class: "btn session_btn_black", style: "margin-top:30px;" %>
+          </div>
+          <% end %>
+        </div>
+
+        <div class="col-md-12" style="padding: 0px 15px;">
+          <h3 class="header">비밀번호 변경</h3>
+        </div>
+        <div class="col-md-12 form-horizontal pass_change">
+          <%= form_for @user, url: {action: "update_password"} do |f| %>
+            <%= f.hidden_field :reset_password_token %>
+
+            <div class="form-group">
+              <%= f.label :password, "새 비밀번호", required: true, class: "col-md-2 control-label" %>
+              <div class="col-md-6">
+                <%= f.password_field :password, autocomplete: "off", class: "form-control", required: true, minlength: 8 %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :password_confirmation, "새 비밀번호 확인", class: "col-md-2 control-label" %>
+              <div class="col-md-6">
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", required: true, minlength: 8 %>
+              </div>
+            </div>
+            <div class="actions">
+              <%= f.submit "비밀번호 변경", class: "btn session_btn_black", style: "margin-top:30px;" %>
+            </div>
+          <% end %>
+        </div>
+      </div><!-- col-md-10 -->
+    </div>
+  </div>
+</div>
+
+<script>
+  var password = document.getElementById("user_password");
+  var confirm_password = document.getElementById("user_password_confirmation");
+
+  function validatePassword(){
+    if(password.value != confirm_password.value) {
+      confirm_password.setCustomValidity('비밀번호가 일치하지 않아요');
+    } else {
+      confirm_password.setCustomValidity('');
+    }
+  }
+
+  password.onchange = validatePassword;
+  confirm_password.onkeyup = validatePassword;
+</script>

@@ -1,0 +1,19 @@
+<%= link_to("추가", new_cms_user_path, class: "btn btn-default") %>
+<table class="table table-condensed table-striped">
+  <thead>
+    <tr>
+      <th>이름</th>
+      <th>email</th>
+      <th>생성일</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name.present? ? user.name : "없음", cms_user_path(user) %></td>
+        <td><%= user.email %></td>
+        <td><%= user.created_at.strftime("%Y-%m-%d") %></td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>

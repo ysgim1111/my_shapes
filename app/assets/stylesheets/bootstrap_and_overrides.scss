@@ -1,0 +1,17 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+  =require twitter-bootstrap-static/fontawesome
+  =require twitter-bootstrap-static/sprites
+*/
+
+.navbar-default {
+  background-color: #f9f9f9;
+}
+@media (min-width: 768px) {
+  #nav_mb_menu {
+    display: none !important;
+    height: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+  }
+}

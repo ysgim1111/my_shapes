@@ -1,0 +1,18 @@
+<div class="form-group">
+  <%= f.label :url, "스토어url", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :url, class: "form-control", placeholder: "스토어url" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :desc, "스토어소개", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :desc, class: "form-control", placeholder: "스토어소개" %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-offset-2 col-sm-10">
+    <button type="submit" class="btn btn-primary">저장</button>
+    <%= link_to "뒤로", :back, class: "btn btn-default" %>
+  </div>
+</div>

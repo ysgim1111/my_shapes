@@ -1,0 +1,11 @@
+<dl class="dl-horizontal">
+  <dt></dt>
+  <dd>
+    <%= link_to "수정", edit_cms_influencer_store_path(@influencer_store), class: "btn btn-primary" %>
+    <%= link_to "삭제", cms_influencer_store_path(@influencer_store), method: :delete, data: {confirm: "삭제하시겠습니까?"}, class: "btn btn-danger" if current_user.is_admin?  %>
+  </dd>
+  <dt>스토어url</dt>
+  <dd><%= @influencer_store.url %></dd>
+  <dt>소개</dt>
+  <dd><%= @influencer_store.desc %></dd>
+</dl>

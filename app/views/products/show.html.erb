@@ -1,0 +1,201 @@
+<style media="screen">
+.nav > li > a {
+  color: #212121;
+}
+.ui-draggable, .ui-droppable {
+  background-position: top;
+}
+</style>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+<style>
+  .ui-controlgroup-vertical {
+    width: 100%;
+  }
+  .ui-controlgroup.ui-controlgroup-vertical > button.ui-button,
+  .ui-controlgroup.ui-controlgroup-vertical > .ui-controlgroup-label {
+    text-align: center;
+  }
+  #car-type-button {
+    width: 120px;
+  }
+  .ui-controlgroup-horizontal .ui-spinner-input {
+    width: 20px;
+  }
+</style>
+
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script>
+  $( function() {
+    $( ".controlgroup" ).controlgroup()
+    $( ".controlgroup-vertical" ).controlgroup({
+      "direction": "vertical"
+    });
+  } );
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  $('body').scrollspy({ target: '#nav' })
+</script>
+
+<div class="pdt_detail">
+  <div class="container top">
+    <div class="row">
+      <div class="col-md-3 col-md-offset-1 feed_content mb_line_break_reverse">
+        <%= image_tag "selfie_1.png", style: "width:100%;max-width:300px", alt: "" %>
+      </div>
+      <div class="col-md-8 feed_content_profile">
+          <div class="col-md-1 col-xs-3 text-left feed_content_profile_left no-gap">
+            <%= image_tag "profile_1.png", style: "border-radius:100%;width:60px;height:60px;margin-top:15px;", alt: "" %>
+          </div>
+          <div class="col-md-11 col-xs-9 feed_content_profile_right">
+            <h3>우희</h3>
+            <p class="detail">
+            http://trd.st/woohee91
+            </p>
+          </div>
+          <div class="col-md-12 col-xs-12 blob" style="background:url('<%=image_url('blob_2.png')%>');">
+            <p class="blob_comment">비방트 벤드레디는 정말 제 인생 선글라스예요!! 얼굴 갸름하게 보이게 해주고 실버 렌즈 때문인지 피부톤도 밝아보이는 것 같아요ㅎㅎ 썼을 때 코가 아프지 않은 것도 너무 좋아요 강추!</p>
+          </div>
+          <div class="col-md-12 inf_feed_title_top text-right no-gap mb_line_break_reverse">
+            <a href="#" style="color:#212121">인스타그램 피드에서 보기</a> <%= image_tag "insta_logo_d_30.png", alt: "" %>
+          </div>
+      </div>
+      <div class="mb_line_break">
+        <div class="col-md-3 col-md-offset-1 feed_content no-gap_mb">
+          <%= image_tag "selfie_1.png", style: "width:100%;", alt: "" %>
+        </div>
+        <div class="col-md-12 inf_feed_title_top text-right no-gap" style="padding-top:15px;padding-bottom:15px;">
+          <a href="#" style="color:#212121">인스타그램 피드에서 보기</a> <%= image_tag "insta_logo_d_30.png", alt: "" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container deal_header">
+  <div class="row">
+    <div class="col-md-6" style="margin-top:50px;">
+      <%= image_tag @product.image_basic, alt: "", style: "max-width:600px;max-height:500px;width:100%;" %>
+    </div>
+    <div class="col-md-6" style="margin-top:50px;">
+      <fieldset>
+        <p class="sort">비방트</p>
+        <h2 class="name" style=";">VENDREDI - BLACK BROWN /<br> SILVER MIRROR</h2>
+        <div class="price_tag session_btn_black"><%= @product.price %> Won</div>
+        <p class="delivery_fee">배송비 <%= @product.shipping_expenses %> 원</p>
+        <p class="delivery_free"> 이상 구매 시 무료 배송</p>
+        <div class="form-inline spec_choose">
+          <div class="form-gorup">
+            <label class="size">사이즈</label>
+            <%= select_tag "product_options", options_from_collection_for_select(@product.product_options, "name", "name") ,class: 'form-control spec_size'%>
+          </div>
+          <div class="form-gorup">
+            <label class="quantity">수량</label>
+            <input type="number" min="1" max="10" class="form-control spec_quantity" value="1" id="quantity">
+          </div>
+          <div class="col-md-12 no-gap" style="margin-top:35px;">
+            <div class="col-md-5" style="padding-left:0px;">
+              <%= form_for @purchase_list, url: new_purchase_path, method: :get do |f| %>
+                <%= hidden_field :purchase_item, :quantity, value: 1 %>
+                <%= hidden_field :purchase_item, :option, value: @product.product_options.first.name %>
+                <%= hidden_field :purchase_item, :product_id, value: params[:id] %>
+                <%= f.hidden_field :influencer_store_id, value: params[:influencer_store_id] %>
+                <%= f.submit "바로구매", class: "btn session_btn_black", style: "width:100%;height:60px;line-height:34px" %>
+              <% end %>
+            </div>
+            <div class="col-md-5 col-xs-9 no-pd_left_mb">
+              <a id="addBasketBtn" data-url="<%= shopping_items_path %>" data-product-id="<%= @product.id %>" class="btn session_btn" style="width:100%;height:60px;line-height:34px">장바구니 담기</a>
+            </div>
+            <div class="col-md-2 col-xs-3 text-right no-pd_left_mb" style="padding-right:0px;">
+                <a href="#"><%= image_tag "add_wish_d.png", alt: "" %></a>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 no-gap_mb">
+      <%=image_tag "banner_1.jpg", alt: "", style: "width:100%;",class: "mb_line_break_reverse" %>
+      <%=image_tag "banner_1_m.jpg", alt: "", style: "width:100%;", class: "mb_line_break" %>
+    </div>
+  </div>
+</div>
+
+<%= render "insta_feed_prdt" %>
+<div class="container" style="margin-top:30px;">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <%= image_tag @product.image_desc, style: "width:100%;max-width:600px;", alt: "" %>
+    </div>
+  </div>
+</div>
+<div class="container pdt_bottom">
+
+  <div class="row">
+    <div class="col-md-12 specific_detail">
+      <p>
+        <strong>소재</strong> <span>아세테이트, 셀룰로이드, 티타늄, 메탈 중 사용</span><br class="mb_line_break">
+        <strong>색상</strong> <span>블랙 / 브라운 / 실버</span><br class="mb_line_break">
+        <strong>발길이</strong> <span>220~280(mm)</span>
+      </p>
+      <p>
+        <strong>제조자(수입여부)</strong> <span>(주)비방트</span><br class="mb_line_break">
+        <strong>제조국</strong> <span>베트남</span><br class="mb_line_break">
+      </p>
+      <div class="col-md-2 no-gap" style="display: inline-block;width:auto">
+        <p>
+          <strong>취급시 주의사항</strong>
+        </p>
+      </div>
+      <div class="col-md-10 no-gap">
+        <p>
+          <span>세척시 상온（15-20도）수를 사용하여 주십시오. 세척시 세탁기 사용은 피해 주시고 세탁후 응달에서 완전 세탁 후 응달에서 완전히 건조하시기 바랍니다. 표백제 또는 표백성분이 있는 세제는 사용하지 마십시오. 천연가죽, 누벅, 스웨이드 제품은 크리너를 사용하시고 물세탁 시 변색우려가 있으니 피하시기 바랍니다. 기름이 있는 곳에서의 착화를 피하시고 직사광선 및 화기를 피하십시오. 제품 사용 수명을 연장시키기 위해 반드시 취급 시 유의사항을 지키십시오. 상기 취급 유의사항을 지키지 않을 경우 발생하는 제품 손상에 대해서는 보상이 되지 않습니다.</span>
+        </p>
+      </div>
+      <p style="clear:both">
+        <strong>품질보증기준</strong> <span>구입하신 상품의 피팅/부품교체/수리 등 사후 관리를 책임집니다.</span><br class="mb_line_break">
+        <strong>A/S 책임자/전화번호</strong> <span>(주)비방트 02-554-7273</span><br class="mb_line_break">
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 specific_detail">
+      <p>
+        <strong>배송 안내</strong><br class="mb_line_break">
+      </p>
+      <p class="long_sentence">브랜드 업체발송은 상품설명에 별도로 기입된 브랜드 알림 배송공지 기준으로 출고되고 브랜드마다 개별 배송비가 부여됩니다.
+Delivery (29CM) 상품은 오후 3시까지 결제확인된 주문은 당일 출고되고 5만원 이상 주문은 무료배송, 5만원 미만은 3,000원의 배송비가 추가됩니다.
+SPECIAL ORDER | PT 등 예약주문은 상세설명의 출고일정을 확인하시기 바랍니다.
+구두, 액세서리, 침구, 액자, 가구 등 상품설명의 제작기간을 숙지해주시기 바랍니다.
+가구 및 일부 상품, 제주도를 포함한 도서산간 지역은 추가배송비 입금요청이 있을 수 있습니다.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 specific_detail">
+      <p>
+        <strong>교환 / 환불 / AS 안내</strong><br class="mb_line_break">
+      </p>
+      <p class="long_sentence">상품 수령일로부터 7일 이내 반품/환불 가능합니다.
+변심 반품의 경우 왕복배송비를 차감한 금액이 환불되며, 제품 및 포장 상태가 재판매 가능하여야 합니다.
+상품 불량인 경우는 배송비를 포함한 전액이 환불됩니다.
+출고 이후 환불요청 시 상품 회수 후 처리됩니다.
+얼리 등 주문제작상품/카메라/밀봉포장상품 등은 변심에 따른 반품/환불이 불가합니다.
+일부 완제품으로 수입된 상품의 경우 A/S가 불가합니다.
+특정브랜드의 상품설명에 별도로 기입된 교환/환불/AS 기준이 우선합니다.
+구매자가 미성년자인 경우에는 상품 구입 시 법정대리인이 동의하지 아니하면 미성년자 본인 또는 법정대리인이 구매취소 할 수 있습니다. <a href="#"> [자세히 보기]</a></p>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).on('change', '#product_options', function() {
+    $('#purchase_item_option').val($(this).val());
+  });
+
+  $(document).on('change', '#uantity', function() {
+    $('#purchase_item_quantity').val($(this).val());
+  });
+</script>
