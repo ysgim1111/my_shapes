@@ -112,7 +112,7 @@
   $(document).on('click', '#buyBtn', function() {
     if ($('#agreementCheckbox').prop('checked')) {
       var IMP = window.IMP;
-      IMP.init('imp21979455');
+      IMP.init('<%= Rails.application.secrets.iamport_user_code %>');
 
       IMP.request_pay({
         pg : 'html5_inicis',
