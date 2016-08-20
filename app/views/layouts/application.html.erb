@@ -1,14 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="description" content="Tredist">
+  <meta name="author" content="jamie.yun">
   <title>Trendist</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
   <%= csrf_meta_tags %>
+  <script src="https://use.fontawesome.com/1dbbdbff8d.js"></script>
 </head>
-<body>
 
-<%= yield %>
+<body id="page-top" data-spy="scroll" data-target=".navbar">
+  <% if params[:action] == "about" || params[:action] == "recruit" || params[:action] == "complete"%>
+    <%= render "/layouts/about_nav" %>
+  <% else %>
+    <%= render "/layouts/ordinary_nav" %>
+  <% end %>
 
+  <%= render partial: "shared/flash_messages", flash: flash %>
+
+  <%= yield %>
+
+  <footer style="clear:both;margin:0px;background-color:#212121">
+    <div class="copyright">
+      <div class="container footer-social-links" style="margin-top:0px;">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <div class="col-md-6 col-md-offset-3">
+              <h4 style="color:#ffffff">Company</h4>
+              <p style="color:#777;">
+                <strong>상호명</strong> : 주식회사 씨디에프브로스<br>
+                <strong>대표자명</strong> : 권재호, 주한결<br>
+                <strong>사업자번호</strong> : 372-81-00393<br>
+                <strong>통신판매업 신고</strong> : 2016-서울서초-1293<br>
+                <strong>사업장주소</strong> : 서울특별시 서초구 효령로14마길 32-4 2층(방배동)<br>
+                <strong>인터넷 전화번호</strong> : 070-8773-8991<br>
+                <strong>개인정보관리책임자</strong> : 권재호 contact@trd.st
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <small style="float:left;color:#777;">&copy; 2016 CDF-bros <a class="no-style-link" href="http://themeforest.net/user/octarinethemes" target="_blank"></a></small>
+          </div>
+
+          <div class="col-md-6">
+            <small style="float:right"><a href="#page-top" class="pull-right to-the-top">To the top<i class="fa fa-angle-up"></i></a></small>
+          </div>
+
+
+        </div><!-- / .row -->
+      </div><!-- / .container -->
+    </div><!-- / .copyright -->
+  </footer><!-- / .footer-contact -->
 </body>
+<% if params[:controller] == "products" %>
+  <script>
+  $(document).ready(function() {
+    $('.menu_second:eq(0)').addClass('active');
+  })
+  </script>
+  <% elsif params[:controller] == "influencer_stores" %>
+  <script>
+  $(document).ready(function() {
+    $('.menu_second:eq(1)').addClass('active');
+  })
+  </script>
+  <% elsif params[:controller] == "products" && (params[:action] == "about" || params[:action] == "recruit" ) %>
+  <script>
+  $(document).ready(function() {
+    $('.menu_second:eq(2)').addClass('active');
+  })
+  </script>
+<% end %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    initNav();
+    initCurrentPage();
+  })
+
+function initNav() {
+  $('#nav_toggle_visibility').on('click',function(){
+    if ($('#nav_close').hasClass('show')) {
+      $('#nav_close').removeClass('show').addClass('hide');
+    }
+    else {
+      $('#nav_close').removeClass('hide').addClass('show');
+    }
+  })
+  var image_down = $('.navbar-brand_mb').find('img').first();
+  image_down.siblings().addClass('hide');
+  $('.navbar-collapse_mb_left').addClass('hide');
+  $('.navbar-brand_mb').on('click',function(){
+    if ($('.navbar-collapse_mb_left').hasClass('show')) {
+      $('.navbar-collapse_mb_left').removeClass('show').addClass('hide');
+      image_down.siblings().removeClass('show').addClass('hide');
+      image_down.removeClass('hide').addClass('show')
+    }
+    else {
+      $('.navbar-collapse_mb_left').removeClass('hide').addClass('show');
+      image_down.removeClass('show').addClass('hide');
+      image_down.siblings().removeClass('hide').addClass('show');
+    }
+  })
+}
+function initCurrentPage() {
+  var current_page = $('.container').first().find('.row').find('.col-md-12.mb_line_break_reverse').find('h3').html();
+  $('nav').find('.current_page').html(current_page);
+
+}
+</script>
 </html>

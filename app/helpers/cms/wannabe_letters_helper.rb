@@ -1,0 +1,2 @@
+module Cms::WannabeLettersHelper
+end

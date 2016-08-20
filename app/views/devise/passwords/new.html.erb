@@ -1,0 +1,32 @@
+<div class="container sign_up sign_up_process sign_in">
+  <div class="row">
+    <div class="col-md-12 mb_line_break_reverse">
+      <h3 class="header">비밀번호 찾기</h3>
+    </div>
+    <% unless devise_error_messages! == "" %>
+      <div class="col-md-12">
+        <div class="alert alert-danger alert-dismissable fade in">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <%= devise_error_messages! %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="col-md-6 col-md-offset-3" style="border-right:none;">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+
+        <h3 class="find_pwd_header text-center">가입시 입력하신 이메일 주소를 입력하시면<br>비밀번호 재설정 링크를 보내드립니다.</h3>
+
+        <div class="form-group">
+          <%= f.label :'이메일' %><br />
+          <%= f.email_field :email, class: "form-control check", autofocus: true %>
+        </div>
+
+        <div class="col-md-6 col-md-offset-3">
+          <%= f.submit "비밀번호 재설정", class: "btn session_btn_black width_full", style: "margin-top:40px;" %>
+        </div>
+    </div><!-- col-md-6 -->
+
+    <% end %>
+  </div>
+</div>

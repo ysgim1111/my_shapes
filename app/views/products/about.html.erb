@@ -1,0 +1,62 @@
+<style media="screen">
+.row {
+  margin-right:0px !important;
+  margin-left:0px !important;
+}
+.container {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.nav>li>a {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 0px;
+  color: #ffffff;
+}
+.nav > li > a:hover {
+  color: #212121;
+}
+</style>
+<%= render 'header' %>
+
+<div class="container about_container">
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-md-4">
+          <img src="<%= image_url('about_no_1.png') %>">
+          <h2>나와 워너비가<br>하나되는 순간</h2>
+          <p>워너비가 되는 쇼핑몰 트렌디스트에서<br>워너비와 소통하며 함께<br>새로운 트렌드를 만들어 나가세요.</p>
+        </div><!-- /.col-md-4 -->
+        <div class="col-md-4">
+          <img src="<%= image_url('about_no_2.png') %>">
+          <h2>새로운 발견<span class="mb_line_break">,</span><br> 새로운 시도</h2>
+          <p>트렌디한 워너비가 직접 선택한 아이템과<br>트렌디스트에서만 제공하는<br>가장 특별한 혜택을 경험하세요</p>
+        </div><!-- /.col-md-4 -->
+        <div class="col-md-4 ">
+          <img src="<%= image_url('about_no_3.png') %>">
+          <h2>브랜드,<br>그 이상의 이야기</h2>
+          <p>트렌디스트에서는 단순한 아이템을 넘어,<br>다양한 브랜드의 가치와<br>그들이 담고 있는 이야기를 만날 수 있습니다.</p>
+        </div><!-- /.col-md-4 -->
+      </div><!-- /.row -->
+      <input type="hidden" name="name" value="23361000" id="hi">
+  </div>
+
+<div class="col-md-12 main_center_image about_center_image about_last_section" style="background-color:#ffffff">
+  <div class="text-center">
+    <h1> 8월, Coming Soon</h1>
+  </div>
+  <div class="col-md-12 text-center" style="margin-bottom:45px;">
+    <img class="" src="<%= image_url('logo_desktop.png')%> " alt="" />
+  </div>
+  <div class="col-md-6 col-md-offset-3 text-center about_last_underline">
+    <hr style="border:1px solid #b2b2b2">
+  </div>
+  <div class="col-md-12 text-center apply">
+    <h3 style="margin-top:45px;">트렌디스트 1기 모집중</h3>
+    <a href="/products/recruit" class="btn btn-default">지원하기</a>
+    <p style="margin-top:15px;font-family: 'Nanum Gothic', sans-serif;">
+      contact@trd.st
+    </p>
+  </div>
+</div>
+<%= render "image_setting" %>

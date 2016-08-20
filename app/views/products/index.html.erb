@@ -1,0 +1,128 @@
+<!--<div class="col-md-12 main_center_image no-gap">
+  <div class="main_logo_div">
+    <%= image_tag "logo_desktop.png", class: "main_logo" %>
+  </div>
+  <div class="main_service" style="bottom:2px;">
+    <%= link_to "DEALS", products_path, class: "menu_first active" %>
+    <%= link_to "INFLUENCERS", influencer_stores_path, class: "menu_second" %>
+    <%= link_to "ABOUT", about_products_path, class: "menu_third" %>
+  </div>
+</div>
+-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 main_slide mb_line_break_reverse">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <% @products.where(view_type: Product.view_types[:main]).each_with_index do |product, i| %>
+            <li id="carousel_<%= i + 1 %>" data-target="#myCarousel" data-slide-to="<%= i %>" class="<%= i == 0 ? 'active' : '' %>"></li>
+          <% end %>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <% @products.where(view_type: Product.view_types[:main]).each_with_index do |product, i| %>
+          <div class="item <%= i == 0 ? 'active' : '' %>">
+            <%= link_to deal_detail_products_path do %>
+              <%= image_tag(product.image_basic, alt: product.name, style: "width:100%") %>
+            <% end %>
+            <div class="carousel-caption invisible">
+              <h3><%= product.name %></h3>
+              <p><%= product.desc %></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <%= image_tag("slide_arrow_left.png", alt: "") %>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <%= image_tag("slide_arrow_right.png", alt: "") %>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    <!-- mb용 사진_slider -->
+    <div class="col-md-12 main_slide_mb mb_line_break no-gap">
+      <div id="myCarousel_mb" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <% @products.where(view_type: Product.view_types[:main]).each_with_index do |product, i| %>
+            <li id="carousel_<%= i + 1 %>" data-target="#myCarousel_mb" data-slide-to="<%= i %>" class="<%= i == 0 ? 'active' : '' %>"></li>
+          <% end %>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <% @products.where(view_type: Product.view_types[:main]).each_with_index do |product, i| %>
+          <div class="item <%= i == 0 ? 'active' : '' %>">
+            <%= link_to deal_detail_products_path do %>
+              <%= image_tag(product.image_basic, alt: product.name, style: "width:100%") %>
+            <% end %>
+            <div class="carousel-caption invisible">
+              <h3><%= product.name %></h3>
+              <p><%= product.desc %></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <!-- mb용 사진_slider -->
+
+    <% @products.where(view_type: Product.view_types[:deal_upper]).each do |product| %>
+    <div class="col-md-12 main_sub_image_first mb_line_break_reverse">
+      <%= link_to deal_detail_products_path do %>
+        <%= image_tag(product.image_basic) %>
+      <% end %>
+    </div>
+    <!-- mb용 사진 딜 배너 -->
+    <div class="col-md-12 main_sub_image_first_mb mb_line_break no-gap">
+      <%= link_to deal_detail_products_path do %>
+        <%= image_tag(product.image_basic) %>
+      <% end %>
+    </div>
+    <!-- mb용 사진 딜 배너 -->
+    <% end %>
+
+    <% @products.where(view_type: Product.view_types[:deal]).each do |product| %>
+    <div class="col-md-6 main_sub_image">
+      <div class="col-md-12">
+      </div>
+    </div>
+    <% end %>
+
+    <!-- 스팟상품 -->
+    <% @products.where(view_type: Product.view_types[:regular]).each do |product| %>
+      <div class="col-md-6 card_guide no-gap">
+        <div class="col-md-5">
+          <%= link_to product_path(product), style: "text-decoration:none" do %>
+            <%= image_tag(product.image_basic.thumb, alt: "", style: "width:100%") %>
+          <% end %>
+        </div>
+        <div class="col-md-7 no-gap">
+          <%= link_to product_path(product), style: "text-decoration:none" do %>
+            <h3 class="product"><%= product.name %></h3>
+            <p class="price"><%= product.price %> won
+            </p>
+            <p class="detail">
+              <%= product.desc %>
+            </p>
+          <% end %>
+          <div class="">
+            <%= link_to "#", id: "addBasketBtn", data: {url: shopping_items_path, "product-id" => product.id} do %>
+              <%= image_tag("icon_btn_cart.png", alt: "장바구니") %>
+            <% end %>
+            <%= link_to "#", id: "addWishlistBtn", data: {url: shopping_items_path, "product-id" => product.id} do %>
+              <%= image_tag("icon_btn_wish_list.png", alt: "위시리스트") %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

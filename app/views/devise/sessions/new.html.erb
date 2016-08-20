@@ -1,0 +1,77 @@
+<div class="container sign_up sign_up_process sign_in">
+  <div class="row">
+    <div class="col-md-12 mb_line_break_reverse">
+      <h3 class="header">로그인</h3>
+    </div>
+    <div class="col-md-6">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+        <div class="form-group">
+          <%= f.label :'이메일' %><br />
+          <%= f.email_field :email, class: "form-control check",placeholder: "이메일을 입력해주세요", autofocus: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :'비밀번호' %>
+          <%= f.password_field :password, class: "form-control check", placeholder: "패스워드를 입력해주세요", autocomplete: "off" %>
+        </div>
+
+        <div class="col-md-12 no-gap actions mb_line_break_reverse">
+          <p class="find_acc"><%= link_to "비밀번호 찾기", new_password_path(resource_name) %>
+          <%= f.submit "로그인", class:"session_btn btn login_btn" %></p>
+        </div>
+
+        <div class="col-md-12 no-gap actions mb_line_break">
+          <p class="find_acc_mb"><%= link_to "비밀번호 찾기", new_password_path(resource_name) %>
+          <%= f.submit "로그인", class:"session_btn btn login_btn" %></p>
+        </div>
+      <% end %>
+    </div><!-- col-md-6 -->
+
+    <div class="col-md-6 text-center sign_sns">
+      <h4>SNS로 로그인</h4>
+      <div class="col-md-12 no-gap">
+        <%= link_to "#", class: "btn", onclick: "javascript:checkLoginState();" do %>
+          <%= image_tag "login_facebook_d.png", style: "width:100%;max-width:319px;" %>
+        <% end %>
+        </a>
+      </div>
+
+      <div class="col-md-12 no-gap">
+        <a href="#" class="btn" onclick="javascript:alert('준비 중입니다');">
+          <%= image_tag "login_naver_d.png", style: "width:100%;max-width:319px;" %>
+        </a>
+      </div>
+      <!-- <div id="naver_id_login" class="col-md-12 no-gap"></div> -->
+    </div><!-- col-md-6 -->
+
+    <div class="col-md-12 sign_in_bottom text-center">
+      <h5 class="mb_line_break_reverse">또는</h5>
+      <h4 class="mb_line_break_reverse">아직 트렌디스트에 가입하지 않으셨다면</h4>
+      <div class="col-md-12">
+        <%= link_to "회원 가입", new_user_registration_path, class: "btn session_btn_black" %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- <script src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2-min.js" charset="utf-8"></script> -->
+<script type="text/javascript">
+  // var naver_id_login = new naver_id_login("vefBL96QvcaMUeJyklAK", "http://127.0.0.1:3000/users/sign_in");
+  // var state = naver_id_login.getUniqState();
+  // naver_id_login.setButton("green", 3, 50);
+  // // naver_id_login.setDomain("127.0.0.1");
+  // // naver_id_login.setPopup(); //Popup형태의 인증 진행
+  // naver_id_login.setState(state);
+  // naver_id_login.init_naver_id_login();
+
+  // function naverSignIn() {
+  //   // 네이버 사용자 프로필 조회
+  //   naver_id_login.get_naver_userprofile("naverSignInCallback()");
+  // }
+
+  // function naverSignInCallback() {
+  //   console.log(inner_profileParams);
+  // }
+</script>

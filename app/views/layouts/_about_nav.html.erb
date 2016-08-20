@@ -1,0 +1,189 @@
+<nav class="navbar navbar-default navbar-fixed-top mega navbar-trans navbar-fw neon" style="z-index:10;">
+  <ul class="nav nav-pills nav-justified" style="font-size: 14px; width: 300px; margin: auto; left: 0; right: 40px; position: fixed; z-index: 11; top: 15px; line-height: 16px; ">
+    <li><%= link_to "DEALS", "#", onclick: "javascript:alert('준비중입니다')"%></li>
+    <li><%= link_to "INFLUENCERS", "#", onclick: "javascript:alert('준비중입니다')" %></li>
+    <li><%= link_to "ABOUT", "#", onclick: "javascript:alert('준비중입니다')" %></li>
+  </ul>
+  <div class="navbar-header page-scroll">
+    <button id="nav_toggle_visibility" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" style="border:#f8f8f8;background:#f8f8f8">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <!-- Logo -->
+    <a href="/" class="navbar-brand" id="nav_main" style="cursor:pointer;"><img style="width:40px;" class="navbar-logo" src="<%= image_url('logo_desktop.png') %>"><img style="width:40px;" class="navbar-logo_trans" src="<%= image_url('logo_w1_1.png') %>"></a>
+    <a class="navbar-brand navbar-brand_mb" id="navbar-brand_mb" style="cursor:pointer;line-height:40px;padding-top:5px;">
+      <div>
+        ABOUT
+        <div style="margin-top: -7px;margin-bottom:0px;">
+          <hr>
+        </div>
+      </div>
+      <div>
+        <img src="<%=image_url('util_btn_1.png')%>" style="display:inline-block" alt="" />
+        <img src="<%=image_url('util_btn_up_1.png')%>" style="display:inline-block" alt="" />
+      </div>
+    </a>
+  </div>
+
+  <!-- Navbar Links -->
+  <div id="nav_close" class="navbar-collapse collapse page-scroll navbar-right" style="margin-right:0px;">
+    <ul class="nav navbar-nav">
+      <li><a href="#" onclick="alert('준비중입니다.')"><img class="nav_off_scroll_1" src="<%= image_url('icn_search_1.png') %>" alt=""><img class="nav_off_scroll_1_trans" src="<%= image_url('icn_search_2.png') %>" alt=""></a></li>
+    <li><a href="#" onclick="alert('준비중입니다.')"><img src="<%= image_url('icn_wish_1.png') %>" class="nav_off_scroll_2" alt=""><img src="<%= image_url('icn_wish_2.png') %>" class="nav_off_scroll_2_trans" alt=""></a></li>
+      <li><a href="#" onclick="alert('준비중입니다.')"><img class="nav_off_scroll_3" src="<%= image_url('icn_cart_1.png') %>"alt=""><img class="nav_off_scroll_3_trans" src="<%= image_url('icn_cart_2.png') %>"alt=""></a></li>
+     <% if user_signed_in? %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "마이페이지", user_path %></li>
+            <li><%= link_to "주문내역", purchases_path %></li>
+            <li><%= link_to "로그아웃", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </li>
+        <li>
+          <%= link_to "#", id: "main_profile", class: "invisible" do %>
+            <%= image_tag current_user.image_profile, alt: "" %>
+          <% end %>
+        </li>
+      <% else %>
+        <li class="session"><%= link_to "로그인", new_user_session_path %></li>
+        <li class="session"><%= link_to "회원가입", new_user_registration_path %></li>
+      <% end %>
+    </ul><!-- / .nav .navbar-nav -->
+  </div><!--/.navbar-collapse -->
+
+  <div id="nav_mb_menu" class="navbar-collapse collapse page-scroll navbar-right navbar-collapse_mb_left" style="margin-right:0px;">
+    <ul class="nav navbar-nav">
+      <!--<li> <%= link_to "DEALS", products_path %></li>
+      <li> <%= link_to "INFLUENCERS", influencer_stores_path %></li> -->
+      <li> <%= link_to "ABOUT", about_products_path %></li>
+    </ul><!-- / .nav .navbar-nav -->
+  </div><!--/.navbar-collapse -->
+
+</nav><!-- / .navbar -->
+
+
+<style>
+.mobile-nav #nav_close .nav_off_scroll_1 {
+  display: block;
+}
+.mobile-nav #nav_close .nav_off_scroll_1_trans {
+  display: none;
+}
+.mobile-nav #nav_close .nav_off_scroll_2 {
+  display: block;
+}
+.mobile-nav #nav_close .nav_off_scroll_2_trans {
+  display: none;
+}
+.mobile-nav #nav_close .nav_off_scroll_3 {
+  display: block;
+}
+.mobile-nav #nav_close .nav_off_scroll_3_trans {
+  display: none;
+}
+.mobile-nav #nav_close .nav_off_scroll_4 {
+  background: url('util_btn_1.png');
+  width: 9px;
+  height: 7px;
+  margin-top: 5px;
+}
+.navbar-small .nav_off_scroll_1 {
+  display: block;
+}
+.navbar-small .nav_off_scroll_1_trans {
+  display: none;
+}
+.navbar-small .nav_off_scroll_2 {
+  display: block;
+}
+.navbar-small .nav_off_scroll_2_trans {
+  display: none;
+}
+.navbar-small .nav_off_scroll_3{
+  display: block;
+}
+.navbar-small .nav_off_scroll_3_trans{
+  display: none;
+}
+.navbar-small .nav_off_scroll_4{
+  background: url('util_btn_1.png');
+  width: 9px;
+  height: 7px;
+  margin-top: 5px;
+}
+.navbar-trans .nav_off_scroll_1 {
+  display: none;
+}
+.navbar-trans .nav_off_scroll_1_trans {
+  display: block;
+}
+.navbar-trans .nav_off_scroll_2 {
+  display: none;
+}
+.navbar-trans .nav_off_scroll_2_trans {
+  display: block;
+}
+.navbar-trans .nav_off_scroll_3{
+  display: none;
+}
+.navbar-trans .nav_off_scroll_3_trans{
+  display: block;
+}
+.navbar-trans .nav_off_scroll_4{
+  background: url('util_btn_2.png');
+  width: 9px;
+  height: 7px;
+  margin-top: 5px;
+}
+.navbar-trans .navbar-logo_trans {
+  display: block;
+}
+.navbar-trans .navbar-logo {
+  display: none;
+}
+.navbar-small .navbar-logo, .mobile-nav .navbar-logo {
+  display: block;
+}
+.navbar-small .navbar-logo_trans, .mobile-nav .navbar-logo_trans {
+  display: none;
+}
+.navbar-trans {
+  background-color: transparent;
+}
+</style>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    initNav();
+  });
+
+function initNav() {
+  $('#nav_toggle_visibility').on('click',function(){
+    if ($('#nav_close').hasClass('show')) {
+      $('#nav_close').removeClass('show').addClass('hide');
+    }
+    else {
+      $('#nav_close').removeClass('hide').addClass('show');
+    }
+  })
+  var image_down = $('.navbar-brand_mb').find('img').first();
+  image_down.siblings().addClass('hide');
+  $('.navbar-collapse_mb_left').addClass('hide');
+  $('.navbar-brand_mb').on('click',function(){
+    if ($('.navbar-collapse_mb_left').hasClass('show')) {
+      $('.navbar-collapse_mb_left').removeClass('show').addClass('hide');
+      image_down.siblings().removeClass('show').addClass('hide');
+      image_down.removeClass('hide').addClass('show')
+    }
+    else {
+      $('.navbar-collapse_mb_left').removeClass('hide').addClass('show');
+      image_down.removeClass('show').addClass('hide');
+      image_down.siblings().removeClass('hide').addClass('show');
+    }
+  })
+}
+</script>
+</html>
