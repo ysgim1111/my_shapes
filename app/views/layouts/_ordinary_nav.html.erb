@@ -122,7 +122,7 @@
           <a style="color:#212121" href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><%= link_to "마이페이지", user_path %></li>
-            <li><%= link_to "주문내역", user_purchase_lists_path %></li>
+            <li><%= link_to "주문조회", user_purchase_lists_path %></li>
             <li><%= link_to "로그아웃", destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
