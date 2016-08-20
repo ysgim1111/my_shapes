@@ -10,4 +10,5 @@ class InfluencerStoresProduct < ActiveRecord::Base
   belongs_to :product
 
   has_one :destination, as: :deliverable
+  has_one :shipping_tracking, as: :trackable
 end

@@ -51,7 +51,11 @@
                 <span class="tb_inf_sub"><%= influencer_stores_product.product.price %> 원</span>
               </td>
               <td class="tb_inf_prdt_price" style="width:10%;">
-                <span class="tb_inf_sub">배송중</span><br> <span class="tb_inf_sub_sub"><%= influencer_stores_product.destination.shipping_company %> <%= influencer_stores_product.destination.tracking_number %></span>
+                <span class="tb_inf_sub"><%= influencer_stores_product.status %></span><br> <span class="tb_inf_sub_sub">
+                  <% if influencer_stores_product.shipping_tracking.present? %>
+                    <%= influencer_stores_product.shipping_tracking.shipping_company %> <%= influencer_stores_product.shipping_tracking.tracking_number %>
+                  <% end %>
+                </span>
               </td>
               <td class="tb_inf_prdt_choose" style="padding-right:30px;width:25%">
                 <%= link_to "고유 링크 복사", "#", class: "btn session_btn_black"%>

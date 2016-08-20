@@ -1,3 +1,7 @@
+<br>
+<br>
+<br>
+<br>
 <%= form_for cms_purchases_path, html: {class: "form-inline", method: :get} do |f|  %>
   <div class="form-group">
     <%= label :product_name, "상품명" %>
@@ -28,21 +32,21 @@
     </tr>
   </thead>
   <tbody>
-    <% @purchase_items.each do |item| %>
+    <% @purchase_lists.each do |list| %>
       <tr>
-        <td><%= item.purchase_lists_id %></td>
-        <td><%= item.id %></td>
-        <td><%= item.purchase_date.class == String ? item.purchase_date[0..9] : item.purchase_date.strftime("%Y-%m-%d") %></td>
-        <td><%= item.nickname %><br/>(<%= item.email %>)</td>
-        <td><%= item.products_name %><br/>(<%= item.option %>)</td>
-        <td><%= item.quantity %></td>
-        <td><%= item.address %><br/><%= item.address_detail %></td>
-        <td><%= item.receiver %></td>
-        <td><%= item.phone_number %></td>
-        <td><%= text_field_tag "tracking_number_#{item.id}", item.tracking_number, data: {id: item.id} %></td>
-        <td><%= item.confirm_date %></td>
-        <td><%= select_tag "status_#{item.id}", options_for_select([["신규", "purchase"], ["배송준비", "shipping_ready"], ["배송중", "shipping"], ["배송완료", "shipping_complete"], ["구매확정", "purchased"]], item.status), data: {id: item.id} %></td>
-        <td><%= button_tag "저장", type: "button", class: "btn btn-default save-btn", data: {id: item.id} %></td>
+        <td><%= list.purchase_list_id %></td>
+        <td><%= list.purchase_item_id %></td>
+        <td><%= list.purchase_date.class == String ? list.purchase_date[0..9] : list.purchase_date.strftime("%Y-%m-%d") %></td>
+        <td><%= list.nickname %><br/>(<%= list.email %>)</td>
+        <td><%= list.products_name %><br/>(<%= list.option %>)</td>
+        <td><%= list.quantity %></td>
+        <td><%= list.address %><br/><%= list.address_detail %></td>
+        <td><%= list.receiver %></td>
+        <td><%= list.phone_number %></td>
+        <td><%= text_field_tag "tracking_number_#{list.purchase_item_id}", list.tracking_number, data: {id: list.purchase_item_id} %></td>
+        <td><%= list.confirm_date %></td>
+        <td><%= select_tag "status_#{list.purchase_item_id}", options_for_select([["신규", "purchase"], ["배송준비", "shipping_ready"], ["배송중", "shipping"], ["배송완료", "shipping_complete"], ["구매확정", "purchased"]], list.status), data: {id: list.purchase_item_id} %></td>
+        <td><%= button_tag "저장", type: "button", class: "btn btn-default save-btn", data: {id: list.purchase_item_id} %></td>
       </tr>
     <% end -%>
   </tbody>

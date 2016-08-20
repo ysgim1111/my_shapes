@@ -40,7 +40,7 @@
         <td><%= p.seller_product_code %></td>
         <td><%= p.option_id %></td>
         <td><%= p.name %>(<%= p.option_name %>)</td>
-        <td><%= button_tag p.tracking_number, type: "button", onclick: "javascript:openTracking('#{p.tracking_number}');", class: "btn btn-default" %></td>
+        <td><%= button_tag 1, type: "button", onclick: "javascript:openTracking('1');", class: "btn btn-default" %></td>
         <td><%= p.influencer_stores_product_status %>(<%= p.updated_at.strftime("%Y-%m-%d") %>)</td>
         <td><%= link_to "발송처리", edit_cms_influencer_stores_product_path(p.influencer_stores_product_id), class: "btn btn-default" %></td>
       </tr>

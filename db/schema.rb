@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160819155957) do
+ActiveRecord::Schema.define(version: 20160820042217) do
 
   create_table "address_books", force: :cascade do |t|
     t.integer  "user_id",        limit: 4,                   null: false
@@ -31,23 +31,19 @@ ActiveRecord::Schema.define(version: 20160819155957) do
   add_index "address_books", ["user_id"], name: "index_address_books_on_user_id", using: :btree
 
   create_table "destinations", force: :cascade do |t|
-    t.string   "receiver",         limit: 255,                 null: false
-    t.integer  "zonecode",         limit: 8,                   null: false
-    t.string   "address",          limit: 255,                 null: false
+    t.string   "receiver",         limit: 255, null: false
+    t.integer  "zonecode",         limit: 8,   null: false
+    t.string   "address",          limit: 255, null: false
     t.string   "address_detail",   limit: 255
     t.string   "address_type",     limit: 1
-    t.string   "phone_number",     limit: 255,                 null: false
+    t.string   "phone_number",     limit: 255, null: false
     t.string   "tel",              limit: 255
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
-    t.boolean  "default",                      default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "deliverable_id",   limit: 4
     t.string   "deliverable_type", limit: 255
-    t.string   "tracking_number",  limit: 255
     t.string   "demand_message",   limit: 255
-    t.integer  "shipping_type",    limit: 4
-    t.integer  "shipping_company", limit: 4
-    t.date     "shipping_date"
+    t.boolean  "default"
   end
 
   add_index "destinations", ["deliverable_type", "deliverable_id"], name: "index_destinations_on_deliverable_type_and_deliverable_id", using: :btree
@@ -189,6 +185,19 @@ ActiveRecord::Schema.define(version: 20160819155957) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "shipping_trackings", force: :cascade do |t|
+    t.integer  "trackable_id",     limit: 4,   null: false
+    t.string   "trackable_type",   limit: 255, null: false
+    t.string   "number",           limit: 255
+    t.integer  "shipping_type",    limit: 4
+    t.integer  "shipping_company", limit: 4
+    t.datetime "shipping_date"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "shipping_trackings", ["trackable_type", "trackable_id"], name: "index_shipping_trackings_on_trackable_type_and_trackable_id", using: :btree
 
   create_table "shopping_items", force: :cascade do |t|
     t.integer  "product_id", limit: 4

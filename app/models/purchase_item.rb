@@ -3,4 +3,6 @@ class PurchaseItem < ActiveRecord::Base
 
   belongs_to :purchase_list
   belongs_to :product
+
+  has_one :shipping_tracking, as: :trackable, dependent: :destroy
 end
