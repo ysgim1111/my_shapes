@@ -3,6 +3,7 @@ default: &default
   encoding: utf8
   pool: 5
   port: 3306
+  reconnect: false
 
 development:
   <<: *default
@@ -10,7 +11,6 @@ development:
   host: localhost
   username: root
   password:
-  reconnect: true
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -21,12 +21,10 @@ test:
   host: test.ceem6hhcaupx.ap-northeast-2.rds.amazonaws.com
   username: test
   password: 1q2w3e4r
-  reconnect: false
 
 production:
   <<: *default
-  database: test
-  host: test.ceem6hhcaupx.ap-northeast-2.rds.amazonaws.com
-  username: test
-  password: 1q2w3e4r
-  reconnect: false
+  database: <%= ENV["AURORA_DATABASE"] %>
+  host: <%= ENV["AURORA_HOST"] %>
+  username: <%= ENV["AURORA_USERNAME"] %>
+  password: <%= ENV["AURORA_PASSWORD"] %>
