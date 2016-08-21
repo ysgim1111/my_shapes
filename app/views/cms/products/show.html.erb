@@ -1,3 +1,8 @@
+<br>
+<br>
+<br>
+<br>
+<br>
 <dl class="dl-horizontal">
   <dt></dt>
   <dd>
@@ -51,4 +56,9 @@
   <dd><%= @product.as_tel %></dd>
   <dt>AS안내</dt>
   <dd><%= @product.as_info %></dd>
+  <hr>
+  <% @product.product_options.each do |option| %>
+    <dt>옵션</dt>
+    <dd><%= option.name %></dd>
+  <% end %>
 </dl>

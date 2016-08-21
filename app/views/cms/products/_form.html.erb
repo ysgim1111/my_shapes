@@ -1,3 +1,8 @@
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="form-group">
   <%= f.label :name, "상품명", class: "col-sm-2 control-label" %>
   <div class="col-sm-10">
@@ -148,9 +153,21 @@
     <%= f.text_field :as_info, class: "form-control", placeholder: "AS안내" %>
   </div>
 </div>
+<hr>
+<%= f.nested_fields_for :product_options do |field| %>
+  <div class="form-group">
+    <%= field.label :name, "옵션", class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+      <%= field.text_field :name, class: "form-control", placeholder: "옵션이름" %>
+      <%= field.remove_nested_fields_link "삭제" %>
+    </div>
+  </div>
+<% end %>
+
 <div class="form-group">
   <div class="col-sm-offset-2 col-sm-10">
     <button type="submit" class="btn btn-primary">저장</button>
     <%= link_to "뒤로", :back, class: "btn btn-default" %>
+    <%= f.add_nested_fields_link :product_options, "옵션 추가", class: "btn btn-default" %>
   </div>
 </div>

@@ -17,4 +17,6 @@ class Product < ActiveRecord::Base
   has_many :influencer_stores, through: :influencer_stores_products
   has_many :product_options, dependent: :destroy
   has_many :purchase_items
+
+  accepts_nested_attributes_for :product_options, allow_destroy: true
 end
