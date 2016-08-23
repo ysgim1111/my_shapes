@@ -31,19 +31,19 @@ ActiveRecord::Schema.define(version: 20160820042217) do
   add_index "address_books", ["user_id"], name: "index_address_books_on_user_id", using: :btree
 
   create_table "destinations", force: :cascade do |t|
-    t.string   "receiver",         limit: 255, null: false
-    t.integer  "zonecode",         limit: 8,   null: false
-    t.string   "address",          limit: 255, null: false
+    t.string   "receiver",         limit: 255,                 null: false
+    t.integer  "zonecode",         limit: 8,                   null: false
+    t.string   "address",          limit: 255,                 null: false
     t.string   "address_detail",   limit: 255
     t.string   "address_type",     limit: 1
-    t.string   "phone_number",     limit: 255, null: false
+    t.string   "phone_number",     limit: 255,                 null: false
     t.string   "tel",              limit: 255
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+    t.boolean  "default",                      default: false
     t.integer  "deliverable_id",   limit: 4
     t.string   "deliverable_type", limit: 255
     t.string   "demand_message",   limit: 255
-    t.boolean  "default"
   end
 
   add_index "destinations", ["deliverable_type", "deliverable_id"], name: "index_destinations_on_deliverable_type_and_deliverable_id", using: :btree
