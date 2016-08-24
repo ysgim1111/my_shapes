@@ -1,9 +1,12 @@
+<br>
+<br>
+<br>
+<br>
 <%= form_for cms_purchases_path, html: {class: "form-inline", method: :get} do |f|  %>
   <div class="form-group">
     <%= select_tag :status,
-      "<option value='1'>신규</option>
-       <option value='2'>배송중</option>
-       <option value='3'>배송완료</option>".html_safe,
+      "<option value='approved'>신청승인</option>
+       <option value='shipping'>배송중</option>".html_safe,
       class: "form-control", include_blank: "전체" %>
     <%= label :apply_date, "신청일" %>
     <%= text_field_tag :apply_date, params[:apply_date], class: "form-control", placeholder: "신청일" %>
@@ -24,7 +27,6 @@
       <th>신청자명(ID)</th>
       <th>신청자연락처</th>
       <th>상품번호</th>
-      <th>옵션번호</th>
       <th>상품명(옵션)</th>
       <th>송장번호</th>
       <th>상태(마지막처리일)</th>
@@ -37,12 +39,31 @@
         <td></td>
         <td><%= p.receiver %>(<%= p.email %>)</td>
         <td><%= p.phone_number %></td>
-        <td><%= p.seller_product_code %></td>
-        <td><%= p.option_id %></td>
-        <td><%= p.name %>(<%= p.option_name %>)</td>
-        <td><%= button_tag 1, type: "button", onclick: "javascript:openTracking('1');", class: "btn btn-default" %></td>
-        <td><%= p.influencer_stores_product_status %>(<%= p.updated_at.strftime("%Y-%m-%d") %>)</td>
-        <td><%= link_to "발송처리", edit_cms_influencer_stores_product_path(p.influencer_stores_product_id), class: "btn btn-default" %></td>
+        <td><%= p.id %></td>
+        <td><%= p.name %>(<%= p.option %>)</td>
+        <td><%= p.number %></td>
+        <td>
+          <% case p.influencer_stores_product_status %>
+          <% when 0 %>
+            신청함
+          <% when 1 %>
+            승인됨
+          <% when 2 %>
+            배송중
+          <% when 3 %>
+            상품적용대기중
+          <% when 4 %>
+            등록완료
+          <% when 5 %>
+            승인거절
+          <% else %>
+            알 수 없음
+          <% end %>
+          (<%= p.updated_at.strftime("%Y-%m-%d") %>)
+        </td>
+        <td>
+          <%= link_to "상태처리", cms_influencer_stores_product_edit_shipping_path(p.influencer_stores_product_id), class: "btn btn-default" %>
+        </td>
       </tr>
     <% end -%>
   </tbody>

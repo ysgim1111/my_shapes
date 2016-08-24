@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     shallow do
       resources :purchase_lists
       resources :wannabe_letters
+      resources :returns
     end
 
     collection do
@@ -62,6 +63,9 @@ Rails.application.routes.draw do
     resources :influencer_stores, :products, :users, :wannabe_letters
 
     resources :influencer_stores_products do
+      get :edit_shipping
+      put :update_shipping
+
       collection do
         get :products
         get :info_apply

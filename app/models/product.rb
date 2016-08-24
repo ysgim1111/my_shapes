@@ -6,10 +6,11 @@ class Product < ActiveRecord::Base
   mount_uploader :image_desc, ProductDescUploader
 
   enum view_type: [:regular, :main, :deal_upper, :deal]
-  enum status: [:selling, :stop, :sellout, :close]
+  enum status: [:proposal, :selling, :stop, :sellout, :close]
 
   default_scope -> { where(enable: true) }
   scope :disable, -> { where(enable: false) }
+  scope :sellable, -> { where(status: Product.statuses[:selling])  }
 
   belongs_to :user
 

@@ -42,7 +42,6 @@
       <% @influencer_stores.limit(2).each do |is| %>
         <div class="pd_adj margin_2cols col-md-6">
           <div class="col-md-12 left">
-            <a htef="#" onclick="javascript:alert('준비중')"><%= image_tag "share_30.png", class: "inf_rank_share" %></a>
             <div class="col-md-6 sub_left text-center">
               <div class="inf_rank_place"><%= is.id %>위</div>
               <%= link_to(influencer_store_path(is)) do %>
@@ -60,10 +59,12 @@
               <p class="index">유입 지수 <span class="index_number"><% is.user_point %></span> <span class="index_question"> <%= image_tag "score_help_16.png" %> </span></p>
             </div>
             <div class="col-md-12 no-gap sub_bottom text-center">
-              <% is.influencer_stores_products.each do |isp| %>
-                <img src="http://placehold.it/110x110&text=Insta1">
+              <% is.influencer_stores_products.sellable.each do |isp| %>
+                <%= link_to product_path(isp.product, influencer_store_id: is.id) do %>
+                  <%= image_tag isp.product.image_basic.thumb, style: "width: 110px; height: 110px;" %>
+                <% end %>
               <% end %>
-              <% if %>
+              <% if is.influencer_stores_products.sellable.blank? %>
                 판매 중인 상품이 없습니다
               <% end %>
             </div>
@@ -75,7 +76,6 @@
         <!-- 3rd rank strats -->
         <div class="pd_adj margin_3cols col-md-4">
           <div class="col-lg-12 rank_3cols">
-            <a href="#" onclick="javascript:alert('준비중')"><%= image_tag "share_30.png", class: "inf_rank_share" %></a>
             <div class="col-lg-6 sub_left text-center">
               <div class="inf_rank_place"><%= is.id %>위</div>
               <%= link_to(influencer_store_path(is)) do %>
@@ -83,16 +83,18 @@
               <% end %>
             </div>
             <div class="col-lg-6 sub_right">
-              <h3 class="name"><%= is.user ? is.user.nickname : "" %></h3>
+              <h3 class="name"><%= link_to is.user.nickname, influencer_store_path(is) %></h3>
               <p class="url"><%= link_to("http://trd.st/#{is.url}", influencer_store_path(is)) %></p>
               <p class="index">판매 지수 <span class="index_number"><%= is.selling_point %></span> <span class="index_question"> <%= image_tag "score_help_16.png" %> </span></p>
               <p class="index">유입 지수 </span><span class="index_number"><%= is.user_point %></span> <span class="index_question"> <%= image_tag "score_help_16.png" %> </span></p>
             </div>
             <div class="col-lg-12 no-gap sub_bottom text-center">
-              <% is.influencer_stores_products.each do |isp| %>
-                <img src="http://placehold.it/110x110&text=Insta1">
+              <% is.influencer_stores_products.sellable.each do |isp| %>
+                <%= link_to product_path(isp.product, influencer_store_id: is.id) do %>
+                  <%= image_tag isp.product.image_basic.thumb, style: "width: 110px; height: 110px;" %>
+                <% end %>
               <% end %>
-              <% if %>
+              <% if is.influencer_stores_products.sellable.blank? %>
                 판매 중인 상품이 없습니다
               <% end %>
             </div>
@@ -109,14 +111,13 @@
       <% @new_influencer_stores.each do |is| %>
       <div class="pd_adj margin_3cols new_margin_3cols col-md-4">
         <div class="col-lg-12 rank_3cols new_rank_3cols">
-          <a href="#" onclick="javascript:alert('준비중')"><%= image_tag "share_30.png", class: "inf_rank_share" %></a>
           <div class="col-lg-4 sub_left text-center">
             <%= link_to(influencer_store_path(is)) do %>
               <%= image_tag is.user ? is.user.image_profile : nil %>
             <% end %>
           </div>
           <div class="col-lg-8 sub_right">
-            <h3 class="name"><%= is.user ? is.user.nickname : "" %></h3>
+            <h3 class="name"><%= link_to is.user.nickname, influencer_store_path(is) %></h3>
             <p class="url"><%= link_to("http://trd.st/#{is.url}", influencer_store_path(is)) %></p>
           </div>
           <div class="col-lg-12 sub_bottom">

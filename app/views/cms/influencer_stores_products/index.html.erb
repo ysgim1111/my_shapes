@@ -53,13 +53,19 @@
               <td class="tb_inf_prdt_price" style="width:10%;">
                 <span class="tb_inf_sub"><%= influencer_stores_product.status %></span><br> <span class="tb_inf_sub_sub">
                   <% if influencer_stores_product.shipping_tracking.present? %>
-                    <%= influencer_stores_product.shipping_tracking.shipping_company %> <%= influencer_stores_product.shipping_tracking.tracking_number %>
+                    <%= influencer_stores_product.shipping_tracking.shipping_company %> <%= influencer_stores_product.shipping_tracking.number %>
                   <% end %>
                 </span>
               </td>
               <td class="tb_inf_prdt_choose" style="padding-right:30px;width:25%">
                 <%= link_to "고유 링크 복사", "#", class: "btn session_btn_black"%>
-                <%= link_to "사용 정보 입력", influencer_stores_product.status == "proposal_waiting" ? info_apply_cms_influencer_stores_products_path(id: influencer_stores_product) :  edit_cms_influencer_stores_product_path(influencer_stores_product), class: "btn session_btn #{'session_btn_black' if influencer_stores_product.status == 'proposal_waiting'}", disabled: influencer_stores_product.status == "proposal_waiting" ? false : true %>
+                <% if current_user.is_influencer? && influencer_stores_product.shipping? %>
+                  <%= link_to "사용 정보 입력", info_apply_cms_influencer_stores_products_path(id: influencer_stores_product), class: "btn session_btn session_btn_black" %>
+                <% elsif current_user.is_admin? || (current_user.is_influencer? && (influencer_stores_product.apply_wating? || influencer_stores_product.complete?)) %>
+                  <%= link_to "사용 정보 입력", edit_cms_influencer_stores_product_path(influencer_stores_product), class: "btn session_btn session_btn_black" %>
+                <% else %>
+                  <%= link_to "사용 정보 입력", "#", class: "btn session_btn", disabled: true %>
+                <% end %>
               </td>
             <% end %>
           </tbody>

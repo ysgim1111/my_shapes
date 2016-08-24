@@ -39,14 +39,14 @@ class Cms::PurchasesController < BaseCmsController
       products = current_user.products
     end
 
-    @samples =
-      products
-        .joins(influencer_stores_products: :destination, influencer_stores: :user)
-        .joins("left outer join product_options po on po.product_id = products.id")
-      .select("products.name, products.price, products.seller_product_code, products.image_basic
-        , influencer_stores_products.status influencer_stores_product_status, influencer_stores_products.updated_at, influencer_stores_products.id influencer_stores_product_id
-        , po.id option_id, po.name option_name
+    @samples = products
+      .joins(influencer_stores_products: [:destination, :shipping_tracking], influencer_stores: :user)
+      .select("products.id, products.name, products.price, products.seller_product_code, products.image_basic
+        , influencer_stores_products.status influencer_stores_product_status, influencer_stores_products.updated_at, influencer_stores_products.id influencer_stores_product_id, influencer_stores_products.option
         , destinations.receiver, destinations.phone_number
+        , shipping_trackings.number
         , users.email")
+
+    @samples = @samples.where.not(influencer_stores_products: {status: [ InfluencerStoresProduct.statuses[:proposal], InfluencerStoresProduct.statuses[:proposal_reject]]}) if current_user.is_seller?
   end
 end

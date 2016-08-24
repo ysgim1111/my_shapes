@@ -69,7 +69,7 @@
                   </th>
                   <td>
                     <span class="tb_inf_prdt_price tb_inf_prdt_sub_sub">배송중</span><br>
-                    <span class="tb_inf_prdt_number"><%= purchase_list.status %> <%= purchase_list.destination.tracking_number %> </span>
+                    <span class="tb_inf_prdt_number"><%= purchase_list.status %> <%= purchase_list.purchase_items.first.shipping_tracking.number %> </span>
                   </td>
                 </tr>
                 <tr>

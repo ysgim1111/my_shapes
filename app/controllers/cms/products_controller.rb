@@ -1,8 +1,13 @@
 class Cms::ProductsController < BaseCmsController
-  authorize_actions_for Product, only: [:create]
+  authorize_actions_for Product
 
   def index
-    @products = Product.order(id: :desc)
+    if current_user.is_admin?
+      @products = Product.order(id: :desc)
+    else
+      @products = current_user.products.order(id: :desc)
+    end
+
     authorize_action_for(@products)
   end
 
@@ -11,7 +16,7 @@ class Cms::ProductsController < BaseCmsController
   end
 
   def create
-    Product.create(product_params)
+    Product.create(create_params)
 
     redirect_to action: :index
   end
@@ -40,7 +45,7 @@ class Cms::ProductsController < BaseCmsController
 
   private
 
-  def product_params
+  def create_params
     params.require(:product).permit(
       :name, :desc, :price, :view_type, :image_basic, :image_desc,
       :stack, :manufacturer, :brand, :made_in, :date_of_manufacturing,
