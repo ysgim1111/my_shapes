@@ -47,7 +47,11 @@ class Cms::ProductsController < BaseCmsController
 
   def create_params
     params.require(:product).permit(
-      :user_id, :name, :desc, :price, :view_type, :image_basic, :image_desc, :stack, :manufacturer, :brand, :made_in, :date_of_manufacturing, :use_by_date, :public_phrase, :minimum_purchase, :maximum_purchase, :seller_product_code, :sell_by_date, :status, :return_shipping_expenses, :exchange_shipping_expenses, :return_address, :as_tel, :as_info, :discount, :shipping_expenses,
+      :name, :desc, :price, :view_type, :image_basic, :image_desc,
+      :stack, :manufacturer, :brand, :made_in, :date_of_manufacturing,
+      :use_by_date, :public_phrase, :minimum_purchase, :maximum_purchase,
+      :seller_product_code, :sell_by_date, :status, :return_shipping_expenses,
+      :exchange_shipping_expenses, :return_address, :as_tel, :as_info, :discount, :shipping_expenses,
       product_options_attributes: [:id, :name, :_destroy]
     )
   end
