@@ -15,15 +15,15 @@
   </div>
   <div class="col-md-12">
     <ul class="nav navmenu-nav">
-      <li class="<%= 'ui-tabs-active ui-state-active' if current_page?(user_purchase_lists_path(current_user)) %>"><%= link_to "주문 조회", user_purchase_lists_path %></li>
-      <li><a href="#tabs-2" onclick="javascript: alert('준비 중이니다.')">교환/반품</a></li>
+      <li class="<%= 'ui-tabs-active ui-state-active' if current_page?(user_purchase_lists_path) %>"><%= link_to "주문 조회", user_purchase_lists_path %></li>
+      <li class="<%= 'ui-tabs-active ui-state-active' if current_page?(user_returns_path) %>"><%= link_to "교환/반품", user_returns_path %></li>
+      <li class="<%= 'ui-tabs-active ui-state-active' if current_page?(user_path(current_user)) %>"><%= link_to "회원 정보 관리", user_path(current_user) %></li>
+      <li class="<%= 'ui-tabs-active ui-state-active' if current_page?(address_book_user_path) %>"><%= link_to "배송지 관리", address_book_user_path %></li>
       <li><a href="#tabs-3" onclick="javascript: alert('준비 중이니다.')">쿠폰</a></li>
       <li><a href="#tabs-3" onclick="javascript: alert('준비 중이니다.')">장바구니</a></li>
       <li><a href="#tabs-3" onclick="javascript: alert('준비 중이니다.')">위시 리스트</a></li>
       <li><a href="#tabs-3" onclick="javascript: alert('준비 중이니다.')">상품 문의</a></li>
       <li><a href="#tabs-3" onclick="javascript: alert('준비 중이니다.')">1:1문의</a></li>
-      <li class="<%= 'ui-tabs-active ui-state-active' if current_page?(user_path(current_user)) %>"><%= link_to "회원 정보 관리", user_path(current_user) %></li>
-      <li class="<%= 'ui-tabs-active ui-state-active' if current_page?(address_book_user_path) %>"><%= link_to "배송지 관리", address_book_user_path %></li>
       <li><a href="#tabs-4" onclick="javascript: alert('준비 중이니다.')">인플루언서 신청</a></li>
     </ul>
   </div>

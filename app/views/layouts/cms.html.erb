@@ -66,8 +66,7 @@
                 정산 관리 <span class="caret"></span>
               <% end %>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">정산관리 메뉴1</a></li>
-                <li><a href="#">정산관리 메뉴2</a></li>
+                <li><a href="#"></a></li>
               </ul>
             </li>
           <% if current_user.can_update?(InfluencerStore) %>
@@ -76,8 +75,8 @@
                 스토어 관리 <span class="caret"></span>
               <% end %>
               <ul class="dropdown-menu" role="menu">
-                <% if current_user.is_admin? || current_user.is_influencer? %>
-                  <li><%= link_to "스토어추가", new_cms_influencer_store_path %></li>
+                <% if current_user.is_admin? %>
+                  <li><%= link_to "스토어들보기", cms_influencer_stores_path %></li>
                 <% elsif current_user.is_influencer? && current_user.influencer_store %>
                   <li>
                     <%= link_to "내 스토어 보기", cms_influencer_store_path(current_user.influencer_store) %>
