@@ -31,7 +31,7 @@ class Cms::ProductsController < BaseCmsController
   end
 
   def update
-    Product.find(params[:id]).update_attributes(product_params)
+    Product.find(params[:id]).update_attributes(create_params)
 
     redirect_to action: :show
   end
