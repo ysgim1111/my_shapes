@@ -40,7 +40,7 @@
           <tbody>
             <tr>
               <th class="tb_inf_prdt_image" scope="row">
-                 <%=image_tag @influencer_stores_product.product.image_basic, style: 'width:120px;height:120px;' %>
+                 <%=image_tag @influencer_stores_product.product.image_basic.thumb, style: 'width:120px;height:120px;' %>
               </th>
               <td class="tb_inf_prdt_brand"><%= @influencer_stores_product.product.brand %></td>
               <td class="tb_inf_prdt_name"><%= @influencer_stores_product.product.name %></td>

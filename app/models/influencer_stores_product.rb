@@ -6,6 +6,8 @@ class InfluencerStoresProduct < ActiveRecord::Base
 
   enum status: [:proposal, :approved, :shipping, :apply_wating, :complete, :proposal_reject]
 
+  scope :sellable, -> { where(status: InfluencerStoresProduct.statuses[:complete]) }
+
   belongs_to :influencer_store
   belongs_to :product
 
