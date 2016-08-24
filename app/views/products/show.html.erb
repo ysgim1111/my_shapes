@@ -1,31 +1,34 @@
-<div class="pdt_detail">
-  <div class="container top">
-    <div class="row">
-      <div class="col-md-3 col-md-offset-1 feed_content mb_line_break_reverse">
-        <%= image_tag @product.influencer_stores.first.user.image_profile, style: "width:100%;max-width:300px", alt: "" %>
-      </div>
-      <div class="col-md-8 feed_content_profile">
-          <div class="col-md-1 col-xs-3 text-left feed_content_profile_left no-gap">
-            <%= image_tag @product.influencer_stores.first.user.image_profile.thumb, style: "border-radius:100%;width:60px;height:60px;margin-top:15px;", alt: "" %>
+<% if @product.influencer_stores.present? %>
+  <div class="pdt_detail">
+    <div class="container top">
+      <div class="row">
+        <div class="col-md-3 col-md-offset-1 feed_content mb_line_break_reverse">
+          <%= image_tag @product.influencer_stores.first.user.image_profile, style: "width:100%;max-width:300px", alt: "" %>
+        </div>
+        <div class="col-md-8 feed_content_profile">
+            <div class="col-md-1 col-xs-3 text-left feed_content_profile_left no-gap">
+              <%= image_tag  @product.influencer_stores.first.user.image_profile.thumb, style: "border-radius:100%;width:60px;height:60px;margin-top:15px;", alt: "" %>
+            </div>
+            <div class="col-md-11 col-xs-9 feed_content_profile_right">
+              <h3><%= @product.influencer_stores.first.user.nickname %></h3>
+              <p class="detail">
+              <%= @product.influencer_stores.first.url %>
+              </p>
+            </div>
+            <div class="col-md-12 col-xs-12 blob" style="background:url('<%=image_url('blob_2.png')%>');">
+              <p class="blob_comment"><%= @product.influencer_stores_products.where(influencer_store_id: @product.influencer_stores.first.id).first.comment %></p>
+            </div>
+        </div>
+        <div class="mb_line_break">
+          <div class="col-md-3 col-md-offset-1 feed_content no-gap_mb">
+            <%= image_tag @product.influencer_stores.first.user.image_profile, style: "width:100%;", alt: "" %>
           </div>
-          <div class="col-md-11 col-xs-9 feed_content_profile_right">
-            <h3><%= @product.influencer_stores.first.user.nickname %></h3>
-            <p class="detail">
-            <%= @product.influencer_stores.first.url %>
-            </p>
-          </div>
-          <div class="col-md-12 col-xs-12 blob" style="background:url('<%=image_url('blob_2.png')%>');">
-            <p class="blob_comment"><%= @product.influencer_stores_products.where(influencer_store_id: @product.influencer_stores.first.id).first.comment %></p>
-          </div>
-      </div>
-      <div class="mb_line_break">
-        <div class="col-md-3 col-md-offset-1 feed_content no-gap_mb">
-          <%= image_tag @product.influencer_stores.first.user.image_profile, style: "width:100%;", alt: "" %>
         </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
+
 <div class="container deal_header">
   <div class="row">
     <div class="col-md-6" style="margin-top:50px;">
