@@ -935,7 +935,52 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
   background-color: #EEE
 }
 
-
+.purc_complete .purc_complete_header {
+  font-size: 28px;
+  color: #212121;
+  letter-spacing: 0px;
+}
+.purc_complete .purc_complete_bottom {
+  font-size: 18px;
+  color: #212121;
+  letter-spacing: 0px;
+  line-height: 35px;
+  margin-bottom: 60px;
+}
+.purc_complete .purc_info {
+  border: 1px solid #B2B2B2;
+  border-radius: 2px;
+  padding: 20px 30px;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+.purc_complete .purc_info .purc_info_header {
+ font-size: 16px;
+ color: #212121;
+ letter-spacing: -0.63px;
+ margin-bottom: 20px;
+}
+.purc_complete .purc_info .purc_info_spec{
+  font-size: 16px;
+  color: #212121;
+  letter-spacing: -0.5px;
+  line-height: 23px;
+}
+.purc_complete .purc_info .purc_info_spec:last-child{
+  white-space: pre-wrap;
+}
+.purc_complete .purc_info .purc_info_spec > span{
+  font-weight: 300;
+  letter-spacing: 0px;
+  line-height: 23px;
+  margin-left: 13px;
+}
+.form-group.long_height label {
+  padding-top:13px;
+}
+.form-group.long_height .form-control {
+  height: 48px;
+}
 /* purchase ready ends */
 
 
@@ -1796,6 +1841,94 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
 .table.tb_exchg_nested > tbody > tr:last-child > td, .table.tb_exchg_nested > tbody > tr:last-child > th {
   border-bottom: 1px solid #D4D4D4;
 }
+.table.tb_mp_wnb > tbody > tr:last-child > td {
+  padding-left: 25px;
+  padding-right: 25px;
+  border-left: 1px solid #b2b2b2;
+  border-right: 1px solid #b2b2b2;
+}
+.my_page_wnb_letter .search_inf {
+  margin-bottom:0px;
+  margin-left:0px;
+  margin-right:0px;
+}
+.my_page_wnb_letter .find_inf {
+  background: #F7F7F7;
+  border-radius: 4px;
+  padding: 20px 15px;
+}
+.my_page_wnb_letter .find_inf .find_inf_spec .find_inf_spec_header {
+  padding:20px 15px;
+}
+.my_page_wnb_letter .find_inf .find_inf_spec .find_inf_spec_header .inf_spec_name, .my_page_wnb_letter .find_inf .find_inf_spec .find_inf_spec_header .inf_spec_id {
+  line-height: 40px;
+  font-size: 16px;
+  color: #262626;
+  letter-spacing: 0px;
+}
+.my_page_wnb_letter .find_inf .find_inf_spec.active .find_inf_spec_header,.my_page_wnb_letter .find_inf .find_inf_spec:hover .find_inf_spec_header {
+  background: #E0E0E0;
+  border-radius: 4px;
+}
+.my_page_wnb_letter .find_inf .inf_pagination >ul>li {
+  display: inline-block;
+  padding: 10px;
+}
+.my_page_wnb_letter .find_inf .inf_pagination >ul>li>a {
+  font-size: 14px;
+  color: #262626;
+  letter-spacing: 0px;
+}
+.my_page_wnb_letter .writing_letter {
+  margin-top: 30px;
+}
+.my_page_wnb_letter .writing_letter .profile {
+  margin-bottom:15px;
+}
+.my_page_wnb_letter .writing_letter .profile > img {
+  display: inline-block;
+  width:40px;height:40px;
+}
+.my_page_wnb_letter .writing_letter .profile > p {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 14.39px;
+  color: #212121;
+  letter-spacing: -0.48px;
+  margin-left:10px;
+}
+.my_page_wnb_letter .writing_letter_complete .your_letter {
+  padding: 15px 20px;
+  background: #F9F9F9;
+  border-radius: 5.19px;
+}
+.my_page_wnb_letter .writing_letter_complete .reply {
+  padding: 15px 20px;
+  background: #E0FCC4;
+  border-radius: 5.19px;
+}
+.my_page_wnb_letter .writing_letter_complete .reply_yet {
+  padding: 15px 20px;
+  background: #F9F9F9;
+  border-radius: 5.19px;
+}
+.my_page_wnb_letter .writing_letter_complete .reply_yet>p {
+  font-size: 16px;
+  color: #989898;
+  letter-spacing: -0.54px;
+  line-height: 27px;
+  margin-bottom:0px;
+}
+.my_page_wnb_letter .writing_letter_complete .your_letter>p,.my_page_wnb_letter .writing_letter_complete .reply>p {
+  font-size: 16px;
+  color: #212121;
+  letter-spacing: -0.54px;
+  line-height: 27px;
+  margin-bottom:0px;
+}
+
+
+
 /* mypage ends */
 
 
