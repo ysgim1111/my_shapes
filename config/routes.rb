@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   resource :user, only: [:show, :update] do
     shallow do
-      resources :purchase_lists
+      resources :purchase_lists do
+        get :tracking, on: :collection
+      end
+
       resources :wannabe_letters
       resources :returns
     end
@@ -84,4 +87,5 @@ Rails.application.routes.draw do
   end
 
   get ':url', to: 'influencer_stores#mapping'
+
 end
