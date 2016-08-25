@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
   # before_filter :authenticate_user!
+
   rescue_from ActiveRecord::RecordNotFound do |e|
-    redirect_to products_path, flash: {error: "상품을 찾을 수 없습니다"}
+    redirect_to request.referrer.presence || root_path, flash: {error: "상품을 찾을 수 없습니다"}
   end
 
   def index
