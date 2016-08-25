@@ -49,6 +49,8 @@ Rails.application.routes.draw do
       get :brand_cms_7
       get :brand_cms_8
       get :brand_cms_9
+      get :complete_modified
+      get :user_info_letters
     end
   end
 
