@@ -7,7 +7,7 @@ class InfluencerStoresController < ApplicationController
 
   def show
     @influencer_store = InfluencerStore.find(params[:id])
-    @influencer_stores_products = @influencer_store ? @influencer_store.influencer_stores_products.sellable : []
+    @influencer_stores_products = @influencer_store ? @influencer_store.influencer_stores_products.sellable.select{ |isp| isp.product.selling? } : []
   end
 
   def mapping

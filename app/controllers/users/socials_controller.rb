@@ -3,7 +3,9 @@ class Users::SocialsController < Devise::RegistrationsController
     @user = User.find_with_update_or_create(params)
 
     if @user.persisted?
-      sign_in_and_redirect @user, event: :authentication
+      sign_in @user, event: :authentication
+      render js: "window.location = '#{session[:previous_url] || root_path}'"
+      return
     else
       redirect_to new_user_registration_url
     end

@@ -1,14 +1,10 @@
 function checkLoginState() {
-  console.log('checkLoginState');
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
   });
 }
 
 function statusChangeCallback(response) {
-  console.log('statusChangeCallback');
-  console.log(response);
-
   if (response.status === 'connected') {
     sendUserAccessInfo(response.authResponse);
   } else if (response.status === 'not_authorized') {
@@ -21,16 +17,14 @@ function statusChangeCallback(response) {
 }
 
 function sendUserAccessInfo(response) {
-  console.log('Welcome!  Fetching your information.... ');
-
   FB.api('/me?fields=id,name,email', function(userInfo) {
     if (userInfo.hasOwnProperty('email')) {
       $.ajax({
         url: '/facebook',
         method: 'post',
         data: userInfo
-      }).done(function() {
-        location.reload();
+      }).fail(function(response) {
+        console.log(response);
       });
     } else {
       alert('not permited email');
