@@ -1,6 +1,11 @@
 <% flash.each do |type, message| %>
-  <div class="alert <%= bootstrap_class_for(type) %> alert-dismissable fade in main_alert">
+  <div class="alert <%= bootstrap_class_for(type) %> alert-dismissable  main_alert fade in">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     <%= message %>
   </div>
+  <script type="text/javascript">
+    window.setTimeout(function() {
+      $(".alert").fadeOut();
+    }, 3000);
+  </script>
 <% end %>
