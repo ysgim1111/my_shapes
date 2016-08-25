@@ -114,9 +114,9 @@
     document.getElementById('zonecode').value = zonecode;
     document.getElementById('address').value = address;
     document.getElementById('address_detail').value = address_detail;
-    document.getElementById('phone_number1').value = phone_number.split('-')[0];
-    document.getElementById('phone_number2').value = phone_number.split('-')[1];
-    document.getElementById('phone_number3').value = phone_number.split('-')[2];
+    document.getElementById('phone_number1').value = phone_number.split('-')[0] || '';
+    document.getElementById('phone_number2').value = phone_number.split('-')[1] || '';
+    document.getElementById('phone_number3').value = phone_number.split('-')[2] || '';
     document.getElementById('receiver').value = receiver;
     document.getElementById('address_book_name').value = name;
     document.getElementById('address_book_id').value = address_book_id;

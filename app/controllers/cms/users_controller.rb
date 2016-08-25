@@ -27,7 +27,7 @@ class Cms::UsersController < BaseCmsController
     user = User.find(params[:id])
     user.update_attributes(user_update_params)
 
-    user.influencer_store = InfluencerStore.create(url: user.nickname) if user.is_influencer? && user.influencer_store.blank? 
+    user.influencer_store = InfluencerStore.create(url: user.nickname) if user.is_influencer? && user.influencer_store.blank?
 
     redirect_to action: :show
   end
@@ -46,6 +46,6 @@ class Cms::UsersController < BaseCmsController
   end
 
   def user_create_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:nickname, :email, :password)
   end
 end
