@@ -36,37 +36,39 @@
         <table class="table table-hover tb_inf_prdt" style="border-collapse: separate;border-spacing: 0 20px;">
           <tbody>
             <% @influencer_stores_products.each do |influencer_stores_product| %>
-              <th class="tb_inf_prdt_image" scope="row">
-                 <%=image_tag influencer_stores_product.product.image_basic.thumb, style: 'width:120px;height:120px;' %>
-               </th>
-              <td class="tb_inf_prdt_name text-left" style="width:20%">
-                <span class="tb_inf_sub_sub">컨버스</span><br>
-                <%= influencer_stores_product.product.name %> <br>
-                <span class="tb_inf_sub_sub"><%= influencer_stores_product.product.id %></span>
-              </td>
-              <td class="tb_inf_prdt_number" style="width:10%">
-                <span class="tb_inf_sub">신청일</span><br> <span class="tb_inf_sub_sub"><%= influencer_stores_product.created_at.strftime("%Y년 %m월 %d일") %></span>
-              </td>
-              <td class="tb_inf_prdt_number" style="width:10%">
-                <span class="tb_inf_sub"><%= influencer_stores_product.product.price %> 원</span>
-              </td>
-              <td class="tb_inf_prdt_price" style="width:10%;">
-                <span class="tb_inf_sub"><%= influencer_stores_product.status %></span><br> <span class="tb_inf_sub_sub">
-                  <% if influencer_stores_product.shipping_tracking.present? %>
-                    <%= influencer_stores_product.shipping_tracking.shipping_company %> <%= influencer_stores_product.shipping_tracking.number %>
+              <tr>
+                <th class="tb_inf_prdt_image" scope="row">
+                   <%=image_tag influencer_stores_product.product.image_basic.thumb, style: 'width:120px;height:120px;' %>
+                </th>
+                <td class="tb_inf_prdt_name text-left" style="width:20%">
+                  <span class="tb_inf_sub_sub">컨버스</span><br>
+                  <%= influencer_stores_product.product.name %> <br>
+                  <span class="tb_inf_sub_sub"><%= influencer_stores_product.product.id %></span>
+                </td>
+                <td class="tb_inf_prdt_number" style="width:10%">
+                  <span class="tb_inf_sub">신청일</span><br> <span class="tb_inf_sub_sub"><%= influencer_stores_product.created_at.strftime("%Y년 %m월 %d일") %></span>
+                </td>
+                <td class="tb_inf_prdt_number" style="width:10%">
+                  <span class="tb_inf_sub"><%= influencer_stores_product.product.price %> 원</span>
+                </td>
+                <td class="tb_inf_prdt_price" style="width:10%;">
+                  <span class="tb_inf_sub"><%= influencer_stores_product.status %></span><br> <span class="tb_inf_sub_sub">
+                    <% if influencer_stores_product.shipping_tracking.present? %>
+                      <%= influencer_stores_product.shipping_tracking.shipping_company %> <%= influencer_stores_product.shipping_tracking.number %>
+                    <% end %>
+                  </span>
+                </td>
+                <td class="tb_inf_prdt_choose" style="padding-right:30px;width:25%">
+                  <%= link_to "고유 링크 복사", "#", class: "btn session_btn_black"%>
+                  <% if current_user.is_influencer? && influencer_stores_product.shipping? %>
+                    <%= link_to "사용 정보 입력", info_apply_cms_influencer_stores_products_path(id: influencer_stores_product), class: "btn session_btn session_btn_black" %>
+                  <% elsif current_user.is_admin? || (current_user.is_influencer? && (influencer_stores_product.apply_wating? || influencer_stores_product.complete?)) %>
+                    <%= link_to "사용 정보 입력", edit_cms_influencer_stores_product_path(influencer_stores_product), class: "btn session_btn session_btn_black" %>
+                  <% else %>
+                    <%= link_to "사용 정보 입력", "#", class: "btn session_btn", disabled: true %>
                   <% end %>
-                </span>
-              </td>
-              <td class="tb_inf_prdt_choose" style="padding-right:30px;width:25%">
-                <%= link_to "고유 링크 복사", "#", class: "btn session_btn_black"%>
-                <% if current_user.is_influencer? && influencer_stores_product.shipping? %>
-                  <%= link_to "사용 정보 입력", info_apply_cms_influencer_stores_products_path(id: influencer_stores_product), class: "btn session_btn session_btn_black" %>
-                <% elsif current_user.is_admin? || (current_user.is_influencer? && (influencer_stores_product.apply_wating? || influencer_stores_product.complete?)) %>
-                  <%= link_to "사용 정보 입력", edit_cms_influencer_stores_product_path(influencer_stores_product), class: "btn session_btn session_btn_black" %>
-                <% else %>
-                  <%= link_to "사용 정보 입력", "#", class: "btn session_btn", disabled: true %>
-                <% end %>
-              </td>
+                </td>
+              </tr>
             <% end %>
           </tbody>
         </table>
