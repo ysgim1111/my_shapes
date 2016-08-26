@@ -16,11 +16,12 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    PurchaseList.find(params["purchase_list_id"]).update(status: "ready")
+    PurchaseList.find(params["merchant_uid"]).update(status: "ready")
 
     purchase_list = PurchaseList.find(params["merchant_uid"])
     purchase_list.user = current_user
     purchase_list.purchase_result = PurchaseResult.new(iamport_pg_param)
+    purchase_list.destination = Destination.new(destination_param)
     purchase_list.status = PurchaseList.statuses[:complete]
     purchase_list.save!
 
@@ -59,5 +60,9 @@ class PurchasesController < ApplicationController
 
   def address_book_param
     params.permit(:receiver, :name, :phone_number, :zonecode, :address, :address_detail, :default)
+  end
+
+  def destination_param
+    params.permit("receiver", "demand_message", "receiver", "address", "address_detail", "zonecode", "phone_number")
   end
 end
