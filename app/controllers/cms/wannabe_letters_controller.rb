@@ -8,7 +8,7 @@ class Cms::WannabeLettersController < BaseCmsController
   def update
     if params[:status].present?
       wannabe_letter = WannabeLetter.find(params[:id])
-      wannabe_letter.update(status: params[:status])
+      wannabe_letter.update(status: params[:status], reply: params[:reply])
     elsif params[:reply].present?
       wannabe_letter = WannabeLetter.find(params[:id])
       wannabe_letter.update(reply: params[:reply])
