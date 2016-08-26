@@ -16,16 +16,20 @@ class PurchasesController < ApplicationController
   end
 
   def create
+    PurchaseList.find(params["purchase_list_id"]).update(status: "ready")
+
     purchase_list = PurchaseList.find(params["merchant_uid"])
-    purchase_list.status = "comeplete"
     purchase_list.user = current_user
     purchase_list.purchase_result = PurchaseResult.new(iamport_pg_param)
-    purcahse_list.influencer_store.inrement!(:selling_point)
+    purchase_list.status = PurchaseList.statuses[:complete]
     purchase_list.save!
+
+    purchase_list.influencer_store.increment!(:selling_point) if purchase_list.influencer_store
 
     render json: params
   rescue => e
-    purcahse_list.update(status: "fail")
+    PurchaseList.find(params["merchant_uid"]).update(status: "fail")
+    render json: {message: e.message}, status: 400
   end
 
   def complete

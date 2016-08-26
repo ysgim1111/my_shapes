@@ -111,7 +111,7 @@
         </div>
         <div class="col-md-12 pay_method" style="padding-left:15px;padding-right:15px;">
           <p>*결제 수단</p>
-          <div class="pay_method_box pay_method_card">
+          <div class="pay_method_box pay_method_card pay_method_selected">
             <p>신용 카드</p>
           </div>
 
@@ -181,6 +181,7 @@
       }, function(rsp) {
         if ( rsp.success ) {
           rsp["demand_message"] = $('#demand_message').val();
+          rsp["purchase_list_id"] = '<%= @purchase_list.id %>';
 
           $.ajax({
             url: '/purchases',
@@ -188,6 +189,9 @@
             data: rsp
           }).done(function(res) {
             location.href = '/purchases/complete?purchase_list_id=' + '<%= @purchase_list.id %>' + '&buyer_addr=' + res.buyer_addr + '&buyer_postcode=' + res.buyer_postcode + '&pay_method=' + res.pay_method + '&buyer_name=' + res.buyer_name;
+          }).fail(function(res){
+            console.log(res);
+            alert('결제에 실패하였습니다.');
           });
         } else {
           var msg = '결제에 실패하였습니다.';
