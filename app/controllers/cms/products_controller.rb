@@ -13,6 +13,7 @@ class Cms::ProductsController < BaseCmsController
 
   def new
     @product = Product.new
+    @product_options = @product.product_options.build
   end
 
   def create
