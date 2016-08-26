@@ -1,14 +1,6 @@
 class PurchasesController < ApplicationController
   before_filter :authenticate_user!
 
-  def index
-    @purchase_lists = current_user.purchase_lists
-  end
-
-  def show
-    @purchase_list = PurchaseList.find(params[:id])
-  end
-
   def new
     @purchase_list = current_user.purchase_lists.new(purchase_list_params)
     @purchase_list.purchase_items.new(purchase_item_params)

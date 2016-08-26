@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :shopping_items, only: [:index, :create, :destroy]
   resources :wishlist_items, only: [:index, :create, :destroy]
 
-  resources :purchases, only: [:index, :new, :create, :show] do
+  resources :purchases, only: [:new, :create] do
     collection do
       post :save_post
       get :complete
@@ -49,8 +49,6 @@ Rails.application.routes.draw do
       get :brand_cms_7
       get :brand_cms_8
       get :brand_cms_9
-      get :complete_modified
-      get :user_info_letters
     end
   end
 
