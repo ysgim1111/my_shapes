@@ -192,7 +192,7 @@
             method: 'post',
             data: rsp
           }).done(function(res) {
-            location.href = '/purchases/complete?purchase_list_id=' + '<%= @purchase_list.id %>' + '&buyer_addr=' + res.buyer_addr + '&buyer_postcode=' + res.buyer_postcode + '&pay_method=' + res.pay_method + '&buyer_name=' + res.buyer_name;
+            location.href = '/purchases/complete?purchase_list_id=<%= @purchase_list.id %>';
           }).fail(function(res){
             console.log(res);
             alert('결제 처리에 실패하였습니다. ');

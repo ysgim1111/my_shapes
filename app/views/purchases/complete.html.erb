@@ -1,101 +1,30 @@
-<div class="container">
-  <div class="row" style="padding-bottom:50px;">
-    <div class="col-md-12">
-      <div class="text-center" style="padding-top:50px;">
-        <img src="<%= image_url('about_sublogo_b.png') %>" alt=""/>
-        <h1 style="font-family: 'Noto Sans KR', sans-serif;margin-bottom:40px;font-weight:inherit" class="complete_head text-center">결제가 완료되었습니다</h1>
-      </div>
-      <% @purchase_list.purchase_items.each do |item| %>
-      <div class="col-md-6 col-md-offset-3 card_guide no-gap">
-        <div class="col-md-5">
-          <%= image_tag(item.product.image_basic, alt: "", style: "width:100%") %>
-        </div>
-        <div class="col-md-7 no-gap">
-          <h3 class="product"><%= item.product.name %></h3>
-          <p class="price"><%= item.product.price %> won
-          </p>
-          <p class="detail">
-            <%= item.product.desc %>
-          </p>
-        </div>
-      </div>
-      <% end %>
-      <div class="col-md-12 no-gap">
-        <table class="tbl_basic tbl_type_basic">
-          <h5 class="product_header">결제 정보</h5>
-          <tbody>
-            <tr class="fir">
-              <th>주소</th>
-              <td><%= params[:buyer_addr] %></td>
-              <th>우편번호</th>
-              <td><%= params[:buyer_postcode] %></td>
-            </tr>
-            <tr>
-              <th>구매자명</th>
-              <td><%= params[:buyer_name] %></td>
-              <th>상품명</th>
-              <td><%= params[:name] %></td>
-            </tr>
-            <tr>
-              <th>
-                결제방식
-              </th>
-              <td>
-                <%= params[:pay_method] %>
-              </td>
-              <th>결제금액</th>
-              <td><%= params[:pay_amount] %>원</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-md-12 no-gap">
-        <h5 class="product_header">LEEHI님의 다른 상품</h5>
-      </div>
-      <div class="col-md-6 card_guide no-gap">
-        <div class="col-md-5">
-          <%= image_tag("http://www.ygeshop.com/shopimages/ygnext/0020100000102.jpg?07181656", alt: "", style: "width:100%") %>
-        </div>
-        <div class="col-md-7 no-gap">
-          <h3 class="product">[SEOULITE] LEEHI T-SHIRTS</h3>
-          <p class="price">28,000 won
-          </p>
-          <p class="detail">
-            이하이 MD의 신규 굿즈 2 - LEEHI T-SHIRTS
-          </p>
-          <div class="">
-            <a href="#"><%= image_tag("icon_btn_cart.png", alt: "") %></a>
-            <a href="#"><%= image_tag("icon_btn_wish_list.png", alt: "") %></a>
-          </div>
-        </div>
+<div class="container sign_up sign_up_process sign_in purc_complete">
+  <div class="row">
+    <div class="col-md-12 mb_line_break_reverse">
+      <h3 class="header">주문 / 결제</h3>
+    </div>
+
+    <div class="col-md-6 col-md-offset-3 no-gap" style="border-right:none;">
+      <h3 class="purc_complete_header text-center">주문이 완료되었습니다</h3>
+      <div class="col-md-10 col-md-offset-1 purc_info">
+        <h3 class="purc_info_header">[<%= @purchase_list.purchase_items.first.product.brand %>] <%= @purchase_list.purchase_items.first.product.name %> <%= @purchase_list.purchase_items.size > 1 ? "외 #{purchase_list.purchase_items.size} 건" : "" %></h3>
+        <p class="purc_info_spec">주문 번호 <span><%= @purchase_list.id %></span></p>
+        <p class="purc_info_spec">결제 금액 <span><%= @purchase_list.purchase_items.inject(0){ |sum, item| sum += item.product.price } %>원</span></p>
+        <p class="purc_info_spec">주문일  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><%= @purchase_list.created_at.strftime("%Y년 %m월 %d일") %></span></p>
+
       </div>
 
-      <div class="col-md-6 card_guide no-gap">
-        <div class="col-md-5">
-          <%= image_tag("http://www.ygeshop.com/shopimages/ygnext/0020100000112.jpg?07181656", alt: "", style: "width:100%") %>
-        </div>
-        <div class="col-md-7 no-gap">
-          <h3 class="product">[SEOULITE] LEEHI ECOBAG</h3>
-          <p class="price">25,000 won
-          </p>
-          <p class="detail">
-            이하이 MD의 신규 굿즈 3 - LEEHI ECOBAG
-          </p>
-          <div class="">
-            <a href="#"><%= image_tag("icon_btn_cart.png", alt: "") %></a>
-            <a href="#"><%= image_tag("icon_btn_wish_list.png", alt: "") %></a>
-          </div>
-        </div>
+      <div class="col-md-12">
+        <h3 class="purc_complete_bottom text-center">주문하신 상품을 판매하는 인플루언서 중 한 명에게<br>워너비 레터를 남기실 수 있습니다.</h3>
       </div>
-      <div class="col-md-6" style="padding-left:0px;margin-top:15px;">
-          <a href="#" class="btn btn-default" style="width:100%;background-color: #212121;
-width: 100%;
-color: #ffffff;
-padding: 10px 15px;"><i class="fa fa-user"></i> 마이페이지</a>
+
+      <div class="col-md-6 col-md-offset-3">
+        <%= link_to '워너비레터 남기기','#', class: "btn session_btn_black width_full" %>
       </div>
-      <div class="col-md-6" style="padding-right:0px;margin-top:15px;">
-          <a href="/" class="btn btn-default" style="width:100%;padding: 10px 15px;"><i class="fa fa-undo"></i> 메인으로</a>
-      </div>
-    </div>
+
+
+
+    </div><!-- col-md-6 -->
+
   </div>
 </div>
