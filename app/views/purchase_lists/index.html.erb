@@ -49,7 +49,7 @@
                 <tr>
                   <th scope="row">
                     <%= link_to purchase_list_path(purchase_list) do %>
-                      <%= image_tag purchase_list.purchase_items.first.product.image_basic.thumb %>
+                      <%= image_tag purchase_list.purchase_items.first.product.image_basic.thumb, style: "width:100px;height:100px;" %>
                     <% end %>
                   </th>
                   <td>
