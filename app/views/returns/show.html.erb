@@ -2,13 +2,12 @@
   <%= link_to "< 목록으로 돌아가기", "#", class: "btn session_btn", style: "margin-top:20px;" %>
 </div>
 <div class="col-md-12 tb_mp_spec_info_parent_pd">
-  <!--desktop-->
   <div class="tb_mp_spec_info_parent">
     <table class="table  tb_mp_delivery tb_mp_spec_info">
       <tbody>
         <tr>
           <th colspan="2">
-            <h3 class="tb_mp_spec_info_header text-left">[챔스] 베이직 로고 크롭 티셔츠 / 블루-화이트  외 3건에 대한 주문</h3>
+            <h3 class="tb_mp_spec_info_header text-left">[<%= @purchase_list.purchase_items.first.product.brand %>] <%= @purchase_list.purchase_items.first.product.name %>  <%= check_purchase_case(@purchase_list) %>에 대한 주문</h3>
           </th>
         </tr>
         <tr>
@@ -19,9 +18,9 @@
               <p class="header_spec">주문일</p>
             </div>
             <div class="col-xs-8 no-gap">
-              <p class="header_spec_sub">10345279693</p>
-              <p class="header_spec_sub">73,800원</p>
-              <p class="header_spec_sub">2016년 8월 8일</p>
+              <p class="header_spec_sub"><%= @purchase_list.id %></p>
+              <p class="header_spec_sub"><%= sum_purchase_price(@purchase_list) %>원</p>
+              <p class="header_spec_sub"><%= @purchase_list.created_at.strftime("%Y년 %m월 %d일") %></p>
             </div>
           </td>
         </tr>
@@ -29,34 +28,25 @@
         <tr>
           <table class="table tb_mp_spec_info_nested tb_exchg_nested">
             <tbody>
-              <tr>
-                <th class="tb_purc_check" >
-                  <div class="checkbox">
-                    <input type="checkbox" id="check1" class="checkbox-style"/>
-                    <label for="check1"></label>
-                  </div>
-                </th>
-                <th scope="row" ><%= image_tag "https://placehold.it/140x140" %></th>
-                <td>
-                <span class="tb_brand">컨버스</span><br> <p class="tb_name">척테일러 올스타 레더 화이트</p>
-                <span class="tb_option">옵션 : S</span> <span class="tb_price">36,000 won</span>
-                </td>
-              </tr>
-
-              <tr>
-                <th class="tb_purc_check" >
-                  <div class="checkbox">
-                    <input type="checkbox" id="check1" class="checkbox-style"/>
-                    <label for="check1"></label>
-                  </div>
-                </th>
-                <th scope="row" ><%= image_tag "https://placehold.it/140x140" %></th>
-                <td>
-                <span class="tb_brand">컨버스</span><br> <p class="tb_name">척테일러 올스타 레더 화이트</p>
-                <span class="tb_option">옵션 : S</span> <span class="tb_price">36,000 won</span>
-                </td>
-              </tr>
-
+              <% @purchase_list.purchase_items.each do |item| %>
+                <tr>
+                  <th class="tb_purc_check" >
+                    <div class="checkbox">
+                      <% if item.status === 'return' || item.status === 'exchange' %>
+                        <a href="#" class="btn session_btn" style="margin-bottom:0px;"> <%= item.status %></a>
+                      <% else %>
+                        <input type="checkbox" id="check<%= item.id %>" class="checkbox-style" data-id="<%= item.id %>" />
+                        <label for="check<%= item.id %>"></label>
+                      <% end %>
+                    </div>
+                  </th>
+                  <th scope="row" ><%= image_tag item.product.image_basic.thumb %></th>
+                  <td>
+                  <span class="tb_brand"><%= item.product.brand %></span><br> <p class="tb_name"><%= item.product.name %></p>
+                  <span class="tb_option">옵션 : <%= item.option %></span> <span class="tb_price"><%= item.product.price %> won</span>
+                  </td>
+                </tr>
+              <% end %>
             </tbody>
           </table>
         </tr>
@@ -68,44 +58,53 @@
               <td colspan="2">
                 <div class="col-md-12 no-gap">
                   <div class="form-group">
-                    <div class="col-md-4 no-gap">
-                      <label for="user_이름" class="invisible">선택</label><br>
-                      <select class="form-control">
-                        <option value="" disabled selected>선택</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12 no-gap">
-                  <div class="form-group">
                     <div class="col-md-6 no-gap">
                       <label for="user_이름">신청 사유</label><br>
-                      <select class="form-control">
-                        <option value="" disabled selected>교환 / 환불 사유를 선택하세요</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
+                      <select id="status" class="form-control">
+                        <option value="exchange">교환</option>
+                        <option value="return">환불</option>
                       </select>
                     </div>
                   </div>
                   <div class="col-md-4 col-md-offset-8 text-right no-gap_mb">
-                    <%= link_to "교환 / 환불 신청", "#", class: "btn session_btn_black width_full", style: " margin-top:30px;" %>
+                    <%= button_tag "교환 / 환불 신청", type: "button", id: "applyRefundExchange", class: "btn session_btn_black width_full", style: " margin-top:30px;" %>
                   </div>
                 </div>
               </td>
             </tr>
           </tbody>
         </table>
-
-
-
       </tbody>
     </table>
   </div>
-  <!--desktop-->
-
-
 </div>
+
+<script type="text/javascript">
+  $(document).on('click', '#applyRefundExchange', function() {
+    var returnExchangeIds = [];
+
+    if ($('input:checkbox:checked').length === 0) {
+      alert('교환/환불 신청할 상품을 하나 이상 선택하십시오');
+      return false;
+    }
+
+    $('input:checkbox:checked').each(function() {
+      returnExchangeIds.push($(this).data('id'));
+    });
+
+    $.ajax({
+      url: '/returns/<%= @purchase_list.id %>',
+      method: 'patch',
+      data: {
+        ids: returnExchangeIds,
+        status: $('#status').val()
+      }
+    }).done(function(response) {
+      alert('신청이 완료되었습니다');
+      location.href = '/user/returns';
+    }).fail(function(response) {
+      alert('에러가 발생하였습니다');
+      console.log(response)
+    });
+  });
+</script>

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       end
 
       resources :wannabe_letters, only: [:index, :new, :create]
-      resources :returns, only: [:index, :create]
+      resources :returns, only: [:index, :show, :update]
     end
 
     collection do
