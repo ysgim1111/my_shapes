@@ -31,7 +31,7 @@
                     </div>
                   </td>
                   <td class="tb_mp_delivery_choose" style="width:20%;">
-                    <a href="#" class="btn session_btn big_session_btn width_full" style="margin-bottom:0px;"> <%= @purchase_list.status %> <br> <span><%= @purchase_list.purchase_items.first.shipping_tracking.shipping_company %> <br> <%= @purchase_list.purchase_items.first.shipping_tracking.number %></span> </a>
+                    <a href="#" class="btn session_btn big_session_btn width_full" style="margin-bottom:0px;"> <%= @purchase_list.status %> <br> <span><%= @purchase_list.purchase_items.first.shipping_tracking.shipping_company if @purchase_list.purchase_items.first.shipping_tracking %> <br> <%= @purchase_list.purchase_items.first.shipping_tracking.number if @purchase_list.purchase_items.first.shipping_tracking %></span> </a>
                   </td>
                 </tr>
 
@@ -51,7 +51,7 @@
                 </tr>
                 <tr class="mb_line_break_tb_row tb_mp_delivery_mb">
                   <td scope="row" colspan="2" class="tb_mp_delivery_mb_btn">
-                    <a href="#" class="btn session_btn_black width_full" style="margin-bottom:0px;"> <%= @purchase_list.status %><br/><span><%= @purchase_list.purchase_items.first.shipping_tracking.shipping_company %> <%= @purchase_list.purchase_items.first.shipping_tracking.number %></span> </a>
+                    <a href="#" class="btn session_btn_black width_full" style="margin-bottom:0px;"> <%= @purchase_list.status %><br/><span><%= @purchase_list.purchase_items.first.shipping_tracking.shipping_company if @purchase_list.purchase_items.first.shipping_tracking %> <%= @purchase_list.purchase_items.first.shipping_tracking.number if @purchase_list.purchase_items.first.shipping_tracking %></span> </a>
                   </td>
                 </tr>
 
@@ -74,9 +74,11 @@
                           <p><%= item.quantity %>개</p>
                         </td>
                         <td>
-                          <p> <%= button_tag item.shipping_tracking.number, type: "button", class: "btn btn-default tracking-btn", data: {number: item.shipping_tracking.number, company: item.shipping_tracking.shipping_company} %> </p>
-                          <p> <%= item.shipping_tracking.shipping_company %> </p>
-                          <p> <%= item.shipping_tracking.shipping_type %> </p>
+                          <% if item.shipping_tracking %>
+                            <p> <%= button_tag item.shipping_tracking.number, type: "button", class: "btn btn-default tracking-btn", data: {number: item.shipping_tracking.number, company: item.shipping_tracking.shipping_company} %> </p>
+                            <p> <%= item.shipping_tracking.shipping_company %> </p>
+                            <p> <%= item.shipping_tracking.shipping_type %> </p>
+                          <% end %>
                         </td>
                       </tr>
                       <% end %>
@@ -99,9 +101,11 @@
                               <p class="header_spec">주소</p>
                             </div>
                             <div class="col-xs-8 text-left no-gap">
-                              <p class="header_spec_sub"><%= @purchase_list.destination.receiver %></p>
-                              <p class="header_spec_sub"><%= @purchase_list.destination.phone_number ? @purchase_list.destination.phone_number : @purchase_list.destination.tel %></p>
-                              <p class="header_spec_sub"><%= @purchase_list.destination.address %> <%= @purchase_list.destination.address_detail %></p>
+                              <% if @purchase_list.destination %>
+                                <p class="header_spec_sub"><%= @purchase_list.destination.receiver %></p>
+                                <p class="header_spec_sub"><%= @purchase_list.destination.phone_number ? @purchase_list.destination.phone_number : @purchase_list.destination.tel %></p>
+                                <p class="header_spec_sub"><%= @purchase_list.destination.address %> <%= @purchase_list.destination.address_detail %></p>
+                              <% end %>
                             </div>
                             <div class="col-md-6 col-md-offset-6 text-right no-gap_mb">
                               <%= link_to "배송 정보 변경", "#", class: "btn session_btn width_full", disabled: "true", style: " margin-top:30px;" %>
