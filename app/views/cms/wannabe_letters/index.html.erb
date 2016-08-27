@@ -32,10 +32,9 @@
     <div class="col-md-12 no-gap_mb">
       <table class="table tb_wannabe" style="border-collapse: separate;border-spacing: 0 20px;">
         <tbody>
-          <% @wannabe_letters.each_with_index do |wannabe_letter, i| %>
+          <% @wannabe_letters.each do |wannabe_letter| %>
             <tr>
               <th class="tb_wannabe_status" scope="row">
-                <p class="tb_wannabe_status_no"><%= @wannabe_letters.size - i %></p>
                 <p class="tb_wannabe_status_current"><%= wannabe_letter.status %></p>
                 <p class="tb_wannabe_status_date"><%= wannabe_letter.until_reply_date.strftime("%Y-%m-%d") %><br>
                 <%= wannabe_letter.until_reply_date.strftime("%H:%M") %> 까지</p>
