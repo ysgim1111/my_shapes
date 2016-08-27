@@ -32,10 +32,9 @@
     <div class="col-md-12 no-gap_mb">
       <table class="table tb_wannabe" style="border-collapse: separate;border-spacing: 0 20px;">
         <tbody>
-          <% @wannabe_letters.each_with_index do |wannabe_letter, i| %>
+          <% @wannabe_letters.each do |wannabe_letter| %>
             <tr>
               <th class="tb_wannabe_status" scope="row">
-                <p class="tb_wannabe_status_no"><%= @wannabe_letters.size - i %></p>
                 <p class="tb_wannabe_status_current"><%= wannabe_letter.status %></p>
                 <p class="tb_wannabe_status_date"><%= wannabe_letter.until_reply_date.strftime("%Y-%m-%d") %><br>
                 <%= wannabe_letter.until_reply_date.strftime("%H:%M") %> 까지</p>
@@ -51,7 +50,7 @@
               </td>
               <td class="tb_wannabe_btn">
                 <%= button_tag "답장 거절 / 신고", name: "updateStatus", type: "button", class: "btn session_btn width_full", style: "background:#b2b2b2", data: {id: wannabe_letter.id, status: "report"}, disabled: wannabe_letter.status == "report" ? true : false %><br>
-                <%= button_tag "답장 등록", name: "updateReply", type: "button", class: "btn session_btn_black width_full", data: {id: wannabe_letter.id} %>
+                <%= button_tag "답장 등록", name: "updateReply", type: "button", class: "btn session_btn_black width_full", data: {id: wannabe_letter.id}, disabled: wannabe_letter.status == "report" ? true : false %>
               </td>
             </tr>
           <% end %>
@@ -63,17 +62,20 @@
 
 <script>
   $(document).on('click', 'button[name=updateStatus]', function() {
-    $.ajax({
-      url: '/cms/wannabe_letters/' + $(this).data('id'),
-      method: 'patch',
-      data: {
-        status: $(this).data('status')
-      }
-    }).done(function() {
-      alert('신고되었습니다');
-    }).fail(function() {
-      alert('업데이트 실패');
-    });
+    if (confirm('신고하시겠습니까?')) {
+      $.ajax({
+        url: '/cms/wannabe_letters/' + $(this).data('id'),
+        method: 'patch',
+        data: {
+          status: $(this).data('status'),
+          reply: '신고처리되었습니다'
+        }
+      }).done(function() {
+        $('button[name=updateStatus], button[name=updateReply]').prop('disabled', true);
+      }).fail(function() {
+        alert('업데이트 실패');
+      });
+    }
   });
 
   $(document).on('click', 'button[name=updateReply]', function() {

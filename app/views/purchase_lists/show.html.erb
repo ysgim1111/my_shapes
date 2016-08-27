@@ -31,7 +31,7 @@
                     </div>
                   </td>
                   <td class="tb_mp_delivery_choose" style="width:20%;">
-                    <a href="#" class="btn session_btn big_session_btn width_full" style="margin-bottom:0px;"> <%= @purchase_list.status %> <br> <span><%= @purchase_list.purchase_items.first.shipping_tracking.shipping_company %> <br> <%= @purchase_list.purchase_items.first.shipping_tracking.number %></span> </a>
+                    <a href="#" class="btn session_btn big_session_btn width_full" style="margin-bottom:0px;"> <%= @purchase_list.status %></a>
                   </td>
                 </tr>
 
@@ -51,7 +51,7 @@
                 </tr>
                 <tr class="mb_line_break_tb_row tb_mp_delivery_mb">
                   <td scope="row" colspan="2" class="tb_mp_delivery_mb_btn">
-                    <a href="#" class="btn session_btn_black width_full" style="margin-bottom:0px;"> <%= @purchase_list.status %><br/><span><%= @purchase_list.purchase_items.first.shipping_tracking.shipping_company %> <%= @purchase_list.purchase_items.first.shipping_tracking.number %></span> </a>
+                    <a href="#" class="btn session_btn_black width_full" style="margin-bottom:0px;"> <%= @purchase_list.status %><br/></a>
                   </td>
                 </tr>
 
@@ -74,9 +74,11 @@
                           <p><%= item.quantity %>개</p>
                         </td>
                         <td>
-                          <p> <%= button_tag item.shipping_tracking.number, type: "button", class: "btn btn-default tracking-btn", data: {number: item.shipping_tracking.number, company: item.shipping_tracking.shipping_company} %> </p>
-                          <p> <%= item.shipping_tracking.shipping_company %> </p>
-                          <p> <%= item.shipping_tracking.shipping_type %> </p>
+                          <% if item.shipping_tracking %>
+                            <p> <%= button_tag item.shipping_tracking.number, type: "button", class: "btn btn-default tracking-btn", data: {number: item.shipping_tracking.number, company: item.shipping_tracking.shipping_company} %> </p>
+                            <p> <%= item.shipping_tracking.shipping_company %> </p>
+                            <p> <%= item.shipping_tracking.shipping_type %> </p>
+                          <% end %>
                         </td>
                       </tr>
                       <% end %>
@@ -99,9 +101,11 @@
                               <p class="header_spec">주소</p>
                             </div>
                             <div class="col-xs-8 text-left no-gap">
-                              <p class="header_spec_sub"><%= @purchase_list.destination.receiver %></p>
-                              <p class="header_spec_sub"><%= @purchase_list.destination.phone_number ? @purchase_list.destination.phone_number : @purchase_list.destination.tel %></p>
-                              <p class="header_spec_sub"><%= @purchase_list.destination.address %> <%= @purchase_list.destination.address_detail %></p>
+                              <% if @purchase_list.destination %>
+                                <p class="header_spec_sub"><%= @purchase_list.destination.receiver %></p>
+                                <p class="header_spec_sub"><%= @purchase_list.destination.phone_number ? @purchase_list.destination.phone_number : @purchase_list.destination.tel %></p>
+                                <p class="header_spec_sub"><%= @purchase_list.destination.address %> <%= @purchase_list.destination.address_detail %></p>
+                              <% end %>
                             </div>
                             <div class="col-md-6 col-md-offset-6 text-right no-gap_mb">
                               <%= link_to "배송 정보 변경", "#", class: "btn session_btn width_full", disabled: "true", style: " margin-top:30px;" %>
@@ -117,9 +121,10 @@
                               <p class="header_spec">할인</p>
                             </div>
                             <div class="col-xs-6 no-gap_mb text-right">
-                              <p class="header_spec_sub"><%= @purchase_list.purchase_items.inject(0){ |sum, item| sum += item.product.price } %>원</p>
-                              <p class="header_spec_sub"><%= @purchase_list.purchase_items.inject(0){ |sum, item| sum += item.product.shipping_expenses } %>원</p>
-                              <p class="header_spec_sub"><%= @purchase_list.purchase_items.inject(0){ |sum, item| sum += item.product.discount } %>원</p>
+                              <p class="header_spec_sub"><%= total_price = sum_purchase_price(@purchase_list) %>원</p>
+                              <p class="header_spec_sub"><%=
+                               total_shipping_expenses = sum_purchase_shipping_expenses(@purchase_list)  %>원</p>
+                              <p class="header_spec_sub"><%= total_discount = sum_purchase_discount(@purchase_list) %>원</p>
                             </div>
                             <div class="col-md-12 no-gap_mb">
                               <hr style="border: 1px solid #979797;">
@@ -128,7 +133,7 @@
                               <p class="header_spec"> <strong>최종결제금액</strong></p>
                             </div>
                             <div class="col-xs-8 text-right no-gap_mb">
-                              <p class="header_spec_sub"><strong><%= @purchase_list.purchase_items.inject(0){ |sum, item| sum += item.product.price } %>원</strong></p>
+                              <p class="header_spec_sub"><strong><%= total_price + total_shipping_expenses - total_discount %>원</strong></p>
                             </div>
 
                             <div class="col-md-6 col-md-offset-6 text-right no-gap_mb">

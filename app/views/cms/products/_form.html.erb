@@ -7,7 +7,7 @@
   <div class="form-group">
     <%= f.label :user_id, "상점유저아이디", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :user_id, class: "form-control", placeholder: "상점유저아이디" %>
+      <%= f.text_field :user_id, class: "form-control", placeholder: "상점유저아이디", required: true %>
     </div>
   </div>
 <% else %>
@@ -16,7 +16,7 @@
 <div class="form-group">
   <%= f.label :name, "상품명", class: "col-sm-2 control-label" %>
   <div class="col-sm-10">
-    <%= f.text_field :name, class: "form-control", placeholder: "상품명" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "상품명", required: true %>
   </div>
 </div>
 <div class="form-group">
@@ -28,7 +28,7 @@
 <div class="form-group">
   <%= f.label :price, "가격", class: "col-sm-2 control-label" %>
   <div class="col-sm-10">
-    <%= f.text_field :price, type: "number", class: "form-control", placeholder: "가격" %>
+    <%= f.text_field :price, type: "number", class: "form-control", placeholder: "가격", required: true, min: 1000 %>
   </div>
 </div>
 <div class="form-group">
@@ -168,7 +168,7 @@
   <div class="form-group">
     <%= field.label :name, "옵션", class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-      <%= field.text_field :name, class: "form-control", placeholder: "옵션이름" %>
+      <%= field.text_field :name, class: "form-control", placeholder: "옵션이름", required: true %>
       <%= field.remove_nested_fields_link "삭제" %>
     </div>
   </div>
@@ -181,3 +181,15 @@
     <%= f.add_nested_fields_link :product_options, "옵션 추가", class: "btn btn-default" %>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('form').submit(function(event) {
+    var optionInput = $('input:visible').filter(function () { return /product\[product_options_attributes\]\[[0-9]\]\[name\].*/.test(this.name); });
+
+    if (optionInput.length === 0
+        || optionInput.first().val() === 'undefined') {
+      alert('옵션은 하나 이상 추가하셔야 합니다');
+      event.preventDefault();
+    }
+  });
+</script>

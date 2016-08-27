@@ -94,7 +94,7 @@
                 사용자 관리 <span class="caret"></span>
               <% end %>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">사용자관리 메뉴1</a></li>
+                <li><%= link_to "사용자목록", cms_users_path %></li>
                 <li><a href="#">사용자관리 메뉴2</a></li>
               </ul>
             </li>
@@ -113,6 +113,8 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-  <%= yield %>
+  <div>
+    <%= yield %>
+  </div>
 </body>
 </html>

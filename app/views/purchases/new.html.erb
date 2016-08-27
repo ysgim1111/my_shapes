@@ -111,7 +111,7 @@
         </div>
         <div class="col-md-12 pay_method" style="padding-left:15px;padding-right:15px;">
           <p>*결제 수단</p>
-          <div class="pay_method_box pay_method_card">
+          <div class="pay_method_box pay_method_card pay_method_selected">
             <p>신용 카드</p>
           </div>
 
@@ -142,8 +142,8 @@
         <div class="col-md-12 pay_info">
           <div class="col-md-12 no-gap">
             <div class="checkbox">
-              <input type="checkbox" id="check1" class="checkbox-style"/>
-              <label for="check1">구매조건 확인 및 결제진행에 동의합니다. </label>
+              <input type="checkbox" id="agreementCheckbox" class="checkbox-style"/>
+              <label for="agreementCheckbox"><a href="#">구매조건</a> 확인 및 결제진행에 동의합니다. </label>
             </div>
             <p class="help-block" style="font-size:10px;">구매하신 상품 배송 및 주문처리를 위해 개인정보를 제공받는 판매자 : Vivant, <b>Todo 판매자들 모두 나오도록변경</b></p>
           </div>
@@ -181,13 +181,21 @@
       }, function(rsp) {
         if ( rsp.success ) {
           rsp["demand_message"] = $('#demand_message').val();
+          rsp["receiver"] = $('#receiver').val();
+          rsp["address"] = $('#address').val();
+          rsp["address_detail"] = $('#address_detail').val();
+          rsp["zonecode"] = $('#zonecode').val();
+          rsp["phone_number"] = $('#phone_number1').val() + '-' + $('#phone_number2').val() + '-' + $('#phone_number3').val();
 
           $.ajax({
             url: '/purchases',
             method: 'post',
             data: rsp
           }).done(function(res) {
-            location.href = '/purchases/complete?purchase_list_id=' + '<%= @purchase_list.id %>' + '&buyer_addr=' + res.buyer_addr + '&buyer_postcode=' + res.buyer_postcode + '&pay_method=' + res.pay_method + '&buyer_name=' + res.buyer_name;
+            location.href = '/purchases/complete?purchase_list_id=<%= @purchase_list.id %>';
+          }).fail(function(res){
+            console.log(res);
+            alert('결제 처리에 실패하였습니다. ');
           });
         } else {
           var msg = '결제에 실패하였습니다.';

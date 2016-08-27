@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
   # before_filter :authenticate_user!
+
   rescue_from ActiveRecord::RecordNotFound do |e|
-    redirect_to products_path, flash: {error: "상품을 찾을 수 없습니다"}
+    redirect_to request.referrer.presence || root_path, flash: {error: "상품을 찾을 수 없습니다"}
   end
 
   def index
@@ -14,7 +15,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.sellable.find(params[:id])
-    @purchase_list = current_user.purchase_lists.new
+    @purchase_list = PurchaseList.new
     InfluencerStore.increment_counter(:user_point, params[:influencer_store_id])
   end
 

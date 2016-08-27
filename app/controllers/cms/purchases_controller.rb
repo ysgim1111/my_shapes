@@ -40,7 +40,8 @@ class Cms::PurchasesController < BaseCmsController
     end
 
     @samples = products
-      .joins(influencer_stores_products: [:destination, :shipping_tracking], influencer_stores: :user)
+      .joins(influencer_stores_products: :destination, influencer_stores: :user)
+      .joins("LEFT OUTER JOIN shipping_trackings on shipping_trackings.trackable_type = 'InfluencerStoresProduct' and shipping_trackings.trackable_id = influencer_stores_products.id")
       .select("products.id, products.name, products.price, products.seller_product_code, products.image_basic
         , influencer_stores_products.status influencer_stores_product_status, influencer_stores_products.updated_at, influencer_stores_products.id influencer_stores_product_id, influencer_stores_products.option
         , destinations.receiver, destinations.phone_number

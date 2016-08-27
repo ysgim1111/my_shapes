@@ -13,6 +13,7 @@ class Cms::ProductsController < BaseCmsController
 
   def new
     @product = Product.new
+    @product_options = @product.product_options.build
   end
 
   def create
@@ -47,7 +48,7 @@ class Cms::ProductsController < BaseCmsController
 
   def create_params
     params.require(:product).permit(
-      :name, :desc, :price, :view_type, :image_basic, :image_desc,
+      :user_id, :name, :desc, :price, :view_type, :image_basic, :image_desc,
       :stack, :manufacturer, :brand, :made_in, :date_of_manufacturing,
       :use_by_date, :public_phrase, :minimum_purchase, :maximum_purchase,
       :seller_product_code, :sell_by_date, :status, :return_shipping_expenses,
