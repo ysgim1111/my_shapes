@@ -240,6 +240,9 @@
   .inf_profile .inf_feed_title .inf_feed_title_sub_right > img {
     width:20px;
   }
+  .inf_profile .main_sub_image_left img, .inf_profile .main_sub_image_right img {
+    height: 250px;
+  }
   /* inf_profile ends */
 
   /* login*/
