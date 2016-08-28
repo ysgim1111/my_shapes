@@ -38,7 +38,7 @@
 <div class="container deal_header">
   <div class="row">
     <div class="col-md-6" style="margin-top:50px;">
-      <%= image_tag @product.image_basic, alt: "", style: "max-width:600px;max-height:500px;width:100%;" %>
+      <%= image_tag @product.image_basic, alt: "", style: "max-width:600px;max-height:450px;width:100%;" %>
     </div>
     <div class="col-md-6" style="margin-top:50px;">
       <fieldset>
@@ -46,7 +46,7 @@
         <h2 class="name"><%= @product.name %></h2>
         <div class="price_tag session_btn_black"><%= @product.price %> Won</div>
         <p class="delivery_fee">배송비 <%= @product.shipping_expenses %> 원</p>
-        <p class="delivery_free"> 이상 구매 시 무료 배송</p>
+        <!--<p class="delivery_free"> 이상 구매 시 무료 배송</p> -->
         <div class="form-inline spec_choose">
           <div class="form-gorup">
             <label class="size">사이즈</label>
