@@ -10,9 +10,6 @@
           margin-right: 10px;display:inline-block", alt: "" %><a href="#"><%= is.user.nickname %>&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
           </div>
           <%= image_tag is.influencer_stores_products.where(product_id: @product.id).first.image_review, style: "width:245px;height:245px;" %>
-          <div class="col-md-12 no-gap">
-            <p class="insta invisible"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "insta_logo_d_25.png", alt: "" %></span> </p>
-          </div>
         </div>
         <% end %>
       </div>
@@ -29,14 +26,10 @@
           margin-right: 10px;display:inline-block", alt: "" %><a href="#">woohee91&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
           </div>
           <%= image_tag isp.influencer_store.user.image_profile, style: "width:245px;height:245px;" %>
-          <div class="col-md-12 no-gap">
-            <p class="insta invisible"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "insta_logo_d_25.png", alt: "" %></span> </p>
-          </div>
         </div>
         <% end %>
       </div>
     </div><!-- mb_insta_feed_prdt -->
-
   </div>
 </div>
 

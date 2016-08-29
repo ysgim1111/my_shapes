@@ -1,4 +1,6 @@
 class UserProfileUploader < ImageBaseUploader
+  process resize_to_fit: [265, 265]
+
   version :thumb do
     process resize_to_fit: [50, 50]
 

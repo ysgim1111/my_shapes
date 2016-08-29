@@ -18,16 +18,10 @@
             <div class="col-md-12 col-xs-12 blob" style="background:url('<%=image_url('blob_2.png')%>');">
               <p class="blob_comment"><%= @product.influencer_stores_products.where(influencer_store_id: @product.influencer_stores.first.id).first.comment %></p>
             </div>
-            <div class="col-md-12 inf_feed_title_top text-right no-gap mb_line_break_reverse">
-              <a href="#" style="color:#212121">인스타그램 피드에서 보기</a> <%= image_tag "insta_logo_d_30.png", alt: "" %>
-            </div>
         </div>
         <div class="mb_line_break">
           <div class="col-md-3 col-md-offset-1 feed_content no-gap_mb">
             <%= image_tag @product.influencer_stores.first.user.image_profile, style: "width:100%;", alt: "" %>
-          </div>
-          <div class="col-md-12 inf_feed_title_top text-right no-gap" style="padding-top:15px;padding-bottom:15px;">
-            <a href="#" style="color:#212121">인스타그램 피드에서 보기</a> <%= image_tag "insta_logo_d_30.png", alt: "" %>
           </div>
         </div>
       </div>
@@ -83,17 +77,6 @@
     </div>
   </div>
 </div>
-
-<!-- 딜배너 -->
-<!--<div class="container">
-  <div class="row">
-    <div class="col-md-12 no-gap_mb">
-      <%=image_tag "banner_1.jpg", alt: "", style: "width:100%;",class: "mb_line_break_reverse" %>
-      <%=image_tag "banner_1_m.jpg", alt: "", style: "width:100%;", class: "mb_line_break" %>
-    </div>
-  </div>
-</div>-->
-<!-- 딜배너 -->
 
 <%= render "insta_feed_prdt" %>
 
