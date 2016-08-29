@@ -44,7 +44,10 @@
       <fieldset>
         <p class="sort"><%= @product.brand %></p>
         <h2 class="name"><%= @product.name %></h2>
-        <div class="price_tag session_btn_black"><%= @product.price %> Won</div>
+        <% if @product.discount > 0 %>
+          <p class="delivery_fee"><s><%= @product.price %></s> 원</p>
+        <% end %>
+        <div class="price_tag session_btn_black"><%= @product.price - @product.discount %> Won</div>
         <p class="delivery_fee">배송비 <%= @product.shipping_expenses %> 원</p>
         <!--<p class="delivery_free"> 이상 구매 시 무료 배송</p> -->
         <div class="form-inline spec_choose">
