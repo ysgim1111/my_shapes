@@ -7,8 +7,12 @@ Rails.application.routes.draw do
 
   resource :user, only: [:show, :update] do
     shallow do
-      resources :purchase_lists
-      resources :wannabe_letters
+      resources :purchase_lists, only: [:index, :show] do
+        get :tracking, on: :collection
+      end
+
+      resources :wannabe_letters, only: [:index, :new, :create]
+      resources :returns, only: [:index, :show, :update]
     end
 
     collection do
@@ -19,15 +23,15 @@ Rails.application.routes.draw do
 
   root 'products#about'
 
-  resources :influencer_stores, :shopping_items, :wishlist_items
+  resources :influencer_stores, only: [:index, :show]
+  resources :shopping_items, only: [:index, :create, :destroy]
+  resources :wishlist_items, only: [:index, :create, :destroy]
 
-  resources :purchases do
+  resources :purchases, only: [:new, :create] do
     collection do
       post :save_post
       get :complete
       get :user_info
-      get :user_info_tab_clicked
-      get :user_info_tab_clicked_clicked
       get :apply_product_6
       get :apply_product_8
       get :apply_product_10
@@ -48,7 +52,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products do
+  resources :products, only: [:index, :show] do
     get :about, on: :collection
     get :recruit, on: :collection
     get :complete, on: :collection
@@ -62,6 +66,9 @@ Rails.application.routes.draw do
     resources :influencer_stores, :products, :users, :wannabe_letters
 
     resources :influencer_stores_products do
+      get :edit_shipping
+      put :update_shipping
+
       collection do
         get :products
         get :info_apply
@@ -80,4 +87,5 @@ Rails.application.routes.draw do
   end
 
   get ':url', to: 'influencer_stores#mapping'
+
 end

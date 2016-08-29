@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160820042217) do
+ActiveRecord::Schema.define(version: 20160826165714) do
 
   create_table "address_books", force: :cascade do |t|
     t.integer  "user_id",        limit: 4,                   null: false
@@ -135,11 +135,12 @@ ActiveRecord::Schema.define(version: 20160820042217) do
   add_index "purchase_items", ["purchase_list_id"], name: "index_purchase_items_on_purchase_list_id", using: :btree
 
   create_table "purchase_lists", force: :cascade do |t|
-    t.integer  "user_id",             limit: 4
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
-    t.integer  "status",              limit: 4, default: 0, null: false
-    t.integer  "influencer_store_id", limit: 4
+    t.integer  "user_id",              limit: 4
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.integer  "status",               limit: 4, default: 0, null: false
+    t.integer  "influencer_store_id",  limit: 4
+    t.integer  "purchase_items_count", limit: 4
   end
 
   add_index "purchase_lists", ["influencer_store_id"], name: "index_purchase_lists_on_influencer_store_id", using: :btree

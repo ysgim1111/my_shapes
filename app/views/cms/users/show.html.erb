@@ -1,15 +1,26 @@
+<br>
+<br>
+<br>
+<br>
 <dl class="dl-horizontal">
   <dt></dt>
   <dd>
     <%= link_to "수정", edit_cms_user_path(@user), class: "btn btn-primary" %>
     <%= link_to "삭제", cms_user_path(@user), method: :delete, data: {confirm: "삭제하시겠습니까?"}, class: "btn btn-danger" %>
+    <%= link_to "뒤로", cms_users_path, class: "btn btn-default" %>
   </dd>
   <dt>이름</dt>
   <dd><%= @user.name %></dd>
+  <dt>닉네임</dt>
+  <dd><%= @user.nickname %></dd>
+  <dt>전화번호</dt>
+  <dd><%= @user.phone %></dd>
   <dt>email</dt>
   <dd><%= @user.email %></dd>
   <dt>권한</dt>
   <dd><%= @user.roles_name %></dd>
   <dt>생성일</dt>
   <dd><%= @user.created_at %></dd>
+  <dt>프로필이미지</dt>
+  <dd><%= image_tag @user.image_profile.thumb %></dd>
 </dl>

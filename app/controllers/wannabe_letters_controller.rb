@@ -1,10 +1,7 @@
 class WannabeLettersController < ApplicationController
   def index
-    @wannabe_letters = current_user.purchase_lists.joins(:wannabe_letter).select("wannabe_letters.*")
-  end
-
-  def new
-    @wannabe_letter = WannabeLetter.new(purchase_list_id: params[:purchase_list_id], influencer_store_id: params[:influencer_store_id])
+    @purchase_lists = current_user.purchase_lists
+    @wannabe_letter = WannabeLetter.new
   end
 
   def create
@@ -12,7 +9,7 @@ class WannabeLettersController < ApplicationController
     wannabe_letter.until_reply_date = Time.current + 7.day
     wannabe_letter.save
 
-    redirect_to user_path
+    redirect_to action: :index
   end
 
 

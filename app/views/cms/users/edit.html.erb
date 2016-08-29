@@ -1,3 +1,7 @@
+<br>
+<br>
+<br>
+<br>
 <%= form_for @user, url: {action: :update}, html: {multipart: true, class: "form-horizontal"} do |f|  %>
   <div class="form-group">
     <%= f.label :name, "이름", class: "col-sm-2 control-label" %>
@@ -6,14 +10,37 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :password, "비밀번호", class: "col-sm-2 control-label" %>
+    <%= f.label :nickname, "닉네임", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :password, type: "password", class: "form-control", placeholder: "비밀번호" %>
+      <%= f.text_field :nickname, class: "form-control", placeholder: "닉네임" %>
     </div>
   </div>
   <div class="form-group">
+    <%= f.label :phone, "전화번호", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :phone, class: "form-control", placeholder: "전화번호" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :image_profile, "프로필이미지", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.file_field :image_profile, class: "form-control" %>
+    </div>
+  </div>
+  <%= f.nested_fields_for :roles do |field| %>
+    <div class="form-group">
+      <%= field.label :name, "권한", class: "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+        <%= field.select :name, options_for_select([["인플루언서", "influencer"], ["판매자", "seller"]], field.object.name), class: "form-control", placeholder: "권한" %>
+        <%= field.remove_nested_fields_link "삭제" %>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-primary">저장</button>
+      <%= f.add_nested_fields_link :roles, "권한 추가", class: "btn btn-warning" %>
+      <%= link_to "뒤로", cms_users_path, class: "btn btn-default" %>
     </div>
   </div>
 <% end %>

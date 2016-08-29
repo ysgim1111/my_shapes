@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   has_many :products, dependent: :destroy
   has_many :purchase_items, through: :products
 
-  after_create :assign_default_role
+  accepts_nested_attributes_for :roles, allow_destroy: true
 
   validates :nickname, length: { maximum: 20 }, presence: true, uniqueness: true
 
@@ -36,7 +36,4 @@ class User < ActiveRecord::Base
 
   private
 
-  def assign_default_role
-    self.add_role(:user) unless self.has_any_role?
-  end
 end

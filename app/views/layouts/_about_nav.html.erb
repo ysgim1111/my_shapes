@@ -34,16 +34,19 @@
     <li><a href="#" onclick="alert('준비중입니다.')"><img src="<%= image_url('icn_wish_1.png') %>" class="nav_off_scroll_2" alt=""><img src="<%= image_url('icn_wish_2.png') %>" class="nav_off_scroll_2_trans" alt=""></a></li>
       <li><a href="#" onclick="alert('준비중입니다.')"><img class="nav_off_scroll_3" src="<%= image_url('icn_cart_1.png') %>"alt=""><img class="nav_off_scroll_3_trans" src="<%= image_url('icn_cart_2.png') %>"alt=""></a></li>
      <% if user_signed_in? %>
-        <li class="dropdown">
+        <li class="dropdown session">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><%= link_to "마이페이지", user_path %></li>
-            <li><%= link_to "주문내역", purchases_path %></li>
+            <li><%= link_to "주문내역", user_purchase_lists_path %></li>
+            <% if current_user.present? && (current_user.is_admin? || current_user.is_seller? || current_user.is_influencer?) %>
+              <li><%= link_to "CMS", cms_path %></li>
+            <% end %>
             <li><%= link_to "로그아웃", destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
         <li>
-          <%= link_to "#", id: "main_profile", class: "invisible" do %>
+          <%= link_to "#", id: "main_profile", class: "invisible mb_line_break_reverse" do %>
             <%= image_tag current_user.image_profile, alt: "" %>
           <% end %>
         </li>
@@ -56,8 +59,8 @@
 
   <div id="nav_mb_menu" class="navbar-collapse collapse page-scroll navbar-right navbar-collapse_mb_left" style="margin-right:0px;">
     <ul class="nav navbar-nav">
-      <!--<li> <%= link_to "DEALS", products_path %></li>
-      <li> <%= link_to "INFLUENCERS", influencer_stores_path %></li> -->
+      <li> <%= link_to "DEALS", '#', onclick: "javascript:alert('준비중입니다')"%></li>
+      <li> <%= link_to "INFLUENCERS", '#', onclick: "javascript:alert('준비중입니다')" %></li>
       <li> <%= link_to "ABOUT", about_products_path %></li>
     </ul><!-- / .nav .navbar-nav -->
   </div><!--/.navbar-collapse -->

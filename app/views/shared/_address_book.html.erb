@@ -1,11 +1,11 @@
-<div class="col-md-6 no-gap">
+<div class="col-md-3 no-gap">
   <div class="form-group">
     <% current_user.address_books.each do |address_book| %>
-      <%= button_tag address_book.name, type: "button", class: "btn btn-default", onclick: "changePostInfo('#{address_book.receiver}', '#{address_book.name}', #{address_book.zonecode}, '#{address_book.address}', '#{address_book.address_detail}', '#{address_book.phone_number}', '#{address_book.id}')" %>
+      <%= button_tag address_book.name, type: "button", class: "btn session_btn btn_white", style: "padding:9px 18px;margin-bottom:0px;", onclick: "changePostInfo('#{address_book.receiver}', '#{address_book.name}', #{address_book.zonecode}, '#{address_book.address}', '#{address_book.address_detail}', '#{address_book.phone_number}', '#{address_book.id}')" %>
     <% end %>
   </div>
 </div>
-<div class="col-md-6 purc_delivery mb_line_break_reverse">
+<div class="col-md-4 purc_delivery mb_line_break_reverse">
   <%= button_tag "배송지저장하기", type: "button", id: "saveAddressBook", class: "btn session_btn" %>
 </div>
 <!-- mb -->
@@ -13,7 +13,7 @@
   <%= button_tag "배송지저장하기", type: "button", id: "saveAddressBook", class: "btn session_btn", style: "width:100%;" %>
 </div>
 <!-- mb -->
-<div class="col-md-12 no-gap pd_mg">
+<div class="col-md-6 no-gap pd_mg">
   <div class="form-group">
     <label for="user_이름">배송지 명</label><br>
     <input class="form-control check" placeholder="이름을 입력해주세요" type="text" value="" name="[address_book]name" id="address_book_name">
@@ -26,13 +26,13 @@
 
   <div class="form-group purc_phone_form form-inline">
     <label for="user_이름">수령인 연락처</label><br>
-    <input class="form-control" type="text" value="" name="[address_book]phone_number1" id="phone_number1" maxlength="4">&nbsp;-&nbsp;
-    <input class="form-control" type="text" value="" name="[address_book]phone_number2" id="phone_number2" maxlength="4">&nbsp;-&nbsp;
-    <input class="form-control" type="text" value="" name="[address_book]phone_number3" id="phone_number3" maxlength="4">
+    <input class="form-control purc_phone" type="text" value="" name="[address_book]phone_number1" id="phone_number1" maxlength="4">
+    <input class="form-control purc_phone" type="text" value="" name="[address_book]phone_number2" id="phone_number2" maxlength="4">
+    <input class="form-control purc_phone" type="text" value="" name="[address_book]phone_number3" id="phone_number3" maxlength="4">
   </div>
 </div>
 
-<div class="col-md-12 no-gap form-group">
+<div class="col-md-8 no-gap form-group">
   <div class="col-md-6 no-gap">
     <label for="user_이름">배송주소</label><br>
     <input class="form-control check" placeholder="우편번호" type="text" name="[address_book]zonecode" id="zonecode" value="" >
@@ -52,7 +52,7 @@
   <input class="form-control check" placeholder="상세 주소" type="text" value="" name="[address_book]address_detail" id="address_detail">
 </div>
 
-<div class="col-md-12 no-gap">
+<div class="col-md-8 no-gap">
   <div class="form-group">
     <label for="demand_message">배송 요청사항</label><br>
     <!-- <select class="form-control">
@@ -61,7 +61,7 @@
       <option>3</option>
       <option>4</option>
     </select> -->
-    <input class="form-control check" type="text" value="" maxlength="30" name="[address_book]demand_message" id="demand_message">
+    <input class="form-control" type="text" value="" maxlength="30" name="[address_book]demand_message" id="demand_message">
     <p id="showTypingLength" class="help-block text-right">0/30자</p>
   </div>
 </div>
@@ -114,9 +114,9 @@
     document.getElementById('zonecode').value = zonecode;
     document.getElementById('address').value = address;
     document.getElementById('address_detail').value = address_detail;
-    document.getElementById('phone_number1').value = phone_number.split('-')[0];
-    document.getElementById('phone_number2').value = phone_number.split('-')[1];
-    document.getElementById('phone_number3').value = phone_number.split('-')[2];
+    document.getElementById('phone_number1').value = phone_number.split('-')[0] || '';
+    document.getElementById('phone_number2').value = phone_number.split('-')[1] || '';
+    document.getElementById('phone_number3').value = phone_number.split('-')[2] || '';
     document.getElementById('receiver').value = receiver;
     document.getElementById('address_book_name').value = name;
     document.getElementById('address_book_id').value = address_book_id;

@@ -11,9 +11,9 @@ class Cms::InfluencerStoresController < BaseCmsController
   end
 
   def create
-    current_user.influencer_store = InfluencerStore.new(influencer_store_params)
+    influencer_store = InfluencerStore.create(influencer_store_params)
 
-    redirect_to current_user.is_admin? ? cms_influencer_stores_path : cms_influencer_store_path(current_user.influencer_store)
+    redirect_to current_user.is_admin? ? cms_influencer_stores_path : cms_influencer_store_path(influencer_store)
   end
 
   def show
@@ -40,6 +40,6 @@ class Cms::InfluencerStoresController < BaseCmsController
   private
 
   def influencer_store_params
-    params.require(:influencer_store).permit(:url, :desc)
+    params.require(:influencer_store).permit(:user_id, :url, :desc)
   end
 end
