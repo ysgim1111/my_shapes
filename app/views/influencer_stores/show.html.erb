@@ -141,7 +141,8 @@
               <%= isp.product.name %>
             </p>
             <p class="price text-right">
-              <%= isp.product.price %> won
+              <s><%= isp.product.price %></s>
+              <%= isp.product.price - isp.product.discount %> 원
             </p>
           <% end %>
         </div>
