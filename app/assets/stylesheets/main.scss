@@ -797,6 +797,10 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
 
 
 /* purchase ready starts */
+#sidebar.fixed {
+  position: fixed;
+  top: 65px;
+}
 .purc_ready .header{
   font-weight: 400;
   margin-top: 50px;
@@ -897,6 +901,7 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
   border-radius: 5px;
   padding: 0px 20px;
   margin-top: 50px;
+  background-color: #ffffff;
 }
 .pay_info hr {
   border : 1px solid #ccc;
@@ -1223,8 +1228,23 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
   padding-top:60px;
   padding-bottom:45px;
 }
+.inf_rank_2 .sub_right > a {
+  text-decoration: none;
+  color: #212121;
+}
 .inf_rank_2 .sub_right .name{
   font-size: 36px;
+  text-decoration: none;
+  color: #212121;
+}
+.inf_rank_2 .margin_3cols .sub_right .name {
+  font-size: 30px;
+  text-decoration: none;
+  color: #212121;
+}
+.inf_rank_2 .margin_3cols .sub_right .name a {
+  text-decoration: none;
+  color: #212121;
 }
 .inf_rank_2 .new_rank_3cols .sub_right .name  {
   margin-top:5px;
@@ -1234,6 +1254,9 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
   color: #262626;
   margin-bottom: 22px;
   text-decoration: none;
+}
+.inf_rank_2 .margin_3cols .sub_right .url{
+  font-size: 11px;
 }
 .inf_rank_2 .new_rank_3cols .sub_bottom .detail {
   font-size: 14px;
@@ -1265,9 +1288,13 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
 }
 .inf_rank_2 .sub_bottom {
   margin-top:30px;
+  height: 110px;
+  line-height: 110px;
 }
 .inf_rank_2 .rank_3cols .sub_bottom {
   margin-top:15px;
+  height: 110px;
+  line-height: 110px;
 }
 .inf_rank_2 .sub_bottom > img {
   width: 110px;
@@ -1306,6 +1333,7 @@ span.ui-widget.ui-widget-content.ui-spinner.ui-controlgroup-item {
   border: 1px solid #979797;
   padding-top:40px;
   padding-bottom:30px;
+  overflow: hidden;
 }
 .inf_rank_2 > .pd_adj > .new_rank_3cols {
   border: 1px solid #e0e0e0;
