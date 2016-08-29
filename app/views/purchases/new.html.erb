@@ -7,7 +7,7 @@
       <div class="col-md-12">
         <h3 class="header">주문 상품 확인</h3>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-12" id="header">
         <!-- desktop -->
         <div class="mb_line_break_reverse">
           <table class="table table-hover tb_purc">
@@ -78,34 +78,79 @@
       </div><!-- col-md-7 -->
 
       <div class="col-md-5">
-        <div class="col-md-12 pay_info">
-          <h3 class="header header_main">결제 금액 정보</h3>
-          <p class="header_sub">총 상품 금액 <span><%= total_price = @purchase_list.purchase_items.inject(0){ |sum, item| sum += item.product.price } %> 원</span></p>
-          <p class="header_sub">배송비 <span><%= total_shipping_expenses = @purchase_list.purchase_items.inject(0){ |sum, item| sum += item.product.shipping_expenses } %> 원</span></p>
-          <p class="header_sub">할인 <span>-<%= total_discount = @purchase_list.purchase_items.inject(0){ |sum, item| sum += item.product.discount } %> 원</span></p>
-          <hr>
-          <p class="header_sub">최종결제금액 <span><%= total_price + total_shipping_expenses - total_discount %> 원</span></p>
-        </div>
+        <div id="sidebar">
+          <div class="col-md-12 pay_info">
+            <h3 class="header header_main">결제 금액 정보</h3>
+            <p class="header_sub">총 상품 금액 <span><%= total_price = @purchase_list.purchase_items.inject(0){ |sum, item| sum += item.product.price } %> 원</span></p>
+            <p class="header_sub">배송비 <span><%= total_shipping_expenses = @purchase_list.purchase_items.inject(0){ |sum, item| sum += item.product.shipping_expenses } %> 원</span></p>
+            <p class="header_sub">할인 <span>-<%= total_discount = @purchase_list.purchase_items.inject(0){ |sum, item| sum += item.product.discount } %> 원</span></p>
+            <hr>
+            <p class="header_sub">최종결제금액 <span><%= total_price + total_shipping_expenses - total_discount %> 원</span></p>
+          </div>
 
-        <div class="col-md-12 pay_info">
-          <div class="col-md-12 no-gap">
-            <div class="checkbox">
-              <input type="checkbox" id="agreementCheckbox" class="checkbox-style"/>
-              <label for="agreementCheckbox">구매조건 확인 및 결제진행에 동의합니다. </label>
+          <div class="col-md-12 pay_info">
+            <div class="col-md-12 no-gap">
+              <div class="checkbox">
+                <input type="checkbox" id="agreementCheckbox" class="checkbox-style"/>
+                <label for="agreementCheckbox">구매조건 확인 및 결제진행에 동의합니다. </label>
+              </div>
+              <p class="help-block" style="font-size:10px;">구매하신 상품 배송 및 주문처리를 위해 개인정보를 제공받는 판매자 : Vivant, <b>Todo 판매자들 모두 나오도록변경</b></p>
             </div>
-            <p class="help-block" style="font-size:10px;">구매하신 상품 배송 및 주문처리를 위해 개인정보를 제공받는 판매자 : Vivant, <b>Todo 판매자들 모두 나오도록변경</b></p>
+          </div>
+          <div class="col-md-12 text-center pay_go">
+            <%= button_tag "결제 진행", class: "btn session_btn_black", id: "buyBtn" %>
+            <%= hidden_field_tag "purchase_list_name", "#{@purchase_list.purchase_items.first.product.name}" + (@purchase_list.purchase_items.size > 1 ? " 외 #{@purchase_list.purchase_items.size} 개 " : "") + "구매" %>
+            <%= hidden_field_tag "total_purchase_price", total_price + total_shipping_expenses - total_discount  %>
+            <%= hidden_field_tag "pay_method", "card" %>
           </div>
         </div>
-        <div class="col-md-12 text-center pay_go">
-          <%= button_tag "결제 진행", class: "btn session_btn_black", id: "buyBtn" %>
-          <%= hidden_field_tag "purchase_list_name", "#{@purchase_list.purchase_items.first.product.name}" + (@purchase_list.purchase_items.size > 1 ? " 외 #{@purchase_list.purchase_items.size} 개 " : "") + "구매" %>
-          <%= hidden_field_tag "total_purchase_price", total_price + total_shipping_expenses - total_discount  %>
-          <%= hidden_field_tag "pay_method", "card" %>
-        </div>
+
       </div><!-- col-md-5 -->
     </div><!-- col-md-12 -->
   </div><!-- .row -->
 </div>
+
+<script>
+//사이드바 고정
+$(document).ready(function() {
+  var top = $('#sidebar').offset().top - parseFloat($('#sidebar').css('marginTop').replace(/auto/, 0));
+  // 사이드바 위에서 길이
+  var footTop = $('footer').offset().top - parseFloat($('footer').css('marginTop').replace(/auto/, 0));
+  // 푸터 위에서 길이
+
+  $(window).scroll(function() {
+    var x = parseInt($(this).width());
+    if (x > 992 ) {
+        InitSidebar();
+    }
+
+  });
+
+  function InitSidebar() {
+    var maxY = footTop - $('#sidebar').outerHeight() - 85;
+    // 푸터 위에서 길이 - 사이드바 자체 길이
+    var y = $(this).scrollTop(); //위에서 현재 스크롤 길이
+    if ( y >= top - $('#header').offset().top + $('#header').outerHeight())  {
+        if (y < maxY) {
+            $('#sidebar').addClass('fixed').removeAttr('style');
+            $('.pay_info, .pay_go').removeClass('col-md-12').addClass('col-md-9');
+        } else {
+            $('#sidebar').removeClass('fixed').css({
+                position: 'absolute',
+                top: (maxY - top) + 'px'
+            });
+            $('.pay_info, .pay_go').removeClass('col-md-9').addClass('col-md-12');
+        }
+    } else {
+        $('#sidebar').removeClass('fixed');
+        $('.pay_info, .pay_go').removeClass('col-md-9').addClass('col-md-12');
+    }
+  }
+
+
+});
+</script>
+
 
 <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.1.js"></script>
 <script type="text/javascript">
