@@ -1,18 +1,26 @@
+<br>
+<br>
+<br>
+<br>
 <%= link_to("추가", new_cms_user_path, class: "btn btn-default") %>
 <table class="table table-condensed table-striped">
   <thead>
     <tr>
-      <th>이름</th>
+      <th>id</th>
       <th>email</th>
+      <th>닉네임</th>
+      <th>이름</th>
       <th>생성일</th>
     </tr>
   </thead>
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= link_to user.name.present? ? user.name : "없음", cms_user_path(user) %></td>
-        <td><%= user.email %></td>
-        <td><%= user.created_at.strftime("%Y-%m-%d") %></td>
+        <td><%= user.id %></td>
+        <td><%= link_to user.email, cms_user_path(user) %></td>
+        <td><%= user.nickname %></td>
+        <td><%= user.name %></td>
+        <td><%= user.created_at %></td>
       </tr>
     <% end -%>
   </tbody>

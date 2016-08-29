@@ -18,7 +18,7 @@
           </p>
         </div>
       </div>
-      <div class="col-md-3 inf_header" style="margin-top:60px;">
+      <!-- <div class="col-md-3 inf_header" style="margin-top:60px;">
         <p class="detail">
           주간 인플루언서 랭킹 <%= @influencer_store.id %>위 ? <span class="fa fa-caret-up" style="color:red"></span>
         </p>
@@ -28,11 +28,10 @@
         <p class="detail">
           판매 중인 딜 수 <%= @influencer_stores_products.count %>개
         </p>
-      </div>
+      </div> -->
     </div>
 
-    <div class="mb_line_break">
-      <div class="col-md-12 inf_header_mb_upper">
+      <div class="col-md-12 col-xs-12 inf_header_mb_upper mb_line_break">
         <div class="col-xs-4 no-gap">
           <%= image_tag @influencer_store.user ? @influencer_store.user.image_profile : nil, style: "border-radius:100%;width:90px;height:90px;margin-top:15px;", alt: "" %>
         </div>
@@ -44,7 +43,7 @@
           </p>
         </div>
       </div>
-      <div class="col-md-12 inf_header_parent no-gap">
+      <!-- <div class="col-md-12 inf_header_parent no-gap">
         <div class="col-xs-3 inf_header inf_header_mb">
           <div class="seperate_line_vertical"></div>
           <p class="detail">
@@ -80,10 +79,9 @@
             <%= @influencer_stores_products.count %>개
           </p>
         </div>
-      </div>
-    </div>
+      </div> -->
 
-    <div class="col-md-12 insta_feed_desk_parent no-gap mb_line_break_reverse">
+    <!-- <div class="col-md-12 insta_feed_desk_parent no-gap mb_line_break_reverse">
       <div class="insta_feed_desk">
         <% @influencer_stores_products.each do |isp| %>
         <div class="slide">
@@ -100,8 +98,8 @@
           피드가 없습니다
         <% end %>
       </div>
-    </div><!-- desk insta feed -->
-
+    </div> -->
+<!--
     <div class="col-md-12 insta_feed_mb_parent no-gap mb_line_break">
       <div class="insta_feed_mb">
         <% @influencer_stores_products.each do |isp| %>
@@ -116,25 +114,26 @@
         </div>
         <% end %>
       </div>
-    </div><!-- mobile insta feed-->
+    </div> -->
 
     <%= render 'wannabe_letter' %>
 
-    <div class="col-md-12 sign_up on_deal_header">
+
+    <div class="col-md-12 col-xs-12 sign_up on_deal_header">
       <h3 class="header" style="margin-top:0px;">판매중인 상품</h3>
     </div>
 
     <% @influencer_stores_products.each do |isp| %>
-    <div class="col-md-12 on_deal">
+    <div class="col-md-12 col-xs-12 on_deal">
       <div class="col-md-8 main_sub_image_left no-gap">
         <%= link_to product_path(isp.product, influencer_store_id: @influencer_store) do %>
-          <%= image_tag isp.product.image_basic, style: "width:100%;height:350px;" %>
+          <%= image_tag isp.product.image_basic %>
         <% end %>
       </div>
 
       <div class="col-md-4 main_sub_image_right">
           <%= link_to product_path(isp.product, influencer_store_id: @influencer_store) do %>
-            <%= image_tag isp.image_review, style: "width:100%;height:350px;" %>
+            <%= image_tag isp.image_review %>
           <% end %>
         <div class="col-md-12 no-gap">
           <%= link_to product_path(isp.product, influencer_store_id: @influencer_store), style:"color:#212121" do %>
@@ -142,103 +141,98 @@
               <%= isp.product.name %>
             </p>
             <p class="price text-right">
-              <%= isp.product.price %> won
+              <s><%= isp.product.price %></s>
+              <%= isp.product.price - isp.product.discount %> 원
             </p>
           <% end %>
-          <h3 class="on_deal_share"> <a href="#" style="color:#212121" onclick="javascript:alert('준비 중');"> <span class="fa fa-share-alt"></span> </a></h3>
         </div>
       </div>
     </div>
     <% end %>
     <% if @influencer_stores_products.blank? %>
-
-    <div class="col-md-12 on_deal text-center" style="margin-top:50px;">
-      <%= image_tag 'default_product' %>
-    </div>
+      <div class="col-md-12 col-xs-12 on_deal text-center" style="margin-top:50px;">
+        <%= image_tag 'no_product' %>
+      </div>
     <% end %>
-    <!-- insta_feed_title -->
-    <div class="inf_feed_title">
-      <%= image_tag "profile_1.png", alt: "" %>
-      <%= link_to "@sample", "#", onclick: "javascript:alert('준비중')" %>
-      <span class="inf_feed_title_sub_right">
-        <%= link_to "인스타그램 피드에서 보기", "#", onclick: "javascript:alert('준비중')" %>
-      <%= image_tag "https://lh3.googleusercontent.com/aYbdIM1abwyVSUZLDKoE0CDZGRhlkpsaPOg9tNnBktUQYsXflwknnOn2Ge1Yr7rImGk=w300" %>
-      </span>
-    </div>
-    <!-- insta_feed_title -->
-    <!-- wannabe_letter_title -->
-    <div class="wannabe_letter_title">
-      <h3 style="margin-top:10px;">워너비 레터</h3>
-    </div>
-    <!-- wannabe_letter_title -->
   </div>
 </div>
 
 <script type="text/javascript">
-$(window).load(function(){
-  ServiceSize(); // 3메뉴 조정
-});
-
-function ServiceSize() {
-  var standard_width = parseInt($('.main_center_image').width())/2;
-  standard_width = standard_width - parseInt($('.main_service').width())/2 - 20;
-  $('.main_service').css('left',standard_width);
-}
-
-
-$(document).ready(function(){
-  $('.insta_feed_desk').bxSlider({
-    slideWidth: 400,
-    minSlides: 4,
-    maxSlides: 4,
-    moveSlides: 3,
-    slideMargin: 20
+  $(window).load(function(){
+    ServiceSize(); // 3메뉴 조정
   });
 
-  var desk_feed = $('.bx-viewport').first();
-  var desk_feed_hieght = parseInt(desk_feed.height()) + 100;
+  function ServiceSize() {
+    var standard_width = parseInt($('.main_center_image').width())/2;
+    standard_width = standard_width - parseInt($('.main_service').width())/2 - 20;
+    $('.main_service').css('left',standard_width);
+  }
 
-  desk_feed.prepend($('.inf_feed_title'));
-});
+  function copyUrl(url) {
+    var textArea = document.createElement("textarea");
+    textArea.value = url;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    alert('복사되었습니다');
+  }
 
-$(document).ready(function(){
-  $('.insta_feed_mb').bxSlider({
-    slideWidth: 200,
-    minSlides: 1,
-    maxSlides: 3,
-    slideMargin: 10
+
+
+  $(document).ready(function(){
+    $('.insta_feed_desk').bxSlider({
+      slideWidth: 400,
+      minSlides: 4,
+      maxSlides: 4,
+      moveSlides: 3,
+      slideMargin: 20
+    });
+
+    var desk_feed = $('.insta_feed_desk_parent').find($('.bx-viewport'));
+    var desk_feed_hieght = parseInt(desk_feed.height()) + 100;
+
+    desk_feed.prepend($('.inf_feed_title'));
   });
-  var mb_feed = $('.bx-viewport:eq(1)');
-  var mb_feed_hieght = parseInt(mb_feed.height()) + 100;
 
-  mb_feed.prepend($('.inf_feed_title').clone());
-});
+  $(document).ready(function(){
+    $('.insta_feed_mb').bxSlider({
+      slideWidth: 200,
+      minSlides: 1,
+      maxSlides: 3,
+      slideMargin: 10
+    });
+    var mb_feed = $('.insta_feed_mb_parent').find($('.bx-viewport'));
+    var mb_feed_hieght = parseInt(mb_feed.height()) + 100;
 
-$(document).ready(function(){
-  $('.wannabe_letter_desk').bxSlider({
-    slideWidth: 400,
-    minSlides: 4,
-    maxSlides: 4,
-    moveSlides: 3,
-    slideMargin: 20
+    mb_feed.prepend($('.inf_feed_title').clone());
   });
 
-  var desk_feed = $('.bx-viewport:eq(2)');
-  var desk_feed_hieght = parseInt(desk_feed.height()) + 80;
+  $(document).ready(function(){
+    $('.wannabe_letter_desk').bxSlider({
+      slideWidth: 400,
+      minSlides: 4,
+      maxSlides: 4,
+      moveSlides: 3,
+      slideMargin: 20
+    });
 
-  desk_feed.prepend($('.wannabe_letter_title'));
-});
+    var desk_feed = $('.wannabe_letter_desk_parent').find($('.bx-viewport'));
+    var desk_feed_hieght = parseInt(desk_feed.height()) + 80;
 
-$(document).ready(function(){
-  $('.wannabe_letter_mb').bxSlider({
-    slideWidth: 200,
-    minSlides: 1,
-    maxSlides: 3,
-    slideMargin: 10
+    desk_feed.prepend($('.wannabe_letter_title'));
   });
-  var mb_feed = $('.bx-viewport:eq(3)');
-  var mb_feed_hieght = parseInt(mb_feed.height()) + 80;
 
-  mb_feed.prepend($('.wannabe_letter_title').clone());
-});
+  $(document).ready(function(){
+    $('.wannabe_letter_mb').bxSlider({
+      slideWidth: 200,
+      minSlides: 1,
+      maxSlides: 3,
+      slideMargin: 10
+    });
+    var mb_feed = $('.wannabe_letter_mb_parent').find($('.bx-viewport'));
+    var mb_feed_hieght = parseInt(mb_feed.height()) + 80;
+
+    mb_feed.prepend($('.wannabe_letter_title').clone());
+  });
 </script>

@@ -1,5 +1,5 @@
 class PurchaseList < ActiveRecord::Base
-  enum status: ["결제준비", :ready, :complete, :fail, :cancel, :refund, :exchange]
+  enum status: [:pending, :ready, :complete, :fail, :cancel]
 
   belongs_to :user
   belongs_to :influencer_store

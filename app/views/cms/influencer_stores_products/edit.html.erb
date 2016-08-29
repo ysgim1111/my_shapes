@@ -1,5 +1,5 @@
 <div class="container inf_admin">
-  <% if current_user.is_influencer? && ["shipping_complete", "apply_waiting"].include?(@influencer_stores_product.status)  %>
+  <% if ["shipping_complete", "apply_waiting"].include?(@influencer_stores_product.status)  %>
     <div class="row inf_admin_header no-margin_mb">
       <div class="col-md-12 mb_line_break_reverse no-gap">
         <h3 class="basic_header">상품 판매 신청</h3>
@@ -47,7 +47,7 @@
           <tbody>
             <tr>
               <th class="tb_inf_prdt_image" scope="row">
-                 <%=image_tag @influencer_stores_product.product.image_basic, style: 'width:120px;height:120px;' %>
+                 <%=image_tag @influencer_stores_product.product.image_basic.thumb, style: 'width:120px;height:120px;' %>
               </th>
               <td class="tb_inf_prdt_brand"><%= @influencer_stores_product.product.brand %></td>
               <td class="tb_inf_prdt_name"><%= @influencer_stores_product.product.name %></td>
@@ -63,46 +63,25 @@
   <div class="row usage_inf" style="margin-top:30px;">
     <div class="col-md-8 no-gap_mb">
       <%= form_for @influencer_stores_product, url: {action: :update}, html: {multipart: true, class: "form-horizontal", method: :put} do |f|  %>
-        <% if current_user.is_influencer? || current_user.is_admin?  %>
-          <div class="col-md-12 no-gap form-group">
-            <div class="col-md-6 no-gap image-upload">
-              <%= f.label :image_review, "사용사진 업로드" %>
-              <span class="help-block">600*600px  이상 권장</span>
-              <%= f.file_field :image_review, class: "form-control" %>
-            </div>
+        <%= f.hidden_field :status, value: "apply_wating" %>
+        <div class="col-md-12 no-gap form-group">
+          <div class="col-md-6 no-gap image-upload">
+            <%= f.label :image_review, "사용사진 업로드" %>
+            <span class="help-block">600*600px  이상 권장</span>
+            <%= f.file_field :image_review, class: "form-control" %>
           </div>
-          <div class="col-md-8 no-gap pd_mg" style="border:none;">
-            <div class="form-group">
-              <%= f.label :comment, "추천 코멘트" %>
-              <%= f.text_area :comment, rows: 4, class: "form-control", placeholder: "코멘트" %>
-              <p class="help-block text-right">0/30자</p>
-            </div>
-            <div class="form-group">
-              <%= f.label :feed_url, "SNS 피드 연결" %>
-              <%= f.text_field :feed_url, class: "form-control", placeholder: "https://www.instagram.com/~" %>
-            </div>
+        </div>
+        <div class="col-md-8 no-gap pd_mg" style="border:none;">
+          <div class="form-group">
+            <%= f.label :comment, "추천 코멘트" %>
+            <%= f.text_area :comment, rows: 4, class: "form-control", placeholder: "코멘트" %>
+            <p class="help-block text-right">0/30자</p>
           </div>
-        <% end %>
-        <% if current_user.is_seller? || current_user.is_admin? %>
-          <div class="col-md-8 no-gap pd_mg" style="border:none;">
-            <div class="form-group">
-              <%= f.label :status, "상태" %>
-              <%= f.select :status, [["배송중", "shipping"], ["신규", "approved"], ["배송완료", "shipping_complete"]], class: "form-control" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :tracking_number, "송장번호" %>
-              <%= text_field :destination, :tracking_number, class: "form-control", placeholder: "송장번호" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :shipping_type, "배송방법" %>
-              <%= select :destination, :shipping_type, [["택배", "door"]], class: "form-control" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :shipping_company, "택배사" %>
-              <%= select :destination, :shipping_company, [["CJ", "cj"]], class: "form-control" %>
-            </div>
+          <div class="form-group">
+            <%= f.label :feed_url, "SNS 피드 연결" %>
+            <%= f.text_field :feed_url, class: "form-control", placeholder: "https://www.instagram.com/~" %>
           </div>
-        <% end %>
+        </div>
         <div class="col-md-12 no-gap">
           <%= button_tag "상품 판매 신청", class: "btn session_btn_black" %>
           <%= link_to "뒤로", :back, class: "btn session_btn_black" %>

@@ -1,14 +1,6 @@
 class PurchasesController < ApplicationController
   before_filter :authenticate_user!
 
-  def index
-    @purchase_lists = current_user.purchase_lists
-  end
-
-  def show
-    @purchase_list = PurchaseList.find(params[:id])
-  end
-
   def new
     @purchase_list = current_user.purchase_lists.new(purchase_list_params)
     @purchase_list.purchase_items.new(purchase_item_params)
@@ -16,16 +8,21 @@ class PurchasesController < ApplicationController
   end
 
   def create
+    PurchaseList.find(params["merchant_uid"]).update(status: "ready")
+
     purchase_list = PurchaseList.find(params["merchant_uid"])
-    purchase_list.status = "comeplete"
     purchase_list.user = current_user
     purchase_list.purchase_result = PurchaseResult.new(iamport_pg_param)
-    purcahse_list.influencer_store.inrement!(:selling_point)
+    purchase_list.destination = Destination.new(destination_param)
+    purchase_list.status = PurchaseList.statuses[:complete]
     purchase_list.save!
+
+    purchase_list.influencer_store.increment!(:selling_point) if purchase_list.influencer_store
 
     render json: params
   rescue => e
-    purcahse_list.update(status: "fail")
+    PurchaseList.find(params["merchant_uid"]).update(status: "fail")
+    render json: {message: e.message}, status: 400
   end
 
   def complete
@@ -55,5 +52,9 @@ class PurchasesController < ApplicationController
 
   def address_book_param
     params.permit(:receiver, :name, :phone_number, :zonecode, :address, :address_detail, :default)
+  end
+
+  def destination_param
+    params.permit("receiver", "demand_message", "receiver", "address", "address_detail", "zonecode", "phone_number")
   end
 end

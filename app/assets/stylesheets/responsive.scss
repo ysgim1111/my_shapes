@@ -25,6 +25,9 @@
 }
 
 @media (max-width: 767px) {
+  .footer_bottom {
+    padding-right:15px;
+  }
   .find_pwd_header {
     margin-bottom: 50px;
   }
@@ -187,8 +190,8 @@
   }
   .pay_info {
     border:none;
-    padding-left:0px;
-    padding-right: 0px;
+    padding-left:0px !important;
+    padding-right: 0px !important;
   }
   .pay_info .header_sub {
     padding-left:0px;
@@ -236,6 +239,9 @@
   }
   .inf_profile .inf_feed_title .inf_feed_title_sub_right > img {
     width:20px;
+  }
+  .inf_profile .main_sub_image_left img, .inf_profile .main_sub_image_right img {
+    height: 200px;
   }
   /* inf_profile ends */
 
@@ -356,6 +362,13 @@
     margin-left: 15px;
   }
   /* brand cms ends */
+
+  /* footer */
+  .footer_spec {
+    font-size:10px;
+    line-height: 15px;
+  }
+  /* footer */
 }
 
 @media (max-width: 990px) {

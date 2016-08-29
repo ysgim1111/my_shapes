@@ -3,46 +3,15 @@
     <!-- desk_insta_feed_prdt -->
     <div class="col-md-12 insta_feed_desk_parent mb_line_break_reverse">
       <div class="insta_feed_desk">
+        <% @product.influencer_stores.each do |is| %>
         <div class="slide">
           <div class="inf_feed_title">
-            <%= image_tag "profile_1.png", style: "border-radius:100%;width:32px;margin-top: 0px;
-          margin-right: 10px;display:inline-block", alt: "" %><a href="#">woohee91&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
+            <%= image_tag is.user.image_profile, style: "border-radius:100%;width:32px;margin-top: 0px;
+          margin-right: 10px;display:inline-block", alt: "" %><a href="#"><%= is.user.nickname %>&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
           </div>
-          <img src="<%= image_url('selfie_1') %>" style="width:245px;height:245px;">
-          <div class="col-md-12 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "insta_logo_d_25.png", alt: "" %></span> </p>
-          </div>
+          <%= image_tag is.influencer_stores_products.where(product_id: @product.id).first.image_review, style: "width:245px;height:245px;" %>
         </div>
-        <div class="slide">
-          <div class="inf_feed_title">
-            <%= image_tag "profile_2.png", style: "border-radius:100%;width:32px;margin-top: 0px;
-          margin-right: 10px;display:inline-block", alt: "" %><a href="#">kimheenim&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
-          </div>
-          <img src="<%= image_url('selfie_2') %>" style="width:245px;height:245px;">
-          <div class="col-md-12 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "facebook_logo_d_25.png", alt: "" %></span> </p>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="inf_feed_title">
-            <%= image_tag "profile_3.png", style: "border-radius:100%;width:32px;margin-top: 0px;
-          margin-right: 10px;display:inline-block", alt: "" %><a href="#">shabet_serri&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
-          </div>
-          <img src="<%= image_url('selfie_3') %>" style="width:245px;height:245px;">
-          <div class="col-md-12 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "insta_logo_d_25.png", alt: "" %></span> </p>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="inf_feed_title">
-            <%= image_tag "profile_4.png", style: "border-radius:100%;width:32px;margin-top: 0px;
-          margin-right: 10px;display:inline-block", alt: "" %><a href="#">주지훈&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
-          </div>
-          <img src="<%= image_url('selfie_4') %>" style="width:245px;height:245px;">
-          <div class="col-md-12 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "facebook_logo_d_25.png", alt: "" %></span> </p>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div><!-- desk insta feed  prdt-->
 
@@ -50,35 +19,25 @@
     <!-- mb_insta_feed_prdt -->
     <div class="col-md-12 insta_feed_mb_parent insta_feed_prdt_mb_parent mb_line_break no-gap">
       <div class="insta_feed_mb insta_feed_prdt_mb">
+        <% @product.influencer_stores_products.each do |isp| %>
         <div class="slide">
           <div class="inf_feed_title">
-            <%= image_tag "profile_1.png", style: "border-radius:100%;width:32px;margin-top: 0px;
+            <%= image_tag isp.influencer_store.user.image_profile, style: "border-radius:100%;width:32px;margin-top: 0px;
           margin-right: 10px;display:inline-block", alt: "" %><a href="#">woohee91&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
           </div>
-          <img src="<%= image_url('selfie_1') %>" style="width:245px;height:245px;">
-          <div class="col-md-12 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "insta_logo_d_25.png", alt: "" %></span> </p>
-          </div>
+          <%= image_tag isp.influencer_store.user.image_profile, style: "width:245px;height:245px;" %>
         </div>
-        <div class="slide">
-          <div class="inf_feed_title">
-            <%= image_tag "profile_2.png", style: "border-radius:100%;width:32px;margin-top: 0px;
-          margin-right: 10px;display:inline-block", alt: "" %><a href="#">kimheenim&nbsp;<i class="fa fa-check-circle fa-lg"></i></a>
-          </div>
-          <img src="<%= image_url('selfie_2') %>" style="width:245px;height:245px;">
-          <div class="col-md-12 no-gap">
-            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 653개 <span style="margin-left:14px;"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 6개</span> <span style="float:right"><%= image_tag "facebook_logo_d_25.png", alt: "" %></span> </p>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div><!-- mb_insta_feed_prdt -->
-
   </div>
 </div>
+
 <div class="insta_feed_prdt_header">
   <h3 class="hidden">상품 디테일</h3>
   <h3 class="insta_feed_prdt_header_text">이 제품을 추천하는 인플루언서</h3>
 </div>
+
 <script type="text/javascript">
 $(document).ready(function(){
   $('.insta_feed_desk').bxSlider({

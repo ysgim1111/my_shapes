@@ -18,7 +18,7 @@
                   <td class="tb_mp_delivery_name text-left">
                     <p class="tb_mp_delivery_name_header">
                       <%= link_to purchase_list_path(purchase_list) do %>
-                        <%= purchase_list.purchase_items.first.product.name %> <%= purchase_list.purchase_items.size > 1 ? "외 #{purchase_list.purchase_items.size}건" : "" %>에 대한 주문
+                        <%= purchase_list.purchase_items.first.product.name %> <%= check_purchase_case(purchase_list) %>에 대한 주문
                       <% end %>
                     </p>
                     <div class="col-md-2 no-gap">
@@ -27,10 +27,10 @@
                     </div>
                     <div class="col-md-4 no-gap">
                       <p class="header_spec_sub"><%= purchase_list.purchase_items.inject(0){ |sum, item| sum += item.product.price } %>원</p>
-                      <p class="header_spec_sub"><%= purchase_list.created_at.strftime("%Y-%m-%d") %></p>
+                      <p class="header_spec_sub"><%= purchase_list.created_at.strftime("%Y년 %m월 %d일") %></p>
                     </div>
                   </td>
-                  <td class="tb_mp_delivery_choose" style="padding-right:30px;padding-left:30px;"> <%= link_to purchase_list.status, "#", class: "btn session_btn big_session_btn width_full", style: "margin-bottom:0px;", disabled: "true" %> </td>
+                  <td class="tb_mp_delivery_choose" style="padding-right:30px;padding-left:30px;"> <%= link_to  purchase_list.status, "#", class: "btn session_btn big_session_btn width_full", style: "margin-bottom:0px;", disabled: "true" %> </td>
                 </tr>
               <% end %>
               <% if @purchase_lists.blank? %>
@@ -47,16 +47,16 @@
             <table class="table tb_inf_prdt_mb tb_inf_prdt_big_mb table-hover">
               <tbody>
                 <tr>
-                  <th scope="row">
+                  <th scope="row" style="text-align:left">
                     <%= link_to purchase_list_path(purchase_list) do %>
-                      <%= image_tag purchase_list.purchase_items.first.product.image_basic.thumb %>
+                      <%= image_tag purchase_list.purchase_items.first.product.image_basic.thumb, style: "width:100px;height:100px;" %>
                     <% end %>
                   </th>
                   <td>
                     <span class="tb_inf_prdt_brand"><%= purchase_list.purchase_items.first.product.brand %></span><br>
                     <span class="tb_inf_prdt_name">
                       <%= link_to purchase_list_path(purchase_list) do %>
-                        <%= purchase_list.purchase_items.first.product.name %> <%= purchase_list.purchase_items.size > 1 ? "외 #{purchase_list.purchase_items.size}건" : "" %>에 대한 주문
+                        <%= purchase_list.purchase_items.first.product.name %> <%= check_purchase_case(purchase_list) %>에 대한 주문
                       <% end %>
                     </span><br>
                     <span class="tb_inf_prdt_number"><%= purchase_list.purchase_items.first.option %></span><br>
@@ -65,16 +65,16 @@
                 <tr>
                   <th scope="row" class="tb_inf_prdt_sub">
                     <span class="tb_inf_prdt_price tb_inf_prdt_sub_sub">신청일</span><br>
-                    <span class="tb_inf_prdt_number"><%= purchase_list.created_at.strftime("%Y-%m-%d") %></span>
+                    <span class="tb_inf_prdt_number"><%= purchase_list.created_at.strftime("%Y년 %m월 %d일") %></span>
                   </th>
                   <td>
                     <span class="tb_inf_prdt_price tb_inf_prdt_sub_sub">배송중</span><br>
-                    <span class="tb_inf_prdt_number"><%= purchase_list.status %> <%= purchase_list.destination.tracking_number %> </span>
+                    <span class="tb_inf_prdt_number"><%= purchase_list.status %> <%= purchase_list.purchase_items.first.shipping_tracking.number if purchase_list.purchase_items.first.shipping_tracking %> </span>
                   </td>
                 </tr>
                 <tr>
                   <td scope="row" colspan="2">
-                    <%= link_to "사용 정보 입력", "#", class: "btn session_btn width_full_mb", disabled: "true", style: "margin-bottom:0px;" %>
+                    <%= link_to "보기", purchase_list_path(purchase_list), class: "btn session_btn_black width_full_mb", style: "margin-bottom:0px;" %>
                   </td>
                 </tr>
               </tbody>
