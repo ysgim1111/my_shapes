@@ -1,7 +1,7 @@
 <!-- wannabe_letter_desk -->
 <div class="col-md-12 wannabe_letter_desk_parent no-gap mb_line_break_reverse">
   <div class="wannabe_letter_desk">
-    <% @influencer_store.wannabe_letters.each do |wannabe_letter| %>
+    <% @influencer_store.wannabe_letters.where.not(status: WannabeLetter.statuses[:report]).each do |wannabe_letter| %>
       <div class="slide">
         <div class="wnb_letter_div">
           <div class="col-xs-11 wnb_letter_customer">
@@ -24,7 +24,7 @@
 <div class="col-md-12 col-xs-12 wannabe_letter_mb_parent no-gap mb_line_break">
   <div class="wannabe_letter_mb">
 
-    <% @influencer_store.wannabe_letters.each do |wannabe_letter| %>
+    <% @influencer_store.wannabe_letters.where.not(status: WannabeLetter.statuses[:report]).each do |wannabe_letter| %>
       <div class="slide">
         <div class="wnb_letter_div">
           <div class="col-xs-11 wnb_letter_customer">
