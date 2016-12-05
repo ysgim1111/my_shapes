@@ -20,19 +20,35 @@
           <% end %>
         </ol>
 
+        <script>
+          $(document).ready(function(){
+            $('#carousel_3').hide();
+          })
+        </script>
+
+
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-          <% @products.where(view_type: Product.view_types[:main]).each_with_index do |product, i| %>
-          <div class="item <%= i == 0 ? 'active' : '' %>">
-            <%= link_to deal_detail_products_path do %>
-              <%= image_tag(product.image_basic, alt: product.name, style: "width:100%") %>
-            <% end %>
+          <div class="item active">
+            <a href="products/deal_detail">
+              <%= image_tag('slide_1.jpg', style: "width:100%") %>
+            </a>
             <div class="carousel-caption invisible">
-              <h3><%= product.name %></h3>
-              <p><%= product.desc %></p>
+              <h3>1234</h3>
+              <p>2345</p>
             </div>
           </div>
-          <% end %>
+
+          <div class="item">
+            <a href="products/deal_detail">
+              <%= image_tag('slide_2.jpg', style: "width:100%") %>
+            </a>
+            <div class="carousel-caption invisible">
+              <h3>1234</h3>
+              <p>2345</p>
+            </div>
+          </div>
+
         </div>
 
         <!-- Left and right controls -->
@@ -101,7 +117,7 @@
       <div class="col-md-6 card_guide no-gap">
         <div class="col-md-5">
           <%= link_to product_path(product), style: "text-decoration:none" do %>
-            <%= image_tag(product.image_basic.thumb, alt: "", style: "width:100%") %>
+            <%= image_tag('product_thmb_6.jpg', alt: "", style: "width:100%") %>
           <% end %>
         </div>
         <div class="col-md-7 no-gap">
