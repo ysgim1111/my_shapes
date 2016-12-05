@@ -28,57 +28,10 @@
 }
 
 @media (max-width: 767px) {
-  .footer_bottom {
-    padding-right:15px;
-  }
-  .find_pwd_header {
-    margin-bottom: 50px;
-  }
-  .sign_up .sign_sns {
-    padding-top: 50px;
-  }
   .navbar-default.mobile-nav {
     background-color: #ffffff;
     border-bottom: none;
     box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.20);
-  }
-  .no-gap_mb {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-  }
-  .no-pd_right_mb {
-    padding-right: 0px !important;
-  }
-  .no-pd_left_mb {
-    padding-left: 0px !important;
-  }
-  .width_full_mb {
-    width: 100%;
-    max-width: none;
-  }
-  .inf_admin .search_applied_prdt_mb {
-    border-bottom: none;
-  }
-  .text-right_mb {
-    text-align: right;
-  }
-  .text-left_mb {
-    text-align: left;
-  }
-  .no-margin_mb {
-    margin-left: 0px !important;
-    margin-right: 0px !important;
-  }
-  .inf_admin .row {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-  .deal_header fieldset .name {
-    font-size: 30.4px;
-    letter-spacing: 0px;
-  }
-  .deal_header .spec_choose {
-    margin-top: 20px;
   }
   /*about starts*/
   .mb_line_break {
@@ -86,9 +39,6 @@
   }
   .mb_line_break_inline {
     display: inline !important;
-  }
-  .mb_line_break_tb_row {
-    display: table-row;
   }
   .mb_line_break_reverse {
     display: none;
@@ -193,8 +143,8 @@
   }
   .pay_info {
     border:none;
-    padding-left:0px !important;
-    padding-right: 0px !important;
+    padding-left:0px;
+    padding-right: 0px;
   }
   .pay_info .header_sub {
     padding-left:0px;
@@ -211,9 +161,6 @@
   /* inf_profile starts */
   .inf_profile .inf_header {
     text-align: center;
-  }
-  .inf_profile .inf_header_parent {
-    margin-top:110px;
   }
 
   .inf_profile .on_deal_share {
@@ -242,9 +189,6 @@
   }
   .inf_profile .inf_feed_title .inf_feed_title_sub_right > img {
     width:20px;
-  }
-  .inf_profile .main_sub_image_left img, .inf_profile .main_sub_image_right img {
-    height: 200px;
   }
   /* inf_profile ends */
 
@@ -284,94 +228,6 @@
     margin-top: 0px;
   }
   /* my_page */
-
-  /* inf_apply */
-  .navbar_apply .apply_current_page, .navbar_apply#tabs .tab_menu_sub {
-    display: none !important;
-  }
-  .navbar-default.mobile-nav.navbar_apply {
-    background-color: #212121;
-  }
-  .inf_admin .prdt_apply_process .prdt_apply_process_desc {
-    font-size: 11.2px;
-    letter-spacing: -0.3px;
-    line-height: 15px;
-    margin-top: 14.5px;
-  }
-  .inf_admin .prdt_apply_process .prdt_apply_process_3cols {
-    padding-top: 25.5px;
-    padding-bottom: 25px;
-  }
-  .inf_admin .sample_complete_header {
-    font-size: 17.6px;
-    letter-spacing: -0.4px;
-  }
-  .inf_admin .sample_complete_middle {
-    font-size: 11.2px;
-    letter-spacing: -0.3px;
-    line-height: 20.8px;
-  }
-  .inf_admin .sample_complete_bottom {
-    font-size: 12.8px;
-    letter-spacing: -0.3px;
-    line-height: 24px;
-  }
-  .tb_mp_spec_info_parent {
-    border: none;
-    padding:0px;
-    margin-bottom:50px;
-  }
-  .table.tb_mp_spec_info .tb_mp_spec_info_header {
-    font-size: 22.5px;
-    letter-spacing: -0.9px;
-  }
-  .tb_mp_spec_info_parent_pd {
-    padding-left: 7px;
-    padding-right: 7px;
-  }
-  .table.tb_mp_spec_info_nested>tbody>tr>th>img {
-    width:100px;
-    height:100px;
-  }
-  .table.tb_exchg_nested>tbody>tr>.tb_purc_check>.checkbox>label {
-    margin-right: 0px;
-    padding-left: 15px;
-  }
-  /* inf_apply */
-
-  /* product starts */
-
-  .pdt_bottom .row {
-    padding: 30px 0px;
-  }
-  .pdt_detail {
-    margin-top: 45px;
-  }
-  .container.top {
-    margin-top:0px;
-  }
-  .pdt_detail .feed_content_profile .blob .blob_comment {
-    margin-top:15px;
-  }
-  /* product ends */
-
-
-  /* brand cms starts */
-  .brand_cms .form_3cols_double_label .label_right_side {
-    display: block;
-    text-align: right;
-  }
-  .brand_cms .form_3cols_double_label .percent_left {
-    margin-left: 15px;
-  }
-  /* brand cms ends */
-
-  /* footer */
-  .footer_spec {
-    font-size:10px;
-    line-height: 15px;
-  }
-  /* footer */
 }
 
 @media (max-width: 990px) {

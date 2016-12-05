@@ -7,7 +7,7 @@ $(document).on('click', '#savePostInfo', function() {
       address: $('#address').val(),
       address_detail: $('#address_detail').val(),
       phone_number: $('#phone_number1').val() + '-' + $('#phone_number2').val() + '-' + $('#phone_number3').val(),
-      name: $('#address_book_name').val(),
+      name: $('#destination_name').val(),
       receiver: $('#receiver').val()
     }
   }).done(function() {

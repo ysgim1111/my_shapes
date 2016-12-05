@@ -1,11 +1,12 @@
-class Users::SocialsController < Devise::RegistrationsController
+class Users::SocialsController < Devise::OmniauthCallbacksController
   def facebook
-    @user = User.find_with_update_or_create(params)
+    @user = User.find_for_facebook_oauth(params)
+
+    ap "persisted? #{@user.persisted?}"
 
     if @user.persisted?
-      sign_in @user, event: :authentication
-      render js: "window.location = '#{session[:previous_url] || root_path}'"
-      return
+      sign_in_and_redirect @user, event: :authentication
+      set_flash_message(:notice, :success, kind: "Facebook") if is_navigational_format?
     else
       redirect_to new_user_registration_url
     end

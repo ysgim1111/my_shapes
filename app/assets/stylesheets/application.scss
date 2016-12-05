@@ -13,12 +13,13 @@
  *= require_tree .
  *= require_self
  *= require bootstrap_and_overrides
- *= require bootstrap-datetimepicker
 
 */
+
 .container {
-  margin-top: 50px;
+  margin-top: 70px;
 }
+
 footer {
   margin: 50px 0;
 }

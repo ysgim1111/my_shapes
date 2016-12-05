@@ -1,4 +1,64 @@
-<div class="container sign_up purc_ready">
+<style>
+.sign_in .col-md-6:nth-child(2) {
+  margin-top:0px;
+  padding:0px;
+}
+input[type=checkbox] {
+    display: none;
+}
+.pd_mg {
+  margin-top:0px !important;
+  padding:0px !important;
+}
+
+input[type=checkbox] + label{
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 35px;
+    margin-right: 15px;
+    line-height: 20px;
+    font-size: 13px;
+}
+
+input[type=checkbox]+ label:before {
+    top: 0px;
+    content: "";
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+input[type=checkbox]:checked + label:before {
+
+    content: "\2713";  /* 체크모양 */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+    font-size: 15px;
+    font-weight:800;
+    color: #fff;
+    background:#212121;
+    text-align: center;
+    line-height: 20px;
+
+}
+
+</style>
+
+<div class="container sign_up sign_in purc_ready">
   <div class="row">
     <div class="col-md-12 mb_line_break_reverse">
       <h3 class="header header_sub">주문 / 결제</h3>
@@ -7,7 +67,7 @@
       <div class="col-md-12">
         <h3 class="header">주문 상품 확인</h3>
       </div>
-      <div class="col-md-12" id="header">
+      <div class="col-md-12">
         <!-- desktop -->
         <div class="mb_line_break_reverse">
           <table class="table table-hover tb_purc">
@@ -15,14 +75,12 @@
               <tr> <th>&nbsp;</th> <th class="tb_purc_name">상품명</th> <th class="tb_purc_shipping">배송비</th> <th class="tb_purc_price">상품 가격</th> </tr>
             </thead>
             <tbody>
-              <% @purchase_list.purchase_items.each do |item| %>
               <tr>
-                <th class="tb_purc_image" scope="row"> <%= image_tag(item.product.image_basic, style: "width:100px;height:100px;") %> </th>
-                <td class="tb_purc_name"><h5><%= item.product.name %></h5><p>옵션 : <%= item.option %></p></td>
-                <td class="tb_purc_shipping"><%= item.product.shipping_expenses %> 원</td>
-                <td class="tb_purc_price"><%= item.product.price %> 원</td>
+                <th class="tb_purc_image" scope="row"> <%= image_tag(@product.image_basic, style: "width:100px;height:100px;") %> </th>
+                <td class="tb_purc_name"><h5><%= @product.name %></h5><p>옵션 : <%= params[:option] %></p></td>
+                <td class="tb_purc_shipping"><%= @product.shipping_expenses %> 원</td>
+                <td class="tb_purc_price"><%= @product.price %> 원</td>
               </tr>
-              <% end %>
             </tbody>
           </table>
         </div>
@@ -35,196 +93,359 @@
               <tr> <th>&nbsp;</th> <th>&nbsp;</th> </tr>
             </thead>
             <tbody>
-              <% @purchase_list.purchase_items.each do |item| %>
-              <tr> <th scope="row"> <%= image_tag item.product.image_basic, style: "width:75px;height:75px;" %> </th> <td><h5><%= item.product.name %></h5><p class="help-block">옵션 : <%= item.option %><br> <%= item.product.price %> 원&nbsp;&nbsp;<%= item.product.shipping_expenses %> 원</p></td> </tr>
-              <% end %>
+              <tr> <th scope="row"> <img src="https://placehold.it/75x75"> </th> <td><h5>[챔스] 베이직 로고 크롭 티셔츠츠 / 블루-화이트</h5><p class="help-block">옵션 : S<br> 36,000 원&nbsp;&nbsp;2,500 원</p></td> </tr>
+              <tr> <th scope="row"> <img src="https://placehold.it/75x75"> </th> <td><h5>[챔스] 베이직 로고 크롭 티셔츠츠 / 블루-화이트</h5><p class="help-block">옵션 : S<br> 36,000 원&nbsp;&nbsp;2,500 원</p></td> </tr>
+              <tr> <th scope="row"> <img src="https://placehold.it/75x75"> </th> <td><h5>[챔스] 베이직 로고 크롭 티셔츠츠 / 블루-화이트</h5><p class="help-block">옵션 : S<br> 36,000 원&nbsp;&nbsp;무료 배송</p></td> </tr>
             </tbody>
           </table>
         </div>
         <!-- mb -->
       </div><!-- col-md-12 -->
-
       <div class="col-md-7 no-gap">
-        <div class="col-md-12" style="padding: 0px 15px; margin-bottom: 10px;">
+        <div class="col-md-12" style="padding: 0px 15px;">
           <h3 class="header">배송 정보</h3>
         </div>
         <div class="col-md-12">
           <div class="col-md-12">
-            <%= render "shared/address_book" %>
+            <div class="col-md-6 no-gap">
+              <div class="form-group">
+                <% current_user.destinations.each do |destination| %>
+                  <%= button_tag destination.receiver, onclick: "changePostInfo('#{destination.receiver}', '#{destination.name}', #{destination.zonecode}, '#{destination.address}', '#{destination.address_detail}', '#{destination.phone_number}')" %>
+                <% end %>
+              </div>
+            </div>
+            <div class="col-md-6 purc_delivery mb_line_break_reverse">
+              <%= button_tag "배송지저장하기", id: "savePostInfo", class: "btn session_btn" %>
+              <a href="#" class="btn session_btn">배송지 관리</a>
+            </div>
+            <!-- mb -->
+            <div class="col-md-6 mb_line_break no-gap" style="margin-top: 0px;padding: 0px;">
+              <a href="#" style="width:100%;" class="btn session_btn">배송지 추가</a>
+            </div>
+            <!-- mb -->
+            <div class="col-md-6 no-gap pd_mg">
+              <div class="form-group">
+                <label for="user_이름">배송지 명</label><br>
+                <input class="form-control check" placeholder="이름을 입력해주세요" type="text" value="" name="destination_name" id="destination_name">
+              </div>
+
+              <div class="form-group">
+                <label for="user_이름">수령인 명</label><br>
+                <input class="form-control check" placeholder="이름을 입력해주세요" type="text" value="" name="receiver" id="receiver">
+              </div>
+
+              <div class="form-group purc_phone_form">
+                <label for="user_이름">수령인 연락처</label><br>
+                <input class="form-control check purc_phone" type="text" value="" name="phone_number1" id="phone_number1">
+                <input class="form-control check purc_phone" type="text" value="" name="phone_number2" id="phone_number2">
+                <input class="form-control check purc_phone" type="text" value="" name="phone_number3" id="phone_number3">
+              </div>
+            </div>
+
+
+            <div class="col-md-12 no-gap form-group">
+              <div class="col-md-6 no-gap">
+                <label for="user_이름">배송주소</label><br>
+                <input class="form-control check" placeholder="예) 남부순환로 199가길, 역삼동" type="text" id="zonecode" value="" >
+              </div>
+              <div class="col-md-6 purc_delivery mb_line_break_reverse">
+                <label class="invisible" for="user_이름">배송주소</label><br>
+                <%= button_tag "우편번호 검색", onclick: "openPostSearch()", class: "btn session_btn" %>
+              </div>
+              <!-- mb -->
+              <div class="col-md-6 no-gap mb_line_break" style="margin-top: 0px;padding: 0px;margin-bottom:15px;">
+                <label class="invisible" for="user_이름">배송주소</label><br>
+                <%= button_tag "우편번호 검색", onclick: "openPostSearch()", class: "btn session_btn", style: "width: 100%" %>
+              </div>
+              <!-- mb -->
+              <input class="form-control check" placeholder="" type="text" value="" id="address">
+              <label class="invisible" for="user_이름">배송주소</label><br>
+              <input class="form-control check" placeholder="" type="text" value="" id="address_detail">
+            </div>
+
+            <div class="col-md-8 no-gap">
+              <div class="form-group">
+                <label for="user_이름">배송 요청사항</label><br>
+                <select class="form-control">
+                  <option>배송시 요청사항을 선택하세요</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <input class="form-control check" type="text" value="" maxlength="30" id="demand_message">
+              <p class="help-block text-right">0/30자</p>
+            </div>
+
+            <div class="col-md-12 no-gap">
+              <div class="checkbox">
+                <input type="checkbox" id="check1" class="checkbox-style"/>
+                <label for="check1">배송지 정보에 저장합니다.</label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" id="check1" class="checkbox-style"/>
+                <label for="check1">기본 배송지로 설정합니다.</label>
+              </div>
+            </div>
           </div>
         </div><!-- 배송 정보 -->
+
+        <div class="col-md-12" style="padding: 0 15px;">
+          <h3 class="header">할인 적용</h3>
+        </div>
+        <!-- desktop -->
+        <div class="col-md-12 mb_line_break_reverse">
+
+            <table class="table table-hover">
+              <thead>
+                <tr> <th>&nbsp;</th> <th>&nbsp;</th> <th>&nbsp;</th> </tr>
+              </thead>
+              <tbody>
+                <tr> <th scope="row"> <img src="https://placehold.it/50x50"> </th> <td><h5>[챔스] 베이직 로고 크롭 티셔츠츠 / 블루-화이트</h5></td>
+                  <td><select class="form-control">
+                        <option>쿠폰 선택</option>
+                        <option>2</option>
+                        <option>4</option>
+                      </select>
+                  </td>
+                </tr>
+                <tr> <th scope="row"> <img src="https://placehold.it/50x50"> </th> <td><h5>[챔스] 베이직 로고 크롭 티셔츠츠 / 블루-화이트</h5></td>
+                  <td><select class="form-control">
+                        <option>쿠폰 선택</option>
+                        <option>2</option>
+                        <option>4</option>
+                      </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+        <!-- desktop -->
+        <!-- mb -->
+        <div class="col-md-12 mb_line_break">
+          <div class="col-md-12">
+            <table class="table table-hover">
+              <thead>
+                <tr> <th>&nbsp;</th> <th>&nbsp;</th </tr>
+              </thead>
+              <tbody>
+                <tr> <th scope="row"> <img src="https://placehold.it/50x50"> </th> <td><h5>[챔스] 베이직 로고 크롭 티셔츠츠 / 블루-화이트</h5>
+                  <select class="form-control" style="width:50%;height:35px">
+                        <option>쿠폰 선택</option>
+                        <option>2</option>
+                        <option>4</option>
+                  </select></td>
+                </tr>
+                <tr> <th scope="row"> <img src="https://placehold.it/50x50"> </th> <td><h5>[챔스] 베이직 로고 크롭 티셔츠츠 / 블루-화이트</h5>
+                  <select class="form-control" style="width:50%;height:35px">
+                        <option>쿠폰 선택</option>
+                        <option>2</option>
+                        <option>4</option>
+                  </select></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- mb -->
 
         <div class="col-md-12 mb_line_break_reverse">
           <h3 class="header">결제 정보</h3>
         </div>
         <div class="col-md-12 pay_method" style="padding-left:15px;padding-right:15px;">
           <p>*결제 수단</p>
-          <div class="pay_method_box pay_method_card pay_method_selected">
+
+          <!--
+          <%= select_tag "pay_method","<option value='card'>신용카드</option><option value='trans'>실시간계좌이체</option><option value='vbank'>가상계좌</option><option value='phone'>휴대폰소액결제</option>".html_safe %>
+          -->
+          <div class="pay_method_box pay_method_card">
+            <a href="#">
+            <%= image_tag "pay_card_d" %>
             <p>신용 카드</p>
+            </a>
           </div>
-<!--
-          <div class="pay_method_box pay_method_vbank">
+
+          <div class="pay_method_box pay_method_other">
+            <a href="#">
+            <%= image_tag "pay_account_d" %>
             <p>무통장 입금</p>
-          </div> -->
+            </a>
+          </div>
 
-          <div class="pay_method_box pay_method_trans">
+          <div class="pay_method_box pay_method_other">
+            <a href="#">
+            <%= image_tag "pay_withdraw_d" %>
             <p>계좌 이체</p>
+            </a>
           </div>
 
-          <div class="pay_method_box pay_method_phone">
+          <div class="pay_method_box pay_method_other">
+            <a href="#">
+            <%= image_tag "pay_mobile_d" %>
             <p>휴대폰 결제</p>
-          </div>
-        </div>
-      </div><!-- col-md-7 -->
-
-      <div class="col-md-5">
-        <div id="sidebar">
-          <div class="col-md-12 pay_info">
-            <h3 class="header header_main">결제 금액 정보</h3>
-            <p class="header_sub">총 상품 금액 <span><%= total_price = @purchase_list.purchase_items.inject(0){ |sum, item| sum += item.product.price } %> 원</span></p>
-            <p class="header_sub">배송비 <span><%= total_shipping_expenses = @purchase_list.purchase_items.inject(0){ |sum, item| sum += item.product.shipping_expenses } %> 원</span></p>
-            <p class="header_sub">할인 <span>-<%= total_discount = @purchase_list.purchase_items.inject(0){ |sum, item| sum += item.product.discount } %> 원</span></p>
-            <hr>
-            <p class="header_sub">최종결제금액 <span><%= total_price + total_shipping_expenses - total_discount %> 원</span></p>
+            </a>
           </div>
 
-          <div class="col-md-12 pay_info">
-            <div class="col-md-12 no-gap">
-              <div class="checkbox">
-                <input type="checkbox" id="agreementCheckbox" class="checkbox-style"/>
-                <label for="agreementCheckbox">구매조건 확인 및 결제진행에 동의합니다. </label>
-              </div>
-              <p class="help-block" style="font-size:10px;">구매하신 상품 배송 및 주문처리를 위해 개인정보를 제공받는 판매자 : <% @purchase_list.purchase_items.each_with_index do |item, i| %><%= ", " if i > 0 && i < @purchase_list.purchase_items.size %><%= item.product.brand %><% end %></p>
+          <div class="col-md-12 no-gap pay_card_menu_sub">
+            <div class="form-group">
+              <label for="user_이름">카드 종류</label><br>
+              <select class="form-control" style="width:50%;">
+                <option>선택</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
             </div>
           </div>
-          <div class="col-md-12 text-center pay_go">
-            <%= button_tag "결제 진행", class: "btn session_btn_black", id: "buyBtn" %>
-            <%= hidden_field_tag "purchase_list_name", "#{@purchase_list.purchase_items.first.product.name}" + (@purchase_list.purchase_items.size > 1 ? " 외 #{@purchase_list.purchase_items.size} 개 " : "") + "구매" %>
-            <%= hidden_field_tag "total_purchase_price", total_price + total_shipping_expenses - total_discount  %>
-            <%= hidden_field_tag "pay_method", "card" %>
+
+          <div class="col-md-12 no-gap pay_card_menu_sub">
+            <div class="form-group">
+              <label for="user_이름">할부 기간</label><br>
+              <select class="form-control" style="width:50%;">
+                <option>일시불</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+            </div>
           </div>
         </div>
 
+
+
+      </div><!-- col-md-7 -->
+
+      <script type="text/javascript">
+        $(window).load(function(){
+          $('.pay_card_menu_sub').addClass('hidden');
+          $('.pay_method_card').on('click',function(){
+            $('.pay_card_menu_sub').removeClass('hidden');
+          });
+          $('.pay_method_other').on('click',function(){
+            $('.pay_card_menu_sub').addClass('hidden');
+          });
+        })
+      </script>
+
+      <div class="col-md-5">
+        <div class="col-md-12 pay_info">
+          <h3 class="header header_main">결제 금액 정보</h3>
+          <p class="header_sub">총 상품 금액 <span><%= @product.price %> 원</span></p>
+          <p class="header_sub">배송비 <span><%= @product.shipping_expenses %> 원</span></p>
+          <p class="header_sub">할인 <span>-<%= @product.discount %> 원</span></p>
+          <hr>
+          <p class="header_sub">최종결제금액 <span><%= @product.price + @product.shipping_expenses - @product.discount %> 원</span></p>
+        </div>
+
+        <div class="col-md-12 pay_info">
+          <div class="col-md-12 no-gap">
+            <div class="checkbox">
+              <input type="checkbox" id="check1" class="checkbox-style"/>
+              <label for="check1"><a href="#">구매조건</a> 확인 및 결제진행에 동의합니다. </label>
+            </div>
+            <p class="help-block" style="font-size:10px;">구매하신 상품 배송 및 주문처리를 위해 개인정보를 제공받는 판매자 : Vivant</p>
+          </div>
+        </div>
+        <div class="col-md-12 text-center pay_go">
+          <%= button_tag "결제 진행", class: "btn session_btn_black", id: "buyBtn" %>
+        </div>
       </div><!-- col-md-5 -->
+
     </div><!-- col-md-12 -->
+
+
+    <div class="col-md-12">
+    <div class="col-md-12 etc mb_line_break_reverse">
+      <p class="help-block">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. <br>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+    </div>
+
+
   </div><!-- .row -->
 </div>
-
-<script>
-//사이드바 고정
-$(document).ready(function() {
-  var top = $('#sidebar').offset().top - parseFloat($('#sidebar').css('marginTop').replace(/auto/, 0));
-  // 사이드바 위에서 길이
-  var footTop = $('footer').offset().top - parseFloat($('footer').css('marginTop').replace(/auto/, 0));
-  // 푸터 위에서 길이
-
-  $(window).scroll(function() {
-    var x = parseInt($(this).width());
-    if (x > 992 ) {
-        InitSidebar();
-    }
-
-  });
-
-  function InitSidebar() {
-    var maxY = footTop - $('#sidebar').outerHeight() - 85;
-    // 푸터 위에서 길이 - 사이드바 자체 길이
-    var y = $(this).scrollTop(); //위에서 현재 스크롤 길이
-    if ( y >= top - $('#header').offset().top + $('#header').outerHeight())  {
-        if (y < maxY) {
-            $('#sidebar').addClass('fixed').removeAttr('style');
-            $('.pay_info, .pay_go').removeClass('col-md-12').addClass('col-md-9');
-        } else {
-            $('#sidebar').removeClass('fixed').css({
-                position: 'absolute',
-                top: (maxY - top) + 'px'
-            });
-            $('.pay_info, .pay_go').removeClass('col-md-9').addClass('col-md-12');
-        }
-    } else {
-        $('#sidebar').removeClass('fixed');
-        $('.pay_info, .pay_go').removeClass('col-md-9').addClass('col-md-12');
-    }
-  }
-
-
-});
-</script>
-
 
 <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.1.js"></script>
 <script type="text/javascript">
   $(document).on('click', '#buyBtn', function() {
-    if ($('#agreementCheckbox').prop('checked')) {
-      var IMP = window.IMP;
-      IMP.init('<%= Rails.application.secrets.iamport_user_code %>');
+    var IMP = window.IMP;
+    IMP.init('imp21979455');
 
-      IMP.request_pay({
-        pg : 'html5_inicis',
-        pay_method : $('#pay_method').val(),
-        merchant_uid : '<%= @purchase_list.id %>',
-        name : $('#purchase_list_name').val(),
-        amount : $('#total_purchase_price').val(),
-        buyer_email : '<%= current_user.email %>',
-        buyer_name : '<%= current_user.name %>',
-        buyer_tel : $('#phone_number1').val() + '-' + $('#phone_number2').val() + '-' + $('#phone_number3').val(),
-        buyer_addr : $('#address').val() + ' ' + $('#address_detail').val(),
-        buyer_postcode : $('#zonecode').val(),
-        m_redirect_url: 'trd.st'
-      }, function(rsp) {
-        if ( rsp.success ) {
-          rsp["demand_message"] = $('#demand_message').val();
-          rsp["receiver"] = $('#receiver').val();
-          rsp["address"] = $('#address').val();
-          rsp["address_detail"] = $('#address_detail').val();
-          rsp["zonecode"] = $('#zonecode').val();
-          rsp["phone_number"] = $('#phone_number1').val() + '-' + $('#phone_number2').val() + '-' + $('#phone_number3').val();
+    IMP.request_pay({
+      pg : 'html5_inicis',
+      pay_method : $('#pay_method').val(),
+      merchant_uid : 'merchant_' + new Date().getTime(),
+      name : '<%= @product.name %>',
+      amount : '<%= @product.price + @product.shipping_expenses - @product.discount %>',
+      buyer_email : '<%= current_user.email %>',
+      buyer_name : '<%= current_user.name %>',
+      buyer_tel : $('#phone_number1').val() + '-' + $('#phone_number2').val() + '-' + $('#phone_number3').val(),
+      buyer_addr : $('#address').val() + $('#address_detail').val(),
+      buyer_postcode : $('#zonecode').val(),
+      m_redirect_url: 'test.trd.st'
+    }, function(rsp) {
+      if ( rsp.success ) {
+        rsp["demand_message"] = $('#demand_message').val();
+        console.log(rsp);
+        $.ajax({
+          url: '/purchases',
+          method: 'post',
+          data: rsp
+        }).done(function(res) {
+          location.href = '/purchases/complete?product_id=' + '<%= @product.id %>' + '&buyer_addr=' + res.buyer_addr + '&buyer_postcode=' + res.buyer_postcode + '&pay_method=' + res.pay_method + '&buyer_name=' + res.buyer_name;
+        });
+      } else {
+        var msg = '결제에 실패하였습니다.';
+        msg += '에러내용 : ' + rsp.error_msg;
 
-          $.ajax({
-            url: '/purchases',
-            method: 'post',
-            data: rsp
-          }).done(function(res) {
-            location.href = '/purchases/complete?purchase_list_id=<%= @purchase_list.id %>';
-          }).fail(function(res){
-            console.log(res);
-            alert('결제 처리에 실패하였습니다. ');
-          });
-        } else {
-          var msg = '결제에 실패하였습니다.';
-          msg += '에러내용 : ' + rsp.error_msg;
-
-          alert(msg);
-        }
-      });
-    } else {
-      alert('구매조건 확인 및 결제진행에 동의하셔야 합니다');
-      $('#agreementCheckbox').next().addClass('notchecked');
-    }
+        alert(msg);
+      }
+    });
   });
 </script>
 
-<script type="text/javascript">
-  $(document).on('click', '#agreementCheckbox', function() {
-    $(this).next().removeClass('notchecked');
-  });
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+  function openPostSearch() {
+    new daum.Postcode({
+      oncomplete: function(data) {
+        var fullAddr = '';
+        var extraAddr = '';
 
-  $(document).on('click', '.pay_method_box', function() {
-    var payMethod = 'card';
+        if (data.userSelectedType === 'R') {
+          fullAddr = data.roadAddress;
+        } else {
+          fullAddr = data.jibunAddress;
+        }
 
-    if ($(this).hasClass('pay_method_card')) {
-      payMethod = 'card';
-    } else if ($(this).hasClass('pay_method_vbank')) {
-      payMethod = 'vbank';
-    } else if ($(this).hasClass('pay_method_trans')) {
-      payMethod = 'trans';
-    } else if ($(this).hasClass('pay_method_phone')) {
-      payMethod = 'phone';
-    }
+        if(data.userSelectedType === 'R'){
+          if (data.bname !== '') {
+            extraAddr += data.bname;
+          }
 
-    $('#pay_method').val(payMethod);
+          if (data.buildingName !== '') {
+            extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+          }
 
-    $('.pay_method_box').removeClass('pay_method_selected');
-    $(this).addClass('pay_method_selected');
-  });
+          fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+        }
+
+        document.getElementById('zonecode').value = data.zonecode;
+        document.getElementById('address').value = fullAddr;
+        document.getElementById('address_detail').focus();
+      }
+    }).open();
+  }
+
+  function changePostInfo(receiver, name, zonecode, address, address_detail, phone_number) {
+    document.getElementById('zonecode').value = zonecode;
+    document.getElementById('address').value = address;
+    document.getElementById('address_detail').value = address_detail;
+    document.getElementById('phone_number1').value = phone_number.split('-')[0];
+    document.getElementById('phone_number2').value = phone_number.split('-')[1];
+    document.getElementById('phone_number3').value = phone_number.split('-')[2];
+    document.getElementById('receiver').value = receiver;
+    document.getElementById('destination_name').value = name;
+  }
 </script>

@@ -1,11 +1,67 @@
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-<script>
-$( function() {
-  $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
-  $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
-} );
-</script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+    $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+  } );
+  </script>
+  <style>
+  input[type=checkbox] {
+      display: none;
+  }
+  .pd_mg {
+    margin-top:0px !important;
+    padding:0px !important;
+  }
+
+  input[type=checkbox] + label{
+      display: inline-block;
+      cursor: pointer;
+      position: relative;
+      padding-left: 35px;
+      margin-right: 15px;
+      line-height: 20px;
+      font-size: 13px;
+  }
+
+  input[type=checkbox]+ label:before {
+      top: 0px;
+      content: "";
+      display: inline-block;
+
+      width: 20px;
+      height: 20px;
+
+      margin-right: 10px;
+      position: absolute;
+      left: 0;
+      bottom: 1px;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+      box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+      -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+      -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+      transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  }
+  input[type=checkbox]:checked + label:before {
+
+      content: "\2713";  /* 체크모양 */
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+      font-size: 15px;
+      font-weight:800;
+      color: #fff;
+      background:#212121;
+      text-align: center;
+      line-height: 20px;
+
+  }
+
+  </style>
+
 <div class="container purc_ready my_page">
   <div class="row" id="tabs">
     <div class="col-md-12 mb_line_break_reverse">
@@ -34,17 +90,174 @@ $( function() {
           <li><a href="#tabs-3">1:1문의</a></li>
           <li><a href="#tabs-3">회원 정보 관리</a></li>
           <li><a href="#tabs-3">배송지 관리</a></li>
-          <li><a href="#tabs-4">인플루언서 신청</a></li>
         </ul>
       </div>
     </div>
-    <div class="col-md-9 no-gap" style="padding-top:50px;">
+    <div class="col-md-9 no-gap">
+      <div id="tabs-1">
+        <h2>Content heading 1</h2>
+        <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+      </div>
       <div id="tabs-2">
-        <%= render "tab_2" %>
+        <h2>Content heading 2</h2>
+        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
       </div>
-      <div id="tabs-4">
-        <%= render "tab_4" %>
+      <div id="tabs-3">
+        <div class="col-md-10 no-gap">
+          <div class="col-md-12" style="padding: 0px 15px;">
+            <h3 class="header">회원 기본 정보</h3>
+          </div>
+          <div class="col-md-12 form-horizontal name_email_change">
+            <div class="form-group profile_name_img">
+              <label for="inputEmail3" class="col-md-2 control-label">프로필 사진</label>
+              <div class="col-md-6">
+                <%= image_tag "profile_1.png"%>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-md-2 control-label">닉네임</label>
+              <div class="col-md-5">
+                <input type="text" class="form-control" id="inputEmail3">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-md-2 control-label">이름</label>
+              <div class="col-md-5">
+                <input type="text" class="form-control" id="inputEmail3">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-md-2 control-label">이메일</label>
+              <div class="col-md-6">
+                <input type="email" class="form-control" id="inputEmail3">
+              </div>
+            </div>
+            <div class="form-group purc_phone_form">
+              <label for="contact" class="col-md-2 control-label">연락처</label>
+              <div class="col-md-6">
+                <input class="form-control check purc_phone" type="text" value="" name="phone_number1" id="contact1">
+                <input class="form-control check purc_phone" type="text" value="" name="phone_number2" id="contact2">
+                <input class="form-control check purc_phone" type="text" value="" name="phone_number3" id="contact3">
+              </div>
+            </div>
+            <%= button_tag "기본정보 변경", class: "btn session_btn_black", style: "margin-top:30px;" %>
+          </div>
+
+          <div class="col-md-12" style="padding: 0px 15px;">
+            <h3 class="header">비밀번호 변경</h3>
+          </div>
+          <div class="col-md-12 form-horizontal pass_change">
+            <div class="form-group">
+              <label for="inputEmail3" class="col-md-2 control-label">변경할 비밀번호</label>
+              <div class="col-md-6">
+                <input type="password" class="form-control" id="inputEmail3">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-md-2 control-label">비밀번호 확인</label>
+              <div class="col-md-6">
+                <input type="password" class="form-control" id="inputEmail3">
+              </div>
+            </div>
+            <%= button_tag "비밀번호 변경", class: "btn session_btn_black", style: "margin-top:30px;" %>
+          </div>
+
+
+          <div class="col-md-12" style="padding: 0px 15px;">
+            <h3 class="header">배송지 관리</h3>
+          </div>
+          <div class="col-md-12">
+              <div class="col-md-12 no-gap form-group">
+                <div class="col-md-6 col-xs-9 no-gap">
+                  <label for="user_이름" class="invisible">배송지 관리</label><br>
+                  <select class="form-control">
+                    <option>새로운 배송지</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <!-- desk btn -->
+                <div class="col-md-6 purc_delivery mb_line_break_reverse" style="margin-top:0px;">
+                  <label class="invisible" for="user_이름">배송주소</label><br>
+                  <%= button_tag "배송지 추가", class: "btn session_btn" %>
+                </div>
+                <!-- desk btn -->
+                <!-- mb btn -->
+                <div class="col-md-6 col-xs-3 no-gap mb_line_break" style="text-align: center;margin-top: 0px;padding: 0px;margin-bottom: 15px;">
+                  <label class="invisible" for="user_이름">배송주소</label><br>
+                  <%= button_tag "+", class: "btn session_btn", style: "margin-bottom: 0px;padding-bottom: 9px;padding-top: 9px;" %>
+                </div>
+                <!-- mb btn -->
+              </div>
+              <div class="col-md-6 no-gap pd_mg" style="border:none;">
+                <div class="form-group">
+                  <label for="user_이름">배송지 명</label><br>
+                  <input class="form-control check" placeholder="이름을 입력해주세요" type="text" value="" name="destination_name" id="destination_name">
+                </div>
+
+                <div class="form-group">
+                  <label for="user_이름">수령인 명</label><br>
+                  <input class="form-control check" placeholder="이름을 입력해주세요" type="text" value="" name="receiver" id="receiver">
+                </div>
+
+                <div class="form-group purc_phone_form">
+                  <label for="user_이름">수령인 연락처</label><br>
+                  <input class="form-control check purc_phone" type="text" value="" name="phone_number1" id="phone_number1">
+                  <input class="form-control check purc_phone" type="text" value="" name="phone_number2" id="phone_number2">
+                  <input class="form-control check purc_phone" type="text" value="" name="phone_number3" id="phone_number3">
+                </div>
+              </div>
+
+
+              <div class="col-md-12 no-gap form-group">
+                <div class="col-md-6 col-xs-9 no-gap">
+                  <label for="user_이름">배송주소</label><br>
+                  <input class="form-control check" placeholder="예) 남부순환로 199가길, 역삼동" type="text" id="zonecode" value="" >
+                </div>
+                <div class="col-md-6 purc_delivery mb_line_break_reverse" style="margin-top:0px;">
+                  <label class="invisible" for="user_이름">배송주소</label><br>
+                  <%= button_tag "우편번호 검색", onclick: "openPostSearch()", class: "btn session_btn" %>
+                </div>
+                <!-- mb -->
+                <div class="col-md-6 col-xs-3 no-gap mb_line_break" style="text-align: right;margin-top: 0px;padding: 0px;margin-bottom: 15px;">
+                  <label class="invisible" for="user_이름">배송주소</label><br>
+                  <%= button_tag "검색", onclick: "openPostSearch()", class: "btn session_btn", style: "margin-bottom: 0px;padding-bottom: 9px;padding-top: 9px;" %>
+                </div>
+                <!-- mb -->
+                <input class="form-control check" placeholder="" type="text" value="" id="address">
+                <label class="invisible" for="user_이름">배송주소</label><br>
+                <input class="form-control check" placeholder="" type="text" value="" id="address_detail">
+              </div>
+
+              <div class="col-md-8 no-gap">
+                <div class="form-group">
+                  <label for="user_이름">배송 요청사항</label><br>
+                  <select class="form-control">
+                    <option>배송시 요청사항을 선택하세요</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <input class="form-control check" type="text" value="" maxlength="30" id="demand_message">
+                <p class="help-block text-right">0/30자</p>
+              </div>
+
+              <div class="col-md-12 no-gap">
+                <div class="checkbox">
+                  <input type="checkbox" id="check1" class="checkbox-style"/>
+                  <label for="check1">기본 배송지로 설정합니다.</label>
+                </div>
+                <%= button_tag "배송지 저장", class: "btn session_btn_black", style: "margin-top:30px;" %>
+              </div>
+          </div><!-- 배송 정보 -->
+
+
+        </div><!-- col-md-10 -->
       </div>
-    </div><!-- .col-md-9(right_side) -->
-  </div><!--.row -->
+    </div>
+  </div>
 </div>

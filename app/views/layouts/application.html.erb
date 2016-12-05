@@ -18,24 +18,27 @@
   <![endif]-->
   <%= csrf_meta_tags %>
   <script src="https://use.fontawesome.com/1dbbdbff8d.js"></script>
+  <style media="screen">
+
+  </style>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar">
   <% if params[:action] == "about" || params[:action] == "recruit" || params[:action] == "complete"%>
     <%= render "/layouts/about_nav" %>
+  <% elsif params[:controller] == "products" && params[:action] == "index" %>
+    <%= render "/layouts/ordinary_nav" %>
   <% else %>
     <%= render "/layouts/ordinary_nav" %>
   <% end %>
+    <%= render partial: "shared/flash_messages", flash: flash %>
 
-  <%= render partial: "shared/flash_messages", flash: flash %>
-
-  <%= yield %>
+    <%= yield %>
 
   <footer style="clear:both;margin:0px;background-color:#212121">
     <div class="copyright">
       <div class="container footer-social-links" style="margin-top:0px;">
         <div class="row">
-
           <div class="col-md-12 text-center">
             <div class="col-md-6 col-md-offset-3">
               <h4 style="color:#ffffff">Maker</h4>
@@ -64,7 +67,7 @@
     $('.menu_second:eq(0)').addClass('active');
   })
   </script>
-  <% elsif params[:controller] == "influencer_stores" %>
+  <% elsif params[:controller] == "influences" %>
   <script>
   $(document).ready(function() {
     $('.menu_second:eq(1)').addClass('active');
@@ -81,7 +84,6 @@
 <script type="text/javascript">
   $(document).ready(function() {
     initNav();
-    initCurrentPage();
   })
 
 function initNav() {
@@ -108,11 +110,6 @@ function initNav() {
       image_down.siblings().removeClass('hide').addClass('show');
     }
   })
-}
-function initCurrentPage() {
-  var current_page = $('.container').first().find('.row').find('.col-md-12.mb_line_break_reverse').find('h3').html();
-  $('nav').find('.current_page').html(current_page);
-
 }
 </script>
 </html>

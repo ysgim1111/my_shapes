@@ -1,8 +1,3 @@
-<br>
-<br>
-<br>
-<br>
-<br>
 <dl class="dl-horizontal">
   <dt></dt>
   <dd>
@@ -16,8 +11,6 @@
   <dd><%= @product.desc %></dd>
   <dt>가격</dt>
   <dd><%= @product.price %></dd>
-  <dt>할인</dt>
-  <dd><%= @product.discount %></dd>
   <dt>뷰타입</dt>
   <dd><%= @product.view_type %></dd>
   <dt>상품이미지</dt>
@@ -58,9 +51,4 @@
   <dd><%= @product.as_tel %></dd>
   <dt>AS안내</dt>
   <dd><%= @product.as_info %></dd>
-  <hr>
-  <% @product.product_options.each do |option| %>
-    <dt>옵션</dt>
-    <dd><%= option.name %></dd>
-  <% end %>
 </dl>

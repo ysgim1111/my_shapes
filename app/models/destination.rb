@@ -1,3 +1,3 @@
 class Destination < ActiveRecord::Base
-  belongs_to :deliverable, polymorphic: true
+  belongs_to :user
 end

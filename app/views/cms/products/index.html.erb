@@ -1,15 +1,12 @@
 <br>
-<br>
-<br>
-<br>
-<br>
+<%= link_to("추가", new_cms_product_path, class: "btn btn-default") %>
 <table class="table table-condensed table-striped">
   <thead>
     <tr>
       <th>상품명</th>
       <th>설명</th>
       <th>가격</th>
-      <th>상태</th>
+      <th>뷰타입</th>
       <th>생성일</th>
     </tr>
   </thead>
@@ -19,7 +16,7 @@
         <td><%= link_to product.name, cms_product_path(product) %></td>
         <td><%= product.desc %></td>
         <td><%= product.price %></td>
-        <td><%= product.status %></td>
+        <td><%= product.view_type %></td>
         <td><%= product.created_at.strftime("%Y-%m-%d") %></td>
       </tr>
     <% end -%>
