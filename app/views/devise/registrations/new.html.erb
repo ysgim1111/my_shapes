@@ -1,28 +1,150 @@
+<style>
+input[type=checkbox] {
+    display: inline;
+    z-index: -99;
+    left: 40px;
+    top: 30px;
+}
 
-<div class="jumbotron">
-  <h1>회원가입</h1>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <p class="lead">아래 사항을 채워주세요</p>
-    <div class="form-group">
-      <p class="sign_form">
-        이메일
-      </p>
-      <%= f.email_field :email, autofocus: true, placeholder: "이메일", class: "form-control"%>
+input[type=checkbox] + label{
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 60px;
+    margin-right: 15px;
+    line-height: 50px;
+    font-size: 13px;
+}
+
+input[type=checkbox] + label:before {
+    top: 0px;
+    content: "";
+    display: inline-block;
+
+    width: 50px;
+    height: 50px;
+
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+input[type=checkbox]:checked + label:before {
+
+    content: "\2713";  /* 체크모양 */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+    font-size: 30px;
+    font-weight:800;
+    color: #fff;
+    background:#212121;
+    text-align: center;
+    line-height: 50px;
+}
+</style>
+
+<div class="container sign_up sign_up_process">
+  <div class="row">
+    <div class="col-md-12 mb_line_break_reverse">
+      <h3 class="header">회원가입</h3>
     </div>
-    <div class="form-group">
-      <p class="sign_form">
-        비밀번호 <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %>글자 이상)</em>
-        <% end %><br/>
-      </p>
-      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "비밀번호" %>
+    <% unless devise_error_messages! == "" %>
+      <div class="col-md-12">
+        <div class="alert alert-danger alert-dismissable fade in">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <%= devise_error_messages! %>
+        </div>
+      </div>
+    <% end %>
+    <div class="col-md-1"></div>
+    <div class="col-md-5" style="padding-top:80px;">
+      <div class="mb_line_break_reverse" style="width: 100%;height: 275px;position: absolute;border-right: 1px solid #979797;top: 140px;"></div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+        <div class="form-group">
+          <%= f.label :email, "이메일" %><br />
+          <%= f.email_field :email, required: true, class: "form-control check", placeholder: "이메일을 입력해주세요", autofocus: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :nickname, "닉네임" %>
+          <em>(7 자 이하)</em><br />
+          <%= f.text_field :nickname, required: true, class: "form-control check", placeholder: "닉네임을 입력해주세요", autofocus: false, maxlength: 7 %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password, "비밀번호" %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> 자 이상)</em>
+          <% end %><br />
+          <%= f.password_field :password, required: true, class: "form-control check", placeholder: "비밀번호를 입력해주세요", autocomplete: "off", minlength: @minimum_password_length %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation, "비밀번호 확인" %><br />
+          <%= f.password_field :password_confirmation, required: true, class: "form-control check", placeholder: "비밀번호와 똑같이 입력해주세요", autocomplete: "off", minlength: @minimum_password_length %>
+        </div>
+
+        <div class="col-md-12 no-gap">
+          <div class="checkbox">
+            <input type="checkbox" name="term" id="term" required class="checkbox-style check">
+            <label for="term"><a data-toggle="modal" data-target=".personal_inf_term">서비스 이용 약관</a>에 동의합니다</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" name="privacy" id="privacy" required class="checkbox-style">
+            <label for="privacy"><a data-toggle="modal" data-target=".usage_term">개인정보취급방침</a>에 동의합니다</label>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-md-offset-3 text-center actions" style="margin-top:30px;">
+          <%= f.submit "회원가입", class:"session_btn_black width_full" %>
+        </div>
+      <% end %>
     </div>
-    <div class="form-group">
-      <p class="sign_form">
-        비밀번호 확인
-      </p>
-      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "비밀번호 확인" %>
-  <br>
-  <%= f.submit "가입 하기", class: "btn btn-success" %>
-  <% end %>
+    <div class="col-md-12 sign_in_bottom text-center mb_line_break">
+      <h5>또는</h5>
+    </div>
+    <div class="col-md-5 text-center sign_sns">
+      <div class="col-md-12 no-gap">
+        <%= link_to "#", class: "btn", onclick: "javascript:checkLoginState();", style: "width:100%;max-width:400px;" do %>
+          <%= image_tag "join_facebook_d.png", style: "width:100%;" %>
+        <% end %>
+        </a>
+      </div>
+
+      <div class="col-md-12 no-gap">
+        <a href="#" class="btn" onclick="javascript:alert('준비 중입니다');" style="width:100%;max-width:400px;">
+          <%= image_tag "join_naver_d.png", style: "width:100%;" %>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
+
+<%= render 'layouts/terms' %>
+
+<script>
+  var password = document.getElementById("user_password");
+  var confirm_password = document.getElementById("user_password_confirmation");
+  var policies_term = document.getElementById("policies_term");
+  var policies_privacy = document.getElementById("policies_privacy");
+
+  function validatePassword(){
+    if(password.value != confirm_password.value) {
+      confirm_password.setCustomValidity('비밀번호가 일치하지 않아요');
+    } else {
+      confirm_password.setCustomValidity('');
+    }
+  }
+
+  password.onchange = validatePassword;
+  confirm_password.onkeyup = validatePassword;
+</script>

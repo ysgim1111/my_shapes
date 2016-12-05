@@ -1,0 +1,238 @@
+<div class="container inf_profile">
+  <div class="row">
+    <div class="col-md-12 hidden mb_line_break_reverse">
+      <h3 class="header">스토어</h3>
+    </div>
+    <div class="mb_line_break_reverse">
+      <div class="col-md-9 inf_header" style="margin-top:30px;">
+        <div class="col-md-2">
+          <%= image_tag @influencer_store.user ? @influencer_store.user.image_profile : nil, style: "border-radius:100%;width:100px;height:100px;margin-top:15px;", alt: "" %>
+        </div>
+        <div class="col-md-10 no-gap">
+          <h3><%= @influencer_store.user ? @influencer_store.user.nickname : "" %></h3>
+          <p class="detail">
+            <%= @influencer_store.desc %>
+          </p>
+          <p class="detail">
+          <%= "trd.st/#{@influencer_store.url}" %> <%= button_tag "주소 복사", type: "button", class: "inf_link", onclick: "copyUrl('http://trd.st/#{@influencer_store.url}')" %>
+          </p>
+        </div>
+      </div>
+      <!-- <div class="col-md-3 inf_header" style="margin-top:60px;">
+        <p class="detail">
+          주간 인플루언서 랭킹 <%= @influencer_store.id %>위 ? <span class="fa fa-caret-up" style="color:red"></span>
+        </p>
+        <p class="detail">
+          판매지수 <%= @influencer_store.selling_point %> / 유입지수 <%= @influencer_store.user_point %>
+        </p>
+        <p class="detail">
+          판매 중인 딜 수 <%= @influencer_stores_products.count %>개
+        </p>
+      </div> -->
+    </div>
+
+      <div class="col-md-12 col-xs-12 inf_header_mb_upper mb_line_break">
+        <div class="col-xs-4 no-gap">
+          <%= image_tag @influencer_store.user ? @influencer_store.user.image_profile : nil, style: "border-radius:100%;width:90px;height:90px;margin-top:15px;", alt: "" %>
+        </div>
+        <div class="col-xs-8">
+          <h3 class="store_owner"><%= @influencer_store.user ? @influencer_store.user.nickname : "" %></h3>
+          <p class="store_desc"><%= @influencer_store.desc %></p>
+          <p class="store_url">
+          <%= "trd.st/#{@influencer_store.url}" %>
+          </p>
+        </div>
+      </div>
+      <!-- <div class="col-md-12 inf_header_parent no-gap">
+        <div class="col-xs-3 inf_header inf_header_mb">
+          <div class="seperate_line_vertical"></div>
+          <p class="detail">
+            주간 랭킹
+          </p>
+          <p class="detail_sub">
+            <%= @influencer_store.id %>위 ? <span class="fa fa-caret-up" style="color:red"></span>
+          </p>
+        </div>
+        <div class="col-xs-3 inf_header inf_header_mb">
+          <div class="seperate_line_vertical"></div>
+          <p class="detail">
+            판매지수
+          </p>
+          <p class="detail_sub">
+            <%= @influencer_store.selling_point %>
+          </p>
+        </div>
+        <div class="col-xs-3 inf_header inf_header_mb">
+          <div class="seperate_line_vertical"></div>
+          <p class="detail">
+            유입지수
+          </p>
+          <p class="detail_sub">
+            <%= @influencer_store.user_point %>
+          </p>
+        </div>
+        <div class="col-xs-3 inf_header inf_header_mb">
+          <p class="detail">
+            판매 딜 수
+          </p>
+          <p class="detail_sub">
+            <%= @influencer_stores_products.count %>개
+          </p>
+        </div>
+      </div> -->
+
+    <!-- <div class="col-md-12 insta_feed_desk_parent no-gap mb_line_break_reverse">
+      <div class="insta_feed_desk">
+        <% @influencer_stores_products.each do |isp| %>
+        <div class="slide">
+          <%= image_tag isp.image_review, style: "width:245px;height:245px"%>
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 ??개</p>
+          </div>
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 ??개</span></p>
+          </div>
+        </div>
+        <% end %>
+        <% if @influencer_stores_products.blank? %>
+          피드가 없습니다
+        <% end %>
+      </div>
+    </div> -->
+<!--
+    <div class="col-md-12 insta_feed_mb_parent no-gap mb_line_break">
+      <div class="insta_feed_mb">
+        <% @influencer_stores_products.each do |isp| %>
+        <div class="slide">
+          <%= image_tag isp.image_review %>
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-heart"></i> 좋아요 ??개</p>
+          </div>
+          <div class="col-xs-6 no-gap">
+            <p class="insta"> <i class="fa fa-comment fa-flip-horizontal"></i> 댓글 ??개</span></p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div> -->
+
+    <%= render 'wannabe_letter' %>
+
+
+    <div class="col-md-12 col-xs-12 sign_up on_deal_header">
+      <h3 class="header" style="margin-top:0px;">판매중인 상품</h3>
+    </div>
+
+    <% @influencer_stores_products.each do |isp| %>
+    <div class="col-md-12 col-xs-12 on_deal">
+      <div class="col-md-8 main_sub_image_left no-gap">
+        <%= link_to product_path(isp.product, influencer_store_id: @influencer_store) do %>
+          <%= image_tag isp.product.image_basic %>
+        <% end %>
+      </div>
+
+      <div class="col-md-4 main_sub_image_right">
+          <%= link_to product_path(isp.product, influencer_store_id: @influencer_store) do %>
+            <%= image_tag isp.image_review %>
+          <% end %>
+        <div class="col-md-12 no-gap">
+          <%= link_to product_path(isp.product, influencer_store_id: @influencer_store), style:"color:#212121" do %>
+            <p class="product text-right">
+              <%= isp.product.name %>
+            </p>
+            <p class="price text-right">
+              <s><%= isp.product.price %></s>
+              <%= isp.product.price - isp.product.discount %> 원
+            </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% if @influencer_stores_products.blank? %>
+      <div class="col-md-12 col-xs-12 on_deal text-center" style="margin-top:50px;">
+        <%= image_tag 'no_product' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(window).load(function(){
+    ServiceSize(); // 3메뉴 조정
+  });
+
+  function ServiceSize() {
+    var standard_width = parseInt($('.main_center_image').width())/2;
+    standard_width = standard_width - parseInt($('.main_service').width())/2 - 20;
+    $('.main_service').css('left',standard_width);
+  }
+
+  function copyUrl(url) {
+    var textArea = document.createElement("textarea");
+    textArea.value = url;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    alert('복사되었습니다');
+  }
+
+
+
+  $(document).ready(function(){
+    $('.insta_feed_desk').bxSlider({
+      slideWidth: 400,
+      minSlides: 4,
+      maxSlides: 4,
+      moveSlides: 3,
+      slideMargin: 20
+    });
+
+    var desk_feed = $('.insta_feed_desk_parent').find($('.bx-viewport'));
+    var desk_feed_hieght = parseInt(desk_feed.height()) + 100;
+
+    desk_feed.prepend($('.inf_feed_title'));
+  });
+
+  $(document).ready(function(){
+    $('.insta_feed_mb').bxSlider({
+      slideWidth: 200,
+      minSlides: 1,
+      maxSlides: 3,
+      slideMargin: 10
+    });
+    var mb_feed = $('.insta_feed_mb_parent').find($('.bx-viewport'));
+    var mb_feed_hieght = parseInt(mb_feed.height()) + 100;
+
+    mb_feed.prepend($('.inf_feed_title').clone());
+  });
+
+  $(document).ready(function(){
+    $('.wannabe_letter_desk').bxSlider({
+      slideWidth: 400,
+      minSlides: 4,
+      maxSlides: 4,
+      moveSlides: 3,
+      slideMargin: 20
+    });
+
+    var desk_feed = $('.wannabe_letter_desk_parent').find($('.bx-viewport'));
+    var desk_feed_hieght = parseInt(desk_feed.height()) + 80;
+
+    desk_feed.prepend($('.wannabe_letter_title'));
+  });
+
+  $(document).ready(function(){
+    $('.wannabe_letter_mb').bxSlider({
+      slideWidth: 200,
+      minSlides: 1,
+      maxSlides: 3,
+      slideMargin: 10
+    });
+    var mb_feed = $('.wannabe_letter_mb_parent').find($('.bx-viewport'));
+    var mb_feed_hieght = parseInt(mb_feed.height()) + 80;
+
+    mb_feed.prepend($('.wannabe_letter_title').clone());
+  });
+</script>

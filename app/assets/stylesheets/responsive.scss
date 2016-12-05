@@ -1,0 +1,396 @@
+@media (max-width: 667px) {
+  .sign_up .header{
+    font-size: 20px;
+    padding-left: 15px;
+    border-bottom: 2px solid #212121;
+    padding-bottom: 15px;
+    font-weight: 300;
+    margin-top: 100px;
+  }
+  .sign_up a:first-child > .well {
+    width:100%;
+    margin:auto;
+    margin-top:30px;
+  }
+  .sign_up .well {
+    width:100%;
+    margin:auto;
+    margin-top:20px;
+  }
+  .sign_up a:nth-child(2) > .well {
+    width:100%;
+    margin:auto;
+    margin-top:20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer_bottom {
+    padding-right:15px;
+  }
+  .find_pwd_header {
+    margin-bottom: 50px;
+  }
+  .sign_up .sign_sns {
+    padding-top: 50px;
+  }
+  .navbar-default.mobile-nav {
+    background-color: #ffffff;
+    border-bottom: none;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.20);
+  }
+  .no-gap_mb {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .no-pd_right_mb {
+    padding-right: 0px !important;
+  }
+  .no-pd_left_mb {
+    padding-left: 0px !important;
+  }
+  .width_full_mb {
+    width: 100%;
+    max-width: none;
+  }
+  .inf_admin .search_applied_prdt_mb {
+    border-bottom: none;
+  }
+  .text-right_mb {
+    text-align: right;
+  }
+  .text-left_mb {
+    text-align: left;
+  }
+  .no-margin_mb {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  .inf_admin .row {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .deal_header fieldset .name {
+    font-size: 30.4px;
+    letter-spacing: 0px;
+  }
+  .deal_header .spec_choose {
+    margin-top: 20px;
+  }
+  /*about starts*/
+  .mb_line_break {
+    display: block;
+  }
+  .mb_line_break_inline {
+    display: inline !important;
+  }
+  .mb_line_break_tb_row {
+    display: table-row;
+  }
+  .mb_line_break_reverse {
+    display: none;
+  }
+  .second_section_mb_line_break_reverse {
+    display: none;
+  }
+  .nav-pills.nav-justified {
+    display: none;
+  }
+  .nav.navbar-nav {
+    text-align: center
+  }
+  .nav.navbar-nav > li {
+    display: inline-block;
+  }
+  .nav.navbar-nav > li.session {
+    display: block;
+  }
+  .nav.right_profile > li:last-child {
+    display: none;
+  }
+  .navbar-brand {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  #navbar-brand_mb {
+    display: block;
+  }
+  #nav_mb_menu {
+    display: block ;
+  }
+  #nav_main {
+    display: none;
+  }
+  #main_profile img {
+    margin-top:-30px;
+  }
+  .container.about_container {
+    text-align:center;
+  }
+  .about_center_image {
+    height:100vh;
+  }
+  .about .about_content {
+    position: relative;
+    left: 0px !important;
+  }
+  .about_content {
+    text-align: right;
+  }
+  .main_logo_div {
+    text-align: center;
+    position: relative;
+    padding:0px;
+    right: 0;
+  }
+  .about_logo {
+    position: relative;
+    top: 25vh;
+  }
+  .about_text {
+    position: relative;
+    left: 0 !important;
+    top: 30vh;
+  }
+  .about_last_underline {
+  }
+  .about_last_section h1 {
+    font-size: 29px;
+  }
+  .about_last_section .apply h3 {
+    font-size: 20px;
+    letter-spacing: -0.5px;
+  }
+  /* recruit starts */
+  .recruit_form .form-group .col-md-6:nth-child(2n-1) {
+    padding: 0px;
+  }
+  .recruit_form .form-group .col-md-6:nth-child(2n) {
+    padding: 0px;
+  }
+  /* recruit ends */
+
+  /*complete starts */
+  .complete_head {
+    line-height: 1.5 !important;
+  }
+  /*complete_ends */
+
+  /* payment starts */
+  .purc_ready > .row > .col-md-12 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .purc_ready > .row > .col-md-12 > .col-md-7 > .col-md-12 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .pay_method .pay_method_box {
+    margin-bottom:15px;
+  }
+  .pay_info {
+    border:none;
+    padding-left:0px !important;
+    padding-right: 0px !important;
+  }
+  .pay_info .header_sub {
+    padding-left:0px;
+  }
+  .pay_info .header.header_main {
+    padding-left:0px;
+  }
+  .pay_go a {
+    width:100%
+  }
+  /* payment ends */
+
+
+  /* inf_profile starts */
+  .inf_profile .inf_header {
+    text-align: center;
+  }
+  .inf_profile .inf_header_parent {
+    margin-top:110px;
+  }
+
+  .inf_profile .on_deal_share {
+    top: inherit;
+    position: relative;
+    right: inherit;
+    margin-top: 5px;
+    text-align: right;
+  }
+  .on_deal {
+    padding-left:15px;
+    padding-right:15px;
+  }
+  .inf_profile .main_sub_image_right {
+    padding-left: 0px;
+  }
+  .bx-controls-direction {
+    display: none;
+  }
+  .inf_profile .wnb_letter_div {
+    padding : 10px 15px;
+  }
+  .inf_profile .inf_feed_title .inf_feed_title_sub_right > a {
+    font-size:10px;
+    letter-spacing: -0.67px;
+  }
+  .inf_profile .inf_feed_title .inf_feed_title_sub_right > img {
+    width:20px;
+  }
+  .inf_profile .main_sub_image_left img, .inf_profile .main_sub_image_right img {
+    height: 200px;
+  }
+  /* inf_profile ends */
+
+  /* login*/
+  .sign_in .col-md-6:nth-child(3)  {
+    padding: 0px;
+  }
+  /* loginends */
+
+  /* shopping_list */
+
+  .shopping_list .tb_desk {
+    border-bottom: none;
+    padding-bottom: 0px;
+  }
+  .shopping_list .go_purc {
+    text-align: center;
+    margin-top: 40px;
+  }
+  .shopping_list .go_purc a {
+    max-width: 200px;
+  }
+
+  /* my_page */
+  .my_page .header {
+    padding-left: 0px;
+    font-size: 20px;
+    border-bottom: 2px solid #979797;
+    padding-bottom: 15px;
+    margin-top: 100px;
+  }
+  .my_page .header:first-child {
+    padding-left: 0px;
+    font-size: 20px;
+    border-bottom: 2px solid #979797;
+    padding-bottom: 15px;
+    margin-top: 0px;
+  }
+  /* my_page */
+
+  /* inf_apply */
+  .navbar_apply .apply_current_page, .navbar_apply#tabs .tab_menu_sub {
+    display: none !important;
+  }
+  .navbar-default.mobile-nav.navbar_apply {
+    background-color: #212121;
+  }
+  .inf_admin .prdt_apply_process .prdt_apply_process_desc {
+    font-size: 11.2px;
+    letter-spacing: -0.3px;
+    line-height: 15px;
+    margin-top: 14.5px;
+  }
+  .inf_admin .prdt_apply_process .prdt_apply_process_3cols {
+    padding-top: 25.5px;
+    padding-bottom: 25px;
+  }
+  .inf_admin .sample_complete_header {
+    font-size: 17.6px;
+    letter-spacing: -0.4px;
+  }
+  .inf_admin .sample_complete_middle {
+    font-size: 11.2px;
+    letter-spacing: -0.3px;
+    line-height: 20.8px;
+  }
+  .inf_admin .sample_complete_bottom {
+    font-size: 12.8px;
+    letter-spacing: -0.3px;
+    line-height: 24px;
+  }
+  .tb_mp_spec_info_parent {
+    border: none;
+    padding:0px;
+    margin-bottom:50px;
+  }
+  .table.tb_mp_spec_info .tb_mp_spec_info_header {
+    font-size: 22.5px;
+    letter-spacing: -0.9px;
+  }
+  .tb_mp_spec_info_parent_pd {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+  .table.tb_mp_spec_info_nested>tbody>tr>th>img {
+    width:100px;
+    height:100px;
+  }
+  .table.tb_exchg_nested>tbody>tr>.tb_purc_check>.checkbox>label {
+    margin-right: 0px;
+    padding-left: 15px;
+  }
+  /* inf_apply */
+
+  /* product starts */
+
+  .pdt_bottom .row {
+    padding: 30px 0px;
+  }
+  .pdt_detail {
+    margin-top: 45px;
+  }
+  .container.top {
+    margin-top:0px;
+  }
+  .pdt_detail .feed_content_profile .blob .blob_comment {
+    margin-top:15px;
+  }
+  /* product ends */
+
+
+  /* brand cms starts */
+  .brand_cms .form_3cols_double_label .label_right_side {
+    display: block;
+    text-align: right;
+  }
+  .brand_cms .form_3cols_double_label .percent_left {
+    margin-left: 15px;
+  }
+  /* brand cms ends */
+
+  /* footer */
+  .footer_spec {
+    font-size:10px;
+    line-height: 15px;
+  }
+  /* footer */
+}
+
+@media (max-width: 990px) {
+  .recruit_form .form-group .col-md-6:nth-child(2n-1) {
+    padding: 0px;
+  }
+  .recruit_form .form-group .col-md-6:nth-child(2n) {
+    padding: 0px;
+  }
+  .about_last_section {
+    padding-right:0px !important;
+    padding-left:0px !important;;
+  }
+  .about_last_underline hr {
+    width: 216px;
+  }
+  .sign_in .col-md-6:nth-child(2) {
+    padding: 0 15px !important;
+    border-right: none;
+  }
+  .inf_rank_2 > .pd_adj {
+    padding-left:10px !important;
+    padding-right:10px !important;
+  }
+}

@@ -1,0 +1,195 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<% if current_user.is_admin? %>
+  <div class="form-group">
+    <%= f.label :user_id, "상점유저아이디", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :user_id, class: "form-control", placeholder: "상점유저아이디", required: true %>
+    </div>
+  </div>
+<% else %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+<% end %>
+<div class="form-group">
+  <%= f.label :name, "상품명", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :name, class: "form-control", placeholder: "상품명", required: true %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :desc, "상세설명", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :desc, class: "form-control", placeholder: "상세설명" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :price, "가격", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :price, type: "number", class: "form-control", placeholder: "가격", required: true, min: 1000 %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :discount, "할인가격", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :discount, type: "number", class: "form-control", placeholder: "할인가격" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :view_type, "메인 뷰형식", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.select :view_type, Product.view_types.keys, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :image_basic, "상품이미지", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.file_field :image_basic, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :image_desc, "설명용 이미지", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.file_field :image_desc, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :stack, "재고", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :stack, type: "number", class: "form-control", placeholder: "재고" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :manufacturer, "제조사", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :manufacturer, class: "form-control", placeholder: "제조사" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :brand, "브랜드", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :brand, class: "form-control", placeholder: "브랜드" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :made_in, "원산지", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :made_in, class: "form-control", placeholder: "원산지" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :date_of_manufacturing, "제조일", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :date_of_manufacturing, type: "date", class: "form-control", placeholder: "제조일" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :use_by_date, "유효일자", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :use_by_date, type: "date", class: "form-control", placeholder: "유효일자" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :public_phrase, "홍보문구", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :public_phrase, class: "form-control", placeholder: "홍보문구" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :minimum_purchase, "최소구매수량", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :minimum_purchase, type: "number", class: "form-control", placeholder: "최소구매수량" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :maximum_purchase, "최대구매수량", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :maximum_purchase, type: "number", class: "form-control", placeholder: "최대구매수량" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :seller_product_code, "판매자상품코드", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :seller_product_code, class: "form-control", placeholder: "판매자상품코드" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :sell_by_date, "판매기간", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :sell_by_date, type: "date", class: "form-control", placeholder: "판매기간" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :status, "상태", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.select :status, Product.statuses.keys, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :shipping_expenses, "배송비", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :shipping_expenses, type: "number", class: "form-control", placeholder: "배송비" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :return_shipping_expenses, "반품배송비", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :return_shipping_expenses, type: "number", class: "form-control", placeholder: "반품배송비" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :exchange_shipping_expenses, "교환배송비", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :exchange_shipping_expenses, class: "form-control", placeholder: "교환배송비" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :return_address, "반품교환주소", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :return_address, class: "form-control", placeholder: "반품교환주소" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :as_tel, "AS전화번호", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :as_tel, class: "form-control", placeholder: "AS전화번호" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :as_info, "AS안내", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :as_info, class: "form-control", placeholder: "AS안내" %>
+  </div>
+</div>
+<hr>
+<%= f.nested_fields_for :product_options do |field| %>
+  <div class="form-group">
+    <%= field.label :name, "옵션", class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+      <%= field.text_field :name, class: "form-control", placeholder: "옵션이름", required: true %>
+      <%= field.remove_nested_fields_link "삭제" %>
+    </div>
+  </div>
+<% end %>
+
+<div class="form-group">
+  <div class="col-sm-offset-2 col-sm-10">
+    <button type="submit" class="btn btn-primary">저장</button>
+    <%= link_to "뒤로", :back, class: "btn btn-default" %>
+    <%= f.add_nested_fields_link :product_options, "옵션 추가", class: "btn btn-default" %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('form').submit(function(event) {
+    var optionInput = $('input:visible').filter(function () { return /product\[product_options_attributes\]\[[0-9]\]\[name\].*/.test(this.name); });
+
+    if (optionInput.length === 0
+        || optionInput.first().val() === 'undefined') {
+      alert('옵션은 하나 이상 추가하셔야 합니다');
+      event.preventDefault();
+    }
+  });
+</script>

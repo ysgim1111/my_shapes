@@ -1,0 +1,30 @@
+<div class="container sign_up sign_up_process sign_in purc_complete">
+  <div class="row">
+    <div class="col-md-12 mb_line_break_reverse">
+      <h3 class="header">주문 / 결제</h3>
+    </div>
+
+    <div class="col-md-6 col-md-offset-3 no-gap" style="border-right:none;">
+      <h3 class="purc_complete_header text-center">주문이 완료되었습니다</h3>
+      <div class="col-md-10 col-md-offset-1 purc_info">
+        <h3 class="purc_info_header">[<%= @purchase_list.purchase_items.first.product.brand %>] <%= @purchase_list.purchase_items.first.product.name %> <%= @purchase_list.purchase_items.size > 1 ? "외 #{purchase_list.purchase_items.size} 건" : "" %></h3>
+        <p class="purc_info_spec">주문 번호 <span><%= @purchase_list.id %></span></p>
+        <p class="purc_info_spec">결제 금액 <span><%= @purchase_list.purchase_items.inject(0){ |sum, item| sum += item.product.price } %>원</span></p>
+        <p class="purc_info_spec">주문일  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><%= @purchase_list.created_at.strftime("%Y년 %m월 %d일") %></span></p>
+
+      </div>
+
+      <div class="col-md-12">
+        <h3 class="purc_complete_bottom text-center">주문하신 상품을 판매하는 인플루언서 중 한 명에게<br>워너비 레터를 남기실 수 있습니다.</h3>
+      </div>
+
+      <div class="col-md-6 col-md-offset-3">
+        <%= link_to '워너비레터 남기기', user_wannabe_letters_path, class: "btn session_btn_black width_full" %>
+      </div>
+
+
+
+    </div><!-- col-md-6 -->
+
+  </div>
+</div>

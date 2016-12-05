@@ -1,0 +1,76 @@
+<br>
+<br>
+<br>
+<br>
+<%= form_for cms_purchases_path, html: {class: "form-inline", method: :get} do |f|  %>
+  <div class="form-group">
+    <%= select_tag :status,
+      "<option value='approved'>신청승인</option>
+       <option value='shipping'>배송중</option>".html_safe,
+      class: "form-control", include_blank: "전체" %>
+    <%= label :apply_date, "신청일" %>
+    <%= text_field_tag :apply_date, params[:apply_date], class: "form-control", placeholder: "신청일" %>
+    <%= label :apply_name, "신청자명" %>
+    <%= text_field_tag :apply_name, params[:apply_name], class: "form-control", placeholder: "신청자명" %>
+    <%= label :apply_id, "신청자ID" %>
+    <%= text_field_tag :apply_id, params[:apply_id], class: "form-control", placeholder: "신청자ID" %>
+    <%= label :product_number, "상품번호" %>
+    <%= text_field_tag :product_number, params[:product_number], class: "form-control", placeholder: "상품번호" %>
+  </div>
+  <%= button_tag "검색", type: "submit", class: "btn btn-default" %>
+<% end %>
+
+<table class="table table-condensed table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>신청자명(ID)</th>
+      <th>신청자연락처</th>
+      <th>상품번호</th>
+      <th>상품명(옵션)</th>
+      <th>송장번호</th>
+      <th>상태(마지막처리일)</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @samples.each do |p| %>
+      <tr>
+        <td></td>
+        <td><%= p.receiver %>(<%= p.email %>)</td>
+        <td><%= p.phone_number %></td>
+        <td><%= p.id %></td>
+        <td><%= p.name %>(<%= p.option %>)</td>
+        <td><%= p.number %></td>
+        <td>
+          <% case p.influencer_stores_product_status %>
+          <% when 0 %>
+            신청함
+          <% when 1 %>
+            승인됨
+          <% when 2 %>
+            배송중
+          <% when 3 %>
+            상품적용대기중
+          <% when 4 %>
+            등록완료
+          <% when 5 %>
+            승인거절
+          <% else %>
+            알 수 없음
+          <% end %>
+          (<%= p.updated_at.strftime("%Y-%m-%d") %>)
+        </td>
+        <td>
+          <%= link_to "상태처리", cms_influencer_stores_product_edit_shipping_path(p.influencer_stores_product_id), class: "btn btn-default" %>
+        </td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  function openTracking(tracking_number) {
+    window.open('http://nplus.doortodoor.co.kr/web/detail.jsp?slipno=' + tracking_number);
+  }
+</script>
