@@ -90,20 +90,16 @@
     </div>
     <!-- mb용 사진_slider -->
 
-    <% @products.where(view_type: Product.view_types[:deal_upper]).each do |product| %>
     <div class="col-md-12 main_sub_image_first mb_line_break_reverse">
-      <%= link_to deal_detail_products_path do %>
-        <%= image_tag(product.image_basic) %>
-      <% end %>
+        <%= image_tag('banner_1.jpg') %>
+    </div>
+    <div class="col-md-12 main_sub_image_first mb_line_break_reverse">
+        <%= image_tag('banner_2.jpg') %>
     </div>
     <!-- mb용 사진 딜 배너 -->
     <div class="col-md-12 main_sub_image_first_mb mb_line_break no-gap">
-      <%= link_to deal_detail_products_path do %>
-        <%= image_tag(product.image_basic) %>
-      <% end %>
     </div>
     <!-- mb용 사진 딜 배너 -->
-    <% end %>
 
     <% @products.where(view_type: Product.view_types[:deal]).each do |product| %>
     <div class="col-md-6 main_sub_image">
