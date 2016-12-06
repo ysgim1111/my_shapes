@@ -1,0 +1,32 @@
+<div class="col-md-12">
+  <div class="col-md-2">버튼</div>
+  <div class="col-md-2">이미지</div>
+  <div class="col-md-2">상품명</div>
+  <div class="col-md-2">설명</div>
+  <div class="col-md-2">개수</div>
+</div>
+<% @wishlist.each do |item| %>
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-2">
+    <%= link_to "삭제", wishlist_item_path(item), method: :delete, class: "btn btn-danger", data: {confirm: "확인?"} %>
+    </div>
+    <div class="col-md-2">
+      <div class="ibox-content text-center">
+        <div class="m-b-sm">
+          <img alt="image" class="img-circle data-href" src="http://placehold.it/96x96">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <%= item.product.name %>
+    </div>
+    <div class="col-md-2">
+      <%= item.product.desc %>
+    </div>
+    <div class="col-md-2">
+      <%= item.quantity %>
+    </div>
+  </div>
+</div>
+<% end %>

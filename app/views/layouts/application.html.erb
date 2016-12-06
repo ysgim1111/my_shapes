@@ -1,82 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<title>방송 평점 서비스</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="description" content="Tredist">
+  <meta name="author" content="jamie.yun">
+  <title>Trendist</title>
+
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
   <%= csrf_meta_tags %>
-  <script src="://use.fontawesome.com/b1f73bd743.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://use.fontawesome.com/1dbbdbff8d.js"></script>
+  <style media="screen">
+
+  </style>
 </head>
-<body>
-<div class="container">
-  <div class="header clearfix no_gap">
-<!--
-    <h3 class="text-muted col-md-5 no_gap"><a href="/">어제 뭐 봤어? - 티비노리</a></h3>
-    <nav class="col-md-7 no_gap">
-      <ul class="nav nav-pills pull-left">
-        <li role="presentation"><a href="/">전체 방송 리스트</a></li>
-        <li role="presentation"><a href="/home/upload">방송등록하기</a></li>
 
-        <% if user_signed_in? %>
-        <li role="presentation"><a href="/users/sign_out" data-method="delete">로그아웃</a></li>
-        <% else %>
-        <li role="presentation"><a href="/users/sign_in">로그인</a></li>
-        <li role="presentation"><a href="/users/sign_up">회원가입</a></li>
-        <% end %>
-      </ul>
-    </nav>
--->
+<body id="page-top" data-spy="scroll" data-target=".navbar">
+  <% if params[:action] == "about" || params[:action] == "recruit" || params[:action] == "complete"%>
+    <%= render "/layouts/about_nav" %>
+  <% elsif params[:controller] == "products" && params[:action] == "index" %>
+    <%= render "/layouts/ordinary_nav" %>
+  <% else %>
+    <%= render "/layouts/ordinary_nav" %>
+  <% end %>
+    <%= render partial: "shared/flash_messages", flash: flash %>
 
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">어제 뭐 봤어? - TV노리</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar" style="padding-right:0px">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/"><span class="fa fa-bars"></span> 전체 방송 리스트</a></li>
-            <li><a href="/home/upload"><span class="fa fa-plus"></span> 방송 등록하기</a></li>
-            <% if user_signed_in? %>
-            <li><a href="/users/sign_out" data-method="delete"><span class="fa fa-sign-out"></span> 로그아웃</a></li>
-            <% else %>
-            <li><a href="/users/sign_in"><span class="fa fa-sign-in"></span> 로그인</a></li>
-            <li><a href="/users/sign_up"><span class="fa fa-user"></span> 회원가입</a></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <% if user_signed_in? %>
-    <div class="text-center">
-      <p>
-        환영합니다, <%=current_user.email %>님
-      </p>
-    </div>
-    <% end %>
-  </div>
+    <%= yield %>
 
-  <%= yield %>
-  <footer class="footer">
-    <p>Made by 김요섭</p>
-  </footer>
+  <footer style="clear:both;margin:0px;background-color:#212121">
+    <div class="copyright">
+      <div class="container footer-social-links" style="margin-top:0px;">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <div class="col-md-6 col-md-offset-3">
+              <h4 style="color:#ffffff">Maker</h4>
+              <p style="color:#777;">
+                <strong>인터넷 활용 및 실습</strong> - 김요섭
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <small style="float:left;color:#777;">&copy; 2016 CDF-bros <a class="no-style-link" href="http://themeforest.net/user/octarinethemes" target="_blank"></a></small>
+          </div>
 
-</div> <!-- /container -->
-<script type="text/javascript">
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    $('.container').removeClass('container').addClass('mb_container');
-    $('.header').css('padding-bottom','50px');
-    $('.text-muted').css('text-align','center');
-    var nav_width = $('ul').width();
-    var width_half = nav_width/2;
-    $('ul').css({'position':'absolute','left': '50%','margin-left': -width_half });
+          <div class="col-md-6">
+            <small style="float:right"><a href="#page-top" class="pull-right to-the-top">To the top<i class="fa fa-angle-up"></i></a></small>
+          </div>
 
-  }
-</script>
+
+        </div><!-- / .row -->
+      </div><!-- / .container -->
+    </div><!-- / .copyright -->
+  </footer><!-- / .footer-contact -->
 </body>
+<% if params[:controller] == "products" %>
+  <script>
+  $(document).ready(function() {
+    $('.menu_second:eq(0)').addClass('active');
+  })
+  </script>
+  <% elsif params[:controller] == "influences" %>
+  <script>
+  $(document).ready(function() {
+    $('.menu_second:eq(1)').addClass('active');
+  })
+  </script>
+  <% elsif params[:controller] == "products" && (params[:action] == "about" || params[:action] == "recruit" ) %>
+  <script>
+  $(document).ready(function() {
+    $('.menu_second:eq(2)').addClass('active');
+  })
+  </script>
+<% end %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    initNav();
+  })
+
+function initNav() {
+  $('#nav_toggle_visibility').on('click',function(){
+    if ($('#nav_close').hasClass('show')) {
+      $('#nav_close').removeClass('show').addClass('hide');
+    }
+    else {
+      $('#nav_close').removeClass('hide').addClass('show');
+    }
+  })
+  var image_down = $('.navbar-brand_mb').find('img').first();
+  image_down.siblings().addClass('hide');
+  $('.navbar-collapse_mb_left').addClass('hide');
+  $('.navbar-brand_mb').on('click',function(){
+    if ($('.navbar-collapse_mb_left').hasClass('show')) {
+      $('.navbar-collapse_mb_left').removeClass('show').addClass('hide');
+      image_down.siblings().removeClass('show').addClass('hide');
+      image_down.removeClass('hide').addClass('show')
+    }
+    else {
+      $('.navbar-collapse_mb_left').removeClass('hide').addClass('show');
+      image_down.removeClass('show').addClass('hide');
+      image_down.siblings().removeClass('hide').addClass('show');
+    }
+  })
+}
+</script>
 </html>

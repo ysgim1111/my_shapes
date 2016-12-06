@@ -1,0 +1,61 @@
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    ServiceSize(); // 3메뉴 세로 조정
+    if ($(window).width() > 767){
+      FeatureSize(); // 3특징 세로 조정
+    }
+    else {
+      FeatureSize_mb(); // 모바일 가운데 정렬
+    }
+    initNav();
+  })
+
+function ServiceSize() {
+}
+function FeatureSize() {
+  var standard_height = parseInt($('.about').height())/2;
+  standard_height = standard_height - parseInt($('.about').find('.about_content').height())/2;
+  $('.about').find('.about_content').css('top',standard_height);
+  //첫 소개 왼쪽 정렬
+  var standard_width_2 = parseInt($('.about').width())/2;
+  standard_width_2 = standard_width_2 - parseInt($('.about').find('.about_content_2').width())/2;
+  $('.about').find('.about_content_2').css('left',standard_width_2);
+  // 2소개 가로 정렬
+
+  var standard_width_3 = parseInt($('.container_3').css('margin-right'));
+  $('.about').find('.about_content_3').css('right',standard_width_3);
+}
+function FeatureSize_mb() {
+  console.log('mb');
+  var standard_height = parseInt($('.about').height());
+  standard_height = standard_height - parseInt($('.about').find('.container').height())-10;
+  $('.about').find('.container').css('padding-top',standard_height);
+  // main_first_page_align
+}
+function initNav() {
+  $('#nav_toggle_visibility').on('click',function(){
+    if ($('#nav_close').hasClass('show')) {
+      $('#nav_close').removeClass('show').addClass('hide');
+    }
+    else {
+      $('#nav_close').removeClass('hide').addClass('show');
+    }
+  })
+  var image_down = $('.navbar-brand_mb').find('img').first();
+  image_down.siblings().addClass('hide');
+  $('.navbar-collapse_mb_left').addClass('hide');
+  $('.navbar-brand_mb').on('click',function(){
+    if ($('.navbar-collapse_mb_left').hasClass('show')) {
+      $('.navbar-collapse_mb_left').removeClass('show').addClass('hide');
+      image_down.siblings().removeClass('show').addClass('hide');
+      image_down.removeClass('hide').addClass('show')
+    }
+    else {
+      $('.navbar-collapse_mb_left').removeClass('hide').addClass('show');
+      image_down.removeClass('show').addClass('hide');
+      image_down.siblings().removeClass('hide').addClass('show');
+    }
+  })
+}
+</script>

@@ -1,17 +1,121 @@
-<div class="jumbotron">
-  <h1>로그인</h1>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <p class="lead">아래 사항을 채워주세요</p>
-    <div class="form-group">
-      <p class="sign_form">이메일</p>
-        <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "이메일" %>
+<div class="container sign_up sign_up_process sign_in">
+  <div class="row">
+    <div class="col-md-12 mb_line_break_reverse">
+      <h3 class="header">로그인</h3>
+    </div>
+    <div class="col-md-6">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
+        <div class="form-group">
+          <%= f.label :'이메일' %><br />
+          <%= f.email_field :email, class: "form-control check",placeholder: "이메일을 입력해주세요", autofocus: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :'비밀번호' %>
+          <%= f.password_field :password, class: "form-control check", placeholder: "패스워드를 입력해주세요", autocomplete: "off" %>
+        </div>
+
+        <div class="col-md-12 no-gap actions mb_line_break_reverse">
+          <p class="find_acc"><a href="#">아이디 찾기</a><%= link_to "비밀번호 찾기", new_password_path(resource_name) %></p>
+          <%= f.submit "로그인", class:"session_btn btn login_btn" %>
+        </div>
+
+        <div class="col-md-12 no-gap actions mb_line_break">
+          <p class="find_acc_mb"><a href="#">아이디 찾기</a><a href="#">비밀번호 찾기</a>
+          <%= f.submit "로그인", class:"session_btn btn login_btn" %></p>
+        </div>
+      <% end %>
+    </div><!-- col-md-6 -->
+
+    <div class="col-md-6 text-center sign_sns">
+      <h4>SNS로 로그인</h4>
+      <div class="col-md-12 no-gap">
+        <a href="#" class="btn" onclick="alert('준비중입니다')">
+          <%= image_tag "login_facebook_d.png", style: "width:100%;max-width:319px;" %>
+        </a>
+      </div>
+      <!-- facebook login
+        <div class="fb-login-button" data-size="xlarge" data-show-faces="false" data-scope="public_profile,email" onlogin="checkLoginState();">
+        </div>
+      -->
+      <div class="col-md-12 no-gap">
+        <a href="#" class="btn" onclick="alert('준비중입니다')">
+          <%= image_tag "login_naver_d.png", style: "width:100%;max-width:319px;" %>
+        </a>
+      </div>
+    </div><!-- col-md-6 -->
+
+    <div class="col-md-12 sign_in_bottom text-center">
+      <h5 class="mb_line_break_reverse">또는</h5>
+      <h4 class="mb_line_break_reverse">아직 트렌디스트에 가입하지 않으셨다면</h4>
+      <div class="col-md-12">
+        <%= link_to "회원 가입", new_user_registration_path, class: "btn session_btn_black" %>
+      </div>
     </div>
-    <div class="form-group">
-      <p class="sign_form">비밀번호</p>
-        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "비밀번호" %>
-    </div>
-  <br>
-  <%= f.submit "로그인 하기", class: "btn btn-success" %>
-  <% end %>
+
+  </div>
 </div>
+
+<script>
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+
+    if (response.status === 'connected') {
+      sendUserAccessInfo(response.authResponse);
+    } else if (response.status === 'not_authorized') {
+      alert('Please merge into this app.');
+    } else {
+      alert('Please log into Facebook.');
+    }
+  }
+
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  function sendUserAccessInfo(response) {
+    console.log('Welcome!  Fetching your information.... ');
+
+    FB.api('/me?fields=id,name,first_name,last_name,email,gender', function(userInfo) {
+      console.log(userInfo);
+
+      if (userInfo.hasOwnProperty('email')) {
+        $.ajax({
+          url: '/facebook',
+          method: 'post',
+          data: userInfo
+        }).done(function() {
+          // location.reload();
+        });
+      } else {
+        console.log('not permited email');
+      }
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1751254675150181',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.2'
+    });
+
+    // FB.getLoginStatus(function(response) {
+    //   statusChangeCallback(response);
+    // });
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ko_KR/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>

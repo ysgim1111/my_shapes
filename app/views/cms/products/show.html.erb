@@ -1,0 +1,54 @@
+<dl class="dl-horizontal">
+  <dt></dt>
+  <dd>
+    <%= link_to "수정", edit_cms_product_path(@product), class: "btn btn-primary" %>
+    <%= link_to "삭제", cms_product_path(@product), method: :delete, data: {confirm: "삭제하시겠습니까?"}, class: "btn btn-danger" %>
+    <%= link_to "뒤로", cms_products_path, class: "btn btn-default" %>
+  </dd>
+  <dt>상품명</dt>
+  <dd><%= @product.name %></dd>
+  <dt>상세설명</dt>
+  <dd><%= @product.desc %></dd>
+  <dt>가격</dt>
+  <dd><%= @product.price %></dd>
+  <dt>뷰타입</dt>
+  <dd><%= @product.view_type %></dd>
+  <dt>상품이미지</dt>
+  <dd><%= @product.image_basic %></dd>
+  <dt>상품설명이미지</dt>
+  <dd><%= @product.image_desc %></dd>
+  <dt>재고</dt>
+  <dd><%= @product.stack %></dd>
+  <dt>제조사</dt>
+  <dd><%= @product.manufacturer %></dd>
+  <dt>브랜드</dt>
+  <dd><%= @product.brand %></dd>
+  <dt>원산지</dt>
+  <dd><%= @product.made_in %></dd>
+  <dt>제조일</dt>
+  <dd><%= @product.date_of_manufacturing %></dd>
+  <dt>유효일자</dt>
+  <dd><%= @product.use_by_date %></dd>
+  <dt>홍보문구</dt>
+  <dd><%= @product.public_phrase %></dd>
+  <dt>최소구매수량</dt>
+  <dd><%= @product.minimum_purchase %></dd>
+  <dt>최대구매수량</dt>
+  <dd><%= @product.maximum_purchase %></dd>
+  <dt>판매자상품코드</dt>
+  <dd><%= @product.seller_product_code %></dd>
+  <dt>판매기간</dt>
+  <dd><%= @product.sell_by_date %></dd>
+  <dt>상태</dt>
+  <dd><%= @product.status %></dd>
+  <dt>반품배송비</dt>
+  <dd><%= @product.return_shipping_expenses %></dd>
+  <dt>교환배송비</dt>
+  <dd><%= @product.exchange_shipping_expenses %></dd>
+  <dt>반품교환주소</dt>
+  <dd><%= @product.return_address %></dd>
+  <dt>AS전화번호</dt>
+  <dd><%= @product.as_tel %></dd>
+  <dt>AS안내</dt>
+  <dd><%= @product.as_info %></dd>
+</dl>

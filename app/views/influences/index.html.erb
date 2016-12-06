@@ -1,0 +1,289 @@
+<div class="container inf_list">
+  <div class="row">
+    <div class="col-md-12 main_slide">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <% @products.where(view_type: Product.view_types[:main]).each_with_index do |product, i| %>
+            <li id="carousel_<%= i + 1 %>" data-target="#myCarousel" data-slide-to="<%= i %>" class="<%= i == 0 ? 'active' : '' %>"></li>
+          <% end %>
+        </ol>
+
+        <script>
+          $(document).ready(function(){
+            $('#carousel_3').hide();
+          })
+        </script>
+
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <a href="products/deal_detail">
+              <%= image_tag('slide_1.jpg', style: "width:100%") %>
+            </a>
+            <div class="carousel-caption invisible">
+              <h3>1234</h3>
+              <p>2345</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <a href="products/deal_detail">
+              <%= image_tag('slide_2.jpg', style: "width:100%") %>
+            </a>
+            <div class="carousel-caption invisible">
+              <h3>1234</h3>
+              <p>2345</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <%= image_tag("slide_arrow_left.png", alt: "") %>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <%= image_tag("slide_arrow_right.png", alt: "") %>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <h3 class="basic_header">7월 첫째주 인플루언서 랭킹 <a href="#">인플루언서 전체보기</a></h3>
+    </div>
+    <div class="col-md-12 inf_rank_2">
+      <div class="pd_adj margin_2cols col-md-6">
+        <div class="col-md-12 left">
+          <a htef="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
+          <div class="col-md-6 sub_left text-center">
+            <div class="inf_rank_place">1위</div>
+            <%= link_to(influence_path(1)) do %>
+              <img src="<%=image_url('profile_1.png')%>">
+            <% end %>
+          </div>
+          <div class="col-md-6 sub_right">
+            <%= link_to(influence_path(1)) do %>
+              <h3 class="name" style="text-decoration:none;color:#212121">우희</h3>
+            <% end %>
+            <p class="url">
+              <%= link_to("http://trd.st/heybiblee", influence_path(1)) %>
+            </p>
+            <p class="index">판매 지수 <span class="index_number">8,829</span> <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span></p>
+            <p class="index">유입 지수 <span class="index_number">48,829</span> <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span></p>
+          </div>
+          <div class="col-md-12 no-gap sub_bottom text-center">
+              <img src="http://placehold.it/110x110&text=Insta1">
+              <img src="http://placehold.it/110x110&text=Insta1">
+              <img src="http://placehold.it/110x110&text=Insta1">
+              <img src="http://placehold.it/110x110&text=Insta1">
+          </div>
+        </div>
+      </div><!-- profile .col-md-6 -->
+      <div class="pd_adj margin_2cols col-md-6">
+        <div class="col-md-12 right">
+          <a href="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
+          <div class="col-md-6 sub_left text-center">
+            <div class="inf_rank_place">2위</div>
+            <img src="http://placehold.it/190x190&text=profile">
+          </div>
+          <div class="col-md-6 sub_right">
+            <h3 class="name">이성경</h3>
+            <p class="url"><a href="#">http://trd.st/heybiblee</a></p>
+            <p class="index">판매 지수 <span class="index_number">8,829</span> <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span></p>
+            <p class="index">유입 지수 <span class="index_number">48,829</span> <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span></p>
+          </div>
+          <div class="col-md-12 no-gap sub_bottom text-center">
+              <img src="http://placehold.it/110x110&text=Insta1">
+              <img src="http://placehold.it/110x110&text=Insta1">
+              <img src="http://placehold.it/110x110&text=Insta1">
+              <img src="http://placehold.it/110x110&text=Insta1">
+          </div>
+        </div>
+      </div><!-- profile .col-md-6 -->
+
+      <!-- 3rd rank strats -->
+      <div class="pd_adj margin_3cols col-md-4">
+        <div class="col-lg-12 rank_3cols">
+          <a href="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
+          <div class="col-lg-6 sub_left text-center">
+            <div class="inf_rank_place">3위</div>
+            <img src="http://placehold.it/190x190&text=profile">
+          </div>
+          <div class="col-lg-6 sub_right">
+            <h3 class="name">이성경</h3>
+            <p class="url"><a href="#">http://trd.st/heybiblee</a></p>
+            <p class="index">판매 지수 <span class="index_number">8,829</span> <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span></p>
+            <p class="index">유입 지수 </span><span class="index_number">48,829</span> <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span></p>
+          </div>
+          <div class="col-lg-12 no-gap sub_bottom text-center">
+              <img src="http://placehold.it/110x110&text=Insta1">
+              <img src="http://placehold.it/110x110&text=Insta1">
+              <img src="http://placehold.it/110x110&text=Insta1">
+              <img src="http://placehold.it/110x110&text=Insta1">
+          </div>
+        </div>
+      </div><!-- profile .col-md-4 -->
+
+      <div class="pd_adj margin_3cols col-md-4">
+        <div class="col-lg-12 rank_3cols">
+          <a href="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
+          <div class="col-lg-6 sub_left text-center">
+            <div class="inf_rank_place">4위</div>
+            <img src="http://placehold.it/190x190&text=profile">
+          </div>
+          <div class="col-lg-6 sub_right">
+            <h3 class="name">이성경</h3>
+            <p class="url"><a href="#">http://trd.st/heybiblee</a></p>
+            <p class="index">판매 지수 <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span> <span class="index_number">8,829</span> </p>
+            <p class="index">유입 지수 <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span><span class="index_number">48,829</span> </p>
+          </div>
+          <div class="col-lg-12 no-gap sub_bottom text-center">
+              <img src="http://placehold.it/110x110&text=Insta1">
+              <img src="http://placehold.it/110x110&text=Insta1">
+              <img src="http://placehold.it/110x110&text=Insta1">
+              <img src="http://placehold.it/110x110&text=Insta1">
+          </div>
+        </div>
+      </div><!-- profile .col-md-4 -->
+
+      <div class="pd_adj margin_3cols col-md-4">
+        <div class="col-lg-12 rank_3cols">
+          <a href="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
+          <div class="col-lg-6 sub_left text-center">
+            <div class="inf_rank_place">5위</div>
+            <img src="http://placehold.it/190x190&text=profile">
+          </div>
+          <div class="col-lg-6 sub_right">
+            <h3 class="name">이성경</h3>
+            <p class="url"><a href="#">http://trd.st/heybiblee</a></p>
+            <p class="index">판매 지수 <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span> <span class="index_number">8,829</span> </p>
+            <p class="index">유입 지수 <span class="index_question"> <img src="<%=image_url('score_help_16.png') %>"> </span><span class="index_number">48,829</span> </p>
+          </div>
+          <div class="col-lg-12 no-gap sub_bottom text-center">
+              <img src="http://placehold.it/110x110&text=Insta1">
+              <img src="http://placehold.it/110x110&text=Insta1">
+              <img src="http://placehold.it/110x110&text=Insta1">
+              <img src="http://placehold.it/110x110&text=Insta1">
+          </div>
+        </div>
+      </div><!-- profile .col-md-4 -->
+      <!-- 3rd rank ends -->
+
+    </div><!-- .inf_rank_2 -->
+
+    <div class="col-md-12">
+      <h3 class="basic_header">새로운 인플루언서 랭킹 <a href="#">인플루언서 전체보기</a></h3>
+    </div>
+    <div class="col-md-12 inf_rank_2">
+      <div class="pd_adj margin_3cols new_margin_3cols col-md-4">
+        <div class="col-lg-12 rank_3cols new_rank_3cols">
+          <a href="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
+          <div class="col-lg-4 sub_left text-center">
+            <img src="http://placehold.it/190x190&text=profile">
+          </div>
+          <div class="col-lg-8 sub_right">
+            <h3 class="name">도복순</h3>
+            <p class="url"><a href="#">http://trd.st/heybiblee</a></p>
+          </div>
+          <div class="col-lg-12 sub_bottom">
+            <p class="detail">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+      </div><!-- profile .col-md-4 -->
+      <div class="pd_adj margin_3cols new_margin_3cols col-md-4">
+        <div class="col-lg-12 rank_3cols new_rank_3cols">
+          <a href="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
+          <div class="col-lg-4 sub_left text-center">
+            <img src="http://placehold.it/190x190&text=profile">
+          </div>
+          <div class="col-lg-8 sub_right">
+            <h3 class="name">도복순</h3>
+            <p class="url"><a href="#">http://trd.st/heybiblee</a></p>
+          </div>
+          <div class="col-lg-12 sub_bottom">
+            <p class="detail">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+      </div><!-- profile .col-md-4 -->
+      <div class="pd_adj margin_3cols new_margin_3cols col-md-4">
+        <div class="col-lg-12 rank_3cols new_rank_3cols">
+          <a href="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
+          <div class="col-lg-4 sub_left text-center">
+            <img src="http://placehold.it/190x190&text=profile">
+          </div>
+          <div class="col-lg-8 sub_right">
+            <h3 class="name">도복순</h3>
+            <p class="url"><a href="#">http://trd.st/heybiblee</a></p>
+          </div>
+          <div class="col-lg-12 sub_bottom">
+            <p class="detail">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+      </div><!-- profile .col-md-4 -->
+      <div class="pd_adj margin_3cols new_margin_3cols col-md-4">
+        <div class="col-lg-12 rank_3cols new_rank_3cols">
+          <a href="#"><img class="inf_rank_share" src="<%=image_url('share_30.png') %>"></a>
+          <div class="col-lg-4 sub_left text-center">
+            <img src="http://placehold.it/190x190&text=profile">
+          </div>
+          <div class="col-lg-8 sub_right">
+            <h3 class="name">도복순</h3>
+            <p class="url"><a href="#">http://trd.st/heybiblee</a></p>
+          </div>
+          <div class="col-lg-12 sub_bottom">
+            <p class="detail">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+      </div><!-- profile .col-md-4 -->
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+/*
+$(window).load(function(){
+  ServiceSize(); // 3메뉴 조정
+});
+
+function ServiceSize() {
+  var standard_width = parseInt($('.main_center_image').width())/2;
+  standard_width = standard_width - parseInt($('.main_service').width())/2 - 20;
+  $('.main_service').css('left',standard_width);
+}
+
+
+$(document).ready(function(){
+  $('.insta_feed_desk').bxSlider({
+    slideWidth: 400,
+    minSlides: 4,
+    maxSlides: 4,
+    moveSlides: 3,
+    slideMargin: 20
+  });
+
+  var desk_feed = $('.bx-viewport').first();
+  var desk_feed_hieght = parseInt(desk_feed.height()) + 100;
+
+  desk_feed.prepend($('.inf_feed_title'));
+});
+
+$(document).ready(function(){
+  $('.insta_feed_mb').bxSlider({
+    slideWidth: 200,
+    minSlides: 1,
+    maxSlides: 3,
+    slideMargin: 10
+  });
+  var mb_feed = $('.bx-viewport:eq(1)');
+  var mb_feed_hieght = parseInt(mb_feed.height()) + 100;
+
+  mb_feed.prepend($('.inf_feed_title').clone());
+});
+
+$(document).ready(function() {
+  $('.menu_second:eq(1)').addClass('active');
+})*/
+</script>
