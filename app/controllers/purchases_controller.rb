@@ -1,5 +1,4 @@
 class PurchasesController < ApplicationController
-  before_filter :authenticate_user!
 
   def index
     @purchase_lists = current_user.purchase_lists
@@ -10,8 +9,6 @@ class PurchasesController < ApplicationController
   end
 
   def new
-    shopping_items = ShoppingItem.find_and_update(params[:product_id], current_user)
-    @product = Product.find(params[:product_id])
   end
 
   def create

@@ -64,6 +64,10 @@
   </div>
 </div>
 </div>
+
+
+
+
 <div class="container deal_header">
   <div class="row">
     <div class="col-md-6" style="margin-top:50px;">
@@ -75,21 +79,21 @@
         <h2 class="name" style=";">VENDREDI - BLACK BROWN /<br> SILVER MIRROR</h2>
         <div class="price_tag session_btn_black">11000 Won</div>
         <p class="delivery_fee">배송비 2500 원</p>
-        <p class="delivery_free"> 이상 구매 시 무료 배송</p>
         <div class="form-inline spec_choose">
-          <div class="form-gorup">
+          <!--<div class="form-gorup">
             <label class="quantity">수량</label>
             <input type="number" min="1" max="10" class="form-control spec_quantity" value="1">
           </div>
+        -->
           <div class="col-md-12 no-gap" style="margin-top:35px;">
             <div class="col-md-5" style="padding-left:0px;">
-              <a href="#" class="btn session_btn_black" style="width:100%;height:60px;line-height:34px">바로 구매</a>
+              <a href="/purchases/new" class="btn session_btn_black width_full" style="width:100%;height:60px;line-height:34px;max-width:none;">바로 구매</a>
             </div>
-            <div class="col-md-5">
-              <a id="addBasketBtn" class="btn session_btn" style="width:100%;height:60px;line-height:34px">장바구니 담기</a>
+            <div class="col-md-5" style="padding-left:0px;">
+              <a id="addBasketBtn" onclick="alert('예비버튼입니다')" class="btn session_btn width_full" style="width:100%;height:60px;line-height:34px">장바구니 담기</a>
             </div>
-            <div class="col-md-2 text-right" style="padding-right:0px;">
-                <a href="#"><%= image_tag "add_wish_d.png", alt: "" %></a>
+            <div class="col-md-2 text-right" style="padding-left:0px;">
+                <a href="#" class="width_full" onclick="alert('예비버튼입니다')"><%= image_tag "add_wish_d.png", alt: "" %></a>
             </div>
           </div>
         </div>
